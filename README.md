@@ -178,11 +178,11 @@ Cloudflare auto-deploys every branch push (including PRs) to its own preview URL
 
 **Build settings** (Cloudflare dashboard → your project → Settings → Build):
 
-| Field            | Value            |
-| ---------------- | ---------------- |
-| Build command    | `pnpm run build` |
-| Deploy command   | `npx wrangler versions upload` (default for Workers projects, leave as-is) |
-| Root directory   | _(empty)_        |
+| Field          | Value                                                                      |
+| -------------- | -------------------------------------------------------------------------- |
+| Build command  | `pnpm run build`                                                           |
+| Deploy command | `npx wrangler versions upload` (default for Workers projects, leave as-is) |
+| Root directory | _(empty)_                                                                  |
 
 The Worker's name in `wrangler.jsonc` (`"name": "uc-entrepreneurship-hub"`) must match your Cloudflare project name. Update either the file or the dashboard until they agree.
 
