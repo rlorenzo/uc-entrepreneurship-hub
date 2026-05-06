@@ -12,6 +12,8 @@ Built on [**Vite+**](https://viteplus.dev) — the unified open-source toolchain
 
 ## Develop
 
+**Requires Node.js 24** (the LTS as of early 2026). The crawler scripts run TypeScript natively under `node` — `node scripts/crawl/run.ts` only works because Node ≥22 strip-types is the default and explicit `.ts` import extensions resolve out of the box. Use `vp env use 24` (Vite+ ships Node version management) or your usual version manager.
+
 ```bash
 # install Vite+ globally if you haven't
 curl -fsSL https://vite.plus | bash
@@ -60,10 +62,9 @@ src/
 
 scripts/crawl/
 ├── sites.json                 # campus seed URLs
-├── run.mjs                    # Playwright crawler (worker pool over campuses)
-├── extract.mjs                # link discovery + in-page program extractor
-├── normalize.mjs              # mirror of src/data/normalize.ts (canonical taxonomy)
-├── build-data.mjs             # data/crawled/*.json → src/data/programs.generated.ts
+├── run.ts                     # Playwright crawler (worker pool over campuses)
+├── extract.ts                 # link discovery + in-page program extractor
+├── build-data.ts              # data/crawled/*.json → src/data/programs.generated.ts
 └── campuses/                  # per-campus override hooks (allowlist, denylist, name filters)
 
 data/crawled/                  # one JSON file per campus, written by `vp run crawl`

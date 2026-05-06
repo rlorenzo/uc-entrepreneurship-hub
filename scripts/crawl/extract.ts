@@ -13,7 +13,19 @@
 // the defaults. We never throw on extraction failures — the worst case
 // is an empty array, which the build step will silently drop.
 
-import { detectIndustriesInText, slugify, tryCanonicalType } from "./normalize.mjs";
+import {
+  detectIndustriesInText,
+  slugify,
+  tryCanonicalType,
+  type ProgramCandidate,
+} from "../../src/data/normalize.ts";
+
+export interface CampusOverrides {
+  allowName?: (name: string) => boolean;
+  linkAllowlist?: RegExp[];
+  linkDenylist?: RegExp[];
+  maxSubpages?: number;
+}
 
 const PROGRAM_KEYWORDS = [
   "accelerator",
@@ -95,9 +107,14 @@ const DENY_EXT = /\.(pdf|jpg|jpeg|png|gif|svg|webp|mp4|zip|docx?|xlsx?|pptx?)(\?
  * heuristic — `buildCandidate`'s `PROGRAM_TYPE_HINTS` gate is still the
  * per-page authority on what counts as a program.
  */
-export function isProgramLink(href, text, seedOrigin, overrides = {}) {
+export function isProgramLink(
+  href: string,
+  text: string,
+  seedOrigin: string,
+  overrides: CampusOverrides = {},
+): boolean {
   if (!href) return false;
-  let url;
+  let url: URL;
   try {
     url = new URL(href);
   } catch {
@@ -121,7 +138,6 @@ export function isProgramLink(href, text, seedOrigin, overrides = {}) {
   if (allowlistMatch === true) return true;
   if (allowlistMatch === false) return false;
 
-  // No allowlist configured: keyword heuristic on path + anchor text.
   const hay = `${path} ${text || ""}`.toLowerCase();
   return PROGRAM_KEYWORDS.some((k) => hay.includes(k));
 }
@@ -147,21 +163,17 @@ export const inPageExtractor = `() => {
     meta("description") ||
     text(document.querySelector("main p, article p, .lead, .intro p, p"));
 
-  // Grab a longer-form excerpt by concatenating the first few paragraphs
-  // inside main/article. Cap at ~600 chars so we stay readable in cards.
   const paras = Array.from(document.querySelectorAll("main p, article p"))
     .map(text)
     .filter((p) => p.length > 60)
     .slice(0, 4);
   const longDescription = paras.join(" ").slice(0, 600);
 
-  // Detect explicit "Apply" / "Application" links on the page.
   const applyAnchor = Array.from(document.querySelectorAll("a")).find((a) => {
     const t = text(a).toLowerCase();
     return /^(apply|application|submit|register)( now| here| today)?$/.test(t);
   });
 
-  // Look for date strings near a "deadline" keyword.
   const bodyText = (document.body.textContent || "").replace(/\\s+/g, " ");
   const deadlineMatch = bodyText.match(
     /\\b(?:deadline|apply by|applications? close|submissions? due)[^.]{0,80}\\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\\.? \\d{1,2}(?:,? \\d{4})?|\\d{1,2}\\/\\d{1,2}\\/\\d{2,4})/i,
@@ -177,6 +189,15 @@ export const inPageExtractor = `() => {
   };
 }`;
 
+export interface RawPageData {
+  name: string;
+  description: string;
+  longDescription: string;
+  applicationLink: string;
+  deadline: string;
+  bodyExcerpt: string;
+}
+
 /**
  * Lift raw page-eval output into a normalized candidate.
  *
@@ -186,7 +207,17 @@ export const inPageExtractor = `() => {
  * carries the campus prefix so it stays globally unique even when
  * two campuses host programs with the same name.
  */
-export function buildCandidate({ raw, url, campus, campusOverrides = {} }) {
+export function buildCandidate({
+  raw,
+  url,
+  campus,
+  campusOverrides = {},
+}: {
+  raw: RawPageData | null | undefined;
+  url: string;
+  campus: string;
+  campusOverrides?: CampusOverrides;
+}): ProgramCandidate | null {
   if (!raw?.name) return null;
   const name = raw.name.trim();
   if (name.length < 4 || name.length > 140) return null;

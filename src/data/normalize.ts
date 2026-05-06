@@ -1,5 +1,5 @@
-import type { Program, Stage } from "./types";
-import { TYPE_BY_ID, INDUSTRIES, STAGES } from "./types-list";
+import type { Program, Stage } from "./types.ts";
+import { TYPE_BY_ID, INDUSTRIES, STAGES } from "./types-list.ts";
 
 /**
  * Normalization utilities for the program catalog.

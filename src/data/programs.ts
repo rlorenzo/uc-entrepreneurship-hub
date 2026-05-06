@@ -1,6 +1,6 @@
-import type { Program, Spotlight } from "./types";
-import { mergePrograms } from "./normalize";
-import { CRAWLED_PROGRAMS } from "./programs.generated";
+import type { Program, Spotlight } from "./types.ts";
+import { mergePrograms } from "./normalize.ts";
+import { CRAWLED_PROGRAMS } from "./programs.generated.ts";
 
 // Curated, hand-shaped programs. The crawler enriches these and adds new
 // programs through `programs.generated.ts`; see `mergePrograms` for the

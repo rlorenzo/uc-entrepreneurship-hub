@@ -16,13 +16,20 @@
 //   - networkidle → load fallback for sites that never go idle
 //   - per-site error capture so one failure can't sink the run
 
-import { chromium } from "playwright";
+import { chromium, type Browser, type Page, type Response } from "playwright";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { existsSync } from "node:fs";
 
-import { isProgramLink, inPageExtractor, buildCandidate } from "./extract.mjs";
+import {
+  isProgramLink,
+  inPageExtractor,
+  buildCandidate,
+  type CampusOverrides,
+  type RawPageData,
+} from "./extract.ts";
+import type { ProgramCandidate } from "../../src/data/normalize.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..", "..");
@@ -35,8 +42,41 @@ const FALLBACK_USER_AGENT =
 const DEFAULT_CONCURRENCY = 3;
 const NAV_TIMEOUT_MS = 30_000;
 
+interface Site {
+  campus: string;
+  name: string;
+  seedUrl: string;
+}
+
+interface CrawlError {
+  stage: "seed" | "subpage";
+  url: string;
+  message: string;
+}
+
+interface CrawlResult {
+  campus: string;
+  name: string;
+  seedUrl: string;
+  crawledAt: string;
+  candidates: ProgramCandidate[];
+  errors: CrawlError[];
+}
+
+interface Flags {
+  campus: Set<string> | null;
+  limit: number | null;
+  concurrency: number;
+  dryRun: boolean;
+}
+
 // ── CLI parsing ──────────────────────────────────────────────────────────
-const flags = { campus: null, limit: null, concurrency: DEFAULT_CONCURRENCY, dryRun: false };
+const flags: Flags = {
+  campus: null,
+  limit: null,
+  concurrency: DEFAULT_CONCURRENCY,
+  dryRun: false,
+};
 for (const arg of process.argv.slice(2)) {
   if (arg === "--dry-run") {
     flags.dryRun = true;
@@ -58,8 +98,8 @@ for (const arg of process.argv.slice(2)) {
   }
 }
 
-const sitesAll = JSON.parse(await readFile(join(__dirname, "sites.json"), "utf-8"));
-const sites = flags.campus ? sitesAll.filter((s) => flags.campus.has(s.campus)) : sitesAll;
+const sitesAll: Site[] = JSON.parse(await readFile(join(__dirname, "sites.json"), "utf-8"));
+const sites = flags.campus ? sitesAll.filter((s) => flags.campus?.has(s.campus)) : sitesAll;
 if (sites.length === 0) {
   console.error("No sites match the provided filters. Exiting.");
   process.exit(1);
@@ -71,7 +111,7 @@ const startedAt = new Date().toISOString();
 console.log(`Crawling ${sites.length} campus${sites.length === 1 ? "" : "es"} at ${startedAt}\n`);
 
 // ── User-agent resolution ────────────────────────────────────────────────
-async function resolveUserAgent() {
+async function resolveUserAgent(): Promise<string> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 5000);
   try {
@@ -79,14 +119,14 @@ async function resolveUserAgent() {
       signal: controller.signal,
     });
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    const list = await resp.json();
+    const list = (await resp.json()) as string[];
     const candidates = list
       .filter((ua) => ua.includes("Macintosh") && ua.includes("Chrome/") && !ua.includes("Edg/"))
-      .map((ua) => ({ ua, version: Number((ua.match(/Chrome\/(\d+)/) || [])[1] || 0) }))
+      .map((ua) => ({ ua, version: Number((ua.match(/Chrome\/(\d+)/) ?? [])[1] ?? 0) }))
       .toSorted((a, b) => b.version - a.version);
     if (candidates.length) return candidates[0].ua;
   } catch (err) {
-    console.log(`Could not fetch latest UA list (${err.message}); using fallback.`);
+    console.log(`Could not fetch latest UA list (${(err as Error).message}); using fallback.`);
   } finally {
     clearTimeout(timer);
   }
@@ -96,21 +136,21 @@ async function resolveUserAgent() {
 const USER_AGENT = await resolveUserAgent();
 
 // ── Per-campus override loader ───────────────────────────────────────────
-async function loadOverrides(campusId) {
+async function loadOverrides(campusId: string): Promise<CampusOverrides> {
   const path = join(__dirname, "campuses", `${campusId}.mjs`);
   if (existsSync(path)) {
-    return await import(`./campuses/${campusId}.mjs`);
+    return (await import(`./campuses/${campusId}.mjs`)) as CampusOverrides;
   }
-  return await import("./campuses/_default.mjs");
+  return (await import("./campuses/_default.mjs")) as CampusOverrides;
 }
 
 // ── Browser setup ────────────────────────────────────────────────────────
-const browser = await chromium.launch({
+const browser: Browser = await chromium.launch({
   headless: true,
   args: ["--disable-blink-features=AutomationControlled"],
 });
 
-async function withPage(fn) {
+async function withPage<T>(fn: (page: Page) => Promise<T>): Promise<T> {
   // Several UC sites (UCI, Merced) sit behind WAFs that 403 a vanilla
   // Playwright context even with a realistic UA. The fingerprints they
   // key on are usually the absence of `navigator.webdriver === false`,
@@ -140,11 +180,11 @@ async function withPage(fn) {
   }
 }
 
-async function gotoWithFallback(page, url) {
+async function gotoWithFallback(page: Page, url: string): Promise<Response | null> {
   try {
     return await page.goto(url, { waitUntil: "networkidle", timeout: NAV_TIMEOUT_MS });
   } catch (err) {
-    if (err.name === "TimeoutError") {
+    if ((err as Error).name === "TimeoutError") {
       return await page.goto(url, { waitUntil: "load", timeout: NAV_TIMEOUT_MS });
     }
     throw err;
@@ -152,7 +192,11 @@ async function gotoWithFallback(page, url) {
 }
 
 // Discover internal program-candidate links from a seed URL.
-async function discoverLinks(page, seedUrl, overrides) {
+async function discoverLinks(
+  page: Page,
+  seedUrl: string,
+  overrides: CampusOverrides,
+): Promise<{ url: string; text: string }[]> {
   const seedOrigin = new URL(seedUrl).origin;
   const all = await page.$$eval("a[href]", (anchors) =>
     anchors
@@ -160,8 +204,8 @@ async function discoverLinks(page, seedUrl, overrides) {
       .filter((x) => x.href),
   );
 
-  const seen = new Set();
-  const links = [];
+  const seen = new Set<string>();
+  const links: { url: string; text: string }[] = [];
   for (const { href, text } of all) {
     // isProgramLink consults overrides.linkAllowlist for the origin
     // gate, so cross-origin program subdomains (e.g. skydeck.berkeley.edu)
@@ -177,12 +221,12 @@ async function discoverLinks(page, seedUrl, overrides) {
 }
 
 // ── Per-campus pipeline ──────────────────────────────────────────────────
-async function crawlCampus(site) {
+async function crawlCampus(site: Site): Promise<CrawlResult> {
   const overrides = await loadOverrides(site.campus);
   const cap = flags.limit ?? overrides.maxSubpages ?? 30;
 
   console.log(`▸ ${site.name} — ${site.seedUrl}`);
-  const result = {
+  const result: CrawlResult = {
     campus: site.campus,
     name: site.name,
     seedUrl: site.seedUrl,
@@ -191,7 +235,7 @@ async function crawlCampus(site) {
     errors: [],
   };
 
-  let candidateLinks = [];
+  let candidateLinks: { url: string; text: string }[] = [];
   try {
     candidateLinks = await withPage(async (page) => {
       const resp = await gotoWithFallback(page, site.seedUrl);
@@ -199,8 +243,8 @@ async function crawlCampus(site) {
       return await discoverLinks(page, site.seedUrl, overrides);
     });
   } catch (err) {
-    console.error(`  ✗ seed failed: ${err.message}`);
-    result.errors.push({ stage: "seed", url: site.seedUrl, message: err.message });
+    console.error(`  ✗ seed failed: ${(err as Error).message}`);
+    result.errors.push({ stage: "seed", url: site.seedUrl, message: (err as Error).message });
     return result;
   }
 
@@ -221,33 +265,36 @@ async function crawlCampus(site) {
         const resp = await gotoWithFallback(page, url);
         if (!resp?.ok()) throw new Error(`HTTP ${resp?.status() ?? "?"}`);
         await page.waitForTimeout(800);
-        const raw = await page.evaluate(`(${inPageExtractor})()`);
+        const raw = (await page.evaluate(`(${inPageExtractor})()`)) as RawPageData;
         return buildCandidate({ raw, url, campus: site.campus, campusOverrides: overrides });
       });
       if (candidate) {
         result.candidates.push(candidate);
       }
     } catch (err) {
-      result.errors.push({ stage: "subpage", url, message: err.message });
+      result.errors.push({ stage: "subpage", url, message: (err as Error).message });
     }
   }
 
-  // Dedupe by slug — a program directory page often links to the same
+  // Dedupe by id — a program directory page often links to the same
   // program from multiple sections.
-  const bySlug = new Map();
-  for (const c of result.candidates) bySlug.set(c.slug, c);
-  result.candidates = [...bySlug.values()];
+  const byId = new Map<string, ProgramCandidate>();
+  for (const c of result.candidates) {
+    if (c.id) byId.set(c.id, c);
+  }
+  result.candidates = [...byId.values()];
 
   console.log(`  ✓ ${result.candidates.length} program(s), ${result.errors.length} error(s)`);
   return result;
 }
 
 // ── Worker pool over campuses ────────────────────────────────────────────
-const queue = [...sites];
-const completed = [];
-async function worker() {
+const queue: Site[] = [...sites];
+const completed: CrawlResult[] = [];
+async function worker(): Promise<void> {
   while (queue.length) {
     const site = queue.shift();
+    if (!site) break;
     const result = await crawlCampus(site);
     completed.push(result);
     if (flags.dryRun) continue;
