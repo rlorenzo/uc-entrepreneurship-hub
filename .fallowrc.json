@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/fallow-rs/fallow/main/schema.json",
+  "entry": ["src/index.{ts,tsx,js,jsx}", "src/main.{ts,tsx,js,jsx}"],
+  "duplicates": {},
+  "health": {
+    // CRAP = cyclo² × (1 - coverage)³ + cyclo. With zero test coverage,
+    // any function at cyclomatic 5 lands at CRAP 30 — the default
+    // threshold. Many small, single-purpose functions (5 short-circuits,
+    // 5 fallback conditions) sit naturally at cyclo 5; pushing them to
+    // ≤4 forces over-extraction that hurts readability without buying
+    // anything. 35 leaves a small buffer for that natural floor while
+    // still catching cyclo 6 (CRAP 42) and above. Once tests exist,
+    // coverage will mechanically lower CRAP and this can drop back to 30.
+    "maxCrap": 35
+  },
+  "rules": {}
+}

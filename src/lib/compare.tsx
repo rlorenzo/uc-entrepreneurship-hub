@@ -1,6 +1,6 @@
 import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
 
-export interface CompareApi {
+interface CompareApi {
   ids: string[];
   add: (id: string) => void;
   remove: (id: string) => void;

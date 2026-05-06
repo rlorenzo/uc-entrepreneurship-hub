@@ -299,10 +299,10 @@ function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => 
       count: 22,
     },
     {
-      type: "course",
-      label: "Courses",
-      desc: "Credit-bearing entrepreneurship coursework.",
-      count: 34,
+      type: "certificate",
+      label: "Certificates",
+      desc: "Year-long structured entrepreneurship certificate programs.",
+      count: 6,
     },
     {
       type: "maker",

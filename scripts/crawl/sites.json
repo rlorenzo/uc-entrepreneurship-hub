@@ -1,0 +1,52 @@
+[
+  {
+    "campus": "berkeley",
+    "name": "UC Berkeley",
+    "seedUrl": "https://begin.berkeley.edu/"
+  },
+  {
+    "campus": "davis",
+    "name": "UC Davis",
+    "seedUrl": "https://iedo.ucdavis.edu/"
+  },
+  {
+    "campus": "la",
+    "name": "UCLA",
+    "seedUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation"
+  },
+  {
+    "campus": "sd",
+    "name": "UC San Diego",
+    "seedUrl": "https://innovation.ucsd.edu/"
+  },
+  {
+    "campus": "santabarbara",
+    "name": "UC Santa Barbara",
+    "seedUrl": "https://innovation.ucsb.edu/"
+  },
+  {
+    "campus": "irvine",
+    "name": "UC Irvine",
+    "seedUrl": "https://innovation.uci.edu/"
+  },
+  {
+    "campus": "santacruz",
+    "name": "UC Santa Cruz",
+    "seedUrl": "https://innovation.ucsc.edu/"
+  },
+  {
+    "campus": "riverside",
+    "name": "UC Riverside",
+    "seedUrl": "https://techpartnerships.ucr.edu/"
+  },
+  {
+    "campus": "sf",
+    "name": "UC San Francisco",
+    "seedUrl": "https://innovation.ucsf.edu/"
+  },
+  {
+    "campus": "merced",
+    "name": "UC Merced",
+    "seedUrl": "https://research.ucmerced.edu/"
+  }
+]
