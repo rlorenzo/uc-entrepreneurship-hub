@@ -3,7 +3,7 @@ import type { ProgramType } from "./types";
 export const TYPES: ProgramType[] = [
   { id: "incubator", label: "Incubator", color: "#1295D8" },
   { id: "accelerator", label: "Accelerator", color: "#005581" },
-  { id: "course", label: "Course", color: "#00778B" },
+  { id: "certificate", label: "Certificate", color: "#00778B" },
   { id: "funding", label: "Funding", color: "#FFB511" },
   { id: "competition", label: "Competition", color: "#E44C9A" },
   { id: "maker", label: "Maker space", color: "#FF6E1B" },

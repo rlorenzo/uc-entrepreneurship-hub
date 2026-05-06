@@ -56,10 +56,12 @@ export function ProgramDetail() {
   const navigate = useNavigate();
   const { has, add, remove } = useCompare();
 
-  const program = PROGRAMS.find((p) => p.id === id) ?? PROGRAMS[0];
+  const program = PROGRAMS.find((p) => p.id === id || p.slug === id) ?? PROGRAMS[0];
   const inCompare = has(program.id);
   const c = CAMPUS_BY_ID[program.campus];
   const t = TYPE_BY_ID[program.type];
+  const applyHref = program.applicationLink || program.website || program.sourceUrl || "#";
+  const isExternal = applyHref !== "#";
 
   const related = PROGRAMS.filter(
     (p) =>
@@ -220,8 +222,10 @@ export function ProgramDetail() {
               </p>
               <div style={{ display: "flex", gap: 14, marginTop: 28, flexWrap: "wrap" }}>
                 <a
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
+                  href={applyHref}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  onClick={isExternal ? undefined : (e) => e.preventDefault()}
                   style={{
                     background: "#FFB511",
                     color: "#002033",
@@ -234,7 +238,8 @@ export function ProgramDetail() {
                     gap: 8,
                   }}
                 >
-                  Apply on {c.short}.edu <I_External size={15} />
+                  {program.applicationLink ? "Start application" : `Visit on ${c.short}.edu`}{" "}
+                  <I_External size={15} />
                 </a>
                 <button
                   onClick={() => (inCompare ? remove(program.id) : add(program.id))}
@@ -374,10 +379,7 @@ export function ProgramDetail() {
                 maxWidth: 720,
               }}
             >
-              {program.desc} Founders work alongside an experienced cohort, get warm introductions
-              to UC&rsquo;s mentor and investor network, and leave with the kind of structured
-              progress — customer interviews, working prototypes, term sheets — that translates into
-              real momentum.
+              {program.longDescription ?? program.desc}
             </p>
 
             <div style={{ marginTop: 48, display: "flex", flexDirection: "column", gap: 40 }}>
@@ -591,7 +593,10 @@ export function ProgramDetail() {
                 <strong>{program.deadline}</strong>.
               </p>
               <a
-                href="#"
+                href={applyHref}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                onClick={isExternal ? undefined : (e) => e.preventDefault()}
                 style={{
                   display: "block",
                   textAlign: "center",
@@ -605,26 +610,31 @@ export function ProgramDetail() {
                   marginTop: 16,
                 }}
               >
-                Start application <I_External size={14} />
+                {program.applicationLink ? "Start application" : "Visit program page"}{" "}
+                <I_External size={14} />
               </a>
-              <a
-                href="#"
-                style={{
-                  display: "block",
-                  textAlign: "center",
-                  background: "transparent",
-                  border: "2px solid #002033",
-                  color: "#002033",
-                  padding: "12px 18px",
-                  borderRadius: 4,
-                  fontWeight: 600,
-                  fontSize: 14,
-                  textDecoration: "none",
-                  marginTop: 10,
-                }}
-              >
-                Email the program team
-              </a>
+              {program.website && program.website !== applyHref && (
+                <a
+                  href={program.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "block",
+                    textAlign: "center",
+                    background: "transparent",
+                    border: "2px solid #002033",
+                    color: "#002033",
+                    padding: "12px 18px",
+                    borderRadius: 4,
+                    fontWeight: 600,
+                    fontSize: 14,
+                    textDecoration: "none",
+                    marginTop: 10,
+                  }}
+                >
+                  Visit program homepage
+                </a>
+              )}
             </div>
 
             <div
@@ -710,6 +720,38 @@ export function ProgramDetail() {
                 Some details are pulled from the program’s site and may be incomplete. Always verify
                 on the source page before applying.
               </p>
+              {(program.sourceUrl || program.lastUpdated) && (
+                <div
+                  style={{
+                    marginTop: 12,
+                    paddingTop: 12,
+                    borderTop: "1px solid rgba(0,32,51,.18)",
+                    fontSize: 12,
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {program.sourceUrl && (
+                    <a
+                      href={program.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        color: "#002033",
+                        textDecoration: "underline",
+                        textUnderlineOffset: 2,
+                        fontWeight: 600,
+                      }}
+                    >
+                      View source page
+                    </a>
+                  )}
+                  {program.lastUpdated && (
+                    <div style={{ marginTop: 4, opacity: 0.8 }}>
+                      Refreshed {new Date(program.lastUpdated).toLocaleDateString()}
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </aside>
         </div>

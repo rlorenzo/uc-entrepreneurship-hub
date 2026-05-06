@@ -12,6 +12,7 @@ export const CAMPUSES: Campus[] = [
     tagline: "The Bay’s deep-tech and consumer launchpad",
     programs: 18,
     founded: 1868,
+    hubUrl: "https://begin.berkeley.edu/",
   },
   {
     id: "davis",
@@ -23,6 +24,7 @@ export const CAMPUSES: Campus[] = [
     tagline: "AgTech, food systems, sustainability",
     programs: 11,
     founded: 1905,
+    hubUrl: "https://iedo.ucdavis.edu/",
   },
   {
     id: "merced",
@@ -34,6 +36,7 @@ export const CAMPUSES: Campus[] = [
     tagline: "Climate, water, the San Joaquin Valley",
     programs: 6,
     founded: 2005,
+    hubUrl: "https://research.ucmerced.edu/",
   },
   {
     id: "santacruz",
@@ -45,6 +48,7 @@ export const CAMPUSES: Campus[] = [
     tagline: "Games, genomics, ocean science",
     programs: 8,
     founded: 1965,
+    hubUrl: "https://innovation.ucsc.edu/",
   },
   {
     id: "sf",
@@ -56,6 +60,7 @@ export const CAMPUSES: Campus[] = [
     tagline: "Health and life-science startups",
     programs: 9,
     founded: 1864,
+    hubUrl: "https://innovation.ucsf.edu/",
   },
   {
     id: "santabarbara",
@@ -67,6 +72,7 @@ export const CAMPUSES: Campus[] = [
     tagline: "Materials, photonics, deep tech",
     programs: 10,
     founded: 1909,
+    hubUrl: "https://innovation.ucsb.edu/",
   },
   {
     id: "la",
@@ -78,6 +84,8 @@ export const CAMPUSES: Campus[] = [
     tagline: "Media, biosciences, consumer",
     programs: 22,
     founded: 1919,
+    hubUrl:
+      "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation",
   },
   {
     id: "irvine",
@@ -89,6 +97,7 @@ export const CAMPUSES: Campus[] = [
     tagline: "Beall, biotech, gaming",
     programs: 14,
     founded: 1965,
+    hubUrl: "https://innovation.uci.edu/",
   },
   {
     id: "riverside",
@@ -100,6 +109,7 @@ export const CAMPUSES: Campus[] = [
     tagline: "AgTech, Inland Empire founders",
     programs: 7,
     founded: 1954,
+    hubUrl: "https://techpartnerships.ucr.edu/",
   },
   {
     id: "sd",
@@ -111,6 +121,7 @@ export const CAMPUSES: Campus[] = [
     tagline: "Biotech, hardware, climate",
     programs: 16,
     founded: 1960,
+    hubUrl: "https://innovation.ucsd.edu/",
   },
 ];
 

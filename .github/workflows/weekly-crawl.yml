@@ -1,0 +1,67 @@
+name: Weekly data refresh
+
+# Crawl every UC innovation hub once a week and commit the regenerated
+# program catalog. The deploy workflow then redeploys the site on the
+# resulting push to main.
+#
+# Schedule: 13:00 UTC every Sunday (≈ 06:00 PT, before West Coast traffic).
+# Use the workflow_dispatch trigger to refresh on demand from the Actions tab.
+
+on:
+  schedule:
+    - cron: "0 13 * * 0"
+  workflow_dispatch:
+    inputs:
+      campus:
+        description: "Comma-separated campus ids (default: all)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-crawl
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      # Official Vite+ CI action — installs vp, sets up Node, picks the
+      # package manager from `packageManager` in package.json, and caches
+      # the install. https://viteplus.dev/guide/ci
+      - uses: voidzero-dev/setup-vp@v1
+        with:
+          node-version: "24"
+          cache: true
+
+      - name: Install deps
+        run: vp install
+
+      - name: Install Playwright browser
+        run: vp exec playwright install --with-deps chromium
+
+      - name: Refresh data
+        run: |
+          if [ -n "${{ github.event.inputs.campus }}" ]; then
+            vp run crawl -- --campus=${{ github.event.inputs.campus }}
+            vp run build-data
+          else
+            vp run refresh-data
+          fi
+
+      - name: Commit refreshed catalog
+        run: |
+          git config user.name "uc-hub-bot"
+          git config user.email "uc-hub-bot@users.noreply.github.com"
+          git add data/crawled src/data/programs.generated.ts
+          if git diff --cached --quiet; then
+            echo "No changes from this crawl."
+            exit 0
+          fi
+          git commit -m "chore(data): weekly refresh ($(date -u +%Y-%m-%d))"
+          git push

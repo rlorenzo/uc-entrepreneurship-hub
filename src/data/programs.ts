@@ -1,6 +1,11 @@
 import type { Program, Spotlight } from "./types";
+import { mergePrograms } from "./normalize";
+import { CRAWLED_PROGRAMS } from "./programs.generated";
 
-export const PROGRAMS: Program[] = [
+// Curated, hand-shaped programs. The crawler enriches these and adds new
+// programs through `programs.generated.ts`; see `mergePrograms` for the
+// conflict policy.
+const CURATED: Program[] = [
   // Berkeley
   {
     id: "skydeck",
@@ -114,19 +119,22 @@ export const PROGRAMS: Program[] = [
     deadline: "Feb 8, 2026",
   },
   {
-    id: "mgnt19",
-    name: "Management 19: Entrepreneurship Fundamentals",
+    id: "ucla-tmp",
+    slug: "ucla-tmp",
+    name: "UCLA Extension Technical Management Program",
     campus: "la",
-    type: "course",
-    desc: "Anderson School undergraduate course covering opportunity discovery, lean startup, and pitching.",
-    industries: ["Consumer"],
+    type: "certificate",
+    desc: "A nine-month evening certificate that pairs working engineers and scientists with UCLA faculty to learn the business, leadership, and entrepreneurship skills needed to lead technical teams.",
+    industries: ["Hardware", "AI / ML", "Health"],
     stage: "Idea",
-    eligibility: ["Undergrad"],
-    duration: "Semester",
-    funding: "Course credit",
-    selectivity: "Open",
-    cohortSize: 80,
-    deadline: "Quarterly",
+    eligibility: ["Graduate", "Alumni", "Open to public"],
+    duration: "Academic year",
+    funding: "Tuition-based",
+    selectivity: "Application",
+    cohortSize: null,
+    deadline: "Rolling",
+    website: "https://www.uclaextension.edu/engineering/technical-management-program",
+    associatedCenter: "UCLA Extension School of Engineering",
   },
 
   // UCSD
@@ -281,7 +289,7 @@ export const PROGRAMS: Program[] = [
     id: "tmp",
     name: "Technology Management Program",
     campus: "santabarbara",
-    type: "course",
+    type: "certificate",
     desc: "Year-long entrepreneurship certificate covering ideation, IP, and pitching. Open to all majors.",
     industries: ["Hardware", "AI / ML", "Energy"],
     stage: "Idea",
@@ -291,6 +299,8 @@ export const PROGRAMS: Program[] = [
     selectivity: "Open",
     cohortSize: 60,
     deadline: "Sep 1, 2026",
+    website: "https://tmp.ucsb.edu/",
+    associatedCenter: "UCSB College of Engineering",
   },
   {
     id: "newventurecompUCSB",
@@ -376,6 +386,8 @@ export const PROGRAMS: Program[] = [
     deadline: "Feb 1, 2026",
   },
 ];
+
+export const PROGRAMS: Program[] = mergePrograms(CURATED, CRAWLED_PROGRAMS);
 
 export const SPOTLIGHTS: Spotlight[] = [
   {
