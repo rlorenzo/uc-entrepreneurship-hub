@@ -114,6 +114,7 @@ function ecosystemFor(campusId: string) {
       {
         name: "Rosenman Institute",
         desc: "Health-tech fellowship and innovator pipeline at the QB3 Mission Bay campus.",
+        url: "https://www.linkedin.com/school/rosenman-institute",
       },
     ],
     davis: [
