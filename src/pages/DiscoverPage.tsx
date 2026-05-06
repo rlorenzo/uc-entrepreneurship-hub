@@ -11,6 +11,7 @@ import { TYPES, TYPE_BY_ID, INDUSTRIES, STAGES, ELIGIBILITY, DURATIONS } from "@
 import { PROGRAMS } from "@/data/programs";
 import type { Program } from "@/data/types.ts";
 import { useCompare } from "@/lib/compare";
+import { useIsMobile } from "@/lib/useMediaQuery";
 import { I_Calendar, I_Check, I_Chevron, I_Grid, I_List, I_Plus, I_Search, I_X } from "@/lib/icons";
 
 type Filters = Record<string, string[]>;
@@ -284,8 +285,8 @@ function FilterFacetSection({
   );
 }
 
-function FilterSidebar({ filters, setFilters, counts }: FilterSidebarProps) {
-  const toggle = (key: string, val: string) => {
+function useFilterToggle(setFilters: FilterSidebarProps["setFilters"]) {
+  return (key: string, val: string) => {
     setFilters((f) => {
       const cur = new Set(f[key] ?? []);
       if (cur.has(val)) cur.delete(val);
@@ -293,9 +294,76 @@ function FilterSidebar({ filters, setFilters, counts }: FilterSidebarProps) {
       return { ...f, [key]: [...cur] };
     });
   };
+}
+
+function FilterHeader({ activeCount, onClear }: { activeCount: number; onClear: () => void }) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "4px 0 12px",
+      }}
+    >
+      <div
+        style={{
+          fontFamily: "'Source Serif 4',Georgia,serif",
+          fontWeight: 600,
+          fontSize: 22,
+          color: "#002033",
+        }}
+      >
+        Filters
+      </div>
+      {activeCount > 0 && (
+        <button
+          onClick={onClear}
+          style={{
+            background: "transparent",
+            border: 0,
+            color: "#005581",
+            fontWeight: 600,
+            fontSize: 13,
+            cursor: "pointer",
+            textDecoration: "underline",
+          }}
+        >
+          Clear all ({activeCount})
+        </button>
+      )}
+    </div>
+  );
+}
+
+function FilterSections({
+  filters,
+  counts,
+  toggle,
+}: {
+  filters: Filters;
+  counts: FacetCounts;
+  toggle: (key: string, val: string) => void;
+}) {
+  return (
+    <>
+      {FACETS.map((facet) => (
+        <FilterFacetSection
+          key={facet.key}
+          facet={facet}
+          counts={counts}
+          filters={filters}
+          toggle={toggle}
+        />
+      ))}
+    </>
+  );
+}
+
+function FilterSidebar({ filters, setFilters, counts }: FilterSidebarProps) {
+  const toggle = useFilterToggle(setFilters);
   const clear = () => setFilters(() => ({}));
   const activeCount = activeFilterCount(filters);
-
   return (
     <aside
       style={{
@@ -309,51 +377,57 @@ function FilterSidebar({ filters, setFilters, counts }: FilterSidebarProps) {
         paddingRight: 8,
       }}
     >
-      <div
+      <FilterHeader activeCount={activeCount} onClear={clear} />
+      <FilterSections filters={filters} counts={counts} toggle={toggle} />
+    </aside>
+  );
+}
+
+function MobileFilterPanel({ filters, setFilters, counts }: FilterSidebarProps) {
+  const [open, setOpen] = useState(false);
+  const toggle = useFilterToggle(setFilters);
+  const clear = () => setFilters(() => ({}));
+  const activeCount = activeFilterCount(filters);
+  return (
+    <details
+      open={open}
+      onToggle={(e) => setOpen((e.currentTarget as HTMLDetailsElement).open)}
+      style={{
+        marginBottom: 16,
+        background: "#F7F5F1",
+        borderRadius: 8,
+        padding: "12px 16px",
+      }}
+    >
+      <summary
         style={{
+          listStyle: "none",
+          cursor: "pointer",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: "4px 0 12px",
+          fontWeight: 600,
+          fontSize: 15,
+          color: "#002033",
         }}
       >
-        <div
+        <span>
+          {open ? "Hide filters" : `Show filters${activeCount > 0 ? ` (${activeCount})` : ""}`}
+        </span>
+        <span
           style={{
-            fontFamily: "'Source Serif 4',Georgia,serif",
-            fontWeight: 600,
-            fontSize: 22,
-            color: "#002033",
+            transform: open ? "rotate(180deg)" : "rotate(0deg)",
+            transition: "transform .2s",
           }}
         >
-          Filters
-        </div>
-        {activeCount > 0 && (
-          <button
-            onClick={clear}
-            style={{
-              background: "transparent",
-              border: 0,
-              color: "#005581",
-              fontWeight: 600,
-              fontSize: 13,
-              cursor: "pointer",
-              textDecoration: "underline",
-            }}
-          >
-            Clear all ({activeCount})
-          </button>
-        )}
+          <I_Chevron size={14} />
+        </span>
+      </summary>
+      <div style={{ marginTop: 12 }}>
+        <FilterHeader activeCount={activeCount} onClear={clear} />
+        <FilterSections filters={filters} counts={counts} toggle={toggle} />
       </div>
-      {FACETS.map((facet) => (
-        <FilterFacetSection
-          key={facet.key}
-          facet={facet}
-          counts={counts}
-          filters={filters}
-          toggle={toggle}
-        />
-      ))}
-    </aside>
+    </details>
   );
 }
 
@@ -575,12 +649,13 @@ function ListRowActions({ program, onOpen }: { program: Program; onOpen: (id: st
 
 function ProgramListRow({ program, onOpen }: { program: Program; onOpen: (id: string) => void }) {
   const open = () => onOpen(program.id);
+  const isMobile = useIsMobile();
   return (
     <article
       style={{
         display: "grid",
-        gridTemplateColumns: "160px 1fr 200px",
-        gap: 24,
+        gridTemplateColumns: isMobile ? "1fr" : "160px 1fr 200px",
+        gap: isMobile ? 14 : 24,
         padding: 18,
         background: "#fff",
         border: "1px solid rgba(0,32,51,.10)",
@@ -751,9 +826,16 @@ function ResultsView({
   programs: Program[];
   onOpen: (id: string) => void;
 }) {
+  const isMobile = useIsMobile();
   if (view === "grid") {
     return (
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+          gap: isMobile ? 14 : 24,
+        }}
+      >
         {programs.map((p) => (
           <ProgramCard key={p.id} program={p} onOpen={(prog) => onOpen(prog.id)} compact />
         ))}
@@ -771,42 +853,54 @@ function ResultsView({
 
 // ── hero ──────────────────────────────────────────────────────────────
 
-function DiscoverHero({ q, setQ }: { q: string; setQ: (v: string) => void }) {
+function DiscoverTitle() {
   return (
-    <section
-      style={{
-        background: "#F7F5F1",
-        padding: "32px 32px 28px",
-        borderBottom: "1px solid rgba(0,32,51,.08)",
-      }}
-    >
+    <div>
+      <Eyebrow>140+ programs across the system</Eyebrow>
+      <h1
+        style={{
+          fontFamily: "'Source Serif 4',Georgia,serif",
+          fontWeight: 600,
+          fontSize: "clamp(36px,4vw,52px)",
+          lineHeight: 1.1,
+          margin: "10px 0 0",
+          color: "#002033",
+        }}
+      >
+        Explore programs
+      </h1>
+    </div>
+  );
+}
+
+function discoverHeroSection(isMobile: boolean) {
+  return {
+    background: "#F7F5F1",
+    padding: isMobile ? "20px 20px 18px" : "32px 32px 28px",
+    borderBottom: "1px solid rgba(0,32,51,.08)",
+  } as const;
+}
+
+function discoverHeroRow(isMobile: boolean) {
+  return {
+    display: "flex" as const,
+    flexDirection: isMobile ? ("column" as const) : ("row" as const),
+    alignItems: isMobile ? ("stretch" as const) : ("flex-end" as const),
+    justifyContent: "space-between" as const,
+    gap: isMobile ? 16 : 24,
+    marginTop: isMobile ? 12 : 18,
+    flexWrap: "wrap" as const,
+  };
+}
+
+function DiscoverHero({ q, setQ }: { q: string; setQ: (v: string) => void }) {
+  const isMobile = useIsMobile();
+  return (
+    <section style={discoverHeroSection(isMobile)}>
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
         <Breadcrumbs trail={[{ label: "Home", to: "/" }, { label: "Explore programs" }]} />
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-            gap: 24,
-            marginTop: 18,
-            flexWrap: "wrap",
-          }}
-        >
-          <div>
-            <Eyebrow>140+ programs across the system</Eyebrow>
-            <h1
-              style={{
-                fontFamily: "'Source Serif 4',Georgia,serif",
-                fontWeight: 600,
-                fontSize: "clamp(36px,4vw,52px)",
-                lineHeight: 1.1,
-                margin: "10px 0 0",
-                color: "#002033",
-              }}
-            >
-              Explore programs
-            </h1>
-          </div>
+        <div style={discoverHeroRow(isMobile)}>
+          <DiscoverTitle />
           <SearchBox q={q} setQ={setQ} />
         </div>
       </div>
@@ -815,6 +909,7 @@ function DiscoverHero({ q, setQ }: { q: string; setQ: (v: string) => void }) {
 }
 
 function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
+  const isMobile = useIsMobile();
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
@@ -825,8 +920,9 @@ function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
         padding: 6,
         display: "flex",
         gap: 6,
-        minWidth: 380,
+        minWidth: isMobile ? 0 : 380,
         maxWidth: 520,
+        width: isMobile ? "100%" : undefined,
         flex: 1,
       }}
     >
@@ -883,6 +979,110 @@ function applyFiltersAndSort(q: string, filters: Filters, sort: SortKey): Progra
   return [...list].toSorted(SORTERS[sort]);
 }
 
+interface DiscoverBodyProps {
+  filters: Filters;
+  setFilters: (updater: (f: Filters) => Filters) => void;
+  counts: FacetCounts;
+  q: string;
+  setQ: (v: string) => void;
+  sort: SortKey;
+  setSort: (s: SortKey) => void;
+  view: ViewKind;
+  setView: (v: ViewKind) => void;
+  filtered: Program[];
+  onOpen: (id: string) => void;
+  onReset: () => void;
+}
+
+function discoverBodySection(isMobile: boolean) {
+  return {
+    padding: isMobile ? "20px 20px 56px" : "32px 32px 80px",
+    background: "#fff",
+  } as const;
+}
+
+function discoverBodyRow(isMobile: boolean) {
+  return {
+    maxWidth: 1440,
+    margin: "0 auto",
+    display: "flex" as const,
+    flexDirection: isMobile ? ("column" as const) : ("row" as const),
+    gap: isMobile ? 16 : 40,
+    alignItems: "flex-start" as const,
+  };
+}
+
+function discoverBodyMain(isMobile: boolean) {
+  return { flex: 1, minWidth: 0, width: isMobile ? "100%" : undefined } as const;
+}
+
+function ResultsBody({
+  view,
+  filtered,
+  onOpen,
+  onReset,
+}: {
+  view: ViewKind;
+  filtered: Program[];
+  onOpen: (id: string) => void;
+  onReset: () => void;
+}) {
+  if (filtered.length === 0) return <EmptyResults onReset={onReset} />;
+  return <ResultsView view={view} programs={filtered} onOpen={onOpen} />;
+}
+
+function FilterPanel({
+  filters,
+  setFilters,
+  counts,
+}: {
+  filters: Filters;
+  setFilters: (updater: (f: Filters) => Filters) => void;
+  counts: FacetCounts;
+}) {
+  const isMobile = useIsMobile();
+  if (isMobile)
+    return <MobileFilterPanel filters={filters} setFilters={setFilters} counts={counts} />;
+  return <FilterSidebar filters={filters} setFilters={setFilters} counts={counts} />;
+}
+
+function DiscoverBody(props: DiscoverBodyProps) {
+  const isMobile = useIsMobile();
+  const {
+    filters,
+    setFilters,
+    counts,
+    q,
+    setQ,
+    sort,
+    setSort,
+    view,
+    setView,
+    filtered,
+    onOpen,
+    onReset,
+  } = props;
+  return (
+    <section style={discoverBodySection(isMobile)}>
+      <div style={discoverBodyRow(isMobile)}>
+        <FilterPanel filters={filters} setFilters={setFilters} counts={counts} />
+        <div style={discoverBodyMain(isMobile)}>
+          <ActiveChips filters={filters} setFilters={setFilters} q={q} setQ={setQ} />
+          <ResultsToolbar
+            count={filtered.length}
+            query={q}
+            sort={sort}
+            setSort={setSort}
+            view={view}
+            setView={setView}
+          />
+          <ResultsBody view={view} filtered={filtered} onOpen={onOpen} onReset={onReset} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function DiscoverPage() {
   const navigate = useNavigate();
   const [params] = useSearchParams();
@@ -891,7 +1091,6 @@ export function DiscoverPage() {
   const [sort, setSort] = useState<SortKey>("featured");
   const [view, setView] = useState<ViewKind>("grid");
 
-  // Re-sync filters when navigating into /discover with a new query string.
   useEffect(() => {
     setFilters(paramsToFilters(params));
     setQ(params.get("q") ?? "");
@@ -908,35 +1107,20 @@ export function DiscoverPage() {
   return (
     <Page>
       <DiscoverHero q={q} setQ={setQ} />
-      <section style={{ padding: "32px 32px 80px", background: "#fff" }}>
-        <div
-          style={{
-            maxWidth: 1440,
-            margin: "0 auto",
-            display: "flex",
-            gap: 40,
-            alignItems: "flex-start",
-          }}
-        >
-          <FilterSidebar filters={filters} setFilters={setFilters} counts={counts} />
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <ActiveChips filters={filters} setFilters={setFilters} q={q} setQ={setQ} />
-            <ResultsToolbar
-              count={filtered.length}
-              query={q}
-              sort={sort}
-              setSort={setSort}
-              view={view}
-              setView={setView}
-            />
-            {filtered.length === 0 ? (
-              <EmptyResults onReset={reset} />
-            ) : (
-              <ResultsView view={view} programs={filtered} onOpen={open} />
-            )}
-          </div>
-        </div>
-      </section>
+      <DiscoverBody
+        filters={filters}
+        setFilters={setFilters}
+        counts={counts}
+        q={q}
+        setQ={setQ}
+        sort={sort}
+        setSort={setSort}
+        view={view}
+        setView={setView}
+        filtered={filtered}
+        onOpen={open}
+        onReset={reset}
+      />
     </Page>
   );
 }

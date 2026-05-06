@@ -158,6 +158,10 @@ If a campus's site is JS-heavy and the generic extractor returns nothing, the ov
 
 ## Deployment
 
+The site has two deploy targets:
+
+### Production — GitHub Pages
+
 GitHub Actions workflow at `.github/workflows/deploy.yml` builds on every push to `main` and publishes to GitHub Pages. The workflow:
 
 1. Installs Vite+ globally
@@ -167,6 +171,32 @@ GitHub Actions workflow at `.github/workflows/deploy.yml` builds on every push t
 5. Uploads `dist/` and deploys
 
 To enable: in the GitHub repo settings, **Settings → Pages → Source: GitHub Actions**.
+
+### Per-PR previews — Cloudflare Pages
+
+Cloudflare Pages auto-deploys every branch push (including PRs) to its own preview URL. Connect the repo from the Cloudflare dashboard once, and every PR gets a `https://<branch>.<project>.pages.dev` URL.
+
+**Build settings** (Cloudflare dashboard → your project → Settings → Build & deployments):
+
+| Field            | Value            |
+| ---------------- | ---------------- |
+| Build command    | `pnpm run build` |
+| Output directory | `dist`           |
+| Root directory   | _(empty)_        |
+
+**Environment variables** (Settings → Environment variables, set on both Production + Preview):
+
+| Name           | Value |
+| -------------- | ----- |
+| `NODE_VERSION` | `24`  |
+
+Notes:
+
+- **Don't set `VITE_GH_PAGES=1` on Cloudflare** — it's only for the GH Pages base path. CF Pages serves at `/`, which is `vite.config.ts`'s default.
+- The build command must be `pnpm run build`, not `vp build` directly. Cloudflare's build shell doesn't put `node_modules/.bin` on `$PATH`; going through the npm script does.
+- The app uses `HashRouter`, so deep links work without a `_redirects` file or SPA fallback — every URL serves `index.html` and the fragment is read client-side.
+
+PR preview URLs surface automatically as a comment on the PR (configurable in the CF dashboard).
 
 ## Credits
 

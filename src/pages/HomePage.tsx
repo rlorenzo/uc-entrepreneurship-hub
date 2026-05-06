@@ -7,6 +7,7 @@ import { CaliforniaMap } from "@/components/CaliforniaMap";
 import { CAMPUSES, CAMPUS_BY_ID } from "@/data/campuses";
 import { TYPE_BY_ID } from "@/data/types-list";
 import { PROGRAMS, SPOTLIGHTS } from "@/data/programs";
+import { useIsMobile } from "@/lib/useMediaQuery";
 import { I_Arrow, I_Search } from "@/lib/icons";
 
 interface SearchOpts {
@@ -16,6 +17,7 @@ interface SearchOpts {
 
 function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
   const [q, setQ] = useState("");
+  const isMobile = useIsMobile();
   const chips: { label: string; filter: Record<string, string> }[] = [
     { label: "Accelerators", filter: { type: "accelerator" } },
     { label: "Funding & grants", filter: { type: "funding" } },
@@ -56,12 +58,12 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
           position: "relative",
           maxWidth: 1440,
           margin: "0 auto",
-          padding: "88px 32px 72px",
+          padding: isMobile ? "56px 20px 48px" : "88px 32px 72px",
           display: "grid",
-          gridTemplateColumns: "1.3fr 1fr",
-          gap: 64,
+          gridTemplateColumns: isMobile ? "1fr" : "1.3fr 1fr",
+          gap: isMobile ? 32 : 64,
           alignItems: "center",
-          minHeight: 560,
+          minHeight: isMobile ? 0 : 560,
         }}
       >
         <div>
@@ -118,7 +120,7 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
               onSearch({ q });
             }}
             style={{
-              marginTop: 36,
+              marginTop: 28,
               background: "#fff",
               borderRadius: 8,
               boxShadow: "0 12px 32px rgba(0,0,0,.18)",
@@ -126,6 +128,7 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
               display: "flex",
               gap: 8,
               maxWidth: 680,
+              width: "100%",
             }}
           >
             <div
@@ -207,8 +210,11 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
 
 function FeaturedStrip({ onOpen }: { onOpen: (id: string) => void }) {
   const featured = PROGRAMS.filter((p) => p.featured);
+  const isMobile = useIsMobile();
   return (
-    <section style={{ padding: "96px 32px 48px", background: "#fff" }}>
+    <section
+      style={{ padding: isMobile ? "56px 20px 32px" : "96px 32px 48px", background: "#fff" }}
+    >
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
         <div
           style={{
@@ -216,7 +222,7 @@ function FeaturedStrip({ onOpen }: { onOpen: (id: string) => void }) {
             alignItems: "flex-end",
             justifyContent: "space-between",
             gap: 24,
-            marginBottom: 32,
+            marginBottom: isMobile ? 24 : 32,
             flexWrap: "wrap",
           }}
         >
@@ -262,7 +268,13 @@ function FeaturedStrip({ onOpen }: { onOpen: (id: string) => void }) {
             See all 140+ programs →
           </a>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+            gap: isMobile ? 16 : 24,
+          }}
+        >
           {featured.map((p) => (
             <ProgramCard key={p.id} program={p} onOpen={(prog) => onOpen(prog.id)} />
           ))}
@@ -273,6 +285,7 @@ function FeaturedStrip({ onOpen }: { onOpen: (id: string) => void }) {
 }
 
 function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => void }) {
+  const isMobile = useIsMobile();
   const items = [
     {
       type: "accelerator",
@@ -313,7 +326,7 @@ function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => 
   ];
 
   return (
-    <section style={{ background: "#F7F5F1", padding: "80px 32px" }}>
+    <section style={{ background: "#F7F5F1", padding: isMobile ? "48px 20px" : "80px 32px" }}>
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
         <div
           style={{
@@ -321,7 +334,7 @@ function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => 
             alignItems: "flex-end",
             justifyContent: "space-between",
             gap: 24,
-            marginBottom: 32,
+            marginBottom: isMobile ? 24 : 32,
             flexWrap: "wrap",
           }}
         >
@@ -341,7 +354,13 @@ function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => 
             </h2>
           </div>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(3, 1fr)",
+            gap: isMobile ? 12 : 16,
+          }}
+        >
           {items.map((it) => {
             const t = TYPE_BY_ID[it.type];
             return (
@@ -433,84 +452,122 @@ function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => 
   );
 }
 
+interface CampusButtonProps {
+  campus: (typeof CAMPUSES)[number];
+  active: boolean;
+  onHover: (id: string | null) => void;
+  onPick: (id: string) => void;
+}
+
+function CampusButton({ campus, active, onHover, onPick }: CampusButtonProps) {
+  return (
+    <button
+      onMouseEnter={() => onHover(campus.id)}
+      onMouseLeave={() => onHover(null)}
+      onClick={() => onPick(campus.id)}
+      style={{
+        textAlign: "left",
+        background: active ? "#F7F5F1" : "transparent",
+        border: 0,
+        padding: "10px 12px",
+        borderRadius: 6,
+        display: "flex",
+        alignItems: "center",
+        gap: 12,
+        cursor: "pointer",
+      }}
+    >
+      <span style={{ width: 8, height: 8, borderRadius: 999, background: campus.color }} />
+      <span style={{ fontWeight: 600, fontSize: 15, color: "#002033" }}>{campus.name}</span>
+      <span style={{ marginLeft: "auto", fontSize: 12, color: "#7C7E7F" }}>
+        {campus.programs} programs
+      </span>
+    </button>
+  );
+}
+
+function MapSectionLeft({
+  active,
+  setActive,
+  onPick,
+}: {
+  active: string | null;
+  setActive: (id: string | null) => void;
+  onPick: (id: string) => void;
+}) {
+  const isMobile = useIsMobile();
+  return (
+    <div>
+      <Eyebrow>The UC system</Eyebrow>
+      <h2
+        style={{
+          fontFamily: "'Source Serif 4',Georgia,serif",
+          fontWeight: 600,
+          fontSize: "clamp(36px,4vw,56px)",
+          lineHeight: 1.08,
+          margin: "12px 0 0",
+          color: "#002033",
+          textWrap: "balance",
+        }}
+      >
+        One mission. Ten campuses. <span style={{ color: "#005581" }}>Hundreds of paths.</span>
+      </h2>
+      <p
+        style={{
+          margin: "18px 0 0",
+          fontSize: 18,
+          lineHeight: 1.55,
+          color: "#4C4C4C",
+          maxWidth: 520,
+        }}
+      >
+        From SkyDeck in the Bay to Beall in Orange County, every campus brings its own ecosystem.
+        Hover the map to peek inside, or click to explore a campus in depth.
+      </p>
+      <div
+        style={{
+          marginTop: isMobile ? 24 : 32,
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+          gap: 8,
+          maxWidth: 520,
+        }}
+      >
+        {CAMPUSES.map((c) => (
+          <CampusButton
+            key={c.id}
+            campus={c}
+            active={active === c.id}
+            onHover={setActive}
+            onPick={onPick}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function MapSection() {
   const navigate = useNavigate();
   const [active, setActive] = useState<string | null>(null);
+  const isMobile = useIsMobile();
   return (
-    <section style={{ padding: "96px 32px", background: "#fff" }}>
+    <section style={{ padding: isMobile ? "56px 20px" : "96px 32px", background: "#fff" }}>
       <div
         style={{
           maxWidth: 1440,
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "1fr 1.05fr",
-          gap: 80,
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 1.05fr",
+          gap: isMobile ? 32 : 80,
           alignItems: "center",
         }}
       >
-        <div>
-          <Eyebrow>The UC system</Eyebrow>
-          <h2
-            style={{
-              fontFamily: "'Source Serif 4',Georgia,serif",
-              fontWeight: 600,
-              fontSize: "clamp(36px,4vw,56px)",
-              lineHeight: 1.08,
-              margin: "12px 0 0",
-              color: "#002033",
-              textWrap: "balance",
-            }}
-          >
-            One mission. Ten campuses. <span style={{ color: "#005581" }}>Hundreds of paths.</span>
-          </h2>
-          <p
-            style={{
-              margin: "18px 0 0",
-              fontSize: 18,
-              lineHeight: 1.55,
-              color: "#4C4C4C",
-              maxWidth: 520,
-            }}
-          >
-            From SkyDeck in the Bay to Beall in Orange County, every campus brings its own
-            ecosystem. Hover the map to peek inside, or click to explore a campus in depth.
-          </p>
-          <div
-            style={{
-              marginTop: 32,
-              display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
-              gap: 8,
-              maxWidth: 520,
-            }}
-          >
-            {CAMPUSES.map((c) => (
-              <button
-                key={c.id}
-                onMouseEnter={() => setActive(c.id)}
-                onMouseLeave={() => setActive(null)}
-                onClick={() => navigate(`/campus/${c.id}`)}
-                style={{
-                  textAlign: "left",
-                  background: active === c.id ? "#F7F5F1" : "transparent",
-                  border: 0,
-                  padding: "10px 12px",
-                  borderRadius: 6,
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12,
-                  cursor: "pointer",
-                }}
-              >
-                <span style={{ width: 8, height: 8, borderRadius: 999, background: c.color }} />
-                <span style={{ fontWeight: 600, fontSize: 15, color: "#002033" }}>{c.name}</span>
-                <span style={{ marginLeft: "auto", fontSize: 12, color: "#7C7E7F" }}>
-                  {c.programs} programs
-                </span>
-              </button>
-            ))}
-          </div>
-        </div>
+        <MapSectionLeft
+          active={active}
+          setActive={setActive}
+          onPick={(id) => navigate(`/campus/${id}`)}
+        />
         <div>
           <CaliforniaMap variant="standalone" highlight={active} />
         </div>
@@ -520,8 +577,15 @@ function MapSection() {
 }
 
 function SpotlightStories() {
+  const isMobile = useIsMobile();
   return (
-    <section style={{ padding: "96px 32px", background: "#002033", color: "#fff" }}>
+    <section
+      style={{
+        padding: isMobile ? "56px 20px" : "96px 32px",
+        background: "#002033",
+        color: "#fff",
+      }}
+    >
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
         <div
           style={{
@@ -561,7 +625,13 @@ function SpotlightStories() {
             All stories →
           </a>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+            gap: isMobile ? 16 : 24,
+          }}
+        >
           {SPOTLIGHTS.map((s) => {
             const c = CAMPUS_BY_ID[s.campus];
             return (
@@ -660,15 +730,22 @@ function AudienceBand() {
     },
   ];
 
+  const isMobile = useIsMobile();
   return (
-    <section style={{ padding: "80px 32px", background: "#FFB511", color: "#002033" }}>
+    <section
+      style={{
+        padding: isMobile ? "48px 20px" : "80px 32px",
+        background: "#FFB511",
+        color: "#002033",
+      }}
+    >
       <div
         style={{
           maxWidth: 1440,
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 32,
+          gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+          gap: isMobile ? 28 : 32,
         }}
       >
         {items.map((a) => (

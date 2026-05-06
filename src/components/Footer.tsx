@@ -1,4 +1,7 @@
+import { useIsMobile } from "@/lib/useMediaQuery";
+
 export function Footer() {
+  const isMobile = useIsMobile();
   const cols = [
     {
       h: "Explore",
@@ -32,15 +35,20 @@ export function Footer() {
 
   return (
     <footer
-      style={{ background: "#002033", color: "#fff", padding: "72px 32px 28px", marginTop: 0 }}
+      style={{
+        background: "#002033",
+        color: "#fff",
+        padding: isMobile ? "48px 20px 20px" : "72px 32px 28px",
+        marginTop: 0,
+      }}
     >
       <div
         style={{
           maxWidth: 1440,
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "1.6fr 1fr 1fr 1fr 1fr",
-          gap: 32,
+          gridTemplateColumns: isMobile ? "1fr" : "1.6fr 1fr 1fr 1fr 1fr",
+          gap: isMobile ? 28 : 32,
         }}
       >
         <div>
