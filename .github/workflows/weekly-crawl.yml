@@ -46,9 +46,18 @@ jobs:
         run: vp exec playwright install --with-deps chromium
 
       - name: Refresh data
+        env:
+          CAMPUS_INPUT: ${{ github.event.inputs.campus }}
         run: |
-          if [ -n "${{ github.event.inputs.campus }}" ]; then
-            vp run crawl -- --campus=${{ github.event.inputs.campus }}
+          if [ -n "${CAMPUS_INPUT}" ]; then
+            # Validate the dispatch input before letting it reach a shell.
+            # Anything outside lowercase letters / commas is rejected so a
+            # crafted input like "berkeley; rm -rf …" can't run.
+            if ! printf '%s' "${CAMPUS_INPUT}" | grep -Eq '^[a-z,]+$'; then
+              echo "Invalid --campus input: ${CAMPUS_INPUT}" >&2
+              exit 1
+            fi
+            vp run crawl -- --campus="${CAMPUS_INPUT}"
             vp run build-data
           else
             vp run refresh-data

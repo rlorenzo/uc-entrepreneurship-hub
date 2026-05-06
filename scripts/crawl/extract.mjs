@@ -3,7 +3,7 @@
 // Strategy:
 //   1. From a campus seed URL, harvest internal links.
 //   2. Filter to links whose URL or anchor text mentions program keywords
-//      (accelerator, incubator, fund, course, competition, maker space, etc.).
+//      (accelerator, incubator, fund, competition, maker space, etc.).
 //   3. For each candidate page, run an in-page evaluator that pulls the
 //      best-guess program metadata: name (h1/title), description (lead
 //      paragraph or meta description), associated center, deadline cues.
@@ -13,7 +13,7 @@
 // the defaults. We never throw on extraction failures — the worst case
 // is an empty array, which the build step will silently drop.
 
-import { canonicalType, detectIndustriesInText, slugify } from "./normalize.mjs";
+import { detectIndustriesInText, slugify, tryCanonicalType } from "./normalize.mjs";
 
 const PROGRAM_KEYWORDS = [
   "accelerator",
@@ -87,10 +87,15 @@ const DENY_EXT = /\.(pdf|jpg|jpeg|png|gif|svg|webp|mp4|zip|docx?|xlsx?|pptx?)(\?
 
 /**
  * Decide whether a sub-link looks like a program page worth visiting.
- * Returns false aggressively — a missed program is fine; visiting an
- * unrelated news article wastes the crawl budget.
+ *
+ * Origin policy: same-origin by default. Per-campus `linkAllowlist`
+ * regexes can opt sub-domains in (e.g. Berkeley pulls in
+ * `skydeck.berkeley.edu` and `sutardja-center.berkeley.edu`). When an
+ * allowlist match hits, we trust the override and skip the keyword
+ * heuristic — `buildCandidate`'s `PROGRAM_TYPE_HINTS` gate is still the
+ * per-page authority on what counts as a program.
  */
-export function isProgramLink(href, text, seedOrigin) {
+export function isProgramLink(href, text, seedOrigin, overrides = {}) {
   if (!href) return false;
   let url;
   try {
@@ -98,10 +103,25 @@ export function isProgramLink(href, text, seedOrigin) {
   } catch {
     return false;
   }
-  if (url.origin !== seedOrigin) return false;
   if (DENY_EXT.test(url.pathname)) return false;
   const path = url.pathname.toLowerCase();
   if (DENY_PATHS.some((deny) => path.startsWith(deny))) return false;
+
+  const allowlist = overrides.linkAllowlist;
+  const allowlistMatch = allowlist?.length ? allowlist.some((re) => re.test(href)) : null;
+
+  // Origin gate: same-origin OR an explicit allowlist hit. Allowlists
+  // are how campuses opt sub-domain hubs into the crawl without
+  // dropping the same-origin default for everyone else.
+  if (url.origin !== seedOrigin && allowlistMatch !== true) return false;
+
+  // If an allowlist is configured, treat it as the authoritative pass
+  // condition and skip the keyword heuristic — the override knows
+  // exactly which paths are program pages.
+  if (allowlistMatch === true) return true;
+  if (allowlistMatch === false) return false;
+
+  // No allowlist configured: keyword heuristic on path + anchor text.
   const hay = `${path} ${text || ""}`.toLowerCase();
   return PROGRAM_KEYWORDS.some((k) => hay.includes(k));
 }
@@ -159,14 +179,18 @@ export const inPageExtractor = `() => {
 
 /**
  * Lift raw page-eval output into a normalized candidate.
- * `campusOverrides.allowName(name)` can veto noisy matches (e.g. "Home").
+ *
+ * Slug strategy: `slug` is `slugify(name)` so a crawled page about
+ * "Berkeley SkyDeck" produces slug `berkeley-skydeck`, which lets
+ * `mergePrograms` line it up against curated entries by name; `id`
+ * carries the campus prefix so it stays globally unique even when
+ * two campuses host programs with the same name.
  */
 export function buildCandidate({ raw, url, campus, campusOverrides = {} }) {
   if (!raw?.name) return null;
   const name = raw.name.trim();
   if (name.length < 4 || name.length > 140) return null;
   if (campusOverrides.allowName && !campusOverrides.allowName(name)) return null;
-  // Reject pages that look like generic landing/about content.
   const lower = name.toLowerCase();
   if (
     lower === "home" ||
@@ -177,15 +201,21 @@ export function buildCandidate({ raw, url, campus, campusOverrides = {} }) {
     return null;
   }
 
-  const hint = `${name} ${raw.description || ""}`.toLowerCase();
-  if (!PROGRAM_TYPE_HINTS.some((k) => hint.includes(k))) return null;
+  const combined = `${name} ${raw.description || ""}`.toLowerCase();
+  if (!PROGRAM_TYPE_HINTS.some((k) => combined.includes(k))) return null;
 
   const industries = detectIndustriesInText(`${name} ${raw.longDescription || ""}`);
-  const type = canonicalType(name) || canonicalType(raw.description) || "incubator";
-  const slug = slugify(`${campus}-${name}`);
+  // Classify against name + description together. Falling back to
+  // "incubator" only when nothing in either matches — the previous
+  // version short-circuited on the first call (which always defaulted
+  // to "incubator") and never inspected the description.
+  const type = tryCanonicalType(combined) ?? "incubator";
+
+  const slug = slugify(name);
+  const id = `${campus}-${slug}`;
 
   return {
-    id: slug,
+    id,
     slug,
     name,
     campus,

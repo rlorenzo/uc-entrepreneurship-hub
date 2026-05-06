@@ -163,10 +163,10 @@ async function discoverLinks(page, seedUrl, overrides) {
   const seen = new Set();
   const links = [];
   for (const { href, text } of all) {
-    if (!isProgramLink(href, text, seedOrigin)) continue;
-    if (overrides.linkAllowlist?.length && !overrides.linkAllowlist.some((re) => re.test(href))) {
-      continue;
-    }
+    // isProgramLink consults overrides.linkAllowlist for the origin
+    // gate, so cross-origin program subdomains (e.g. skydeck.berkeley.edu)
+    // can opt in via the per-campus override module.
+    if (!isProgramLink(href, text, seedOrigin, overrides)) continue;
     if (overrides.linkDenylist?.some((re) => re.test(href))) continue;
     const url = href.split("#")[0];
     if (seen.has(url)) continue;
@@ -249,11 +249,21 @@ async function worker() {
   while (queue.length) {
     const site = queue.shift();
     const result = await crawlCampus(site);
-    if (!flags.dryRun) {
-      const path = join(OUT_DIR, `${site.campus}.json`);
-      await writeFile(path, JSON.stringify(result, null, 2));
-    }
     completed.push(result);
+    if (flags.dryRun) continue;
+    const path = join(OUT_DIR, `${site.campus}.json`);
+    // Preserve the previous run's data when the seed fetch itself
+    // failed (DNS hiccup, transient 5xx, WAF challenge). Without this,
+    // a transient outage would write an empty candidates list, the
+    // weekly workflow would commit the deletion, and every program
+    // for that campus would vanish from the published catalog. A
+    // recovered crawl on the next run repopulates it cleanly.
+    const seedFailed = result.errors.some((e) => e.stage === "seed");
+    if (seedFailed && existsSync(path)) {
+      console.log(`  ⓘ preserving previous ${site.campus}.json — seed failed this run`);
+      continue;
+    }
+    await writeFile(path, JSON.stringify(result, null, 2));
   }
 }
 

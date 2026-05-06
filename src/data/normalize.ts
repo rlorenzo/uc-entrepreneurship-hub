@@ -26,6 +26,26 @@ export function slugify(input: string): string {
 }
 
 /**
+ * Word-boundary alias check. Replaces a naive `haystack.includes(alias)`
+ * which falsely matches short tokens — `"ai"` would otherwise tag
+ * "sustainability" or "training" as AI/ML, and the crawler feeds full
+ * page excerpts into the industry detector so the false-positive
+ * surface was huge.
+ *
+ * Aliases that contain non-word characters (slashes, dashes) skip the
+ * regex path because their punctuation already disambiguates them and
+ * \b doesn't fire around `/` or `-` in JS regex.
+ */
+function aliasMatches(haystack: string, alias: string): boolean {
+  if (!alias) return false;
+  if (/[^a-z0-9 ]/i.test(alias)) {
+    return haystack.includes(alias.toLowerCase());
+  }
+  const escaped = alias.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`(^|[^a-z0-9])${escaped}([^a-z0-9]|$)`, "i").test(haystack);
+}
+
+/**
  * Lookup that resolves a noisy phrase to one of our canonical program type ids.
  * Map keys are themselves the canonical id; values are case-insensitive
  * substrings/aliases the crawler is allowed to match against.
@@ -56,20 +76,28 @@ const TYPE_ALIASES: Record<string, string[]> = {
 };
 
 /**
- * Resolve a noisy program-type label to one of TYPES.id, falling back to
- * "incubator" (the most generic bucket) when nothing matches. Returning
- * a canonical value always — never undefined — so downstream sorting,
- * pill rendering, and counts never have to special-case missing types.
+ * Strict classifier — returns null when nothing matches. Use this when
+ * you need to know whether the input actually carried a type signal so
+ * the caller can decide between a confident match and a neutral
+ * fallback. The crawler uses this against `name + description`.
  */
-export function canonicalType(raw: string | undefined | null): string {
-  if (!raw) return "incubator";
+export function tryCanonicalType(raw: string | undefined | null): string | null {
+  if (!raw) return null;
   const hay = raw.toLowerCase();
   for (const [canonical, aliases] of Object.entries(TYPE_ALIASES)) {
-    if (aliases.some((a) => hay.includes(a))) return canonical;
+    if (aliases.some((a) => aliasMatches(hay, a))) return canonical;
   }
-  // If the crawler already produced a known canonical id, pass it through.
-  if (TYPE_BY_ID[hay]) return hay;
-  return "incubator";
+  const trimmed = hay.trim();
+  if (TYPE_BY_ID[trimmed]) return trimmed;
+  return null;
+}
+
+/**
+ * Permissive classifier — back-compat wrapper that always returns a
+ * canonical id, falling back to "incubator" when nothing matches.
+ */
+export function canonicalType(raw: string | undefined | null): string {
+  return tryCanonicalType(raw) ?? "incubator";
 }
 
 /**
@@ -101,7 +129,7 @@ export function canonicalIndustries(raw: string[] | undefined | null): string[] 
     if (!hay) continue;
     let matched = false;
     for (const [canonical, aliases] of Object.entries(INDUSTRY_ALIASES)) {
-      if (aliases.some((a) => hay.includes(a))) {
+      if (aliases.some((a) => aliasMatches(hay, a))) {
         out.add(canonical);
         matched = true;
       }
@@ -111,6 +139,17 @@ export function canonicalIndustries(raw: string[] | undefined | null): string[] 
       const exact = INDUSTRIES.find((i) => i.toLowerCase() === hay);
       if (exact) out.add(exact);
     }
+  }
+  return [...out];
+}
+
+/** Inspect free-form text for industry signals; returns canonical labels. */
+export function detectIndustriesInText(text: string | undefined | null): string[] {
+  if (!text) return [];
+  const hay = text.toLowerCase();
+  const out = new Set<string>();
+  for (const [canonical, aliases] of Object.entries(INDUSTRY_ALIASES)) {
+    if (aliases.some((a) => aliasMatches(hay, a))) out.add(canonical);
   }
   return [...out];
 }
@@ -204,24 +243,37 @@ export function coerceToProgram(candidate: ProgramCandidate): Program {
  * Merge curated programs with crawled programs.
  *
  * Curated entries (from `programs.ts`) win on conflict because a human
- * has already vetted them. Crawled entries with the same slug enrich
- * the curated record with new optional fields (website, applicationLink,
- * sourceUrl, lastUpdated, longDescription) when those are missing on the
- * curated copy. Crawled entries with no curated counterpart are appended.
+ * has already vetted them. Crawled entries enrich the curated record
+ * with optional fields (website, applicationLink, sourceUrl, lastUpdated,
+ * longDescription) the curated copy is missing. Crawled entries with no
+ * curated counterpart are appended.
+ *
+ * Match policy: a crawled program is paired with a curated one when
+ * either (a) they share a slug/id, or (b) they share a campus and a
+ * normalized name. The (campus, name) fallback is what lets a curated
+ * `id: "skydeck"` line up with a crawled `slug: "berkeley-skydeck"` —
+ * the crawler campus-prefixes its slugs for global uniqueness, so a
+ * direct slug equality test would always miss curated entries.
  */
-const programKey = (p: Program) => p.slug ?? p.id;
+const programKey = (p: Program): string => p.slug ?? p.id;
+const nameKey = (p: Program): string =>
+  `${p.campus}::${p.name.normalize("NFKC").trim().toLowerCase()}`;
 
 export function mergePrograms(curated: Program[], crawled: Program[]): Program[] {
   const byKey = new Map<string, Program>();
-  for (const p of curated) byKey.set(programKey(p), p);
+  const byName = new Map<string, Program>();
+  for (const p of curated) {
+    byKey.set(programKey(p), p);
+    byName.set(nameKey(p), p);
+  }
   for (const c of crawled) {
-    const key = programKey(c);
-    const existing = byKey.get(key);
+    const existing = byKey.get(programKey(c)) ?? byName.get(nameKey(c));
     if (!existing) {
-      byKey.set(key, c);
+      byKey.set(programKey(c), c);
+      byName.set(nameKey(c), c);
       continue;
     }
-    byKey.set(key, {
+    const merged: Program = {
       ...existing,
       longDescription: existing.longDescription ?? c.longDescription,
       website: existing.website ?? c.website,
@@ -231,7 +283,9 @@ export function mergePrograms(curated: Program[], crawled: Program[]): Program[]
       sourceUrl: existing.sourceUrl ?? c.sourceUrl,
       lastUpdated: c.lastUpdated ?? existing.lastUpdated,
       deadlines: existing.deadlines ?? c.deadlines,
-    });
+    };
+    byKey.set(programKey(existing), merged);
+    byName.set(nameKey(existing), merged);
   }
   return [...byKey.values()];
 }

@@ -73,13 +73,14 @@ async function loadAll() {
 
 const candidates = await loadAll();
 
-// Dedupe by slug across the whole system. Earlier wins (input order is
-// stable: alphabetical by campus filename), which is fine since a slug
-// collision across campuses is rare.
+// Dedupe by id (campus-prefixed, globally unique). Slug alone collides
+// cross-campus when two hubs publish a "Venture Lab" page; id is what
+// the routes use, so it's the right uniqueness key. Input order is
+// stable (alphabetical by campus filename), so earlier wins.
 const seen = new Map();
 for (const c of candidates) {
   const program = coerce(c);
-  if (!seen.has(program.slug)) seen.set(program.slug, program);
+  if (!seen.has(program.id)) seen.set(program.id, program);
 }
 
 const programs = [...seen.values()].toSorted((a, b) =>
