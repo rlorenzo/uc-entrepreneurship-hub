@@ -64,7 +64,7 @@ function ecosystemFor(campusId: string) {
       {
         name: "Haas School of Business — Lester Center",
         desc: "Research, courses, and the Big Ideas Contest open to all UC students.",
-        url: "https://bigideas.berkeley.edu/",
+        url: "https://bigideascontest.org/",
       },
     ],
     la: [
@@ -114,7 +114,6 @@ function ecosystemFor(campusId: string) {
       {
         name: "Rosenman Institute",
         desc: "Health-tech fellowship and innovator pipeline at the QB3 Mission Bay campus.",
-        url: "https://rosenmaninstitute.org/",
       },
     ],
     davis: [

@@ -19,7 +19,7 @@ const NAV_LINKS: NavLink[] = [
 const UTILITY_LINKS = [
   { href: "#/discover", label: "For partners" },
   { href: "#/discover?eligibility=Faculty", label: "For faculty" },
-  { href: "https://news.universityofcalifornia.edu/", label: "UC Newsroom" },
+  { href: "https://www.universityofcalifornia.edu/news", label: "UC Newsroom" },
 ];
 
 function UtilityBar() {
@@ -91,7 +91,7 @@ function Brand() {
             marginTop: 2,
           }}
         >
-          Hub · All 10 campuses
+          Hub
         </div>
       </div>
     </Link>
