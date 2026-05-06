@@ -44,23 +44,27 @@ function tabPill(active: boolean, color: string): CSSProperties {
 }
 
 function ecosystemFor(campusId: string) {
-  const lookups: Record<string, { name: string; desc: string }[]> = {
+  const lookups: Record<string, { name: string; desc: string; url?: string }[]> = {
     berkeley: [
       {
         name: "Sutardja Center for Entrepreneurship & Technology",
         desc: "The cross-disciplinary engine behind SkyDeck, the Foundry, and Berkeley’s entrepreneurship curriculum.",
+        url: "https://scet.berkeley.edu/",
       },
       {
         name: "Berkeley SkyDeck",
         desc: "A top-floor accelerator that has invested in 350+ companies across all 10 UC campuses.",
+        url: "https://skydeck.berkeley.edu/",
       },
       {
         name: "Jacobs Institute for Design Innovation",
         desc: "Open-access fabrication and design labs serving every major and skill level.",
+        url: "https://jacobsinstitute.berkeley.edu/",
       },
       {
         name: "Haas School of Business — Lester Center",
         desc: "Research, courses, and the Big Ideas Contest open to all UC students.",
+        url: "https://bigideascontest.org/",
       },
     ],
     la: [
@@ -105,10 +109,12 @@ function ecosystemFor(campusId: string) {
       {
         name: "UCSF Innovation Ventures",
         desc: "The translational engine for UCSF research, from disclosure to spin-out.",
+        url: "https://innovation.ucsf.edu/",
       },
       {
         name: "Rosenman Institute",
         desc: "Health-tech fellowship and innovator pipeline at the QB3 Mission Bay campus.",
+        url: "https://www.linkedin.com/school/rosenman-institute",
       },
     ],
     davis: [
@@ -304,7 +310,7 @@ function EcosystemRow({
   campusColor,
 }: {
   index: number;
-  entry: { name: string; desc: string };
+  entry: { name: string; desc: string; url?: string };
   campusColor: string;
 }) {
   return (
@@ -350,21 +356,27 @@ function EcosystemRow({
           {entry.desc}
         </div>
       </div>
-      <a
-        href="#"
-        style={{
-          color: "#005581",
-          fontWeight: 600,
-          fontSize: 14,
-          textDecoration: "none",
-          display: "inline-flex",
-          alignItems: "center",
-          gap: 6,
-          whiteSpace: "nowrap",
-        }}
-      >
-        Visit <I_External size={14} />
-      </a>
+      {entry.url ? (
+        <a
+          href={entry.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: "#005581",
+            fontWeight: 600,
+            fontSize: 14,
+            textDecoration: "none",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 6,
+            whiteSpace: "nowrap",
+          }}
+        >
+          Visit <I_External size={14} />
+        </a>
+      ) : (
+        <span style={{ width: 14 }} />
+      )}
     </div>
   );
 }

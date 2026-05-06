@@ -753,7 +753,6 @@ function ApplyCard({ vm }: { vm: DetailVM }) {
 }
 
 function RunByCard({ campus }: { campus: Campus }) {
-  const navigate = useNavigate();
   const initials = campus.short.replace("UC ", "").slice(0, 2).toUpperCase();
   return (
     <div
@@ -795,12 +794,8 @@ function RunByCard({ campus }: { campus: Campus }) {
           >
             {campus.name}
           </div>
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              navigate(`/campus/${campus.id}`);
-            }}
+          <Link
+            to={`/campus/${campus.id}`}
             style={{
               fontSize: 13,
               color: "#005581",
@@ -810,7 +805,7 @@ function RunByCard({ campus }: { campus: Campus }) {
             }}
           >
             See all {campus.programs} programs at {campus.short} →
-          </a>
+          </Link>
         </div>
       </div>
     </div>

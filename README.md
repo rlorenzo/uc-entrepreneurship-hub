@@ -188,9 +188,12 @@ The Worker's name in `wrangler.jsonc` (`"name": "uc-entrepreneurship-hub"`) must
 
 **Environment variables** (Settings → Environment variables, set on both Production + Preview):
 
-| Name           | Value |
-| -------------- | ----- |
-| `NODE_VERSION` | `24`  |
+| Name                   | Value   |
+| ---------------------- | ------- |
+| `NODE_VERSION`         | `24`    |
+| `PNPM_CONFIG_OPTIONAL` | `false` |
+
+`PNPM_CONFIG_OPTIONAL=false` skips the `optionalDependencies` block in `package.json` — `playwright` lives there because only the crawler needs it, and it's ~70MB of binary that the static build never touches. Skipping it cuts CF install time noticeably without affecting the build.
 
 Notes:
 

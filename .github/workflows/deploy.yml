@@ -42,7 +42,9 @@ jobs:
           cache: true
 
       - name: Install deps
-        run: vp install
+        # Skip optionalDependencies — `playwright` is only needed by the
+        # crawler (weekly-crawl.yml). Saves ~70MB and a few seconds here.
+        run: pnpm install --frozen-lockfile --no-optional
 
       - name: Validate (format + lint + type-check + duplication)
         run: vp run check
