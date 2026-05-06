@@ -1,0 +1,45 @@
+name: CI
+
+# Runs the same validation the deploy workflow runs (format + lint +
+# type-check + duplication, then a production build) but on pull requests
+# instead of post-merge to main, so problems surface before the PR lands.
+# Skips deploy.
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# A new push to a PR cancels the in-progress run for that same PR — we
+# only care about the latest commit's status, no point burning minutes
+# on superseded work.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: voidzero-dev/setup-vp@v1
+        with:
+          node-version: "24"
+          cache: true
+
+      - name: Install deps
+        # Match deploy.yml: setup-vp doesn't put pnpm on PATH, so go
+        # through `vp install` and skip optionalDependencies (playwright,
+        # only needed by the crawler) via the env var pnpm reads.
+        run: vp install
+        env:
+          PNPM_CONFIG_OPTIONAL: "false"
+
+      - name: Validate (format + lint + type-check + duplication)
+        run: vp run check
+
+      - name: Build
+        run: vp build
+        env:
+          VITE_GH_PAGES: "1"

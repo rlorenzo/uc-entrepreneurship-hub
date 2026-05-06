@@ -44,7 +44,12 @@ jobs:
       - name: Install deps
         # Skip optionalDependencies — `playwright` is only needed by the
         # crawler (weekly-crawl.yml). Saves ~70MB and a few seconds here.
-        run: pnpm install --frozen-lockfile --no-optional
+        # setup-vp doesn't put pnpm on PATH, so go through `vp install`
+        # and pass the skip via the env var pnpm reads (same knob the
+        # README documents for Cloudflare Pages).
+        run: vp install
+        env:
+          PNPM_CONFIG_OPTIONAL: "false"
 
       - name: Validate (format + lint + type-check + duplication)
         run: vp run check
