@@ -19,6 +19,12 @@ on:
 
 permissions:
   contents: write
+  # actions: write lets us dispatch deploy.yml at the end of the run.
+  # A `git push` made with the default GITHUB_TOKEN does *not* trigger
+  # downstream workflows (GitHub's anti-loop guard), so we have to
+  # explicitly fire a workflow_dispatch — which is the documented
+  # exception to that guard.
+  actions: write
 
 concurrency:
   group: weekly-crawl
@@ -29,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       # Official Vite+ CI action — installs vp, sets up Node, picks the
       # package manager from `packageManager` in package.json, and caches
@@ -64,13 +70,26 @@ jobs:
           fi
 
       - name: Commit refreshed catalog
+        id: commit
         run: |
           git config user.name "uc-hub-bot"
           git config user.email "uc-hub-bot@users.noreply.github.com"
           git add data/crawled src/data/programs.generated.ts
           if git diff --cached --quiet; then
             echo "No changes from this crawl."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git commit -m "chore(data): weekly refresh ($(date -u +%Y-%m-%d))"
           git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # Pushes made with the default GITHUB_TOKEN don't trigger other
+      # workflows, so deploy.yml would never see this commit on its own.
+      # workflow_dispatch is the documented exception — explicitly fire
+      # the deploy when we actually committed something.
+      - name: Trigger deploy
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
