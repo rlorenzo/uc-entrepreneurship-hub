@@ -97,6 +97,37 @@ const DENY_PATHS = [
 
 const DENY_EXT = /\.(pdf|jpg|jpeg|png|gif|svg|webp|mp4|zip|docx?|xlsx?|pptx?)(\?|$)/i;
 
+function parseHref(href: string): URL | null {
+  if (!href) return null;
+  try {
+    return new URL(href);
+  } catch {
+    return null;
+  }
+}
+
+function isDeniedPath(url: URL): boolean {
+  if (DENY_EXT.test(url.pathname)) return true;
+  const path = url.pathname.toLowerCase();
+  return DENY_PATHS.some((deny) => path.startsWith(deny));
+}
+
+/**
+ * Three-way result for the per-campus allowlist:
+ *   `true`  — allowlist exists and the link matched
+ *   `false` — allowlist exists and the link missed
+ *   `null`  — no allowlist configured; defer to keyword heuristic
+ */
+function classifyAllowlist(href: string, allowlist?: RegExp[]): boolean | null {
+  if (!allowlist?.length) return null;
+  return allowlist.some((re) => re.test(href));
+}
+
+function matchesKeyword(url: URL, text: string): boolean {
+  const hay = `${url.pathname.toLowerCase()} ${text || ""}`.toLowerCase();
+  return PROGRAM_KEYWORDS.some((k) => hay.includes(k));
+}
+
 /**
  * Decide whether a sub-link looks like a program page worth visiting.
  *
@@ -113,33 +144,16 @@ export function isProgramLink(
   seedOrigin: string,
   overrides: CampusOverrides = {},
 ): boolean {
-  if (!href) return false;
-  let url: URL;
-  try {
-    url = new URL(href);
-  } catch {
-    return false;
-  }
-  if (DENY_EXT.test(url.pathname)) return false;
-  const path = url.pathname.toLowerCase();
-  if (DENY_PATHS.some((deny) => path.startsWith(deny))) return false;
+  const url = parseHref(href);
+  if (!url || isDeniedPath(url)) return false;
 
-  const allowlist = overrides.linkAllowlist;
-  const allowlistMatch = allowlist?.length ? allowlist.some((re) => re.test(href)) : null;
-
-  // Origin gate: same-origin OR an explicit allowlist hit. Allowlists
-  // are how campuses opt sub-domain hubs into the crawl without
-  // dropping the same-origin default for everyone else.
-  if (url.origin !== seedOrigin && allowlistMatch !== true) return false;
-
-  // If an allowlist is configured, treat it as the authoritative pass
-  // condition and skip the keyword heuristic — the override knows
-  // exactly which paths are program pages.
-  if (allowlistMatch === true) return true;
-  if (allowlistMatch === false) return false;
-
-  const hay = `${path} ${text || ""}`.toLowerCase();
-  return PROGRAM_KEYWORDS.some((k) => hay.includes(k));
+  // When an allowlist is configured, it's the authoritative pass
+  // condition — cross-origin links are permitted on a hit, and same-origin
+  // links that miss are rejected. With no allowlist we fall back to the
+  // same-origin + keyword heuristic.
+  const allowlistMatch = classifyAllowlist(href, overrides.linkAllowlist);
+  if (allowlistMatch !== null) return allowlistMatch;
+  return url.origin === seedOrigin && matchesKeyword(url, text);
 }
 
 /**
@@ -198,6 +212,79 @@ export interface RawPageData {
   bodyExcerpt: string;
 }
 
+// Names that obviously aren't programs even when the page would otherwise
+// look like one (footer landing pages, etc.).
+const REJECTED_NAMES = new Set(["home", "about", "contact"]);
+const REJECTED_NAME_PREFIXES = ["welcome to "];
+const NAME_LEN = { min: 4, max: 140 } as const;
+
+type NameValidator = (name: string) => boolean;
+
+function isInLength(name: string): boolean {
+  return name.length >= NAME_LEN.min && name.length <= NAME_LEN.max;
+}
+
+function isAllowedLabel(name: string): boolean {
+  const lower = name.toLowerCase();
+  if (REJECTED_NAMES.has(lower)) return false;
+  return !REJECTED_NAME_PREFIXES.some((p) => lower.startsWith(p));
+}
+
+const NAME_VALIDATORS: NameValidator[] = [isInLength, isAllowedLabel];
+
+function normalizeName(raw: string | undefined, allowName?: NameValidator): string | null {
+  const name = raw?.trim();
+  if (!name) return null;
+  if (!NAME_VALIDATORS.every((v) => v(name))) return null;
+  if (allowName && !allowName(name)) return null;
+  return name;
+}
+
+function looksLikeProgram(text: string): boolean {
+  const lower = text.toLowerCase();
+  return PROGRAM_TYPE_HINTS.some((k) => lower.includes(k));
+}
+
+interface NormalizedPage {
+  name: string;
+  description: string;
+  longDescription: string;
+  deadline: string;
+  applicationLink: string;
+}
+
+const PAGE_DEFAULTS = {
+  description: "",
+  longDescription: "",
+  deadline: "",
+  applicationLink: "",
+} as const;
+
+function normalizePage(raw: RawPageData | null | undefined, name: string): NormalizedPage {
+  return { ...PAGE_DEFAULTS, ...raw, name };
+}
+
+const blankToUndefined = (s: string): string | undefined => s || undefined;
+
+function assembleCandidate(page: NormalizedPage, url: string, campus: string): ProgramCandidate {
+  const slug = slugify(page.name);
+  const combined = `${page.name} ${page.description}`.toLowerCase();
+  return {
+    id: `${campus}-${slug}`,
+    slug,
+    name: page.name,
+    campus,
+    type: tryCanonicalType(combined) ?? "incubator",
+    desc: page.description.trim(),
+    longDescription: blankToUndefined(page.longDescription.trim()),
+    industries: detectIndustriesInText(`${page.name} ${page.longDescription}`),
+    deadline: blankToUndefined(page.deadline),
+    applicationLink: blankToUndefined(page.applicationLink),
+    sourceUrl: url,
+    lastUpdated: new Date().toISOString(),
+  };
+}
+
 /**
  * Lift raw page-eval output into a normalized candidate.
  *
@@ -218,45 +305,9 @@ export function buildCandidate({
   campus: string;
   campusOverrides?: CampusOverrides;
 }): ProgramCandidate | null {
-  if (!raw?.name) return null;
-  const name = raw.name.trim();
-  if (name.length < 4 || name.length > 140) return null;
-  if (campusOverrides.allowName && !campusOverrides.allowName(name)) return null;
-  const lower = name.toLowerCase();
-  if (
-    lower === "home" ||
-    lower === "about" ||
-    lower === "contact" ||
-    lower.startsWith("welcome to ")
-  ) {
-    return null;
-  }
-
-  const combined = `${name} ${raw.description || ""}`.toLowerCase();
-  if (!PROGRAM_TYPE_HINTS.some((k) => combined.includes(k))) return null;
-
-  const industries = detectIndustriesInText(`${name} ${raw.longDescription || ""}`);
-  // Classify against name + description together. Falling back to
-  // "incubator" only when nothing in either matches — the previous
-  // version short-circuited on the first call (which always defaulted
-  // to "incubator") and never inspected the description.
-  const type = tryCanonicalType(combined) ?? "incubator";
-
-  const slug = slugify(name);
-  const id = `${campus}-${slug}`;
-
-  return {
-    id,
-    slug,
-    name,
-    campus,
-    type,
-    desc: (raw.description || "").trim(),
-    longDescription: (raw.longDescription || "").trim() || undefined,
-    industries,
-    deadline: raw.deadline || undefined,
-    applicationLink: raw.applicationLink || undefined,
-    sourceUrl: url,
-    lastUpdated: new Date().toISOString(),
-  };
+  const name = normalizeName(raw?.name, campusOverrides.allowName);
+  if (!name) return null;
+  const page = normalizePage(raw, name);
+  if (!looksLikeProgram(`${page.name} ${page.description}`)) return null;
+  return assembleCandidate(page, url, campus);
 }

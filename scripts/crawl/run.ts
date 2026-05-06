@@ -221,6 +221,75 @@ async function discoverLinks(
 }
 
 // ── Per-campus pipeline ──────────────────────────────────────────────────
+
+interface SeedOutcome {
+  links: { url: string; text: string }[];
+  error: CrawlError | null;
+}
+
+async function fetchSeed(site: Site, overrides: CampusOverrides): Promise<SeedOutcome> {
+  try {
+    const links = await withPage(async (page) => {
+      const resp = await gotoWithFallback(page, site.seedUrl);
+      if (!resp?.ok()) throw new Error(`HTTP ${resp?.status() ?? "?"} on seed`);
+      return await discoverLinks(page, site.seedUrl, overrides);
+    });
+    return { links, error: null };
+  } catch (err) {
+    const message = (err as Error).message;
+    console.error(`  ✗ seed failed: ${message}`);
+    return { links: [], error: { stage: "seed", url: site.seedUrl, message } };
+  }
+}
+
+async function extractFromUrl(
+  site: Site,
+  url: string,
+  overrides: CampusOverrides,
+): Promise<ProgramCandidate | null> {
+  return await withPage(async (page) => {
+    const resp = await gotoWithFallback(page, url);
+    if (!resp?.ok()) throw new Error(`HTTP ${resp?.status() ?? "?"}`);
+    await page.waitForTimeout(800);
+    const raw = (await page.evaluate(`(${inPageExtractor})()`)) as RawPageData;
+    return buildCandidate({ raw, url, campus: site.campus, campusOverrides: overrides });
+  });
+}
+
+/** Walk the candidate sub-pages, accumulating extracted programs and errors. */
+async function visitCandidates(
+  site: Site,
+  links: { url: string; text: string }[],
+  overrides: CampusOverrides,
+): Promise<{ candidates: ProgramCandidate[]; errors: CrawlError[] }> {
+  const candidates: ProgramCandidate[] = [];
+  const errors: CrawlError[] = [];
+  for (const { url } of links) {
+    try {
+      const candidate = await extractFromUrl(site, url, overrides);
+      if (candidate) candidates.push(candidate);
+    } catch (err) {
+      errors.push({ stage: "subpage", url, message: (err as Error).message });
+    }
+  }
+  return { candidates, errors };
+}
+
+/** A program directory often links the same page from multiple sections. */
+function dedupeById(candidates: ProgramCandidate[]): ProgramCandidate[] {
+  const byId = new Map<string, ProgramCandidate>();
+  for (const c of candidates) {
+    if (c.id) byId.set(c.id, c);
+  }
+  return [...byId.values()];
+}
+
+function logDryRunPlan(links: { url: string; text: string }[]): void {
+  for (const { url, text } of links) {
+    console.log(`    • ${text || "(no text)"} → ${url}`);
+  }
+}
+
 async function crawlCampus(site: Site): Promise<CrawlResult> {
   const overrides = await loadOverrides(site.campus);
   const cap = flags.limit ?? overrides.maxSubpages ?? 30;
@@ -235,60 +304,47 @@ async function crawlCampus(site: Site): Promise<CrawlResult> {
     errors: [],
   };
 
-  let candidateLinks: { url: string; text: string }[] = [];
-  try {
-    candidateLinks = await withPage(async (page) => {
-      const resp = await gotoWithFallback(page, site.seedUrl);
-      if (!resp?.ok()) throw new Error(`HTTP ${resp?.status() ?? "?"} on seed`);
-      return await discoverLinks(page, site.seedUrl, overrides);
-    });
-  } catch (err) {
-    console.error(`  ✗ seed failed: ${(err as Error).message}`);
-    result.errors.push({ stage: "seed", url: site.seedUrl, message: (err as Error).message });
+  const seed = await fetchSeed(site, overrides);
+  if (seed.error) {
+    result.errors.push(seed.error);
     return result;
   }
 
-  candidateLinks = candidateLinks.slice(0, cap);
-  console.log(`  ${candidateLinks.length} candidate sub-page(s)`);
-
+  const links = seed.links.slice(0, cap);
+  console.log(`  ${links.length} candidate sub-page(s)`);
   if (flags.dryRun) {
-    for (const { url, text } of candidateLinks)
-      console.log(`    • ${text || "(no text)"} → ${url}`);
+    logDryRunPlan(links);
     return result;
   }
 
-  // Sequential per-campus to keep memory bounded; cross-campus parallelism
-  // happens at the worker-pool layer.
-  for (const { url } of candidateLinks) {
-    try {
-      const candidate = await withPage(async (page) => {
-        const resp = await gotoWithFallback(page, url);
-        if (!resp?.ok()) throw new Error(`HTTP ${resp?.status() ?? "?"}`);
-        await page.waitForTimeout(800);
-        const raw = (await page.evaluate(`(${inPageExtractor})()`)) as RawPageData;
-        return buildCandidate({ raw, url, campus: site.campus, campusOverrides: overrides });
-      });
-      if (candidate) {
-        result.candidates.push(candidate);
-      }
-    } catch (err) {
-      result.errors.push({ stage: "subpage", url, message: (err as Error).message });
-    }
-  }
-
-  // Dedupe by id — a program directory page often links to the same
-  // program from multiple sections.
-  const byId = new Map<string, ProgramCandidate>();
-  for (const c of result.candidates) {
-    if (c.id) byId.set(c.id, c);
-  }
-  result.candidates = [...byId.values()];
+  const harvested = await visitCandidates(site, links, overrides);
+  result.candidates = dedupeById(harvested.candidates);
+  result.errors.push(...harvested.errors);
 
   console.log(`  ✓ ${result.candidates.length} program(s), ${result.errors.length} error(s)`);
   return result;
 }
 
 // ── Worker pool over campuses ────────────────────────────────────────────
+
+/**
+ * Persist a crawl result, preserving the previous file when the seed
+ * fetch failed and a previous run exists. Without this, a transient
+ * WAF/DNS outage would write an empty candidates list, the weekly
+ * workflow would commit the deletion, and every program for that
+ * campus would vanish from the published catalog. A recovered crawl
+ * on the next run repopulates it cleanly.
+ */
+async function persistResult(result: CrawlResult): Promise<void> {
+  const path = join(OUT_DIR, `${result.campus}.json`);
+  const seedFailed = result.errors.some((e) => e.stage === "seed");
+  if (seedFailed && existsSync(path)) {
+    console.log(`  ⓘ preserving previous ${result.campus}.json — seed failed this run`);
+    return;
+  }
+  await writeFile(path, JSON.stringify(result, null, 2));
+}
+
 const queue: Site[] = [...sites];
 const completed: CrawlResult[] = [];
 async function worker(): Promise<void> {
@@ -297,20 +353,7 @@ async function worker(): Promise<void> {
     if (!site) break;
     const result = await crawlCampus(site);
     completed.push(result);
-    if (flags.dryRun) continue;
-    const path = join(OUT_DIR, `${site.campus}.json`);
-    // Preserve the previous run's data when the seed fetch itself
-    // failed (DNS hiccup, transient 5xx, WAF challenge). Without this,
-    // a transient outage would write an empty candidates list, the
-    // weekly workflow would commit the deletion, and every program
-    // for that campus would vanish from the published catalog. A
-    // recovered crawl on the next run repopulates it cleanly.
-    const seedFailed = result.errors.some((e) => e.stage === "seed");
-    if (seedFailed && existsSync(path)) {
-      console.log(`  ⓘ preserving previous ${site.campus}.json — seed failed this run`);
-      continue;
-    }
-    await writeFile(path, JSON.stringify(result, null, 2));
+    if (!flags.dryRun) await persistResult(result);
   }
 }
 

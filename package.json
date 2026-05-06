@@ -10,7 +10,7 @@
     "test": "vp test",
     "lint": "vp lint",
     "fmt": "vp fmt",
-    "check": "vp check",
+    "check": "vp check && fallow",
     "crawl": "node scripts/crawl/run.ts",
     "build-data": "node scripts/crawl/build-data.ts",
     "refresh-data": "vp run crawl && vp run build-data"
@@ -24,9 +24,15 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^6.0.0",
+    "fallow": "^2.65.0",
     "playwright": "^1.49.0",
     "typescript": "^5.6.3",
     "vite-plus": "^0.1.20"
   },
-  "packageManager": "pnpm@10.33.3"
+  "packageManager": "pnpm@10.33.3",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "fallow"
+    ]
+  }
 }

@@ -95,8 +95,11 @@ export function tryCanonicalType(raw: string | undefined | null): string | null 
 /**
  * Permissive classifier — back-compat wrapper that always returns a
  * canonical id, falling back to "incubator" when nothing matches.
+ * Used by `coerceToProgram` below; not exported because no external
+ * consumer needs it. Promote to `export` if/when the UI starts calling
+ * it directly.
  */
-export function canonicalType(raw: string | undefined | null): string {
+function canonicalType(raw: string | undefined | null): string {
   return tryCanonicalType(raw) ?? "incubator";
 }
 
@@ -120,42 +123,48 @@ const INDUSTRY_ALIASES: Record<string, string[]> = {
   Energy: ["energy", "battery", "storage", "grid", "solar"],
 };
 
-/** Canonicalize a list of free-form industry strings to our taxonomy. */
-export function canonicalIndustries(raw: string[] | undefined | null): string[] {
-  if (!raw?.length) return [];
-  const out = new Set<string>();
-  for (const item of raw) {
-    const hay = item.toLowerCase().trim();
-    if (!hay) continue;
-    let matched = false;
-    for (const [canonical, aliases] of Object.entries(INDUSTRY_ALIASES)) {
-      if (aliases.some((a) => aliasMatches(hay, a))) {
-        out.add(canonical);
-        matched = true;
-      }
-    }
-    // Pass through items already in canonical form.
-    if (!matched) {
-      const exact = INDUSTRIES.find((i) => i.toLowerCase() === hay);
-      if (exact) out.add(exact);
+/**
+ * Collect every alias-matching canonical industry into `out`.
+ * Returns true when at least one alias hit, so the caller knows whether
+ * to fall back to literal-label matching.
+ */
+function collectAliasMatches(hay: string, out: Set<string>): boolean {
+  let matched = false;
+  for (const [canonical, aliases] of Object.entries(INDUSTRY_ALIASES)) {
+    if (aliases.some((a) => aliasMatches(hay, a))) {
+      out.add(canonical);
+      matched = true;
     }
   }
+  return matched;
+}
+
+/** Canonicalize a single free-form industry token into `out`. */
+function canonicalizeIndustry(hay: string, out: Set<string>): void {
+  if (!hay) return;
+  if (collectAliasMatches(hay, out)) return;
+  const exact = INDUSTRIES.find((i) => i.toLowerCase() === hay);
+  if (exact) out.add(exact);
+}
+
+/** Canonicalize a list of free-form industry strings to our taxonomy. */
+function canonicalIndustries(raw: string[] | undefined | null): string[] {
+  if (!raw?.length) return [];
+  const out = new Set<string>();
+  for (const item of raw) canonicalizeIndustry(item.toLowerCase().trim(), out);
   return [...out];
 }
 
 /** Inspect free-form text for industry signals; returns canonical labels. */
 export function detectIndustriesInText(text: string | undefined | null): string[] {
   if (!text) return [];
-  const hay = text.toLowerCase();
   const out = new Set<string>();
-  for (const [canonical, aliases] of Object.entries(INDUSTRY_ALIASES)) {
-    if (aliases.some((a) => aliasMatches(hay, a))) out.add(canonical);
-  }
+  collectAliasMatches(text.toLowerCase(), out);
   return [...out];
 }
 
 /** Resolve a stage label to one of the canonical stages. */
-export function canonicalStage(raw: string | undefined | null): Stage {
+function canonicalStage(raw: string | undefined | null): Stage {
   if (!raw) return "Idea";
   const hay = raw.toLowerCase();
   if (hay.includes("scal")) return "Scaling";
@@ -203,39 +212,51 @@ const FIELD_FALLBACKS = {
   desc: "Program details not yet aggregated. Visit the source page for full information.",
 } as const;
 
+/** Trim then fall back when the trimmed value is empty. */
+function trimOr(value: string | undefined, fallback: string): string {
+  return value?.trim() || fallback;
+}
+
+const DEFAULT_ELIGIBILITY = ["Open to public"] as const;
+
+function deriveSlug(c: ProgramCandidate): string {
+  return c.slug ?? c.id ?? slugify(c.name);
+}
+
+function deriveEligibility(eligibility?: string[]): readonly string[] {
+  return eligibility?.length ? eligibility : DEFAULT_ELIGIBILITY;
+}
+
 /**
  * Lift a crawler candidate into a fully-typed Program, filling in safe
  * defaults so the UI never has to render undefined for required fields.
  * `slug` is computed if missing.
  */
-export function coerceToProgram(candidate: ProgramCandidate): Program {
-  const slug = candidate.slug ?? candidate.id ?? slugify(candidate.name);
-  const type = canonicalType(candidate.type);
-  const industries = canonicalIndustries(candidate.industries);
-  const stage = canonicalStage(candidate.stage);
+export function coerceToProgram(c: ProgramCandidate): Program {
+  const slug = deriveSlug(c);
   return {
-    id: candidate.id ?? slug,
+    id: c.id ?? slug,
     slug,
-    name: candidate.name.trim(),
-    campus: candidate.campus,
-    type,
-    desc: candidate.desc?.trim() || FIELD_FALLBACKS.desc,
-    longDescription: candidate.longDescription?.trim(),
-    industries,
-    stage,
-    eligibility: candidate.eligibility?.length ? candidate.eligibility : ["Open to public"],
-    duration: candidate.duration?.trim() || FIELD_FALLBACKS.duration,
-    funding: candidate.funding?.trim() || FIELD_FALLBACKS.funding,
-    selectivity: candidate.selectivity?.trim() || FIELD_FALLBACKS.selectivity,
-    cohortSize: candidate.cohortSize ?? null,
-    deadline: candidate.deadline?.trim() || FIELD_FALLBACKS.deadline,
-    deadlines: candidate.deadlines,
-    website: candidate.website,
-    applicationLink: candidate.applicationLink,
-    associatedCenter: candidate.associatedCenter,
-    tags: candidate.tags,
-    lastUpdated: candidate.lastUpdated,
-    sourceUrl: candidate.sourceUrl,
+    name: c.name.trim(),
+    campus: c.campus,
+    type: canonicalType(c.type),
+    desc: trimOr(c.desc, FIELD_FALLBACKS.desc),
+    longDescription: c.longDescription?.trim(),
+    industries: canonicalIndustries(c.industries),
+    stage: canonicalStage(c.stage),
+    eligibility: [...deriveEligibility(c.eligibility)],
+    duration: trimOr(c.duration, FIELD_FALLBACKS.duration),
+    funding: trimOr(c.funding, FIELD_FALLBACKS.funding),
+    selectivity: trimOr(c.selectivity, FIELD_FALLBACKS.selectivity),
+    cohortSize: c.cohortSize ?? null,
+    deadline: trimOr(c.deadline, FIELD_FALLBACKS.deadline),
+    deadlines: c.deadlines,
+    website: c.website,
+    applicationLink: c.applicationLink,
+    associatedCenter: c.associatedCenter,
+    tags: c.tags,
+    lastUpdated: c.lastUpdated,
+    sourceUrl: c.sourceUrl,
   };
 }
 
@@ -259,33 +280,54 @@ const programKey = (p: Program): string => p.slug ?? p.id;
 const nameKey = (p: Program): string =>
   `${p.campus}::${p.name.normalize("NFKC").trim().toLowerCase()}`;
 
+/**
+ * Optional Program fields a crawled record can fill in on a curated one.
+ * Curated values always win — these are only copied when the curated
+ * record left the field undefined. `lastUpdated` is the lone exception:
+ * the crawl timestamp is fresher than whatever the curated record had,
+ * so the crawled value wins when present.
+ */
+const ENRICHABLE_FIELDS = [
+  "longDescription",
+  "website",
+  "applicationLink",
+  "associatedCenter",
+  "tags",
+  "sourceUrl",
+  "deadlines",
+] as const satisfies readonly (keyof Program)[];
+
+function enrichWithCrawl(existing: Program, crawled: Program): Program {
+  const merged: Program = { ...existing };
+  for (const field of ENRICHABLE_FIELDS) {
+    if (existing[field] === undefined) {
+      (merged as Record<string, unknown>)[field] = crawled[field];
+    }
+  }
+  if (crawled.lastUpdated) merged.lastUpdated = crawled.lastUpdated;
+  return merged;
+}
+
+function indexProgram(p: Program, byKey: Map<string, Program>, byName: Map<string, Program>) {
+  byKey.set(programKey(p), p);
+  byName.set(nameKey(p), p);
+}
+
+function mergeOneCrawled(
+  c: Program,
+  byKey: Map<string, Program>,
+  byName: Map<string, Program>,
+): void {
+  const existing = byKey.get(programKey(c)) ?? byName.get(nameKey(c));
+  const merged = existing ? enrichWithCrawl(existing, c) : c;
+  indexProgram(merged, byKey, byName);
+  if (existing) byKey.set(programKey(existing), merged);
+}
+
 export function mergePrograms(curated: Program[], crawled: Program[]): Program[] {
   const byKey = new Map<string, Program>();
   const byName = new Map<string, Program>();
-  for (const p of curated) {
-    byKey.set(programKey(p), p);
-    byName.set(nameKey(p), p);
-  }
-  for (const c of crawled) {
-    const existing = byKey.get(programKey(c)) ?? byName.get(nameKey(c));
-    if (!existing) {
-      byKey.set(programKey(c), c);
-      byName.set(nameKey(c), c);
-      continue;
-    }
-    const merged: Program = {
-      ...existing,
-      longDescription: existing.longDescription ?? c.longDescription,
-      website: existing.website ?? c.website,
-      applicationLink: existing.applicationLink ?? c.applicationLink,
-      associatedCenter: existing.associatedCenter ?? c.associatedCenter,
-      tags: existing.tags ?? c.tags,
-      sourceUrl: existing.sourceUrl ?? c.sourceUrl,
-      lastUpdated: c.lastUpdated ?? existing.lastUpdated,
-      deadlines: existing.deadlines ?? c.deadlines,
-    };
-    byKey.set(programKey(existing), merged);
-    byName.set(nameKey(existing), merged);
-  }
+  for (const p of curated) indexProgram(p, byKey, byName);
+  for (const c of crawled) mergeOneCrawled(c, byKey, byName);
   return [...byKey.values()];
 }

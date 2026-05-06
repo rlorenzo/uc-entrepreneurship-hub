@@ -1,11 +1,12 @@
-import type { ReactNode } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { type ReactNode } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Page } from "@/components/Page";
 import { Eyebrow } from "@/components/Eyebrow";
 import { ProgramCard } from "@/components/ProgramCard";
 import { CAMPUS_BY_ID } from "@/data/campuses";
 import { TYPE_BY_ID } from "@/data/types-list";
 import { PROGRAMS } from "@/data/programs";
+import type { Campus, Program, ProgramType } from "@/data/types.ts";
 import { useCompare } from "@/lib/compare";
 import { programGradient } from "@/lib/programGradient";
 import {
@@ -21,6 +22,45 @@ import {
   I_Trophy,
   I_Users,
 } from "@/lib/icons";
+
+// ── derived view-model ─────────────────────────────────────────────────
+
+interface DetailVM {
+  program: Program;
+  campus: Campus;
+  type: ProgramType;
+  applyHref: string;
+  isExternal: boolean;
+  hasSeparateWebsite: boolean;
+  related: Program[];
+}
+
+function buildVM(program: Program): DetailVM {
+  const campus = CAMPUS_BY_ID[program.campus];
+  const type = TYPE_BY_ID[program.type];
+  const applyHref = program.applicationLink || program.website || program.sourceUrl || "#";
+  const isExternal = applyHref !== "#";
+  const hasSeparateWebsite = Boolean(program.website && program.website !== applyHref);
+  const related = PROGRAMS.filter((p) => isRelated(p, program)).slice(0, 3);
+  return { program, campus, type, applyHref, isExternal, hasSeparateWebsite, related };
+}
+
+function isRelated(p: Program, target: Program): boolean {
+  if (p.id === target.id) return false;
+  if (p.type === target.type) return true;
+  return p.industries.some((i) => target.industries.includes(i));
+}
+
+// ── shared building blocks ─────────────────────────────────────────────
+
+function ExternalAnchorProps(href: string, isExternal: boolean) {
+  return {
+    href,
+    target: isExternal ? "_blank" : undefined,
+    rel: isExternal ? "noopener noreferrer" : undefined,
+    onClick: isExternal ? undefined : (e: React.MouseEvent) => e.preventDefault(),
+  } as const;
+}
 
 function DetailBlock({
   title,
@@ -51,300 +91,874 @@ function DetailBlock({
   );
 }
 
+// ── hero section ───────────────────────────────────────────────────────
+
+function HeroBreadcrumbs({ campus, programName }: { campus: Campus; programName: string }) {
+  const linkStyle = { color: "#BDE3F6", textDecoration: "none", fontWeight: 600 } as const;
+  return (
+    <div
+      style={{
+        fontSize: 13,
+        color: "#BDE3F6",
+        display: "flex",
+        gap: 8,
+        alignItems: "center",
+        flexWrap: "wrap",
+        marginBottom: 32,
+      }}
+    >
+      <Link to="/" style={linkStyle}>
+        Home
+      </Link>
+      <I_Chevron size={12} />
+      <Link to="/discover" style={linkStyle}>
+        Programs
+      </Link>
+      <I_Chevron size={12} />
+      <Link to={`/campus/${campus.id}`} style={linkStyle}>
+        {campus.name}
+      </Link>
+      <I_Chevron size={12} />
+      <span style={{ color: "#fff", fontWeight: 600 }}>{programName}</span>
+    </div>
+  );
+}
+
+function HeroChips({
+  type,
+  featured,
+  campusName,
+}: {
+  type: ProgramType;
+  featured?: boolean;
+  campusName: string;
+}) {
+  const chipBase = {
+    padding: "5px 12px",
+    borderRadius: 999,
+    fontSize: 11.5,
+    fontWeight: 700,
+    letterSpacing: ".08em",
+    textTransform: "uppercase",
+  } as const;
+  return (
+    <div
+      style={{
+        display: "flex",
+        gap: 8,
+        alignItems: "center",
+        marginBottom: 18,
+        flexWrap: "wrap",
+      }}
+    >
+      <span style={{ ...chipBase, background: "#fff", color: type.color }}>{type.label}</span>
+      {featured && (
+        <span
+          style={{
+            ...chipBase,
+            background: "#FFB511",
+            color: "#002033",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 4,
+          }}
+        >
+          <I_Star size={12} /> Featured
+        </span>
+      )}
+      <span
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 6,
+          color: "#BDE3F6",
+          fontSize: 14,
+          fontWeight: 600,
+        }}
+      >
+        <I_Pin size={14} /> {campusName}
+      </span>
+    </div>
+  );
+}
+
+function HeroPrimaryCTA({ vm }: { vm: DetailVM }) {
+  const label = vm.program.applicationLink
+    ? "Start application"
+    : `Visit on ${vm.campus.short}.edu`;
+  return (
+    <a
+      {...ExternalAnchorProps(vm.applyHref, vm.isExternal)}
+      style={{
+        background: "#FFB511",
+        color: "#002033",
+        padding: "14px 24px",
+        borderRadius: 4,
+        fontWeight: 700,
+        textDecoration: "none",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 8,
+      }}
+    >
+      {label} <I_External size={15} />
+    </a>
+  );
+}
+
+function HeroCompareToggle({ programId }: { programId: string }) {
+  const { has, add, remove } = useCompare();
+  const inCompare = has(programId);
+  return (
+    <button
+      onClick={() => (inCompare ? remove(programId) : add(programId))}
+      style={{
+        background: "transparent",
+        color: "#fff",
+        padding: "13px 22px",
+        borderRadius: 4,
+        fontWeight: 600,
+        border: "2px solid #fff",
+        cursor: "pointer",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 8,
+      }}
+    >
+      {inCompare ? (
+        <>
+          <I_Check size={16} /> Added to compare
+        </>
+      ) : (
+        <>
+          <I_Plus size={16} /> Add to compare
+        </>
+      )}
+    </button>
+  );
+}
+
+function HeroLeft({ vm }: { vm: DetailVM }) {
+  return (
+    <div>
+      <HeroChips type={vm.type} featured={vm.program.featured} campusName={vm.campus.name} />
+      <h1
+        style={{
+          fontFamily: "'Source Serif 4',Georgia,serif",
+          fontWeight: 600,
+          fontSize: "clamp(40px,4.6vw,64px)",
+          lineHeight: 1.05,
+          letterSpacing: "-0.01em",
+          margin: 0,
+          textWrap: "balance",
+        }}
+      >
+        {vm.program.name}
+      </h1>
+      <p
+        style={{
+          fontFamily: "'Source Serif 4',Georgia,serif",
+          fontWeight: 400,
+          fontSize: 22,
+          lineHeight: 1.45,
+          marginTop: 20,
+          maxWidth: 760,
+          color: "#BDE3F6",
+        }}
+      >
+        {vm.program.desc}
+      </p>
+      <div style={{ display: "flex", gap: 14, marginTop: 28, flexWrap: "wrap" }}>
+        <HeroPrimaryCTA vm={vm} />
+        <HeroCompareToggle programId={vm.program.id} />
+      </div>
+    </div>
+  );
+}
+
+interface GlanceRow {
+  icon: ReactNode;
+  label: string;
+  value: ReactNode;
+}
+
+function buildGlanceRows(program: Program): GlanceRow[] {
+  return [
+    { icon: <I_Calendar size={16} />, label: "Application deadline", value: program.deadline },
+    { icon: <I_Money size={16} />, label: "Funding", value: program.funding },
+    { icon: <I_Clock size={16} />, label: "Duration", value: program.duration },
+    { icon: <I_Users size={16} />, label: "Cohort size", value: cohortLabel(program.cohortSize) },
+    { icon: <I_Trophy size={16} />, label: "Selectivity", value: program.selectivity },
+  ];
+}
+
+function cohortLabel(cohortSize: number | null): ReactNode {
+  if (!cohortSize) return <em style={{ color: "#7C7E7F", fontStyle: "normal" }}>Not disclosed</em>;
+  return `${cohortSize} ventures`;
+}
+
+function AtAGlanceCard({ program }: { program: Program }) {
+  const rows = buildGlanceRows(program);
+  return (
+    <div
+      style={{
+        background: "rgba(255,255,255,.06)",
+        border: "1px solid rgba(255,255,255,.18)",
+        borderRadius: 8,
+        padding: "24px 26px",
+        backdropFilter: "blur(8px)",
+      }}
+    >
+      <div
+        style={{
+          fontSize: 11.5,
+          letterSpacing: ".14em",
+          textTransform: "uppercase",
+          fontWeight: 700,
+          color: "#FFB511",
+          marginBottom: 18,
+        }}
+      >
+        At a glance
+      </div>
+      {rows.map((row, i) => (
+        <GlanceRowItem key={row.label} row={row} first={i === 0} />
+      ))}
+    </div>
+  );
+}
+
+function GlanceRowItem({ row, first }: { row: GlanceRow; first: boolean }) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        gap: 12,
+        padding: "12px 0",
+        borderTop: first ? "none" : "1px solid rgba(255,255,255,.10)",
+      }}
+    >
+      <span
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 8,
+          fontSize: 13,
+          color: "#BDE3F6",
+        }}
+      >
+        {row.icon} {row.label}
+      </span>
+      <span style={{ fontSize: 14, fontWeight: 600, color: "#fff", textAlign: "right" }}>
+        {row.value}
+      </span>
+    </div>
+  );
+}
+
+function DetailHero({ vm }: { vm: DetailVM }) {
+  return (
+    <section
+      style={{ background: "#002033", color: "#fff", position: "relative", overflow: "hidden" }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: programGradient(vm.program),
+          opacity: 0.55,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(180deg, rgba(0,32,51,.4) 0%, rgba(0,32,51,.85) 100%)",
+        }}
+      />
+      <div
+        style={{
+          position: "relative",
+          maxWidth: 1440,
+          margin: "0 auto",
+          padding: "24px 32px 56px",
+        }}
+      >
+        <HeroBreadcrumbs campus={vm.campus} programName={vm.program.name} />
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1.4fr 1fr",
+            gap: 48,
+            alignItems: "flex-end",
+          }}
+        >
+          <HeroLeft vm={vm} />
+          <AtAGlanceCard program={vm.program} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── overview body ──────────────────────────────────────────────────────
+
+interface KeyDetail {
+  label: string;
+  value: string;
+}
+
+function buildKeyDetails(program: Program): KeyDetail[] {
+  return [
+    { label: "Stage", value: program.stage },
+    { label: "Eligibility", value: program.eligibility.join(", ") },
+    { label: "Duration", value: program.duration },
+    { label: "Funding", value: program.funding },
+    { label: "Selectivity", value: program.selectivity },
+    {
+      label: "Cohort size",
+      value: program.cohortSize ? `${program.cohortSize} ventures` : "Not disclosed",
+    },
+  ];
+}
+
+function KeyDetailsGrid({ program, type }: { program: Program; type: ProgramType }) {
+  return (
+    <DetailBlock title="Key details" eyebrow="What you get">
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 1fr)",
+          gap: 16,
+          marginTop: 10,
+        }}
+      >
+        {buildKeyDetails(program).map((d) => (
+          <div
+            key={d.label}
+            style={{
+              padding: "14px 16px",
+              background: "#F7F5F1",
+              borderRadius: 6,
+              borderLeft: `3px solid ${type.color}`,
+            }}
+          >
+            <div
+              style={{
+                fontSize: 11.5,
+                letterSpacing: ".12em",
+                textTransform: "uppercase",
+                fontWeight: 700,
+                color: "#4C4C4C",
+              }}
+            >
+              {d.label}
+            </div>
+            <div style={{ fontSize: 16, fontWeight: 600, color: "#002033", marginTop: 4 }}>
+              {d.value}
+            </div>
+          </div>
+        ))}
+      </div>
+    </DetailBlock>
+  );
+}
+
+function buildFitBullets(program: Program, campusName: string): string[] {
+  const industries = program.industries.slice(0, 2).join(" or ");
+  const stage = program.stage.toLowerCase();
+  return [
+    `Founders working on ${industries} ventures.`,
+    `Teams at the ${stage} stage with at least one ${campusName} affiliate.`,
+    "Committed to running the program full-time during cohort weeks.",
+    "Comfortable sharing progress with peer cohort and mentors.",
+  ];
+}
+
+function WhoShouldApply({
+  program,
+  campus,
+  type,
+}: {
+  program: Program;
+  campus: Campus;
+  type: ProgramType;
+}) {
+  const bullets = buildFitBullets(program, campus.name);
+  return (
+    <DetailBlock title="Who should apply" eyebrow="Fit">
+      <ul
+        style={{
+          paddingLeft: 0,
+          listStyle: "none",
+          display: "flex",
+          flexDirection: "column",
+          gap: 10,
+          marginTop: 10,
+        }}
+      >
+        {bullets.map((b) => (
+          <li
+            key={b}
+            style={{
+              display: "flex",
+              gap: 12,
+              fontSize: 16,
+              lineHeight: 1.5,
+              color: "#002033",
+            }}
+          >
+            <span
+              style={{
+                flexShrink: 0,
+                marginTop: 6,
+                width: 6,
+                height: 6,
+                borderRadius: 999,
+                background: type.color,
+              }}
+            />
+            <span>{b}</span>
+          </li>
+        ))}
+      </ul>
+    </DetailBlock>
+  );
+}
+
+interface TimelineItem {
+  date: string;
+  label: string;
+  body: string;
+}
+
+function buildTimeline(deadline: string): TimelineItem[] {
+  return [
+    {
+      date: "Now → Deadline",
+      label: "Applications open",
+      body: "Submit your team, traction snapshot, and a 2-minute video.",
+    },
+    {
+      date: deadline,
+      label: "Deadline",
+      body: "Final cutoff. We start reviewing immediately.",
+    },
+    {
+      date: "+2 weeks",
+      label: "Interviews",
+      body: "Selected teams meet with the partner team and program leads.",
+    },
+    {
+      date: "+4 weeks",
+      label: "Cohort kickoff",
+      body: "Onboarding, intros, mentor pairing, and goal-setting.",
+    },
+  ];
+}
+
+function Timeline({ deadline }: { deadline: string }) {
+  const items = buildTimeline(deadline);
+  return (
+    <DetailBlock title="Timeline" eyebrow="When">
+      <ol
+        style={{
+          paddingLeft: 0,
+          listStyle: "none",
+          display: "flex",
+          flexDirection: "column",
+          gap: 0,
+          marginTop: 10,
+        }}
+      >
+        {items.map((it, i) => (
+          <TimelineRow key={it.label} item={it} last={i === items.length - 1} />
+        ))}
+      </ol>
+    </DetailBlock>
+  );
+}
+
+function TimelineRow({ item, last }: { item: TimelineItem; last: boolean }) {
+  return (
+    <li
+      style={{
+        display: "grid",
+        gridTemplateColumns: "170px 1fr",
+        gap: 24,
+        padding: "18px 0",
+        borderBottom: last ? "none" : "1px solid rgba(0,32,51,.10)",
+      }}
+    >
+      <div
+        style={{
+          fontSize: 13,
+          fontWeight: 700,
+          color: "#005581",
+          letterSpacing: ".04em",
+          textTransform: "uppercase",
+        }}
+      >
+        {item.date}
+      </div>
+      <div>
+        <div
+          style={{
+            fontFamily: "'Source Serif 4',Georgia,serif",
+            fontWeight: 600,
+            fontSize: 20,
+            color: "#002033",
+            marginBottom: 4,
+          }}
+        >
+          {item.label}
+        </div>
+        <div style={{ fontSize: 15, color: "#4C4C4C", lineHeight: 1.5 }}>{item.body}</div>
+      </div>
+    </li>
+  );
+}
+
+function IndustryPills({ industries, color }: { industries: string[]; color: string }) {
+  return (
+    <DetailBlock title="Industries we love" eyebrow="Focus areas">
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 10 }}>
+        {industries.map((i) => (
+          <span
+            key={i}
+            style={{
+              padding: "8px 14px",
+              borderRadius: 999,
+              background: "#fff",
+              border: `1px solid ${color}33`,
+              color,
+              fontSize: 14,
+              fontWeight: 600,
+            }}
+          >
+            {i}
+          </span>
+        ))}
+      </div>
+    </DetailBlock>
+  );
+}
+
+function DetailOverview({ vm }: { vm: DetailVM }) {
+  return (
+    <div>
+      <Eyebrow>Overview</Eyebrow>
+      <h2
+        style={{
+          fontFamily: "'Source Serif 4',Georgia,serif",
+          fontWeight: 600,
+          fontSize: 36,
+          lineHeight: 1.15,
+          margin: "12px 0 18px",
+          color: "#002033",
+          textWrap: "balance",
+        }}
+      >
+        What this program is, in one paragraph
+      </h2>
+      <p
+        style={{
+          fontSize: 18,
+          lineHeight: 1.6,
+          color: "#002033",
+          marginTop: 0,
+          maxWidth: 720,
+        }}
+      >
+        {vm.program.longDescription ?? vm.program.desc}
+      </p>
+      <div style={{ marginTop: 48, display: "flex", flexDirection: "column", gap: 40 }}>
+        <KeyDetailsGrid program={vm.program} type={vm.type} />
+        <WhoShouldApply program={vm.program} campus={vm.campus} type={vm.type} />
+        <Timeline deadline={vm.program.deadline} />
+        <IndustryPills industries={vm.program.industries} color={vm.type.color} />
+      </div>
+    </div>
+  );
+}
+
+// ── sidebar ────────────────────────────────────────────────────────────
+
+function ApplyCard({ vm }: { vm: DetailVM }) {
+  return (
+    <div style={{ background: "#F7F5F1", borderRadius: 8, padding: "24px 24px 22px" }}>
+      <Eyebrow>Apply</Eyebrow>
+      <h3
+        style={{
+          fontFamily: "'Source Serif 4',Georgia,serif",
+          fontWeight: 600,
+          fontSize: 24,
+          margin: "10px 0 6px",
+          color: "#002033",
+        }}
+      >
+        Ready to apply?
+      </h3>
+      <p style={{ fontSize: 15, lineHeight: 1.45, color: "#4C4C4C", marginTop: 0 }}>
+        Applications go directly to the program team at {vm.campus.name}. Deadline:{" "}
+        <strong>{vm.program.deadline}</strong>.
+      </p>
+      <a
+        {...ExternalAnchorProps(vm.applyHref, vm.isExternal)}
+        style={{
+          display: "block",
+          textAlign: "center",
+          background: "var(--accent, #1295D8)",
+          color: "#fff",
+          padding: "14px 18px",
+          borderRadius: 4,
+          fontWeight: 600,
+          fontSize: 15,
+          textDecoration: "none",
+          marginTop: 16,
+        }}
+      >
+        {vm.program.applicationLink ? "Start application" : "Visit program page"}{" "}
+        <I_External size={14} />
+      </a>
+      {vm.hasSeparateWebsite && vm.program.website && (
+        <a
+          href={vm.program.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "block",
+            textAlign: "center",
+            background: "transparent",
+            border: "2px solid #002033",
+            color: "#002033",
+            padding: "12px 18px",
+            borderRadius: 4,
+            fontWeight: 600,
+            fontSize: 14,
+            textDecoration: "none",
+            marginTop: 10,
+          }}
+        >
+          Visit program homepage
+        </a>
+      )}
+    </div>
+  );
+}
+
+function RunByCard({ campus }: { campus: Campus }) {
+  const navigate = useNavigate();
+  const initials = campus.short.replace("UC ", "").slice(0, 2).toUpperCase();
+  return (
+    <div
+      style={{
+        marginTop: 20,
+        padding: "20px 22px",
+        border: "1px solid rgba(0,32,51,.10)",
+        borderRadius: 8,
+      }}
+    >
+      <Eyebrow>Run by</Eyebrow>
+      <div style={{ display: "flex", gap: 14, alignItems: "center", marginTop: 12 }}>
+        <div
+          style={{
+            width: 48,
+            height: 48,
+            borderRadius: 4,
+            background: campus.color,
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#fff",
+            fontFamily: "'Source Serif 4',Georgia,serif",
+            fontWeight: 600,
+            fontSize: 18,
+            letterSpacing: "-.02em",
+          }}
+        >
+          {initials}
+        </div>
+        <div>
+          <div
+            style={{
+              fontFamily: "'Source Serif 4',Georgia,serif",
+              fontWeight: 600,
+              fontSize: 18,
+              color: "#002033",
+            }}
+          >
+            {campus.name}
+          </div>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(`/campus/${campus.id}`);
+            }}
+            style={{
+              fontSize: 13,
+              color: "#005581",
+              fontWeight: 600,
+              textDecoration: "underline",
+              textUnderlineOffset: 3,
+            }}
+          >
+            See all {campus.programs} programs at {campus.short} →
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SourceFooter({ sourceUrl, lastUpdated }: { sourceUrl?: string; lastUpdated?: string }) {
+  if (!sourceUrl && !lastUpdated) return null;
+  return (
+    <div
+      style={{
+        marginTop: 12,
+        paddingTop: 12,
+        borderTop: "1px solid rgba(0,32,51,.18)",
+        fontSize: 12,
+        lineHeight: 1.5,
+      }}
+    >
+      {sourceUrl && (
+        <a
+          href={sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: "#002033",
+            textDecoration: "underline",
+            textUnderlineOffset: 2,
+            fontWeight: 600,
+          }}
+        >
+          View source page
+        </a>
+      )}
+      {lastUpdated && (
+        <div style={{ marginTop: 4, opacity: 0.8 }}>
+          Refreshed {new Date(lastUpdated).toLocaleDateString()}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function HeadsUpCard({ program }: { program: Program }) {
+  return (
+    <div
+      style={{
+        marginTop: 20,
+        padding: "20px 22px",
+        background: "#FFB511",
+        color: "#002033",
+        borderRadius: 8,
+      }}
+    >
+      <div
+        style={{
+          fontSize: 11.5,
+          letterSpacing: ".14em",
+          textTransform: "uppercase",
+          fontWeight: 700,
+          marginBottom: 8,
+        }}
+      >
+        Heads up
+      </div>
+      <p style={{ margin: 0, fontSize: 14, lineHeight: 1.5 }}>
+        Some details are pulled from the program’s site and may be incomplete. Always verify on the
+        source page before applying.
+      </p>
+      <SourceFooter sourceUrl={program.sourceUrl} lastUpdated={program.lastUpdated} />
+    </div>
+  );
+}
+
+function DetailSidebar({ vm }: { vm: DetailVM }) {
+  return (
+    <aside style={{ position: "sticky", top: 120, alignSelf: "flex-start" }}>
+      <ApplyCard vm={vm} />
+      <RunByCard campus={vm.campus} />
+      <HeadsUpCard program={vm.program} />
+    </aside>
+  );
+}
+
+// ── related programs section ───────────────────────────────────────────
+
+function DetailRelated({ related }: { related: Program[] }) {
+  const navigate = useNavigate();
+  return (
+    <section style={{ padding: "72px 32px", background: "#F7F5F1" }}>
+      <div style={{ maxWidth: 1440, margin: "0 auto" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-end",
+            marginBottom: 32,
+            flexWrap: "wrap",
+            gap: 24,
+          }}
+        >
+          <div>
+            <Eyebrow>Cross-campus suggestions</Eyebrow>
+            <h2
+              style={{
+                fontFamily: "'Source Serif 4',Georgia,serif",
+                fontWeight: 600,
+                fontSize: "clamp(28px,3vw,40px)",
+                lineHeight: 1.1,
+                margin: "12px 0 0",
+                color: "#002033",
+              }}
+            >
+              Programs with similar fit across UC
+            </h2>
+          </div>
+          <Link
+            to="/discover"
+            style={{
+              color: "#005581",
+              fontWeight: 600,
+              fontSize: 15,
+              textDecoration: "underline",
+              textUnderlineOffset: 3,
+            }}
+          >
+            Explore all programs →
+          </Link>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+          {related.map((p) => (
+            <ProgramCard
+              key={p.id}
+              program={p}
+              onOpen={(prog) => navigate(`/program/${prog.id}`)}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ── page entry ─────────────────────────────────────────────────────────
+
 export function ProgramDetail() {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
-  const { has, add, remove } = useCompare();
-
   const program = PROGRAMS.find((p) => p.id === id || p.slug === id) ?? PROGRAMS[0];
-  const inCompare = has(program.id);
-  const c = CAMPUS_BY_ID[program.campus];
-  const t = TYPE_BY_ID[program.type];
-  const applyHref = program.applicationLink || program.website || program.sourceUrl || "#";
-  const isExternal = applyHref !== "#";
-
-  const related = PROGRAMS.filter(
-    (p) =>
-      p.id !== program.id &&
-      (p.industries.some((i) => program.industries.includes(i)) || p.type === program.type),
-  ).slice(0, 3);
+  const vm = buildVM(program);
 
   return (
     <Page>
-      <section
-        style={{ background: "#002033", color: "#fff", position: "relative", overflow: "hidden" }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: programGradient(program),
-            opacity: 0.55,
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(180deg, rgba(0,32,51,.4) 0%, rgba(0,32,51,.85) 100%)",
-          }}
-        />
-        <div
-          style={{
-            position: "relative",
-            maxWidth: 1440,
-            margin: "0 auto",
-            padding: "24px 32px 56px",
-          }}
-        >
-          <div
-            style={{
-              padding: 0,
-              fontSize: 13,
-              color: "#BDE3F6",
-              display: "flex",
-              gap: 8,
-              alignItems: "center",
-              flexWrap: "wrap",
-              marginBottom: 32,
-            }}
-          >
-            <Link to="/" style={{ color: "#BDE3F6", textDecoration: "none", fontWeight: 600 }}>
-              Home
-            </Link>
-            <I_Chevron size={12} />
-            <Link
-              to="/discover"
-              style={{ color: "#BDE3F6", textDecoration: "none", fontWeight: 600 }}
-            >
-              Programs
-            </Link>
-            <I_Chevron size={12} />
-            <Link
-              to={`/campus/${c.id}`}
-              style={{ color: "#BDE3F6", textDecoration: "none", fontWeight: 600 }}
-            >
-              {c.name}
-            </Link>
-            <I_Chevron size={12} />
-            <span style={{ color: "#fff", fontWeight: 600 }}>{program.name}</span>
-          </div>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1.4fr 1fr",
-              gap: 48,
-              alignItems: "flex-end",
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  display: "flex",
-                  gap: 8,
-                  alignItems: "center",
-                  marginBottom: 18,
-                  flexWrap: "wrap",
-                }}
-              >
-                <span
-                  style={{
-                    background: "#fff",
-                    color: t.color,
-                    padding: "5px 12px",
-                    borderRadius: 999,
-                    fontSize: 11.5,
-                    fontWeight: 700,
-                    letterSpacing: ".08em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {t.label}
-                </span>
-                {program.featured && (
-                  <span
-                    style={{
-                      background: "#FFB511",
-                      color: "#002033",
-                      padding: "5px 12px",
-                      borderRadius: 999,
-                      fontSize: 11.5,
-                      fontWeight: 700,
-                      letterSpacing: ".08em",
-                      textTransform: "uppercase",
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: 4,
-                    }}
-                  >
-                    <I_Star size={12} /> Featured
-                  </span>
-                )}
-                <span
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 6,
-                    color: "#BDE3F6",
-                    fontSize: 14,
-                    fontWeight: 600,
-                  }}
-                >
-                  <I_Pin size={14} /> {c.name}
-                </span>
-              </div>
-              <h1
-                style={{
-                  fontFamily: "'Source Serif 4',Georgia,serif",
-                  fontWeight: 600,
-                  fontSize: "clamp(40px,4.6vw,64px)",
-                  lineHeight: 1.05,
-                  letterSpacing: "-0.01em",
-                  margin: 0,
-                  textWrap: "balance",
-                }}
-              >
-                {program.name}
-              </h1>
-              <p
-                style={{
-                  fontFamily: "'Source Serif 4',Georgia,serif",
-                  fontWeight: 400,
-                  fontSize: 22,
-                  lineHeight: 1.45,
-                  marginTop: 20,
-                  maxWidth: 760,
-                  color: "#BDE3F6",
-                }}
-              >
-                {program.desc}
-              </p>
-              <div style={{ display: "flex", gap: 14, marginTop: 28, flexWrap: "wrap" }}>
-                <a
-                  href={applyHref}
-                  target={isExternal ? "_blank" : undefined}
-                  rel={isExternal ? "noopener noreferrer" : undefined}
-                  onClick={isExternal ? undefined : (e) => e.preventDefault()}
-                  style={{
-                    background: "#FFB511",
-                    color: "#002033",
-                    padding: "14px 24px",
-                    borderRadius: 4,
-                    fontWeight: 700,
-                    textDecoration: "none",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 8,
-                  }}
-                >
-                  {program.applicationLink ? "Start application" : `Visit on ${c.short}.edu`}{" "}
-                  <I_External size={15} />
-                </a>
-                <button
-                  onClick={() => (inCompare ? remove(program.id) : add(program.id))}
-                  style={{
-                    background: "transparent",
-                    color: "#fff",
-                    padding: "13px 22px",
-                    borderRadius: 4,
-                    fontWeight: 600,
-                    border: "2px solid #fff",
-                    cursor: "pointer",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 8,
-                  }}
-                >
-                  {inCompare ? (
-                    <>
-                      <I_Check size={16} /> Added to compare
-                    </>
-                  ) : (
-                    <>
-                      <I_Plus size={16} /> Add to compare
-                    </>
-                  )}
-                </button>
-              </div>
-            </div>
-            <div
-              style={{
-                background: "rgba(255,255,255,.06)",
-                border: "1px solid rgba(255,255,255,.18)",
-                borderRadius: 8,
-                padding: "24px 26px",
-                backdropFilter: "blur(8px)",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: 11.5,
-                  letterSpacing: ".14em",
-                  textTransform: "uppercase",
-                  fontWeight: 700,
-                  color: "#FFB511",
-                  marginBottom: 18,
-                }}
-              >
-                At a glance
-              </div>
-              {[
-                {
-                  icon: <I_Calendar size={16} />,
-                  k: "Application deadline",
-                  v: program.deadline as ReactNode,
-                },
-                { icon: <I_Money size={16} />, k: "Funding", v: program.funding as ReactNode },
-                { icon: <I_Clock size={16} />, k: "Duration", v: program.duration as ReactNode },
-                {
-                  icon: <I_Users size={16} />,
-                  k: "Cohort size",
-                  v: program.cohortSize ? (
-                    `${program.cohortSize} ventures`
-                  ) : (
-                    <em style={{ color: "#7C7E7F", fontStyle: "normal" }}>Not disclosed</em>
-                  ),
-                },
-                {
-                  icon: <I_Trophy size={16} />,
-                  k: "Selectivity",
-                  v: program.selectivity as ReactNode,
-                },
-              ].map((s, i) => (
-                <div
-                  key={i}
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    gap: 12,
-                    padding: "12px 0",
-                    borderTop: i === 0 ? "none" : "1px solid rgba(255,255,255,.10)",
-                  }}
-                >
-                  <span
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: 8,
-                      fontSize: 13,
-                      color: "#BDE3F6",
-                    }}
-                  >
-                    {s.icon} {s.k}
-                  </span>
-                  <span
-                    style={{ fontSize: 14, fontWeight: 600, color: "#fff", textAlign: "right" }}
-                  >
-                    {s.v}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <DetailHero vm={vm} />
       <section style={{ padding: "72px 32px", background: "#fff" }}>
         <div
           style={{
@@ -355,459 +969,11 @@ export function ProgramDetail() {
             gap: 64,
           }}
         >
-          <div>
-            <Eyebrow>Overview</Eyebrow>
-            <h2
-              style={{
-                fontFamily: "'Source Serif 4',Georgia,serif",
-                fontWeight: 600,
-                fontSize: 36,
-                lineHeight: 1.15,
-                margin: "12px 0 18px",
-                color: "#002033",
-                textWrap: "balance",
-              }}
-            >
-              What this program is, in one paragraph
-            </h2>
-            <p
-              style={{
-                fontSize: 18,
-                lineHeight: 1.6,
-                color: "#002033",
-                marginTop: 0,
-                maxWidth: 720,
-              }}
-            >
-              {program.longDescription ?? program.desc}
-            </p>
-
-            <div style={{ marginTop: 48, display: "flex", flexDirection: "column", gap: 40 }}>
-              <DetailBlock title="Key details" eyebrow="What you get">
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(2, 1fr)",
-                    gap: 16,
-                    marginTop: 10,
-                  }}
-                >
-                  {[
-                    { k: "Stage", v: program.stage },
-                    { k: "Eligibility", v: program.eligibility.join(", ") },
-                    { k: "Duration", v: program.duration },
-                    { k: "Funding", v: program.funding },
-                    { k: "Selectivity", v: program.selectivity },
-                    {
-                      k: "Cohort size",
-                      v: program.cohortSize ? `${program.cohortSize} ventures` : "Not disclosed",
-                    },
-                  ].map((d, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        padding: "14px 16px",
-                        background: "#F7F5F1",
-                        borderRadius: 6,
-                        borderLeft: `3px solid ${t.color}`,
-                      }}
-                    >
-                      <div
-                        style={{
-                          fontSize: 11.5,
-                          letterSpacing: ".12em",
-                          textTransform: "uppercase",
-                          fontWeight: 700,
-                          color: "#4C4C4C",
-                        }}
-                      >
-                        {d.k}
-                      </div>
-                      <div
-                        style={{ fontSize: 16, fontWeight: 600, color: "#002033", marginTop: 4 }}
-                      >
-                        {d.v}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </DetailBlock>
-
-              <DetailBlock title="Who should apply" eyebrow="Fit">
-                <ul
-                  style={{
-                    paddingLeft: 0,
-                    listStyle: "none",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 10,
-                    marginTop: 10,
-                  }}
-                >
-                  {[
-                    `Founders working on ${program.industries.slice(0, 2).join(" or ")} ventures.`,
-                    `Teams at the ${program.stage.toLowerCase()} stage with at least one ${c.name} affiliate.`,
-                    "Committed to running the program full-time during cohort weeks.",
-                    "Comfortable sharing progress with peer cohort and mentors.",
-                  ].map((b, i) => (
-                    <li
-                      key={i}
-                      style={{
-                        display: "flex",
-                        gap: 12,
-                        fontSize: 16,
-                        lineHeight: 1.5,
-                        color: "#002033",
-                      }}
-                    >
-                      <span
-                        style={{
-                          flexShrink: 0,
-                          marginTop: 6,
-                          width: 6,
-                          height: 6,
-                          borderRadius: 999,
-                          background: t.color,
-                        }}
-                      />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </DetailBlock>
-
-              <DetailBlock title="Timeline" eyebrow="When">
-                <ol
-                  style={{
-                    paddingLeft: 0,
-                    listStyle: "none",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 0,
-                    marginTop: 10,
-                  }}
-                >
-                  {[
-                    {
-                      d: "Now → Deadline",
-                      label: "Applications open",
-                      body: "Submit your team, traction snapshot, and a 2-minute video.",
-                    },
-                    {
-                      d: program.deadline,
-                      label: "Deadline",
-                      body: "Final cutoff. We start reviewing immediately.",
-                    },
-                    {
-                      d: "+2 weeks",
-                      label: "Interviews",
-                      body: "Selected teams meet with the partner team and program leads.",
-                    },
-                    {
-                      d: "+4 weeks",
-                      label: "Cohort kickoff",
-                      body: "Onboarding, intros, mentor pairing, and goal-setting.",
-                    },
-                  ].map((it, i, arr) => (
-                    <li
-                      key={i}
-                      style={{
-                        display: "grid",
-                        gridTemplateColumns: "170px 1fr",
-                        gap: 24,
-                        padding: "18px 0",
-                        borderBottom: i < arr.length - 1 ? "1px solid rgba(0,32,51,.10)" : "none",
-                      }}
-                    >
-                      <div
-                        style={{
-                          fontSize: 13,
-                          fontWeight: 700,
-                          color: "#005581",
-                          letterSpacing: ".04em",
-                          textTransform: "uppercase",
-                        }}
-                      >
-                        {it.d}
-                      </div>
-                      <div>
-                        <div
-                          style={{
-                            fontFamily: "'Source Serif 4',Georgia,serif",
-                            fontWeight: 600,
-                            fontSize: 20,
-                            color: "#002033",
-                            marginBottom: 4,
-                          }}
-                        >
-                          {it.label}
-                        </div>
-                        <div style={{ fontSize: 15, color: "#4C4C4C", lineHeight: 1.5 }}>
-                          {it.body}
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </DetailBlock>
-
-              <DetailBlock title="Industries we love" eyebrow="Focus areas">
-                <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 10 }}>
-                  {program.industries.map((i) => (
-                    <span
-                      key={i}
-                      style={{
-                        padding: "8px 14px",
-                        borderRadius: 999,
-                        background: "#fff",
-                        border: `1px solid ${t.color}33`,
-                        color: t.color,
-                        fontSize: 14,
-                        fontWeight: 600,
-                      }}
-                    >
-                      {i}
-                    </span>
-                  ))}
-                </div>
-              </DetailBlock>
-            </div>
-          </div>
-
-          <aside style={{ position: "sticky", top: 120, alignSelf: "flex-start" }}>
-            <div style={{ background: "#F7F5F1", borderRadius: 8, padding: "24px 24px 22px" }}>
-              <Eyebrow>Apply</Eyebrow>
-              <h3
-                style={{
-                  fontFamily: "'Source Serif 4',Georgia,serif",
-                  fontWeight: 600,
-                  fontSize: 24,
-                  margin: "10px 0 6px",
-                  color: "#002033",
-                }}
-              >
-                Ready to apply?
-              </h3>
-              <p style={{ fontSize: 15, lineHeight: 1.45, color: "#4C4C4C", marginTop: 0 }}>
-                Applications go directly to the program team at {c.name}. Deadline:{" "}
-                <strong>{program.deadline}</strong>.
-              </p>
-              <a
-                href={applyHref}
-                target={isExternal ? "_blank" : undefined}
-                rel={isExternal ? "noopener noreferrer" : undefined}
-                onClick={isExternal ? undefined : (e) => e.preventDefault()}
-                style={{
-                  display: "block",
-                  textAlign: "center",
-                  background: "var(--accent, #1295D8)",
-                  color: "#fff",
-                  padding: "14px 18px",
-                  borderRadius: 4,
-                  fontWeight: 600,
-                  fontSize: 15,
-                  textDecoration: "none",
-                  marginTop: 16,
-                }}
-              >
-                {program.applicationLink ? "Start application" : "Visit program page"}{" "}
-                <I_External size={14} />
-              </a>
-              {program.website && program.website !== applyHref && (
-                <a
-                  href={program.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "block",
-                    textAlign: "center",
-                    background: "transparent",
-                    border: "2px solid #002033",
-                    color: "#002033",
-                    padding: "12px 18px",
-                    borderRadius: 4,
-                    fontWeight: 600,
-                    fontSize: 14,
-                    textDecoration: "none",
-                    marginTop: 10,
-                  }}
-                >
-                  Visit program homepage
-                </a>
-              )}
-            </div>
-
-            <div
-              style={{
-                marginTop: 20,
-                padding: "20px 22px",
-                border: "1px solid rgba(0,32,51,.10)",
-                borderRadius: 8,
-              }}
-            >
-              <Eyebrow>Run by</Eyebrow>
-              <div style={{ display: "flex", gap: 14, alignItems: "center", marginTop: 12 }}>
-                <div
-                  style={{
-                    width: 48,
-                    height: 48,
-                    borderRadius: 4,
-                    background: c.color,
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "#fff",
-                    fontFamily: "'Source Serif 4',Georgia,serif",
-                    fontWeight: 600,
-                    fontSize: 18,
-                    letterSpacing: "-.02em",
-                  }}
-                >
-                  {c.short.replace("UC ", "").slice(0, 2).toUpperCase()}
-                </div>
-                <div>
-                  <div
-                    style={{
-                      fontFamily: "'Source Serif 4',Georgia,serif",
-                      fontWeight: 600,
-                      fontSize: 18,
-                      color: "#002033",
-                    }}
-                  >
-                    {c.name}
-                  </div>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate(`/campus/${c.id}`);
-                    }}
-                    style={{
-                      fontSize: 13,
-                      color: "#005581",
-                      fontWeight: 600,
-                      textDecoration: "underline",
-                      textUnderlineOffset: 3,
-                    }}
-                  >
-                    See all {c.programs} programs at {c.short} →
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div
-              style={{
-                marginTop: 20,
-                padding: "20px 22px",
-                background: "#FFB511",
-                color: "#002033",
-                borderRadius: 8,
-              }}
-            >
-              <div
-                style={{
-                  fontSize: 11.5,
-                  letterSpacing: ".14em",
-                  textTransform: "uppercase",
-                  fontWeight: 700,
-                  marginBottom: 8,
-                }}
-              >
-                Heads up
-              </div>
-              <p style={{ margin: 0, fontSize: 14, lineHeight: 1.5 }}>
-                Some details are pulled from the program’s site and may be incomplete. Always verify
-                on the source page before applying.
-              </p>
-              {(program.sourceUrl || program.lastUpdated) && (
-                <div
-                  style={{
-                    marginTop: 12,
-                    paddingTop: 12,
-                    borderTop: "1px solid rgba(0,32,51,.18)",
-                    fontSize: 12,
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {program.sourceUrl && (
-                    <a
-                      href={program.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        color: "#002033",
-                        textDecoration: "underline",
-                        textUnderlineOffset: 2,
-                        fontWeight: 600,
-                      }}
-                    >
-                      View source page
-                    </a>
-                  )}
-                  {program.lastUpdated && (
-                    <div style={{ marginTop: 4, opacity: 0.8 }}>
-                      Refreshed {new Date(program.lastUpdated).toLocaleDateString()}
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          </aside>
+          <DetailOverview vm={vm} />
+          <DetailSidebar vm={vm} />
         </div>
       </section>
-
-      <section style={{ padding: "72px 32px", background: "#F7F5F1" }}>
-        <div style={{ maxWidth: 1440, margin: "0 auto" }}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-end",
-              marginBottom: 32,
-              flexWrap: "wrap",
-              gap: 24,
-            }}
-          >
-            <div>
-              <Eyebrow>Cross-campus suggestions</Eyebrow>
-              <h2
-                style={{
-                  fontFamily: "'Source Serif 4',Georgia,serif",
-                  fontWeight: 600,
-                  fontSize: "clamp(28px,3vw,40px)",
-                  lineHeight: 1.1,
-                  margin: "12px 0 0",
-                  color: "#002033",
-                }}
-              >
-                Programs with similar fit across UC
-              </h2>
-            </div>
-            <Link
-              to="/discover"
-              style={{
-                color: "#005581",
-                fontWeight: 600,
-                fontSize: 15,
-                textDecoration: "underline",
-                textUnderlineOffset: 3,
-              }}
-            >
-              Explore all programs →
-            </Link>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
-            {related.map((p) => (
-              <ProgramCard
-                key={p.id}
-                program={p}
-                onOpen={(prog) => navigate(`/program/${prog.id}`)}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      <DetailRelated related={vm.related} />
     </Page>
   );
 }

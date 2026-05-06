@@ -24,10 +24,10 @@ vp install
 # dev server
 vp dev
 
-# format + lint + type-check
-vp check
+# format + lint + type-check + duplication scan (fallow)
+vp run check
 
-# auto-fix formatting
+# auto-fix formatting and lint issues
 vp check --fix
 
 # tests
@@ -161,7 +161,7 @@ If a campus's site is JS-heavy and the generic extractor returns nothing, the ov
 GitHub Actions workflow at `.github/workflows/deploy.yml` builds on every push to `main` and publishes to GitHub Pages. The workflow:
 
 1. Installs Vite+ globally
-2. Runs `vp check` (format + lint + type-check)
+2. Runs `vp run check` (format + lint + type-check + duplication scan)
 3. Runs `vp build` with `VITE_GH_PAGES=1` so assets resolve under `/uc-entrepreneurship-hub/`
 4. Copies `index.html` to `404.html` so hash-router deep links work
 5. Uploads `dist/` and deploys

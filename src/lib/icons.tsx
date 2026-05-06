@@ -40,26 +40,6 @@ export const I_Arrow = (p: IconProps) => (
     }
   />
 );
-export const I_ArrowL = (p: IconProps) => (
-  <Icon
-    {...p}
-    d={
-      <>
-        <path d="M19 12H5M12 5l-7 7 7 7" />
-      </>
-    }
-  />
-);
-export const I_Filter = (p: IconProps) => (
-  <Icon
-    {...p}
-    d={
-      <>
-        <path d="M3 6h18M6 12h12M10 18h4" />
-      </>
-    }
-  />
-);
 export const I_X = (p: IconProps) => (
   <Icon
     {...p}
