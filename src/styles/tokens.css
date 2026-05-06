@@ -1,0 +1,289 @@
+/* =============================================================
+   University of California — Design Tokens
+   Source: brand.universityofcalifornia.edu + Accessible Color Guide
+   ============================================================= */
+
+/* Fonts: substituting Source Sans 3 (Kievit) + Source Serif 4 (Lyon) */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap");
+
+:root {
+  /* ---------- PRIMARY COLORS (heritage) ---------- */
+  --uc-blue: #1295d8; /* the iconic UC Blue */
+  --uc-gold: #ffb511; /* the iconic UC Gold */
+  --uc-dark-blue: #002033; /* deepest navy — body / headlines / dark sections */
+  --uc-black: #000000;
+  --uc-dark-gray: #171717;
+  --uc-white: #ffffff;
+
+  /* ---------- SECONDARY ---------- */
+  --uc-blue-deep: #005581; /* "Blue" — hover for UC Blue */
+  --uc-blue-light: #72cdf4;
+  --uc-blue-xlight: #bde3f6;
+  --uc-gold-bright: #ffd200; /* "Gold" */
+  --uc-gold-light: #ffe552;
+  --uc-orange: #ff6e1b;
+  --uc-orange-light: #ff8f28;
+  --uc-pink: #e44c9a;
+  --uc-pink-light: #feb2e0;
+  --uc-teal: #00778b;
+  --uc-teal-light: #00a3ad;
+  --uc-gray: #4c4c4c;
+  --uc-gray-mid: #7c7e7f; /* "UC Gray" */
+  --uc-warm-gray-1: #dbd5cd;
+  --uc-warm-gray-3: #beb6af;
+  --uc-warm-gray-8: #8f8884;
+
+  /* ---------- SEMANTIC: foreground ---------- */
+  --fg-1: var(--uc-dark-blue); /* primary text — headlines, body */
+  --fg-2: var(--uc-gray); /* secondary text — captions, meta */
+  --fg-3: var(--uc-warm-gray-3); /* tertiary — hairlines, disabled */
+  --fg-on-blue: var(--uc-white);
+  --fg-on-gold: var(--uc-dark-blue);
+  --fg-link: var(--uc-blue-deep); /* deeper blue for body links — AA on white */
+  --fg-link-hover: var(--uc-dark-blue);
+
+  /* ---------- SEMANTIC: backgrounds ---------- */
+  --bg-1: var(--uc-white);
+  --bg-2: #f7f5f1; /* warm off-white, derived from warm-gray-1 @ 25% */
+  --bg-3: var(--uc-warm-gray-1);
+  --bg-inverse: var(--uc-dark-blue);
+  --bg-accent: var(--uc-blue);
+  --bg-highlight: var(--uc-gold);
+
+  /* ---------- SEMANTIC: status ---------- */
+  --status-info: var(--uc-blue);
+  --status-success: #2d7a3e; /* derived — not in palette but needed; matches brand cool tone */
+  --status-warning: var(--uc-orange);
+  --status-error: #b3122f; /* derived — accessible red, harmonized with brand */
+
+  /* ---------- BORDERS ---------- */
+  --border-1: rgba(0, 32, 51, 0.12);
+  --border-2: rgba(0, 32, 51, 0.2);
+  --border-strong: var(--uc-dark-blue);
+
+  /* ---------- SHADOWS (Dark Blue tinted) ---------- */
+  --shadow-sm: 0 1px 2px rgba(0, 32, 51, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 32, 51, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 32, 51, 0.12);
+  --shadow-xl: 0 20px 40px rgba(0, 32, 51, 0.16);
+
+  /* ---------- RADII ---------- */
+  --radius-sm: 4px; /* buttons, inputs */
+  --radius-md: 8px; /* cards */
+  --radius-lg: 12px; /* large surfaces */
+  --radius-pill: 999px;
+
+  /* ---------- SPACING (4px base) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --space-11: 160px;
+
+  /* ---------- LAYOUT ---------- */
+  --container-max: 1440px;
+  --container-pad: 24px;
+  --nav-h: 80px;
+
+  /* ---------- TYPE FAMILIES ---------- */
+  /* UC documents Arial as the sanctioned fallback for Kievit, and Georgia for Lyon. */
+  --font-sans: "Source Sans 3", "Kievit", Arial, sans-serif;
+  --font-serif: "Source Serif 4", "Lyon Text", Georgia, serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* ---------- TYPE SCALE ---------- */
+  --fs-12: 12px;
+  --lh-12: 16px;
+  --fs-14: 14px;
+  --lh-14: 20px;
+  --fs-16: 16px;
+  --lh-16: 26px;
+  --fs-18: 18px;
+  --lh-18: 28px;
+  --fs-20: 20px;
+  --lh-20: 30px;
+  --fs-24: 24px;
+  --lh-24: 32px;
+  --fs-32: 32px;
+  --lh-32: 40px;
+  --fs-40: 40px;
+  --lh-40: 48px;
+  --fs-56: 56px;
+  --lh-56: 60px;
+  --fs-72: 72px;
+  --lh-72: 76px;
+
+  /* ---------- TRANSITIONS ---------- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+}
+
+/* ============================================================
+   SEMANTIC TYPE STYLES
+   ============================================================ */
+
+html {
+  font-family: var(--font-sans);
+  color: var(--fg-1);
+  background: var(--bg-1);
+}
+body {
+  font-size: var(--fs-16);
+  line-height: var(--lh-16);
+  -webkit-font-smoothing: antialiased;
+}
+
+.uc-display-1,
+h1.uc {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(40px, 5.6vw, 72px);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+}
+
+.uc-display-2,
+h2.uc {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+  color: var(--fg-1);
+}
+
+.uc-h3,
+h3.uc {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-32);
+  line-height: var(--lh-32);
+  letter-spacing: -0.005em;
+  color: var(--fg-1);
+}
+
+.uc-h4,
+h4.uc {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-24);
+  line-height: var(--lh-24);
+  color: var(--fg-1);
+}
+
+.uc-h5,
+h5.uc {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-18);
+  line-height: var(--lh-18);
+  color: var(--fg-1);
+}
+
+.uc-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-12);
+  line-height: var(--lh-12);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--uc-blue-deep);
+}
+
+.uc-lede {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--fs-24);
+  line-height: 1.45;
+  color: var(--fg-1);
+}
+
+.uc-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-18);
+  line-height: var(--lh-18);
+  color: var(--fg-1);
+}
+
+.uc-small {
+  font-family: var(--font-sans);
+  font-size: var(--fs-14);
+  line-height: var(--lh-14);
+  color: var(--fg-2);
+}
+
+.uc-mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-14);
+  line-height: var(--lh-14);
+}
+
+a.uc,
+.uc-link {
+  color: var(--fg-link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    text-decoration-thickness var(--dur-fast) var(--ease-standard);
+}
+a.uc:hover,
+.uc-link:hover {
+  color: var(--fg-link-hover);
+  text-decoration-thickness: 2px;
+}
+
+/* Buttons (semantic primitives — kits will extend) */
+.uc-btn {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-16);
+  line-height: 1;
+  padding: 14px 24px;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    background var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard),
+    transform var(--dur-fast) var(--ease-standard);
+}
+.uc-btn:active {
+  transform: scale(0.98);
+}
+
+.uc-btn--primary {
+  background: var(--uc-blue);
+  color: var(--fg-on-blue);
+}
+.uc-btn--primary:hover {
+  background: var(--uc-blue-deep);
+}
+
+.uc-btn--secondary {
+  background: transparent;
+  color: var(--uc-blue-deep);
+  border-color: var(--uc-blue-deep);
+}
+.uc-btn--secondary:hover {
+  background: var(--uc-blue-deep);
+  color: var(--fg-on-blue);
+}
+
+.uc-btn--gold {
+  background: var(--uc-gold);
+  color: var(--fg-on-gold);
+}
+.uc-btn--gold:hover {
+  background: var(--uc-gold-bright);
+}
