@@ -2,8 +2,10 @@ export interface Campus {
   id: string;
   name: string;
   short: string;
-  x: number;
-  y: number;
+  /** Campus latitude (decimal degrees). Projected to SVG space by CaliforniaMap. */
+  lat: number;
+  /** Campus longitude (decimal degrees, negative = west). */
+  lon: number;
   color: string;
   tagline: string;
   programs: number;
