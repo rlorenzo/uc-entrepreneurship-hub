@@ -1,0 +1,35 @@
+{
+  "campus": "irvine",
+  "name": "UC Irvine",
+  "seedUrl": "https://innovation.uci.edu/",
+  "crawledAt": "2026-05-06T14:00:30.107Z",
+  "candidates": [
+    {
+      "id": "irvine-pop-grants-uci-beall-applied-innovation",
+      "slug": "pop-grants-uci-beall-applied-innovation",
+      "name": "POP Grants – UCI Beall Applied Innovation",
+      "campus": "irvine",
+      "type": "incubator",
+      "desc": "This website stores cookies on your computer. These cookies are used to improve your website experience and provide more personalized services to you, both on this website and through other media. To find out more about the cookies we use, see our Privacy Policy.",
+      "longDescription": "Makani Science Has Created the Most Important Medical Device You’ll Never Notice Bill Tomlinson’s AI doesn’t just chat. It remembers, it cares, and it might just help us save ourselves. Tibor Juhasz has been perfecting a laser treatment for glaucoma NeoCare Innovations Technology Offers a Safer Start for Vulnerable Newborns",
+      "industries": [
+        "AI / ML"
+      ],
+      "sourceUrl": "https://innovation.uci.edu/pop-grants/",
+      "lastUpdated": "2026-05-06T14:00:42.924Z"
+    },
+    {
+      "id": "irvine-funding-resources-uci-beall-applied-innovation",
+      "slug": "funding-resources-uci-beall-applied-innovation",
+      "name": "Funding Resources – UCI Beall Applied Innovation",
+      "campus": "irvine",
+      "type": "funding",
+      "desc": "This website stores cookies on your computer. These cookies are used to improve your website experience and provide more personalized services to you, both on this website and through other media. To find out more about the cookies we use, see our Privacy Policy.",
+      "longDescription": "Proof of Product (POP) Grants is a program that awards funding to researchers to accelerate the development of UCI’s commercially promising technology. Real-world, hands-on learning that involves finding customers and understanding their problems to achieve a product/market fit. We work with an extensive network of angel and venture capital investors to provide deal flow opportunities and connection to startups and entrepreneurs from campus and the Orange County community. Small Business Innovative Research (SBIR) and Small business Technology Transfer (STTR) are competitive programs that awar",
+      "industries": [],
+      "sourceUrl": "https://innovation.uci.edu/funding-resources",
+      "lastUpdated": "2026-05-06T14:00:57.546Z"
+    }
+  ],
+  "errors": []
+}

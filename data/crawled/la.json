@@ -1,0 +1,116 @@
+{
+  "campus": "la",
+  "name": "UCLA",
+  "seedUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation",
+  "crawledAt": "2026-05-06T14:00:13.821Z",
+  "candidates": [
+    {
+      "id": "la-center-for-healthcare-innovation",
+      "slug": "center-for-healthcare-innovation",
+      "name": "Center for Healthcare Innovation",
+      "campus": "la",
+      "type": "incubator",
+      "desc": "“The future of healthcare will be shaped by bold collaboration. At the Center, we bring together industry leaders, faculty researchers, entrepreneurs, and the next generation of student leaders to translate ideas into impact. Together, we are pioneering innovative solutions that address healthcare’s most urgent challenges.”",
+      "longDescription": "“The future of healthcare will be shaped by bold collaboration. At the Center, we bring together industry leaders, faculty researchers, entrepreneurs, and the next generation of student leaders to translate ideas into impact. Together, we are pioneering innovative solutions that address healthcare’s most urgent challenges.” — Jodie Lesh (’92) Executive Director, Center for Healthcare Innovation “With Anderson’s world-class faculty, innovative curriculum, and student-led initiatives, the Center is poised to become a premier hub for transformative learning—where bold ideas and cutting-edge resea",
+      "industries": [],
+      "applicationLink": "https://www.anderson.ucla.edu/apply",
+      "sourceUrl": "https://www.anderson.ucla.edu/about/centers/center-for-healthcare-innovation",
+      "lastUpdated": "2026-05-06T14:00:24.998Z"
+    },
+    {
+      "id": "la-ucla-anderson-venture-accelerator",
+      "slug": "ucla-anderson-venture-accelerator",
+      "name": "UCLA Anderson Venture Accelerator",
+      "campus": "la",
+      "type": "accelerator",
+      "desc": "The Venture Accelerator at UCLA Anderson, housed within the Harold and Pauline Price Center for Entrepreneurship & Innovation, is a transformative cohort-based program for early-stage startups and their founders.",
+      "longDescription": "Confirmed registrants will receive detailed information on location and logistics.",
+      "industries": [],
+      "applicationLink": "https://www.anderson.ucla.edu/apply",
+      "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/anderson-venture-accelerator",
+      "lastUpdated": "2026-05-06T14:00:49.716Z"
+    },
+    {
+      "id": "la-information-systems-research-program",
+      "slug": "information-systems-research-program",
+      "name": "Information Systems Research Program",
+      "campus": "la",
+      "type": "incubator",
+      "desc": "The ISRP today supports a variety of research and professional activities. It funds ongoing faculty research projects. It provides for research assistantships and needed equipment, and supports organized workshops such as WISRD and travel to scholarly conferences. It also supports the Visiting Fellows Program. It maintains relationships with business firms that cooperate in and serve as sites for research. A few participate in cooperative research as IS Research Associates.",
+      "longDescription": "The ISRP today supports a variety of research and professional activities. It funds ongoing faculty research projects. It provides for research assistantships and needed equipment, and supports organized workshops such as WISRD and travel to scholarly conferences. It also supports the Visiting Fellows Program. It maintains relationships with business firms that cooperate in and serve as sites for research. A few participate in cooperative research as IS Research Associates. Following a recently held WISRD that identified the need to bring researchers from multiple scholarly backgrounds togethe",
+      "industries": [],
+      "applicationLink": "https://www.anderson.ucla.edu/apply",
+      "sourceUrl": "https://www.anderson.ucla.edu/faculty-and-research/information-systems-research-program",
+      "lastUpdated": "2026-05-06T14:00:57.353Z"
+    },
+    {
+      "id": "la-early-stage-investment-fund",
+      "slug": "early-stage-investment-fund",
+      "name": "Early-Stage Investment Fund",
+      "campus": "la",
+      "type": "funding",
+      "desc": "The UCLA Early-Stage Investment Fund seeks promising pre-seed ventures for investment. Led by a cohort of 15 to 25 UCLA MBA candidates, the Fund sources, evaluates and recommends one or two annual investments to the UCLA Endowment. Selected ventures will typically receive investment via a $50,000 convertible note agreement.",
+      "longDescription": "The UCLA Early-Stage Investment Fund seeks promising pre-seed ventures for investment. Led by a cohort of 15 to 25 UCLA MBA candidates, the Fund sources, evaluates and recommends one or two annual investments to the UCLA Endowment. Selected ventures will typically receive investment via a $50,000 convertible note agreement. The Fund invests in startups with strong teams, innovative ideas and long-term growth potential. The Fund's investment strategy, while industry agnostic, places a significant emphasis on pre-seed startups that exhibit a credible trajectory toward Series A fundraising. The U",
+      "industries": [],
+      "applicationLink": "https://www.anderson.ucla.edu/apply",
+      "sourceUrl": "https://www.anderson.ucla.edu/for-companies/early-stage-investment-fund",
+      "lastUpdated": "2026-05-06T14:01:02.006Z"
+    },
+    {
+      "id": "la-price-center-for-entrepreneurship-and-innovation-fellowships",
+      "slug": "price-center-for-entrepreneurship-and-innovation-fellowships",
+      "name": "Price Center for Entrepreneurship and Innovation - Fellowships",
+      "campus": "la",
+      "type": "incubator",
+      "desc": "The Deutschman Venture Fellows Program provides MBA students with hands-on venture capital management and investment training, and/or operating company experience. Fellows are placed with sponsoring venture capital firms or portfolio companies for three-month summer internships. Financial support is provided by a stipend from the Deutschman Venture Fellows endowment and a monthly salary from the participating firm.",
+      "longDescription": "The Deutschman Venture Fellows Program provides MBA students with hands-on venture capital management and investment training, and/or operating company experience. Fellows are placed with sponsoring venture capital firms or portfolio companies for three-month summer internships. Financial support is provided by a stipend from the Deutschman Venture Fellows endowment and a monthly salary from the participating firm. The relationship between sponsoring organizations and Deutschman Venture Fellows is mutually productive. Fellows placed in a venture capital firm engage in various aspects of portfo",
+      "industries": [],
+      "applicationLink": "https://www.anderson.ucla.edu/apply",
+      "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-students/fellowships",
+      "lastUpdated": "2026-05-06T14:01:17.040Z"
+    },
+    {
+      "id": "la-student-investment-fund",
+      "slug": "student-investment-fund",
+      "name": "Student Investment Fund",
+      "campus": "la",
+      "type": "funding",
+      "desc": "The SIF is a prestigious element of the Anderson experience that exposes students to situations they would encounter in a typical investment management firm. For the first six months, SIF Fellows collectively manage the fund. The equity portion is then divided equally among the Fellows and managed individually for the remaining six months. The fixed-income portfolio is managed as a group for the entire period. The Fellows visit at least 25 investment managers to learn about different investment philosophies and styles, as well as at least five current or prospective portfolio companies to conduct in-depth due diligence.",
+      "longDescription": "The SIF is a prestigious element of the Anderson experience that exposes students to situations they would encounter in a typical investment management firm. For the first six months, SIF Fellows collectively manage the fund. The equity portion is then divided equally among the Fellows and managed individually for the remaining six months. The fixed-income portfolio is managed as a group for the entire period. The Fellows visit at least 25 investment managers to learn about different investment philosophies and styles, as well as at least five current or prospective portfolio companies to cond",
+      "industries": [],
+      "applicationLink": "https://www.anderson.ucla.edu/apply",
+      "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-students/student-investment-fund",
+      "lastUpdated": "2026-05-06T14:01:20.486Z"
+    },
+    {
+      "id": "la-management-development-for-entrepreneurs",
+      "slug": "management-development-for-entrepreneurs",
+      "name": "Management Development for Entrepreneurs",
+      "campus": "la",
+      "type": "certificate",
+      "desc": "The Management Development for Entrepreneurs (MDE) program supplements entrepreneurial vision with entrepreneurial competence. The 10-day certificate program is offered on the main UCLA campus each fall. The MDE program will provide business owners and executives with a road map and the tools to make the necessary pivots to survive and grow in a pandemic economy.",
+      "longDescription": "The Management Development for Entrepreneurs (MDE) program supplements entrepreneurial vision with entrepreneurial competence. The 10-day certificate program is offered on the main UCLA campus each fall. The MDE program will provide business owners and executives with a road map and the tools to make the necessary pivots to survive and grow in a pandemic economy. Banks as Credit Facilities Non-Bank Sources of Credit Small Business Administration Total Quality Management Process Analysis Supply Chain Management Developing a Marketing Niche Organizational Design and Change Competitive Strengths",
+      "industries": [],
+      "applicationLink": "https://www.anderson.ucla.edu/apply",
+      "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-professionals/management-development-for-entrepreneurs",
+      "lastUpdated": "2026-05-06T14:01:43.218Z"
+    },
+    {
+      "id": "la-news-and-events",
+      "slug": "news-and-events",
+      "name": "News and Events",
+      "campus": "la",
+      "type": "accelerator",
+      "desc": "Article featuring Venture Accelerator at UCLA Anderson company, Elims, a \"cleantech meets healthcare\"​ company with a north star mission to greatly reduce wastes in healthcare.",
+      "longDescription": "Article featuring Venture Accelerator at UCLA Anderson company, Elims, a \"cleantech meets healthcare\"​ company with a north star mission to greatly reduce wastes in healthcare. Congratulations to Venture Accelerator companies: Oya, Mitch Gilbert ('21) & Patrick Ayers ('21), Emerald Necklace Investments, Doug Hanly ('21), Emile Learning, Mike Vilardo ('21), and Sunga Life, Jeff Gum ('21) and Warren Lee ('21)! As Director of the Venture Accelerator at UCLA Anderson, I regularly see the ingenuity and energy that female entrepreneurs bring to startups. Yet funding for female-led ventures continues",
+      "industries": [
+        "Climate",
+        "Energy"
+      ],
+      "applicationLink": "https://www.anderson.ucla.edu/apply",
+      "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/anderson-venture-accelerator/news-and-events",
+      "lastUpdated": "2026-05-06T14:02:14.613Z"
+    }
+  ],
+  "errors": []
+}

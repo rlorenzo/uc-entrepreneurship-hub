@@ -1,0 +1,38 @@
+{
+  "campus": "davis",
+  "name": "UC Davis",
+  "seedUrl": "https://iedo.ucdavis.edu/",
+  "crawledAt": "2026-05-06T14:00:13.821Z",
+  "candidates": [
+    {
+      "id": "davis-innovation-and-economic-development-office",
+      "slug": "innovation-and-economic-development-office",
+      "name": "Innovation and Economic Development Office",
+      "campus": "davis",
+      "type": "incubator",
+      "desc": "UC Davis’ Innovation and Economic Development Office advances research and entrepreneurship by helping launch startups and accelerating technologies born in the lab.",
+      "longDescription": "Located on UC Davis' Sacramento campus, Aggie Square is where the university, private industry and the community convene. Whether you want to take a tour of the buildings, host an event here for your team or organization or lease space, we'd love to see you at Aggie Square!",
+      "industries": [],
+      "applicationLink": "https://www.ucdavis.edu/admissions/apply/#quicklink",
+      "sourceUrl": "https://iedo.ucdavis.edu/",
+      "lastUpdated": "2026-05-06T14:00:18.346Z"
+    },
+    {
+      "id": "davis-aggie-venture-accelerator",
+      "slug": "aggie-venture-accelerator",
+      "name": "Aggie Venture Accelerator",
+      "campus": "davis",
+      "type": "accelerator",
+      "desc": "About Aggie Venture AcceleratorThe Aggie Venture Accelerator (AVA) is focused on backing early-stage life science startups solving complex problems at the interface of human, animal and planetary health.We back innovators confronting life’s most urgent challenges to bring a fuller, healthier and more resilient world within reach.",
+      "longDescription": "The Aggie Venture Accelerator (AVA) is focused on supporting early-stage life science startups seeking to solve complex problems at the interface of human, animal and planetary health. We will back innovators confronting what we believe to be life’s most urgent challenges in an effort to bring a fuller, healthier and more resilient world within reach. Over the past decade UC Davis has supported the launch of 300+ startups that have collectively raised over $4B. AVA will give new founders an opportunity to join a community of investors, entrepreneurs, and industry representatives focused on mak",
+      "industries": [
+        "Health"
+      ],
+      "deadline": "June 20",
+      "applicationLink": "https://www.ucdavis.edu/admissions/apply/#quicklink",
+      "sourceUrl": "https://iedo.ucdavis.edu/aggie-venture-accelerator",
+      "lastUpdated": "2026-05-06T14:00:22.978Z"
+    }
+  ],
+  "errors": []
+}
