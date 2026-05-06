@@ -50,6 +50,16 @@ export const I_X = (p: IconProps) => (
     }
   />
 );
+export const I_Menu = (p: IconProps) => (
+  <Icon
+    {...p}
+    d={
+      <>
+        <path d="M3 6h18M3 12h18M3 18h18" />
+      </>
+    }
+  />
+);
 export const I_Check = (p: IconProps) => (
   <Icon
     {...p}

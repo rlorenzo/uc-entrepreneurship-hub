@@ -1,0 +1,18 @@
+{
+  // Cloudflare Workers config for the static-asset deploy. The build step
+  // produces `dist/`; the Worker serves those files. With this config,
+  // the deploy command `npx wrangler versions upload` knows what to ship.
+  //
+  // For PR previews, every non-main push creates a new version with its
+  // own preview URL — that's how CF Workers does branch deploys.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "uc-entrepreneurship-hub",
+  "compatibility_date": "2026-05-06",
+  "assets": {
+    "directory": "./dist",
+    // SPA fallback: any unknown path serves index.html so client-side
+    // routing (HashRouter, but also future BrowserRouter) works on
+    // direct deep links.
+    "not_found_handling": "single-page-application",
+  },
+}

@@ -8,6 +8,7 @@ import { TYPE_BY_ID } from "@/data/types-list";
 import { PROGRAMS } from "@/data/programs";
 import type { Campus, Program, ProgramType } from "@/data/types.ts";
 import { useCompare } from "@/lib/compare";
+import { useIsMobile } from "@/lib/useMediaQuery";
 import { programGradient } from "@/lib/programGradient";
 import {
   I_Calendar,
@@ -358,6 +359,7 @@ function GlanceRowItem({ row, first }: { row: GlanceRow; first: boolean }) {
 }
 
 function DetailHero({ vm }: { vm: DetailVM }) {
+  const isMobile = useIsMobile();
   return (
     <section
       style={{ background: "#002033", color: "#fff", position: "relative", overflow: "hidden" }}
@@ -382,15 +384,15 @@ function DetailHero({ vm }: { vm: DetailVM }) {
           position: "relative",
           maxWidth: 1440,
           margin: "0 auto",
-          padding: "24px 32px 56px",
+          padding: isMobile ? "20px 20px 40px" : "24px 32px 56px",
         }}
       >
         <HeroBreadcrumbs campus={vm.campus} programName={vm.program.name} />
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1.4fr 1fr",
-            gap: 48,
+            gridTemplateColumns: isMobile ? "1fr" : "1.4fr 1fr",
+            gap: isMobile ? 24 : 48,
             alignItems: "flex-end",
           }}
         >
@@ -424,13 +426,14 @@ function buildKeyDetails(program: Program): KeyDetail[] {
 }
 
 function KeyDetailsGrid({ program, type }: { program: Program; type: ProgramType }) {
+  const isMobile = useIsMobile();
   return (
     <DetailBlock title="Key details" eyebrow="What you get">
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gap: 16,
+          gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+          gap: isMobile ? 12 : 16,
           marginTop: 10,
         }}
       >
@@ -581,12 +584,13 @@ function Timeline({ deadline }: { deadline: string }) {
 }
 
 function TimelineRow({ item, last }: { item: TimelineItem; last: boolean }) {
+  const isMobile = useIsMobile();
   return (
     <li
       style={{
         display: "grid",
-        gridTemplateColumns: "170px 1fr",
-        gap: 24,
+        gridTemplateColumns: isMobile ? "1fr" : "170px 1fr",
+        gap: isMobile ? 6 : 24,
         padding: "18px 0",
         borderBottom: last ? "none" : "1px solid rgba(0,32,51,.10)",
       }}
@@ -881,8 +885,13 @@ function HeadsUpCard({ program }: { program: Program }) {
 }
 
 function DetailSidebar({ vm }: { vm: DetailVM }) {
+  const isMobile = useIsMobile();
   return (
-    <aside style={{ position: "sticky", top: 120, alignSelf: "flex-start" }}>
+    <aside
+      style={
+        isMobile ? { width: "100%" } : { position: "sticky", top: 120, alignSelf: "flex-start" }
+      }
+    >
       <ApplyCard vm={vm} />
       <RunByCard campus={vm.campus} />
       <HeadsUpCard program={vm.program} />
@@ -894,8 +903,9 @@ function DetailSidebar({ vm }: { vm: DetailVM }) {
 
 function DetailRelated({ related }: { related: Program[] }) {
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
   return (
-    <section style={{ padding: "72px 32px", background: "#F7F5F1" }}>
+    <section style={{ padding: isMobile ? "48px 20px" : "72px 32px", background: "#F7F5F1" }}>
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
         <div
           style={{
@@ -935,7 +945,13 @@ function DetailRelated({ related }: { related: Program[] }) {
             Explore all programs →
           </Link>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+            gap: isMobile ? 14 : 24,
+          }}
+        >
           {related.map((p) => (
             <ProgramCard
               key={p.id}
@@ -955,18 +971,19 @@ export function ProgramDetail() {
   const { id } = useParams<{ id: string }>();
   const program = PROGRAMS.find((p) => p.id === id || p.slug === id) ?? PROGRAMS[0];
   const vm = buildVM(program);
+  const isMobile = useIsMobile();
 
   return (
     <Page>
       <DetailHero vm={vm} />
-      <section style={{ padding: "72px 32px", background: "#fff" }}>
+      <section style={{ padding: isMobile ? "40px 20px" : "72px 32px", background: "#fff" }}>
         <div
           style={{
             maxWidth: 1440,
             margin: "0 auto",
             display: "grid",
-            gridTemplateColumns: "minmax(0, 1.5fr) 360px",
-            gap: 64,
+            gridTemplateColumns: isMobile ? "1fr" : "minmax(0, 1.5fr) 360px",
+            gap: isMobile ? 32 : 64,
           }}
         >
           <DetailOverview vm={vm} />

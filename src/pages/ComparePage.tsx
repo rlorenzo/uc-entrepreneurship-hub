@@ -8,11 +8,114 @@ import { TYPE_BY_ID } from "@/data/types-list";
 import { PROGRAMS } from "@/data/programs";
 import type { Program } from "@/data/types";
 import { useCompare } from "@/lib/compare";
+import { useIsMobile } from "@/lib/useMediaQuery";
 import { I_Arrow, I_Compare, I_Plus, I_X } from "@/lib/icons";
 
 interface Row {
   k: string;
   render: (p: Program) => React.ReactNode;
+}
+
+function CohortCell({ size }: { size: number | null }) {
+  if (!size) return <em style={{ color: "#7C7E7F" }}>Not disclosed</em>;
+  return <>{`${size} ventures`}</>;
+}
+
+function IndustriesCell({ industries }: { industries: string[] }) {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+      {industries.map((i) => (
+        <Pill key={i}>{i}</Pill>
+      ))}
+    </div>
+  );
+}
+
+const COMPARE_ROWS: Row[] = [
+  { k: "Campus", render: (p) => <CampusBadge campusId={p.campus} /> },
+  { k: "Type", render: (p) => <TypePill typeId={p.type} /> },
+  { k: "Stage", render: (p) => p.stage },
+  {
+    k: "Eligibility",
+    render: (p) => (
+      <span style={{ fontSize: 13, lineHeight: 1.4 }}>{p.eligibility.join(", ")}</span>
+    ),
+  },
+  { k: "Duration", render: (p) => p.duration },
+  { k: "Funding", render: (p) => <strong style={{ color: "#002033" }}>{p.funding}</strong> },
+  { k: "Selectivity", render: (p) => p.selectivity },
+  { k: "Cohort size", render: (p) => <CohortCell size={p.cohortSize} /> },
+  { k: "Deadline", render: (p) => p.deadline },
+  { k: "Industries", render: (p) => <IndustriesCell industries={p.industries} /> },
+];
+
+function CompareHero({ canClear, onClear }: { canClear: boolean; onClear: () => void }) {
+  const isMobile = useIsMobile();
+  return (
+    <section
+      style={{
+        padding: isMobile ? "24px 20px 18px" : "48px 32px 28px",
+        background: "#F7F5F1",
+        borderBottom: "1px solid rgba(0,32,51,.08)",
+      }}
+    >
+      <div style={{ maxWidth: 1440, margin: "0 auto" }}>
+        <Breadcrumbs
+          trail={[
+            { label: "Home", to: "/" },
+            { label: "Explore programs", to: "/discover" },
+            { label: "Compare" },
+          ]}
+        />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+            gap: 24,
+            marginTop: 12,
+            flexWrap: "wrap",
+          }}
+        >
+          <div>
+            <Eyebrow>Side-by-side</Eyebrow>
+            <h1
+              style={{
+                fontFamily: "'Source Serif 4',Georgia,serif",
+                fontWeight: 600,
+                fontSize: "clamp(36px,4vw,52px)",
+                lineHeight: 1.1,
+                margin: "10px 0 0",
+                color: "#002033",
+              }}
+            >
+              Compare programs
+            </h1>
+            <p style={{ margin: "10px 0 0", color: "#4C4C4C", fontSize: 16, maxWidth: 600 }}>
+              Pick up to four programs to compare standardized details.
+            </p>
+          </div>
+          {canClear && (
+            <button
+              onClick={onClear}
+              style={{
+                background: "transparent",
+                border: "2px solid #002033",
+                color: "#002033",
+                padding: "10px 18px",
+                borderRadius: 4,
+                fontWeight: 600,
+                fontSize: 14,
+                cursor: "pointer",
+              }}
+            >
+              Clear all
+            </button>
+          )}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export function ComparePage() {
@@ -21,109 +124,18 @@ export function ComparePage() {
   const programs = ids
     .map((id) => PROGRAMS.find((p) => p.id === id))
     .filter((p): p is Program => Boolean(p));
-
-  const rows: Row[] = [
-    { k: "Campus", render: (p) => <CampusBadge campusId={p.campus} /> },
-    { k: "Type", render: (p) => <TypePill typeId={p.type} /> },
-    { k: "Stage", render: (p) => p.stage },
-    {
-      k: "Eligibility",
-      render: (p) => (
-        <span style={{ fontSize: 13, lineHeight: 1.4 }}>{p.eligibility.join(", ")}</span>
-      ),
-    },
-    { k: "Duration", render: (p) => p.duration },
-    { k: "Funding", render: (p) => <strong style={{ color: "#002033" }}>{p.funding}</strong> },
-    { k: "Selectivity", render: (p) => p.selectivity },
-    {
-      k: "Cohort size",
-      render: (p) =>
-        p.cohortSize ? (
-          `${p.cohortSize} ventures`
-        ) : (
-          <em style={{ color: "#7C7E7F" }}>Not disclosed</em>
-        ),
-    },
-    { k: "Deadline", render: (p) => p.deadline },
-    {
-      k: "Industries",
-      render: (p) => (
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-          {p.industries.map((i) => (
-            <Pill key={i}>{i}</Pill>
-          ))}
-        </div>
-      ),
-    },
-  ];
+  const isMobile = useIsMobile();
+  const rows = COMPARE_ROWS;
 
   return (
     <Page>
+      <CompareHero canClear={programs.length > 0} onClear={clear} />
       <section
         style={{
-          padding: "48px 32px 28px",
-          background: "#F7F5F1",
-          borderBottom: "1px solid rgba(0,32,51,.08)",
+          padding: isMobile ? "24px 20px 56px" : "48px 32px 96px",
+          background: "#fff",
         }}
       >
-        <div style={{ maxWidth: 1440, margin: "0 auto" }}>
-          <Breadcrumbs
-            trail={[
-              { label: "Home", to: "/" },
-              { label: "Explore programs", to: "/discover" },
-              { label: "Compare" },
-            ]}
-          />
-          <div
-            style={{
-              display: "flex",
-              alignItems: "flex-end",
-              justifyContent: "space-between",
-              gap: 24,
-              marginTop: 12,
-              flexWrap: "wrap",
-            }}
-          >
-            <div>
-              <Eyebrow>Side-by-side</Eyebrow>
-              <h1
-                style={{
-                  fontFamily: "'Source Serif 4',Georgia,serif",
-                  fontWeight: 600,
-                  fontSize: "clamp(36px,4vw,52px)",
-                  lineHeight: 1.1,
-                  margin: "10px 0 0",
-                  color: "#002033",
-                }}
-              >
-                Compare programs
-              </h1>
-              <p style={{ margin: "10px 0 0", color: "#4C4C4C", fontSize: 16, maxWidth: 600 }}>
-                Pick up to four programs to compare standardized details.
-              </p>
-            </div>
-            {programs.length > 0 && (
-              <button
-                onClick={clear}
-                style={{
-                  background: "transparent",
-                  border: "2px solid #002033",
-                  color: "#002033",
-                  padding: "10px 18px",
-                  borderRadius: 4,
-                  fontWeight: 600,
-                  fontSize: 14,
-                  cursor: "pointer",
-                }}
-              >
-                Clear all
-              </button>
-            )}
-          </div>
-        </div>
-      </section>
-
-      <section style={{ padding: "48px 32px 96px", background: "#fff" }}>
         <div style={{ maxWidth: 1440, margin: "0 auto" }}>
           {programs.length === 0 ? (
             <div
