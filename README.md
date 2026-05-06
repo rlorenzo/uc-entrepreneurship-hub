@@ -172,17 +172,19 @@ GitHub Actions workflow at `.github/workflows/deploy.yml` builds on every push t
 
 To enable: in the GitHub repo settings, **Settings → Pages → Source: GitHub Actions**.
 
-### Per-PR previews — Cloudflare Pages
+### Per-PR previews — Cloudflare (Workers + Static Assets)
 
-Cloudflare Pages auto-deploys every branch push (including PRs) to its own preview URL. Connect the repo from the Cloudflare dashboard once, and every PR gets a `https://<branch>.<project>.pages.dev` URL.
+Cloudflare auto-deploys every branch push (including PRs) to its own preview URL. The static-asset deploy is configured by the `wrangler.jsonc` at the repo root — that file is the source of truth for how the Worker serves `dist/`. Connect the repo from the Cloudflare dashboard once and every PR gets a unique preview URL.
 
-**Build settings** (Cloudflare dashboard → your project → Settings → Build & deployments):
+**Build settings** (Cloudflare dashboard → your project → Settings → Build):
 
 | Field            | Value            |
 | ---------------- | ---------------- |
 | Build command    | `pnpm run build` |
-| Output directory | `dist`           |
+| Deploy command   | `npx wrangler versions upload` (default for Workers projects, leave as-is) |
 | Root directory   | _(empty)_        |
+
+The Worker's name in `wrangler.jsonc` (`"name": "uc-entrepreneurship-hub"`) must match your Cloudflare project name. Update either the file or the dashboard until they agree.
 
 **Environment variables** (Settings → Environment variables, set on both Production + Preview):
 
