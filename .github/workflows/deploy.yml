@@ -1,0 +1,81 @@
+name: Deploy to GitHub Pages
+
+# Build the production bundle and publish it to GitHub Pages every time
+# main moves. This includes the weekly crawl's auto-commits to data —
+# when weekly-crawl.yml pushes a refreshed catalog, this workflow
+# republishes the site so the new programs appear without a manual
+# re-deploy.
+#
+# Note: the deploy workflow only builds and uploads. The crawl runs
+# under .github/workflows/weekly-crawl.yml on its own schedule.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deploy. Don't cancel an in-flight run when a
+# new commit lands; let it finish and then run the queued one. That way
+# we never serve a half-uploaded artifact.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Official Vite+ CI action — installs vp, sets up Node, picks the
+      # package manager from `packageManager` in package.json, and caches
+      # the install. Matches the local dev pin (Node 24 LTS).
+      # https://viteplus.dev/guide/ci
+      - uses: voidzero-dev/setup-vp@v1
+        with:
+          node-version: "24"
+          cache: true
+
+      - name: Install deps
+        run: vp install
+
+      - name: Validate (format + lint + type-check + duplication)
+        run: vp run check
+
+      - name: Build
+        run: vp build
+        env:
+          # Asset paths must be prefixed with /<repo>/ when served from
+          # GitHub Pages. vite.config.ts reads this env var and sets
+          # `base` accordingly.
+          VITE_GH_PAGES: "1"
+
+      - name: Add 404.html for HashRouter deep links
+        # GitHub Pages serves index.html only at the root. Without a
+        # 404.html fallback, deep-linking to /uc-entrepreneurship-hub/#/program/...
+        # would 404 on a fresh session before the SPA boots. Copying the
+        # built index.html to 404.html lets Pages serve the SPA shell on
+        # any path, and the HashRouter inside reads the fragment to land
+        # on the right page.
+        run: cp dist/index.html dist/404.html
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
