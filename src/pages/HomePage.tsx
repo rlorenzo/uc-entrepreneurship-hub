@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Page } from "@/components/Page";
 import { Eyebrow } from "@/components/Eyebrow";
 import { ProgramCard } from "@/components/ProgramCard";
@@ -254,9 +254,8 @@ function FeaturedStrip({ onOpen }: { onOpen: (id: string) => void }) {
               standardized info so you can compare apples to apples.
             </p>
           </div>
-          <a
-            href="#"
-            onClick={(e) => e.preventDefault()}
+          <Link
+            to="/discover"
             style={{
               color: "#005581",
               fontWeight: 600,
@@ -266,7 +265,7 @@ function FeaturedStrip({ onOpen }: { onOpen: (id: string) => void }) {
             }}
           >
             See all 140+ programs →
-          </a>
+          </Link>
         </div>
         <div
           style={{
@@ -612,8 +611,8 @@ function SpotlightStories() {
               What’s shipping out of UC
             </h2>
           </div>
-          <a
-            href="#"
+          <Link
+            to="/discover"
             style={{
               color: "#FFB511",
               fontWeight: 600,
@@ -622,8 +621,8 @@ function SpotlightStories() {
               textUnderlineOffset: 3,
             }}
           >
-            All stories →
-          </a>
+            Browse all programs →
+          </Link>
         </div>
         <div
           style={{
@@ -635,9 +634,9 @@ function SpotlightStories() {
           {SPOTLIGHTS.map((s) => {
             const c = CAMPUS_BY_ID[s.campus];
             return (
-              <a
+              <Link
                 key={s.id}
-                href="#"
+                to={`/campus/${s.campus}`}
                 style={{
                   textDecoration: "none",
                   color: "inherit",
@@ -695,7 +694,7 @@ function SpotlightStories() {
                   </h3>
                   <div style={{ fontSize: 13, color: "#BDE3F6" }}>{s.meta}</div>
                 </div>
-              </a>
+              </Link>
             );
           })}
         </div>
@@ -705,7 +704,6 @@ function SpotlightStories() {
 }
 
 function AudienceBand() {
-  const navigate = useNavigate();
   const items = [
     {
       eyebrow: "For students",
@@ -773,12 +771,8 @@ function AudienceBand() {
               {a.title}
             </h3>
             <p style={{ margin: 0, fontSize: 16, lineHeight: 1.5, maxWidth: 380 }}>{a.body}</p>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                navigate(a.go);
-              }}
+            <Link
+              to={a.go}
               style={{
                 marginTop: "auto",
                 color: "#002033",
@@ -792,7 +786,7 @@ function AudienceBand() {
               }}
             >
               {a.cta} <I_Arrow size={16} />
-            </a>
+            </Link>
           </div>
         ))}
       </div>

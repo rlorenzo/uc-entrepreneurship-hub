@@ -13,15 +13,13 @@ interface NavLink {
 const NAV_LINKS: NavLink[] = [
   { to: "/discover", label: "Explore programs", match: "/discover" },
   { to: "/campuses", label: "Campuses", match: "/camp" },
-  { to: "/resources", label: "Resources", match: "/resources" },
-  { to: "/about", label: "About", match: "/about" },
+  { to: "/compare", label: "Compare", match: "/compare" },
 ];
 
 const UTILITY_LINKS = [
-  { href: "#", label: "For partners" },
-  { href: "#", label: "For faculty" },
-  { href: "#", label: "UC Newsroom" },
-  { href: "#", label: "Sign in" },
+  { href: "#/discover", label: "For partners" },
+  { href: "#/discover?eligibility=Faculty", label: "For faculty" },
+  { href: "https://news.universityofcalifornia.edu/", label: "UC Newsroom" },
 ];
 
 function UtilityBar() {
