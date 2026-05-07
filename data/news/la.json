@@ -1,0 +1,20 @@
+{
+  "campus": "la",
+  "name": "UCLA",
+  "strategy": "playwright",
+  "source": "https://www.anderson.ucla.edu/news-and-events",
+  "crawledAt": "2026-05-07T01:17:24.112Z",
+  "items": [
+    {
+      "id": "la-ucla-anderson-school-management-launches-minors-real-estate-and-sports-leadership-and-management",
+      "campus": "la",
+      "title": "UCLA Anderson School of Management Launches Minors in Real Estate and Sports Leadership and Management",
+      "summary": "The two new minors expand the school’s undergraduate offerings, which include minors in Accounting and Entrepreneurship",
+      "publishedAt": "2026-04-15T12:00:00.000Z",
+      "sourceUrl": "https://www.anderson.ucla.edu/news-and-events/ucla-anderson-school-management-launches-minors-real-estate-and-sports-leadership-and-management",
+      "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/social_og/public/image/2026-04/20260415-campus-drone-card.jpg.jpeg?itok=QzAacVws",
+      "sourceHost": "www.anderson.ucla.edu"
+    }
+  ],
+  "errors": []
+}

@@ -65,12 +65,3 @@ export interface Program {
   featured?: boolean;
   eyebrow?: string;
 }
-
-export interface Spotlight {
-  id: string;
-  campus: string;
-  eyebrow: string;
-  title: string;
-  meta: string;
-  gradient: string;
-}

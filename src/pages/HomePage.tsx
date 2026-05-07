@@ -6,7 +6,9 @@ import { ProgramCard } from "@/components/ProgramCard";
 import { CaliforniaMap } from "@/components/CaliforniaMap";
 import { CAMPUSES, CAMPUS_BY_ID } from "@/data/campuses";
 import { TYPE_BY_ID } from "@/data/types-list";
-import { PROGRAMS, SPOTLIGHTS } from "@/data/programs";
+import { PROGRAMS } from "@/data/programs";
+import { NEWS } from "@/data/news.generated";
+import { formatNewsDate } from "@/lib/dates";
 import { useIsMobile } from "@/lib/useMediaQuery";
 import { I_Arrow, I_Search } from "@/lib/icons";
 
@@ -577,6 +579,8 @@ function MapSection() {
 
 function SpotlightStories() {
   const isMobile = useIsMobile();
+  const stories = NEWS.slice(0, 3);
+  if (stories.length === 0) return null;
   return (
     <section
       style={{
@@ -597,7 +601,7 @@ function SpotlightStories() {
           }}
         >
           <div>
-            <Eyebrow color="#FFB511">From the cohorts</Eyebrow>
+            <Eyebrow color="#FFB511">Latest news</Eyebrow>
             <h2
               style={{
                 fontFamily: "'Source Serif 4',Georgia,serif",
@@ -612,7 +616,7 @@ function SpotlightStories() {
             </h2>
           </div>
           <Link
-            to="/discover"
+            to="/news"
             style={{
               color: "#FFB511",
               fontWeight: 600,
@@ -621,7 +625,7 @@ function SpotlightStories() {
               textUnderlineOffset: 3,
             }}
           >
-            Browse all programs →
+            Browse latest news →
           </Link>
         </div>
         <div
@@ -631,12 +635,15 @@ function SpotlightStories() {
             gap: isMobile ? 16 : 24,
           }}
         >
-          {SPOTLIGHTS.map((s) => {
-            const c = CAMPUS_BY_ID[s.campus];
+          {stories.map((n) => {
+            const c = CAMPUS_BY_ID[n.campus];
+            const date = formatNewsDate(n.publishedAt);
             return (
-              <Link
-                key={s.id}
-                to={`/campus/${s.campus}`}
+              <a
+                key={n.id}
+                href={n.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   textDecoration: "none",
                   color: "inherit",
@@ -648,7 +655,15 @@ function SpotlightStories() {
                   overflow: "hidden",
                 }}
               >
-                <div style={{ aspectRatio: "16/10", background: s.gradient, position: "relative" }}>
+                <div
+                  style={{
+                    aspectRatio: "16/10",
+                    background: n.imageUrl
+                      ? `#001520 center/cover no-repeat url("${n.imageUrl}")`
+                      : "linear-gradient(135deg,#1295D8,#005581)",
+                    position: "relative",
+                  }}
+                >
                   <div
                     style={{
                       position: "absolute",
@@ -660,10 +675,14 @@ function SpotlightStories() {
                       display: "inline-flex",
                       alignItems: "center",
                       gap: 6,
+                      padding: "4px 10px",
+                      borderRadius: 999,
+                      background: "rgba(0,0,0,.55)",
+                      backdropFilter: "blur(4px)",
                     }}
                   >
                     <span style={{ width: 8, height: 8, borderRadius: 999, background: "#fff" }} />{" "}
-                    {c?.name}
+                    {c?.name ?? n.campus}
                   </div>
                 </div>
                 <div style={{ padding: "22px 24px 26px" }}>
@@ -677,7 +696,7 @@ function SpotlightStories() {
                       marginBottom: 10,
                     }}
                   >
-                    {s.eyebrow}
+                    {date}
                   </div>
                   <h3
                     style={{
@@ -690,11 +709,13 @@ function SpotlightStories() {
                       textWrap: "pretty",
                     }}
                   >
-                    {s.title}
+                    {n.title}
                   </h3>
-                  <div style={{ fontSize: 13, color: "#BDE3F6" }}>{s.meta}</div>
+                  {n.sourceHost ? (
+                    <div style={{ fontSize: 13, color: "#BDE3F6" }}>{n.sourceHost} ↗</div>
+                  ) : null}
                 </div>
-              </Link>
+              </a>
             );
           })}
         </div>

@@ -1,0 +1,85 @@
+[
+  {
+    "campus": "irvine",
+    "name": "UC Irvine",
+    "strategy": "rss",
+    "feedUrl": "https://innovation.uci.edu/news/feed/",
+    "enrichImages": true
+  },
+  {
+    "campus": "berkeley",
+    "name": "UC Berkeley",
+    "strategy": "rss",
+    "feedUrl": "https://begin.berkeley.edu/feed/",
+    "linkDenylist": ["/magazine/"],
+    "titleDenylist": ["^In Memoriam"]
+  },
+  {
+    "campus": "santabarbara",
+    "name": "UC Santa Barbara",
+    "strategy": "playwright",
+    "listingUrl": "https://innovation.ucsb.edu/blog/news",
+    "articleLinkPattern": "^/blog/news/[a-z0-9-]+$",
+    "paginationPages": 4,
+    "paginationParam": "page"
+  },
+  {
+    "campus": "la",
+    "name": "UCLA",
+    "strategy": "playwright",
+    "listingUrl": "https://www.anderson.ucla.edu/news-and-events",
+    "articleLinkPattern": "^/news-and-events/[a-z0-9-]+$",
+    "linkDenylist": [
+      "^/news-and-events/(for-the-media|press-releases|signature-events|podcasts|news-archive|virtual-events-archive)"
+    ],
+    "maxArticles": 30,
+    "keywordAllowlist": "default"
+  },
+  {
+    "campus": "santacruz",
+    "name": "UC Santa Cruz",
+    "strategy": "rss",
+    "feedUrl": "https://news.ucsc.edu/feed/",
+    "keywordAllowlist": "default"
+  },
+  {
+    "campus": "riverside",
+    "name": "UC Riverside",
+    "strategy": "playwright",
+    "listingUrl": "https://news.ucr.edu/topic/business",
+    "articleLinkPattern": "^/articles/\\d{4}/\\d{2}/\\d{2}/[a-z0-9-]+$",
+    "maxArticles": 25
+  },
+  {
+    "campus": "davis",
+    "name": "UC Davis",
+    "strategy": "playwright",
+    "listingUrl": "https://iedo.ucdavis.edu/news",
+    "articleLinkPattern": "^/news/[a-z0-9-]+$",
+    "maxArticles": 25
+  },
+  {
+    "campus": "sd",
+    "name": "UC San Diego",
+    "strategy": "playwright",
+    "listingUrl": "https://today.ucsd.edu/research/business-and-economics",
+    "articleLinkPattern": "^/(story|feature|news_rel|pressrelease)/[a-z0-9-]+$",
+    "maxArticles": 25
+  },
+  {
+    "campus": "sf",
+    "name": "UC San Francisco",
+    "strategy": "playwright",
+    "listingUrl": "https://innovation.ucsf.edu/media/news",
+    "articleLinkPattern": "^/media/news/[a-z0-9-]+$",
+    "maxArticles": 25
+  },
+  {
+    "campus": "merced",
+    "name": "UC Merced",
+    "strategy": "rss",
+    "feedUrl": "https://news.ucmerced.edu/rss.xml",
+    "keywordAllowlist": "default",
+    "enrichImages": true
+  }
+]

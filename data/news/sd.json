@@ -1,0 +1,70 @@
+{
+  "campus": "sd",
+  "name": "UC San Diego",
+  "strategy": "playwright",
+  "source": "https://today.ucsd.edu/research/business-and-economics",
+  "crawledAt": "2026-05-07T01:18:04.964Z",
+  "items": [
+    {
+      "id": "sd-a-uc-san-diego-tool-teaching-code-to-25-million-is-even-more-critical-in-age-of-ai",
+      "campus": "sd",
+      "title": "A UC San Diego Tool Teaching Code to 25 Million is Even More Critical in Age of AI",
+      "summary": "When generative AI began writing code with uncanny fluency, it sparked a question: If a chatbot can build software, do people still need to learn to code? Professor of Cognitive Science Philip Guo says absolutely. Understanding code is now more important than ever because AI can get it wrong.",
+      "publishedAt": "2026-03-19T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/a-uc-san-diego-tool-teaching-code-to-25-million-is-even-more-critical-in-age-of-ai",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/iStock-2175838440%282%29%281%29.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
+    {
+      "id": "sd-americans-dont-just-fear-driverless-cars-will-crashthey-fear-mass-job-loss",
+      "campus": "sd",
+      "title": "Americans Don’t Just Fear Driverless Cars Will Crash",
+      "summary": "While much of the public debate about self-driving cars focuses on safety, a new national study from the UC San Diego reveals many Americans’ doubts about driverless focused on the technology’s economic ripple effects — especially job losses in driving and delivery work.  ",
+      "publishedAt": "2026-03-05T08:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/americans-dont-just-fear-driverless-cars-will-crashthey-fear-mass-job-loss",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/iStock-2204573658%281%29%282%29.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
+    {
+      "id": "sd-why-tariff-uncertainty-may-hurt-more-than-tariffs",
+      "campus": "sd",
+      "title": "Why Tariff Uncertainty May Hurt More Than Tariffs",
+      "summary": "Q&A with School of Global Policy and Strategy economist on what uncertainty means for businesses, how volatility affects global credibility and what policy choices lie ahead.",
+      "publishedAt": "2026-02-26T08:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/why-tariff-uncertainty-may-hurt-more-than-tariffs",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Economic-Uncertainty-concept-image-by-iStock_DNY59-1069395454-crop1200.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
+    {
+      "id": "sd-why-some-messages-are-more-convincing-than-others",
+      "campus": "sd",
+      "title": "Why Some Messages Are More Convincing Than Others",
+      "summary": "What kinds of marketing messages are effective — and what makes people believe certain political slogans more than others? New research from the University of California San Diego Rady School of Management explains. ",
+      "publishedAt": "2026-01-22T08:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/why-some-messages-are-more-convincing-than-others",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/iStock-2231577862%281%29%283%29.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
+    {
+      "id": "sd-from-wharton-to-womens-fashion-designer-stuart-weitzman-inspires-rady-students",
+      "campus": "sd",
+      "title": "From Wharton to Women’s Fashion: Designer Stuart Weitzman Inspires Rady Students",
+      "summary": "Men buy around one to two pairs of shoes a year. Women purchase around 13 pairs annually. This was the data point that inspired Stuart Weitzman to create a business centered around women's footwear. Weitzman recently share his story with students at the Rady School of Management. ",
+      "publishedAt": "2026-01-15T08:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/from-wharton-to-womens-fashion-designer-stuart-weitzman-inspires-rady-students",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/DSC07669%281%29%281%29.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
+    {
+      "id": "sd-calibaja-higher-education-consortium-officially-launches",
+      "campus": "sd",
+      "title": "CaliBaja Higher Education Consortium Officially Launches",
+      "summary": "The University of California San Diego is joining a new alliance uniting higher education institutions from California and Baja California, the CaliBaja Higher Education Consortium (CHEC). \n",
+      "publishedAt": "2025-12-10T08:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/calibaja-higher-education-consortium-officially-launches",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/iStock-2227414883%281%29.jpg",
+      "sourceHost": "today.ucsd.edu"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,30 @@
+{
+  "campus": "berkeley",
+  "name": "UC Berkeley",
+  "strategy": "rss",
+  "source": "https://begin.berkeley.edu/feed/",
+  "crawledAt": "2026-05-07T01:17:01.576Z",
+  "items": [
+    {
+      "id": "berkeley-meet-debasish-behera-the-founder-making-global-payment-more-accessible",
+      "campus": "berkeley",
+      "title": "Meet Debasish Behera, the Founder Making Global Payment more Accessible",
+      "summary": "Debasish Behera, originally a student from India, joined the SCET community after participating in the Startup Semester at Berkeley in the spring of 2025. Since then, he has immersed himself…",
+      "publishedAt": "2026-05-06T17:57:00.000Z",
+      "sourceUrl": "https://scet.berkeley.edu/meet-debasish-behera-the-founder-making-global-payment-more-accessible/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/debasish-683x1024.png",
+      "sourceHost": "scet.berkeley.edu"
+    },
+    {
+      "id": "berkeley-new-ai-entrepreneurship-course-is-a-hands-on-startup-accelerator-for-mba-founders",
+      "campus": "berkeley",
+      "title": "New AI Entrepreneurship course is a hands-on startup accelerator for MBA founders",
+      "summary": "Alex Zekoff, MBA 17, who co-teaches AI and Entrepreneurship with Professor Omri Even-Tov, posing a question about fundraising to the class. Photo: Noah Berger On a recent Thursday afternoon Alex…",
+      "publishedAt": "2026-05-06T16:01:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/new-ai-entrepreneurship-course-is-a-hands-on-startup-accelerator-for-mba-founders/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/bkc_580a-768x512.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    }
+  ],
+  "errors": []
+}

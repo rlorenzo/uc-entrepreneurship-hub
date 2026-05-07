@@ -29,15 +29,12 @@ import {
   type CampusOverrides,
   type RawPageData,
 } from "./extract.ts";
+import { resolveUserAgent } from "./user-agent.ts";
 import type { ProgramCandidate } from "../../src/data/normalize.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..", "..");
 const OUT_DIR = join(ROOT, "data", "crawled");
-
-const FALLBACK_USER_AGENT =
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " +
-  "(KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36";
 
 const DEFAULT_CONCURRENCY = 3;
 const NAV_TIMEOUT_MS = 30_000;
@@ -109,29 +106,6 @@ await mkdir(OUT_DIR, { recursive: true });
 
 const startedAt = new Date().toISOString();
 console.log(`Crawling ${sites.length} campus${sites.length === 1 ? "" : "es"} at ${startedAt}\n`);
-
-// ── User-agent resolution ────────────────────────────────────────────────
-async function resolveUserAgent(): Promise<string> {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 5000);
-  try {
-    const resp = await fetch("https://jnrbsn.github.io/user-agents/user-agents.json", {
-      signal: controller.signal,
-    });
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    const list = (await resp.json()) as string[];
-    const candidates = list
-      .filter((ua) => ua.includes("Macintosh") && ua.includes("Chrome/") && !ua.includes("Edg/"))
-      .map((ua) => ({ ua, version: Number((ua.match(/Chrome\/(\d+)/) ?? [])[1] ?? 0) }))
-      .toSorted((a, b) => b.version - a.version);
-    if (candidates.length) return candidates[0].ua;
-  } catch (err) {
-    console.log(`Could not fetch latest UA list (${(err as Error).message}); using fallback.`);
-  } finally {
-    clearTimeout(timer);
-  }
-  return FALLBACK_USER_AGENT;
-}
 
 const USER_AGENT = await resolveUserAgent();
 

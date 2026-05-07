@@ -1,0 +1,160 @@
+{
+  "campus": "sf",
+  "name": "UC San Francisco",
+  "strategy": "playwright",
+  "source": "https://innovation.ucsf.edu/media/news",
+  "crawledAt": "2026-05-07T01:18:10.437Z",
+  "items": [
+    {
+      "id": "sf-qa-nicholas-hertz-president-ceo-montara-therapeutics",
+      "campus": "sf",
+      "title": "Q&A with Nicholas Hertz, President & CEO of Montara Therapeutics",
+      "summary": "Q&amp;A with Nicholas Hertz, President &amp; CEO of Montara Therapeutics",
+      "publishedAt": "2026-04-29T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/qa-nicholas-hertz-president-ceo-montara-therapeutics",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-breakthrough-device-designation-aidabreastr-early-stage-invasive-breast-cancer-assay",
+      "campus": "sf",
+      "title": "Breakthrough Device Designation for AidaBREAST® - Early-Stage Invasive Breast Cancer Assay",
+      "summary": "Breakthrough Device Designation for AidaBREAST® - Early-Stage Invasive Breast Cancer Assay",
+      "publishedAt": "2026-04-29T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/breakthrough-device-designation-aidabreastr-early-stage-invasive-breast-cancer-assay",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-ucb-acquire-neurona-therapeutics-advancing-its-innovative-leadership-epilepsy-through",
+      "campus": "sf",
+      "title": "UCB to acquire Neurona Therapeutics, advancing its innovative leadership in epilepsy through regenerative science",
+      "summary": "UCB to acquire Neurona Therapeutics, advancing its innovative leadership in epilepsy through regenerative science",
+      "publishedAt": "2026-04-17T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/ucb-acquire-neurona-therapeutics-advancing-its-innovative-leadership-epilepsy-through",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-scientists-create-cancer-fighting-immune-cells-right-body",
+      "campus": "sf",
+      "title": "Scientists Create Cancer-Fighting Immune Cells Right in the Body",
+      "summary": "Scientists Create Cancer-Fighting Immune Cells Right in the Body",
+      "publishedAt": "",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/scientists-create-cancer-fighting-immune-cells-right-body",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-ucsf-receives-824m-nih-funding-driving-medical-breakthroughs",
+      "campus": "sf",
+      "title": "UCSF Receives $824M in NIH Funding, Driving Medical Breakthroughs",
+      "summary": "UCSF Receives $824M in NIH Funding, Driving Medical Breakthroughs -",
+      "publishedAt": "2026-03-13T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/ucsf-receives-824m-nih-funding-driving-medical-breakthroughs",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-molecular-garbage-tumors-makes-easy-target-antibody-drugs",
+      "campus": "sf",
+      "title": "Molecular Garbage on Tumors Makes Easy Target for Antibody Drugs",
+      "summary": "Cancer cells can ‘barf’ proteins onto their cell surface. That may create new targets for immunotherapies",
+      "publishedAt": "",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/molecular-garbage-tumors-makes-easy-target-antibody-drugs",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-vs3-medical-announces-first-patients-enrolled-first-human-study-novel-neurovascular",
+      "campus": "sf",
+      "title": "VS3 Medical Announces First Patients Enrolled in First-in-Human Study of Novel Neurovascular Implant to Address Symptomatic Venous Sinus Stenosis",
+      "summary": "VS3 Medical Announces First Patients Enrolled in First-in-Human Study of Novel Neurovascular Implant to Address Symptomatic Venous Sinus Stenosis",
+      "publishedAt": "2026-03-10T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/vs3-medical-announces-first-patients-enrolled-first-human-study-novel-neurovascular",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-ge-healthcare-ucsf-health-form-10-year-imaging-collaboration",
+      "campus": "sf",
+      "title": "GE HealthCare, UCSF Health form 10-year imaging collaboration",
+      "summary": "GE HealthCare has entered a 10-year Care Alliance with UCSF Health aimed at expanding imaging capabilities and supporting clinical operations across the health system.",
+      "publishedAt": "",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/ge-healthcare-ucsf-health-form-10-year-imaging-collaboration",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-tissue-repair-slows-old-age-these-proteins-speed-it-back",
+      "campus": "sf",
+      "title": "Tissue Repair Slows in Old Age. These Proteins Speed It Back Up",
+      "summary": "Tissue Repair Slows in Old Age. These Proteins Speed It Back Up",
+      "publishedAt": "",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/tissue-repair-slows-old-age-these-proteins-speed-it-back",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-tahoe-therapeutics-arc-institute-and-biohub-partner-generate-largest-perturbation",
+      "campus": "sf",
+      "title": "Tahoe Therapeutics, Arc Institute, and Biohub Partner to Generate the Largest Perturbation Dataset for Virtual Cell Models",
+      "summary": "Tahoe Therapeutics, Arc Institute, and Biohub Partner to Generate the Largest Perturbation Dataset for Virtual Cell Models",
+      "publishedAt": "",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/tahoe-therapeutics-arc-institute-and-biohub-partner-generate-largest-perturbation",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-tahoe-therapeutics-and-alloy-therapeutics-form-joint-venture-and-develop-first-class",
+      "campus": "sf",
+      "title": "Tahoe Therapeutics and Alloy Therapeutics to Form Joint Venture and Develop First-in-Class Antibody-Drug Conjugates for Hard-to-Treat Cancers",
+      "summary": "Tahoe Therapeutics and Alloy Therapeutics to Form Joint Venture and Develop First-in-Class Antibody-Drug Conjugates for Hard-to-Treat Cancers",
+      "publishedAt": "2026-01-14T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/tahoe-therapeutics-and-alloy-therapeutics-form-joint-venture-and-develop-first-class",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-jj-google-venture-arms",
+      "campus": "sf",
+      "title": "J&J, Google venture arms line up to back protein degradation biotech EpiBiologics' $107M series B",
+      "summary": "Protein degradation biotech EpiBiologics has brought in $107 million in a&nbsp;star-studded series B round&nbsp;headed up by Johnson &amp; Johnson's and Google's respective venture arms.",
+      "publishedAt": "",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/jj-google-venture-arms",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-montara-therapeutics-announces-development-candidate-first-brainonlytm-enabled-program",
+      "campus": "sf",
+      "title": "Montara Therapeutics Announces Development Candidate for First BrainOnly™-Enabled Program in TSC-Related Epilepsy and Appoints Chief Business Officer",
+      "summary": "Montara Therapeutics Announces Development Candidate for First BrainOnly™-Enabled Program in TSC-Related Epilepsy and Appoints Chief Business Officer&nbsp;",
+      "publishedAt": "2025-12-10T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/montara-therapeutics-announces-development-candidate-first-brainonlytm-enabled-program",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-alice-tang-made-forbes-30-under-30-list-science",
+      "campus": "sf",
+      "title": "Alice Tang Made the Forbes 30 Under 30 List in Science",
+      "summary": "Alace Tang achieved the Forbes 30 Under 30 in Science",
+      "publishedAt": "2025-12-09T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/alice-tang-made-forbes-30-under-30-list-science",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-trial-library-raises-10m-sell-clinical-trial-matching-insurers",
+      "campus": "sf",
+      "title": "Trial Library raises $10M to sell clinical trial matching to insurers",
+      "summary": "Trial Library raises $10M to sell clinical trial matching to insurers",
+      "publishedAt": "",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/trial-library-raises-10m-sell-clinical-trial-matching-insurers",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    }
+  ],
+  "errors": []
+}

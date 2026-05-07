@@ -4,10 +4,13 @@ import { Page } from "@/components/Page";
 import { Eyebrow } from "@/components/Eyebrow";
 import { ProgramCard } from "@/components/ProgramCard";
 import { CaliforniaMap } from "@/components/CaliforniaMap";
+import { NewsCard } from "@/components/NewsCard";
 import { CAMPUSES, CAMPUS_BY_ID } from "@/data/campuses";
 import { TYPES } from "@/data/types-list";
 import { PROGRAMS } from "@/data/programs";
+import { NEWS } from "@/data/news.generated";
 import type { Program } from "@/data/types.ts";
+import type { NewsItem } from "@/data/news";
 import { useIsMobile } from "@/lib/useMediaQuery";
 import { I_Chevron, I_External, I_Pin } from "@/lib/icons";
 
@@ -569,6 +572,68 @@ function CampusPrograms({ campus, programs, typeCounts }: CampusProgramsProps) {
   );
 }
 
+// ── latest news ───────────────────────────────────────────────────────
+
+function CampusNews({ campus, items }: { campus: (typeof CAMPUSES)[number]; items: NewsItem[] }) {
+  const isMobile = useIsMobile();
+  if (items.length === 0) return null;
+  return (
+    <section style={{ padding: isMobile ? "40px 20px" : "72px 32px", background: "#fff" }}>
+      <div style={{ maxWidth: 1440, margin: "0 auto" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-end",
+            marginBottom: 24,
+            flexWrap: "wrap",
+            gap: 24,
+          }}
+        >
+          <div>
+            <Eyebrow>Latest news</Eyebrow>
+            <h2
+              style={{
+                fontFamily: "'Source Serif 4',Georgia,serif",
+                fontWeight: 600,
+                fontSize: "clamp(28px,3.2vw,42px)",
+                lineHeight: 1.1,
+                margin: "12px 0 0",
+                color: "#002033",
+              }}
+            >
+              What’s coming out of {campus.short}
+            </h2>
+          </div>
+          <Link
+            to="/news"
+            style={{
+              color: "#005581",
+              fontWeight: 600,
+              fontSize: 15,
+              textDecoration: "underline",
+              textUnderlineOffset: 3,
+            }}
+          >
+            All UC news →
+          </Link>
+        </div>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill, minmax(320px, 1fr))",
+            gap: isMobile ? 16 : 24,
+          }}
+        >
+          {items.map((item) => (
+            <NewsCard key={item.id} item={item} hideCampusName />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ── cross-campus links ────────────────────────────────────────────────
 
 function CrossCampusCard({ campus }: { campus: (typeof CAMPUSES)[number] }) {
@@ -683,11 +748,13 @@ export function CampusPage() {
   const campus = CAMPUS_BY_ID[id ?? ""] ?? CAMPUSES[0];
   const programs = PROGRAMS.filter((p) => p.campus === campus.id);
   const typeCounts = buildTypeCounts(programs);
+  const news = NEWS.filter((n) => n.campus === campus.id).slice(0, 6);
   return (
     <Page>
       <CampusHero campus={campus} programTypeCount={Object.keys(typeCounts).length} />
       <CampusEcosystem campus={campus} />
       <CampusPrograms campus={campus} programs={programs} typeCounts={typeCounts} />
+      <CampusNews campus={campus} items={news} />
       <CampusCrossLinks campus={campus} />
     </Page>
   );
