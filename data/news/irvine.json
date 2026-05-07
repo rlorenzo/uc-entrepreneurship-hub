@@ -1,0 +1,110 @@
+{
+  "campus": "irvine",
+  "name": "UC Irvine",
+  "strategy": "rss",
+  "source": "https://innovation.uci.edu/news/feed/",
+  "crawledAt": "2026-05-07T01:16:54.529Z",
+  "items": [
+    {
+      "id": "irvine-born-in-california-2026",
+      "campus": "irvine",
+      "title": "The Pipeline",
+      "summary": "What does it take to make a UC idea matter in the real world?",
+      "publishedAt": "2026-04-29T16:30:40.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/born-in-california-2026/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2023/01/Neried-biomaterials1.jpg",
+      "sourceHost": "innovation.uci.edu"
+    },
+    {
+      "id": "irvine-ecotune",
+      "campus": "irvine",
+      "title": "The Material Question",
+      "summary": "What if materials weren’t just made, but designed in tune with nature?",
+      "publishedAt": "2026-04-24T22:38:57.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/ecotune/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/04/Ecotune-scaled.jpg",
+      "sourceHost": "innovation.uci.edu"
+    },
+    {
+      "id": "irvine-sounddose",
+      "campus": "irvine",
+      "title": "The Blind Spot in Modern Radiation Therapy",
+      "summary": "How UC Irvine startup SoundDose is tackling one of cancer care’s biggest unknowns",
+      "publishedAt": "2026-04-15T19:13:47.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/sounddose/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/04/Sound-Dose.jpg",
+      "sourceHost": "innovation.uci.edu"
+    },
+    {
+      "id": "irvine-mifti",
+      "campus": "irvine",
+      "title": "The $40 Trillion Question",
+      "summary": "Can MIFTI, a scrappy UC Irvine-based startup, outpace billion-dollar fusion giants?",
+      "publishedAt": "2026-03-30T22:53:07.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/mifti/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/03/MIFTI-1.jpg",
+      "sourceHost": "innovation.uci.edu"
+    },
+    {
+      "id": "irvine-neuroqure",
+      "campus": "irvine",
+      "title": "A New Signal for Autism",
+      "summary": "How UC Irvine research and a father’s story are changing the timeline of care",
+      "publishedAt": "2026-02-27T20:40:15.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/neuroqure/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/02/NeuroQure-2.png",
+      "sourceHost": "innovation.uci.edu"
+    },
+    {
+      "id": "irvine-eira-bio",
+      "campus": "irvine",
+      "title": "Is This the Breakthrough Drug Development We’ve Been Waiting For?",
+      "summary": "Eira Bio is targeting membrane proteins long considered unreachable by antibody drugs.",
+      "publishedAt": "2026-02-17T18:32:41.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/eira-bio/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/02/Eira-Bio-1.png",
+      "sourceHost": "innovation.uci.edu"
+    },
+    {
+      "id": "irvine-vena-vitals",
+      "campus": "irvine",
+      "title": "Can Wearable Tech Finally Get Blood Pressure Right?",
+      "summary": "Forget the cuff. Vena Vitals’ sticker-like sensor aims to deliver ICU-level data without ever breaking the skin.",
+      "publishedAt": "2026-02-17T17:42:05.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/vena-vitals/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/02/Vena-Vitals-1.jpg",
+      "sourceHost": "innovation.uci.edu"
+    },
+    {
+      "id": "irvine-summit-tech",
+      "campus": "irvine",
+      "title": "When Reality is the Canvas",
+      "summary": "How Aditi Majumder is Building the Ultimate 3D Experience",
+      "publishedAt": "2026-01-22T16:00:01.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/summit-tech/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2025/12/STL-image-1.png",
+      "sourceHost": "innovation.uci.edu"
+    },
+    {
+      "id": "irvine-zeppelin-floods",
+      "campus": "irvine",
+      "title": "When the Levee Breaks",
+      "summary": "What if everyone could plan infrastructure?",
+      "publishedAt": "2025-12-02T16:00:20.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/zeppelin-floods/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2025/11/Zeppelin-Floods.png",
+      "sourceHost": "innovation.uci.edu"
+    },
+    {
+      "id": "irvine-elder-wisdom",
+      "campus": "irvine",
+      "title": "Can a Digital Human Pass Down a Legacy?",
+      "summary": "Memoirs are static. Lectures are one-way. Books gather dust. What if wisdom talked back?",
+      "publishedAt": "2025-11-06T23:55:05.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/elder-wisdom/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2025/11/Elder-Wisdom-1.png",
+      "sourceHost": "innovation.uci.edu"
+    }
+  ],
+  "errors": []
+}

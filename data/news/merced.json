@@ -1,0 +1,9 @@
+{
+  "campus": "merced",
+  "name": "UC Merced",
+  "strategy": "rss",
+  "source": "https://news.ucmerced.edu/rss.xml",
+  "crawledAt": "2026-05-07T01:18:24.943Z",
+  "items": [],
+  "errors": []
+}

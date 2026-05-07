@@ -12,8 +12,11 @@
     "fmt": "vp fmt",
     "check": "vp check && fallow",
     "crawl": "node scripts/crawl/run.ts",
+    "crawl:news": "node scripts/crawl/news/run.ts",
     "build-data": "node scripts/crawl/build-data.ts",
-    "refresh-data": "vp run crawl && vp run build-data"
+    "build-news-data": "node scripts/crawl/news/build-data.ts",
+    "refresh-data": "vp run crawl && vp run build-data",
+    "refresh-news": "vp run crawl:news && vp run build-news-data"
   },
   "dependencies": {
     "react": "^18.3.1",

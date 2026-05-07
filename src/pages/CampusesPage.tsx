@@ -1,7 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Page } from "@/components/Page";
-import { Eyebrow } from "@/components/Eyebrow";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PageHero } from "@/components/PageHero";
 import { CaliforniaMap } from "@/components/CaliforniaMap";
 import { CAMPUSES } from "@/data/campuses";
 import type { Campus } from "@/data/types.ts";
@@ -9,55 +9,39 @@ import { useIsMobile } from "@/lib/useMediaQuery";
 import { I_Arrow } from "@/lib/icons";
 
 function CampusesHero() {
-  const isMobile = useIsMobile();
   return (
-    <section
-      style={{
-        padding: isMobile ? "24px 20px 18px" : "48px 32px 24px",
-        background: "#F7F5F1",
-        borderBottom: "1px solid rgba(0,32,51,.08)",
-      }}
-    >
-      <div style={{ maxWidth: 1440, margin: "0 auto" }}>
-        <Breadcrumbs trail={[{ label: "Home", to: "/" }, { label: "Campuses" }]} />
-        <Eyebrow>10 campuses, one system</Eyebrow>
-        <h1
-          style={{
-            fontFamily: "'Source Serif 4',Georgia,serif",
-            fontWeight: 600,
-            fontSize: "clamp(40px,4.4vw,60px)",
-            lineHeight: 1.05,
-            margin: "12px 0 16px",
-            color: "#002033",
-          }}
-        >
-          Pick a campus.
-        </h1>
-        <p style={{ fontSize: 18, maxWidth: 680, color: "#4C4C4C", lineHeight: 1.5, margin: 0 }}>
-          Each campus has its own ecosystem of centers, accelerators, and funds. Most are open to
-          founders from any UC campus.
-        </p>
-      </div>
-    </section>
+    <PageHero
+      trail={[{ label: "Home", to: "/" }, { label: "Campuses" }]}
+      eyebrow="10 campuses, one system"
+      title="Pick a campus."
+      blurb="Each campus has its own ecosystem of centers, accelerators, and funds. Most are open to founders from any UC campus."
+    />
   );
 }
 
-function liftCard(e: React.MouseEvent<HTMLAnchorElement>) {
-  e.currentTarget.style.boxShadow = "0 12px 24px rgba(0,32,51,.10)";
-  e.currentTarget.style.transform = "translateY(-2px)";
+interface CampusCardProps {
+  campus: Campus;
+  onHoverChange: (id: string | null) => void;
 }
 
-function dropCard(e: React.MouseEvent<HTMLAnchorElement>) {
-  e.currentTarget.style.boxShadow = "";
-  e.currentTarget.style.transform = "";
-}
-
-function CampusCard({ campus }: { campus: Campus }) {
+function CampusCard({ campus, onHoverChange }: CampusCardProps) {
+  const handleEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.style.boxShadow = "0 12px 24px rgba(0,32,51,.10)";
+    e.currentTarget.style.transform = "translateY(-2px)";
+    onHoverChange(campus.id);
+  };
+  const handleLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.style.boxShadow = "";
+    e.currentTarget.style.transform = "";
+    onHoverChange(null);
+  };
   return (
     <Link
       to={`/campus/${campus.id}`}
-      onMouseEnter={liftCard}
-      onMouseLeave={dropCard}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+      onFocus={() => onHoverChange(campus.id)}
+      onBlur={() => onHoverChange(null)}
       style={{
         display: "flex",
         flexDirection: "column",
@@ -133,6 +117,7 @@ function CampusCard({ campus }: { campus: Campus }) {
 
 function CampusesGrid() {
   const isMobile = useIsMobile();
+  const [hoverId, setHoverId] = useState<string | null>(null);
   return (
     <section
       style={{ padding: isMobile ? "32px 20px 56px" : "56px 32px 96px", background: "#fff" }}
@@ -147,7 +132,9 @@ function CampusesGrid() {
           alignItems: "flex-start",
         }}
       >
-        <CaliforniaMap variant="standalone" />
+        <div style={{ position: isMobile ? "static" : "sticky", top: 116 }}>
+          <CaliforniaMap variant="standalone" highlight={hoverId} />
+        </div>
         <div
           style={{
             display: "grid",
@@ -156,7 +143,7 @@ function CampusesGrid() {
           }}
         >
           {CAMPUSES.map((c) => (
-            <CampusCard key={c.id} campus={c} />
+            <CampusCard key={c.id} campus={c} onHoverChange={setHoverId} />
           ))}
         </div>
       </div>

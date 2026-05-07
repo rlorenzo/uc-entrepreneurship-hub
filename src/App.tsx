@@ -7,6 +7,7 @@ import { ProgramDetail } from "@/pages/ProgramDetail";
 import { CampusPage } from "@/pages/CampusPage";
 import { CampusesPage } from "@/pages/CampusesPage";
 import { ComparePage } from "@/pages/ComparePage";
+import { NewsPage } from "@/pages/NewsPage";
 
 // Reset scroll on every route change so deep-link navigation lands at the top.
 function ScrollToTop() {
@@ -29,6 +30,7 @@ export function App() {
           <Route path="/campus/:id" element={<CampusPage />} />
           <Route path="/campuses" element={<CampusesPage />} />
           <Route path="/compare" element={<ComparePage />} />
+          <Route path="/news" element={<NewsPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </CompareProvider>

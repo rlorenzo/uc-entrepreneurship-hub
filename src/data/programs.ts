@@ -1,4 +1,4 @@
-import type { Program, Spotlight } from "./types.ts";
+import type { Program } from "./types.ts";
 import { mergePrograms } from "./normalize.ts";
 import { CRAWLED_PROGRAMS } from "./programs.generated.ts";
 
@@ -388,30 +388,3 @@ const CURATED: Program[] = [
 ];
 
 export const PROGRAMS: Program[] = mergePrograms(CURATED, CRAWLED_PROGRAMS);
-
-export const SPOTLIGHTS: Spotlight[] = [
-  {
-    id: "s1",
-    campus: "sd",
-    eyebrow: "Founder spotlight",
-    title: "How a UCSD biology PhD turned a class project into a $40M Series A",
-    meta: "Triton Innovation Challenge → StartR Med → Series A",
-    gradient: "linear-gradient(135deg,#1295D8,#005581)",
-  },
-  {
-    id: "s2",
-    campus: "berkeley",
-    eyebrow: "Cohort news",
-    title: "SkyDeck’s climate cohort just closed $180M combined",
-    meta: "Berkeley SkyDeck · Spring 2026",
-    gradient: "linear-gradient(135deg,#00778B,#00A3AD)",
-  },
-  {
-    id: "s3",
-    campus: "la",
-    eyebrow: "Cross-campus",
-    title: "Why eight UC chancellors signed a joint pact on student entrepreneurship",
-    meta: "UC Office of the President · 4 min read",
-    gradient: "linear-gradient(135deg,#FFB511,#FF6E1B)",
-  },
-];

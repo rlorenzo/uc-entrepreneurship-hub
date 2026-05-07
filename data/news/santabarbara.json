@@ -1,0 +1,209 @@
+{
+  "campus": "santabarbara",
+  "name": "UC Santa Barbara",
+  "strategy": "playwright",
+  "source": "https://innovation.ucsb.edu/blog/news",
+  "crawledAt": "2026-05-07T01:17:01.917Z",
+  "items": [
+    {
+      "id": "santabarbara-new-venture-competition-finalists-2026",
+      "campus": "santabarbara",
+      "title": "New Venture Competition Finalists 2026",
+      "summary": "New Venture Competition Finalists of 2026",
+      "publishedAt": "2026-04-29T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/new-venture-competition-finalists-2026",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-04/Untitled%20design_0.png",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-beacon-photonics-first-industry-member-ucsb-oasis",
+      "campus": "santabarbara",
+      "title": "Beacon Photonics First Industry Member at UCSB OASIS",
+      "summary": "OASIS is built to accelerate discovery and move ideas from lab to application, connecting companies directly with UCSB’s research expertise and shared-use facilities.",
+      "publishedAt": "2026-05-04T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/beacon-photonics-first-industry-member-ucsb-oasis",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-05/BEACON_OASIS.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-techtopia-2026-showcases-ucsbs-expanding-innovation-ecosystem",
+      "campus": "santabarbara",
+      "title": "TechTopia 2026 Showcases UCSB’s Expanding Innovation Ecosystem",
+      "summary": "At TechTopia 2026, UC Santa Barbara and industry partners emphasized collaboration and introduced OASIS, a new facility supporting startups as they transition from research to industry.",
+      "publishedAt": "2026-04-22T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/techtopia-2026-showcases-ucsbs-expanding-innovation-ecosystem",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-04/download.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-professor-phillip-christopher-and-stephen-wilson-named-among-worlds-most-influential",
+      "campus": "santabarbara",
+      "title": "Professor Phillip Christopher and Stephen Wilson Named Among the World’s Most Influential Researchers",
+      "summary": "Chemical Engineering Professor Phillip Christopher and Materials Professor Stephen Wilson have been recognized among the world’s most influential scientists.",
+      "publishedAt": "2026-01-13T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/professor-phillip-christopher-and-stephen-wilson-named-among-worlds-most-influential",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-01/2025_highly_cited.png",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-ucsb-associate-professor-chemistry-and-biochemistry-grace-han-named-moore-inventor-fellow",
+      "campus": "santabarbara",
+      "title": "UCSB Associate Professor of Chemistry and Biochemistry Grace Han named Moore Inventor Fellow",
+      "summary": "UC Santa Barbara Associate Professor of Chemistry and Biochemistry Grace Han has been named one of five scientist-inventors nationwide to receive a 2025 Moore Inventor Fellowship from the Gordon and Betty Moore Foundation.",
+      "publishedAt": "2026-01-13T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-associate-professor-chemistry-and-biochemistry-grace-han-named-moore-inventor-fellow",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-01/Grace-Han_opt.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-ucsb-professor-blumenthals-lab-selected-nsfs-national-quantum-virtual-laboratory",
+      "campus": "santabarbara",
+      "title": "UCSB Professor Blumenthal’s Lab Selected for NSF's National Quantum Virtual Laboratory",
+      "summary": "UC Santa Barbara professor Daniel Blumenthal’s lab is part of one of four design teams from around the country selected by the National Science Foundation for its recently launched National Quantum Virtual Laboratory (NVQL).",
+      "publishedAt": "2026-01-13T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-professor-blumenthals-lab-selected-nsfs-national-quantum-virtual-laboratory",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-01/blumenthal.png",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-fda-clears-osteoprober-first-ever-device-indication-measuring-bone-material-strength",
+      "campus": "santabarbara",
+      "title": "FDA Clears OsteoProbe®: First-Ever Device Indication for Measuring Bone Material Strength",
+      "summary": "UCSB startup Active Life Scientific announced that the U.S. Food and Drug Administration has granted clearance for their OsteoProbe® device. Their BoneScore® procedure offers a direct, minimally-invasive assessment of bone tissue quality.",
+      "publishedAt": "2026-01-13T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/fda-clears-osteoprober-first-ever-device-indication-measuring-bone-material-strength",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-01/Group-416.png",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-ucsb-professor-kevin-plaxco-elected-fellow-national-academy-inventors",
+      "campus": "santabarbara",
+      "title": "UCSB Professor Kevin Plaxco Elected Fellow of National Academy of Inventors",
+      "summary": "NAI Fellowship is the highest professional distinction awarded solely to inventors. Their success in translating research into products and services that improve lives.",
+      "publishedAt": "2026-01-13T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-professor-kevin-plaxco-elected-fellow-national-academy-inventors",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-01/KevinPlaxco.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-aeluma-joins-midwest-microelectronics-consortium",
+      "campus": "santabarbara",
+      "title": "Aeluma Joins the Midwest Microelectronics Consortium",
+      "summary": "UCSB Professor Jonathan Klamkin’s company, Aeluma, joined the Midwest Microelectronics Consortium to advance its semiconductor photonics technologies for AI, quantum, and defense applications.",
+      "publishedAt": "2025-12-02T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/aeluma-joins-midwest-microelectronics-consortium",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-12/image%282%29.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-ucsb-graduates-startup-pioneers-soft-robotic-intubation-device",
+      "campus": "santabarbara",
+      "title": "UCSB Graduate’s Startup Pioneers Soft Robotic Intubation Device",
+      "summary": "Vine Medical, a UCSB CSNI member founded by recent UCSB Ph.D. graduate Dr. David Haggerty, is developing a soft robotic “vine” device that makes emergency intubation faster, safer, and more reliable than traditional laryngoscopes.",
+      "publishedAt": "2025-11-20T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-graduates-startup-pioneers-soft-robotic-intubation-device",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-11/Vine%20Medical_square.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-rallio-won-netty-award-best-use-ai-marketing",
+      "campus": "santabarbara",
+      "title": "Rallio Won the Netty Award for Best Use of AI in Marketing",
+      "summary": "Rallio, an AI-powered social publishing platform, won the Netty Award for Best Use of AI in Marketing. Rallio’s CEO and Co-Founder, Chuck Goetschel, is a member of the UCSB Innovators Circle.",
+      "publishedAt": "2025-11-20T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/rallio-won-netty-award-best-use-ai-marketing",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-11/rallio_netty-awards_cover-image.png",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-aeluma-inc-wins-2025-leap-award-advanced-materials-innovation",
+      "campus": "santabarbara",
+      "title": "Aeluma, Inc. Wins 2025 LEAP Award for Advanced Materials Innovation",
+      "summary": "Aeluma includes the leadership of UCSB Professor Jonathan Klamkin, who serves as CEO and Director, and Professor Steven DenBaars, who sits on the company’s Board of Directors. Aeluma, Inc., a transformative semiconductor company, has received a 2025 LEAP Award.",
+      "publishedAt": "2025-11-20T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/aeluma-inc-wins-2025-leap-award-advanced-materials-innovation",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-11/Aeluma.png",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-ucsb-startup-turns-agricultural-waste-fabric-future",
+      "campus": "santabarbara",
+      "title": "UCSB Startup Turns Agricultural Waste into the Fabric of the Future",
+      "summary": "The Hurt Co. was founded by Bren School graduates Taylor Heisley-Cook and David Mun. What started as a UCSB thesis project is now helping shift the fashion industry toward more affordable, eco-friendly materials.",
+      "publishedAt": "2025-11-13T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-startup-turns-agricultural-waste-fabric-future",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-11/output-onlinepngtools%2B%282%29.png",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-nereid-biomaterials-named-startup-month",
+      "campus": "santabarbara",
+      "title": "Nereid Biomaterials Named Startup of the Month",
+      "summary": "Nereid Biomaterials was named Startup of the Month by Comstock's Magazine for developing ocean-degradable materials to reduce marine plastic pollution.",
+      "publishedAt": "2025-11-13T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/nereid-biomaterials-named-startup-month",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-11/1125-startup-lead-template.png",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-ucsb-faculty-and-alumni-recognized-times-best-inventions-2025",
+      "campus": "santabarbara",
+      "title": "UCSB Faculty and Alumni Recognized in TIME’s Best Inventions of 2025",
+      "summary": "Three Gauchos made TIME’s Best Inventions of 2025, reflecting the university’s ongoing impact in sustainability, technology, and health research.",
+      "publishedAt": "2025-10-30T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-faculty-and-alumni-recognized-times-best-inventions-2025",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-10/majorana-1-time-inventions.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-ucsb-alum-heather-hochrein-turns-class-project-evmatch",
+      "campus": "santabarbara",
+      "title": "UCSB Alum Heather Hochrein Turns Class Project into EVmatch",
+      "summary": "Heather Hochrein founded EVmatch while earning her master’s at UCSB’s Bren School. What began as a class project to improve EV charging access has grown into a company expanding shared charging options for renters and multifamily housing.",
+      "publishedAt": "2025-10-30T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-alum-heather-hochrein-turns-class-project-evmatch",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-10/Hochrein_headshot_2022_square.jpg.jpeg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-ucsbs-technology-incubator-celebrates-10-years-campus",
+      "campus": "santabarbara",
+      "title": "UCSB’s Technology Incubator celebrates 10 years on campus",
+      "summary": "In 2015, the California NanoSystems Institute (CNSI) at UC Santa Barbara established the Technology Incubator in Elings Hall to support startup companies stemming from technologies developed on campus. Now in its 10th anniversary year, the incubator has become “a humming innovation ecosystem\".",
+      "publishedAt": "2025-06-23T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsbs-technology-incubator-celebrates-10-years-campus",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-06/CNSI%20Incubator%20Wall.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-next-energy-upgrades-pilot-production-line-opv-windows",
+      "campus": "santabarbara",
+      "title": "Next Energy upgrades pilot production line on OPV windows",
+      "summary": "Next Energy Technologies, a Goleta-based organic photovoltaic (OPV) technology company and UCSB CNSI Incubator Alum, has upgraded its pilot production line.",
+      "publishedAt": "2025-03-06T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/next-energy-upgrades-pilot-production-line-opv-windows",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-03/NEXT_Energy_40_x_60_OPV_Pilot_Production.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-palisades-fire-serves-unfortunate-test-case-plan-b-power-system-coming-soon-santa-barbara",
+      "campus": "santabarbara",
+      "title": "Palisades Fire Serves as ‘Unfortunate Test Case’ for Plan-B Power System Coming Soon to Santa Barbara",
+      "summary": "Unite to Light, James S. Bower Foundation Partner with Dragon Q Energy to Install 10 PowerPoles Across S.B. County.",
+      "publishedAt": "2025-01-31T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/palisades-fire-serves-unfortunate-test-case-plan-b-power-system-coming-soon-santa-barbara",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-01/DragonQ%20PowerPole.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-pseudolithic-inc-raises-6m-seed-funding-revolutionize-wireless-chips-proprietary-chiplet",
+      "campus": "santabarbara",
+      "title": "PseudolithIC Inc. Raises $6M in Seed Funding to Revolutionize Wireless Chips with Proprietary Chiplet Heterogeneous Integration Technology.",
+      "summary": "PseudolithIC Inc., an innovative leader in RF (radio frequency) chipset products, today announced it has successfully raised $6 million in a seed funding round. The round was led by Entrada Ventures, with additional investments from Foothill Ventures and Uncork Capital.",
+      "publishedAt": "2025-01-28T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/pseudolithic-inc-raises-6m-seed-funding-revolutionize-wireless-chips-proprietary-chiplet",
+      "sourceHost": "innovation.ucsb.edu"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,232 @@
+{
+  "campus": "davis",
+  "name": "UC Davis",
+  "strategy": "playwright",
+  "source": "https://iedo.ucdavis.edu/news",
+  "crawledAt": "2026-05-07T01:17:46.509Z",
+  "items": [
+    {
+      "id": "davis-uc-davis-launches-aggie-venture-accelerator-advance-early-stage-life-science-innovation",
+      "campus": "davis",
+      "title": "UC Davis Launches Aggie Venture Accelerator to Advance Early Stage Life Science Innovation",
+      "summary": "The UC Davis Innovation and Economic Development Office has launched the Aggie Venture Accelerator, an initiative designed to support early stage startups developing solutions at the intersection of life science, food and health.",
+      "publishedAt": "2026-04-13T09:15:36-07:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-launches-aggie-venture-accelerator-advance-early-stage-life-science-innovation",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/MB20251001_AggieSq_IMG_1788_reduced.jpg?h=37bd9af6&itok=3XXTuw-j",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-aggie-square-partners-release-first-community-benefits-progress-report-highlighting-early",
+      "campus": "davis",
+      "title": "Aggie Square Partners Release First Community Benefits Progress Report Highlighting Early Impact",
+      "summary": "The first Aggie Square Community Benefits Partnership Agreement (CBPA) Annual Progress Report has been released by UC Davis, the City of Sacramento and Wexford Science & Technology, documenting significant progress towards meeting many of the goals outlined in the CBPA.",
+      "publishedAt": "2026-04-02T15:40:20-07:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/aggie-square-partners-release-first-community-benefits-progress-report-highlighting-early",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/MB20251001_AggieSq_IMG_6025.jpg?h=4997dc06&itok=8Y1gDdgI",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-uc-davis-health-ventures-appoints-troels-adrian-strengthen-industry-partnerships-and-advance",
+      "campus": "davis",
+      "title": "UC Davis Health Ventures Appoints Troels Adrian to Strengthen Industry Partnerships and Advance the UC Davis Health Clinical Test Bed",
+      "summary": "UC Davis Health Ventures, part of the Innovation and Economic Development Office at UC Davis, today announced the appointment of Troels Adrian as Director of Industry Engagement.",
+      "publishedAt": "2026-03-23T08:18:26-07:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-health-ventures-appoints-troels-adrian-strengthen-industry-partnerships-and-advance",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/Troels%20Adrian%20COLOR.jpg?h=d73b4fec&itok=cVMoxhzz",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-food-health-angels-network-launches-accelerate-science-driven-food-and-health-innovation",
+      "campus": "davis",
+      "title": "Food & Health Angels Network Launches to Accelerate Science-Driven Food and Health Innovation",
+      "summary": "Introducing the Food & Health Angels Network, a groundbreaking initiative launched to accelerate science-driven innovations in food and health, addressing the pressing issue of metabolic disease.",
+      "publishedAt": "2026-03-19T09:15:08-07:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/food-health-angels-network-launches-accelerate-science-driven-food-and-health-innovation",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/real-food-pyramid-arrangement.jpg?h=5313cdcb&itok=vL82Pgy9",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-uc-davis-highlights-translational-breakthroughs-and-startups-8th-annual-biotech-innovation",
+      "campus": "davis",
+      "title": "UC Davis Highlights Translational Breakthroughs and Startups at the 8th Annual Biotech Innovation Gallery",
+      "summary": "UC Davis showcased groundbreaking translational research and innovative biotech startups at the 8th Annual Biotech Innovation Gallery in San Francisco. Hosted by the UC Davis Innovation and Economic Development Office, the event brought in over 330 attendees to connect with and explore potential partnerships with researchers and startup founders, aligning with the J.P. Morgan Healthcare Conference",
+      "publishedAt": "2026-02-10T08:51:50-08:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-highlights-translational-breakthroughs-and-startups-8th-annual-biotech-innovation",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/David%20Segal_BIG.jpg?h=9c4c0580&itok=cZtQYKZp",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-uc-davis-announces-winners-autumn-2025-science-translation-and-innovative-research-grant",
+      "campus": "davis",
+      "title": "UC Davis Announces Winners of Autumn 2025 Science Translation and Innovative Research Grant Program",
+      "summary": "The University of California, Davis, has awarded $100,000 through the autumn 2025 cohort of the Science Translation and Innovative Research (STAIR) Grant Program to help scientists advance innovative research with strong commercial potential.",
+      "publishedAt": "2025-12-08T12:48:03-08:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-announces-winners-autumn-2025-science-translation-and-innovative-research-grant",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/Baar_Abhaya.jpg?h=52d3fcb6&itok=7en2k7q-",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-venture-catalyst-fuels-record-year-uc-davis-innovation-startups",
+      "campus": "davis",
+      "title": "Venture Catalyst Fuels Record Year for UC Davis Innovation Startups",
+      "summary": "At Venture Catalyst, part of the UC Davis Innovation and Economic Development Office, we're proud to support the translation of UC Davis research and technology into real-world applications by fostering the development of new ventures. Through strategic collaborations, training and mentorship programs, funding translational research, and proactive outreach, we foster the university’s entrepreneuri",
+      "publishedAt": "2025-10-30T08:49:44-07:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/venture-catalyst-fuels-record-year-uc-davis-innovation-startups",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/VC%20Stats.png?h=c673cd1c&itok=x8MxJRRm",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-discovery-forum-highlights-how-uc-davis-center-glp-1-and-metabolic-health-innovation",
+      "campus": "davis",
+      "title": "Discovery Forum Highlights How UC Davis Is at the Center of GLP-1 and Metabolic Health Innovation",
+      "summary": "The Discovery Forum showcased UC Davis as a leader in GLP-1 and metabolic health innovation, bringing together researchers, industry experts, and investors to explore how metabolic hormones are reshaping health and nutrition. With cutting-edge research, world-class facilities, and a strong innovation ecosystem, the event was a reminder of UC Davis’ unique ability to translate metabolic science int",
+      "publishedAt": "2025-10-15T13:10:27-07:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/discovery-forum-highlights-how-uc-davis-center-glp-1-and-metabolic-health-innovation",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/IMG_5290.jpg?h=5dc9785f&itok=LuFfzZNo",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-uc-davis-healths-ifm-fund-backs-delix-therapeutics-first-investment",
+      "campus": "davis",
+      "title": "UC Davis Health’s IFM Fund Backs Delix Therapeutics in First Investment",
+      "summary": "UC Davis Health Ventures, part of the Innovation and Economic Development Office (IEDO) at the University of California, Davis, today announced the first investment from its Investing in the Future of Medicine (IFM) Fund, backing Delix Therapeutics.",
+      "publishedAt": "2025-10-02T09:10:43-07:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-healths-ifm-fund-backs-delix-therapeutics-first-investment",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/cameron_olson_lab_ccw.jpeg?h=c673cd1c&itok=akFyWePN",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-reflections-inaugural-triage-innovation-forum",
+      "campus": "davis",
+      "title": "Reflections on the Inaugural TRIage Innovation Forum",
+      "summary": "Andrew Brown of UC Davis Health Ventures shares his thoughts on the creation and launch of the TRIage Innovation Forum—an engaging, rapid-pitch platform that helps researchers present their work in three minutes and receive tailored guidance, resources and connections to accelerate the translation of their innovations into real-world health solutions.",
+      "publishedAt": "2025-09-02T09:23:28-07:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/reflections-inaugural-triage-innovation-forum",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/TRIage%20Pic%201.jpg?h=9c4c0580&itok=BsNJ9CMh",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-dough-data-how-graingeai-reimagining-ingredient-intelligence",
+      "campus": "davis",
+      "title": "From Dough to Data: How Grainge.ai is Reimagining Ingredient Intelligence",
+      "summary": "Grainge.ai, a UC Davis–born startup, is transforming food manufacturing by using AI-driven ingredient intelligence to predict how grains, starches and other ingredients behave in formulations, helping companies innovate more efficiently and sustainably.",
+      "publishedAt": "2025-08-18T14:19:43-07:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/dough-data-how-graingeai-reimagining-ingredient-intelligence",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/Screenshot%202025-08-18%20150316.png?h=1fdb4153&itok=kI5ywWph",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-uc-davis-sees-jump-records-invention-driven-health-innovation",
+      "campus": "davis",
+      "title": "UC Davis Sees Jump in Records of Invention, Driven by Health Innovation",
+      "summary": "UC Davis saw a 34% increase in records of invention in FY 2025, driven largely by health-related innovations and first-time contributors, reflecting a growing culture of commercialization and cross-campus collaboration led by the Innovation and Economic Development Office.",
+      "publishedAt": "2025-08-04T12:56:16-07:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-sees-jump-records-invention-driven-health-innovation",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/2025-05-22_Avantika%20Gokulnatha_resize.jpg?h=9855f42d&itok=2Wuomug3",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-first-students-move-aggie-square",
+      "campus": "davis",
+      "title": "First Students Move Into Aggie Square",
+      "summary": "UC Davis welcomed residents to Anova Aggie Square, the first student housing ever offered on the Sacramento campus. Anova Aggie Square is a smart residential complex that is now home to students from the UC Davis School of Medicine, the Betty Irene Moore School of Nursing at UC Davis and other graduate programs.",
+      "publishedAt": "2025-07-17T09:14:54-07:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/first-students-move-aggie-square",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/anova-aggie-square-move-in-2025-2000px.jpg?h=c673cd1c&itok=mw0g0UJG",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-prototype-purpose-conversation-expert-iep-founder-antoinette-banks",
+      "campus": "davis",
+      "title": "From Prototype to Purpose: A Conversation with Expert IEP Founder Antoinette Banks",
+      "summary": "Antoinette Banks transformed a mother’s struggle for her daughter’s education into Expert IEP, a platform that combines neuroscience, lived experience, and tech to empower families and reform outdated IEP systems.",
+      "publishedAt": "2025-07-01T17:06:24-07:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/prototype-purpose-conversation-expert-iep-founder-antoinette-banks",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/Banks_1280x720.jpg?h=c673cd1c&itok=MuO-DDjA",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-uc-davis-partners-global-accelerator-and-venture-capital-firm-drive-life-sciences-innovation",
+      "campus": "davis",
+      "title": "UC Davis Partners with Global Accelerator and Venture Capital Firm to Drive Life Sciences Innovation and Expand Aggie Square's Impact",
+      "summary": "UC Davis strengthens its global life sciences ecosystem with strategic partnerships with FLANN Inc. and HM Venture Partners, aiming to attract international biotech startups to Aggie Square and accelerate the commercialization of groundbreaking healthcare innovations.",
+      "publishedAt": "2025-05-14T14:21:15-07:00",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-partners-global-accelerator-and-venture-capital-firm-drive-life-sciences-innovation",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/20250502-aggie-square-art-7495-reduced.jpg?h=f728280d&itok=9pBcK_hJ",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-18",
+      "campus": "davis",
+      "title": "Innovation and Economic Development Office",
+      "summary": "",
+      "publishedAt": "",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/18",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-19",
+      "campus": "davis",
+      "title": "Innovation and Economic Development Office",
+      "summary": "",
+      "publishedAt": "",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/19",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-20",
+      "campus": "davis",
+      "title": "Innovation and Economic Development Office",
+      "summary": "",
+      "publishedAt": "",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/20",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-21",
+      "campus": "davis",
+      "title": "Innovation and Economic Development Office",
+      "summary": "",
+      "publishedAt": "",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/21",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-22",
+      "campus": "davis",
+      "title": "Innovation and Economic Development Office",
+      "summary": "",
+      "publishedAt": "",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/22",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-23",
+      "campus": "davis",
+      "title": "Innovation and Economic Development Office",
+      "summary": "",
+      "publishedAt": "",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/23",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-24",
+      "campus": "davis",
+      "title": "Innovation and Economic Development Office",
+      "summary": "",
+      "publishedAt": "",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/24",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-17",
+      "campus": "davis",
+      "title": "Innovation and Economic Development Office",
+      "summary": "",
+      "publishedAt": "",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/17",
+      "sourceHost": "iedo.ucdavis.edu"
+    }
+  ],
+  "errors": []
+}
