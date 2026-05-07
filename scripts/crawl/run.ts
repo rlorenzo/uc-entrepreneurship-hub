@@ -16,7 +16,7 @@
 //   - networkidle → load fallback for sites that never go idle
 //   - per-site error capture so one failure can't sink the run
 
-import { chromium, type Browser, type Page, type Response } from "playwright";
+import { chromium, type Browser, type Page } from "playwright";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
@@ -29,7 +29,8 @@ import {
   type CampusOverrides,
   type RawPageData,
 } from "./extract.ts";
-import { resolveUserAgent } from "./user-agent.ts";
+import { gotoWithFallback, withPage as sharedWithPage } from "./playwright.ts";
+import { filterSitesByCampus, parseCampusFlag } from "./cli.ts";
 import type { ProgramCandidate } from "../../src/data/normalize.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -37,7 +38,6 @@ const ROOT = join(__dirname, "..", "..");
 const OUT_DIR = join(ROOT, "data", "crawled");
 
 const DEFAULT_CONCURRENCY = 3;
-const NAV_TIMEOUT_MS = 30_000;
 
 interface Site {
   campus: string;
@@ -69,7 +69,7 @@ interface Flags {
 
 // ── CLI parsing ──────────────────────────────────────────────────────────
 const flags: Flags = {
-  campus: null,
+  campus: parseCampusFlag(),
   limit: null,
   concurrency: DEFAULT_CONCURRENCY,
   dryRun: false,
@@ -79,24 +79,14 @@ for (const arg of process.argv.slice(2)) {
     flags.dryRun = true;
     continue;
   }
-  const m = arg.match(/^--(campus|limit|concurrency)=(.+)$/);
+  const m = arg.match(/^--(limit|concurrency)=(.+)$/);
   if (!m) continue;
-  if (m[1] === "campus") {
-    flags.campus = new Set(
-      m[2]
-        .split(",")
-        .map((s) => s.trim())
-        .filter(Boolean),
-    );
-  } else if (m[1] === "limit") {
-    flags.limit = Number(m[2]);
-  } else if (m[1] === "concurrency") {
-    flags.concurrency = Number(m[2]);
-  }
+  if (m[1] === "limit") flags.limit = Number(m[2]);
+  else if (m[1] === "concurrency") flags.concurrency = Number(m[2]);
 }
 
 const sitesAll: Site[] = JSON.parse(await readFile(join(__dirname, "sites.json"), "utf-8"));
-const sites = flags.campus ? sitesAll.filter((s) => flags.campus?.has(s.campus)) : sitesAll;
+const sites = filterSitesByCampus(sitesAll, flags.campus);
 if (sites.length === 0) {
   console.error("No sites match the provided filters. Exiting.");
   process.exit(1);
@@ -106,8 +96,6 @@ await mkdir(OUT_DIR, { recursive: true });
 
 const startedAt = new Date().toISOString();
 console.log(`Crawling ${sites.length} campus${sites.length === 1 ? "" : "es"} at ${startedAt}\n`);
-
-const USER_AGENT = await resolveUserAgent();
 
 // ── Per-campus override loader ───────────────────────────────────────────
 async function loadOverrides(campusId: string): Promise<CampusOverrides> {
@@ -124,45 +112,18 @@ const browser: Browser = await chromium.launch({
   args: ["--disable-blink-features=AutomationControlled"],
 });
 
-async function withPage<T>(fn: (page: Page) => Promise<T>): Promise<T> {
-  // Several UC sites (UCI, Merced) sit behind WAFs that 403 a vanilla
-  // Playwright context even with a realistic UA. The fingerprints they
-  // key on are usually the absence of `navigator.webdriver === false`,
-  // missing Accept-Language, or missing client-hint headers. We patch
-  // all three before navigating.
-  const context = await browser.newContext({
-    userAgent: USER_AGENT,
-    viewport: { width: 1440, height: 900 },
-    locale: "en-US",
-    extraHTTPHeaders: {
-      "Accept-Language": "en-US,en;q=0.9",
-      "sec-ch-ua": '"Chromium";v="139", "Not?A_Brand";v="24"',
-      "sec-ch-ua-mobile": "?0",
-      "sec-ch-ua-platform": '"macOS"',
-    },
-  });
-  // Hide the automation marker exposed via `navigator.webdriver`. Real
-  // Chrome reports `false` here; headless Chromium reports `true`.
-  await context.addInitScript(() => {
-    Object.defineProperty(navigator, "webdriver", { get: () => false });
-  });
-  try {
-    const page = await context.newPage();
-    return await fn(page);
-  } finally {
-    await context.close();
-  }
-}
+// Some UC sites (UCI, Merced) sit behind WAFs that 403 a vanilla Playwright
+// context even with a realistic UA. The extra client-hint headers below
+// strengthen the Chrome fingerprint past those filters; the news crawler
+// doesn't need them, so they live here rather than in the shared helper.
+const PROGRAM_CRAWL_HEADERS = {
+  "sec-ch-ua": '"Chromium";v="139", "Not?A_Brand";v="24"',
+  "sec-ch-ua-mobile": "?0",
+  "sec-ch-ua-platform": '"macOS"',
+};
 
-async function gotoWithFallback(page: Page, url: string): Promise<Response | null> {
-  try {
-    return await page.goto(url, { waitUntil: "networkidle", timeout: NAV_TIMEOUT_MS });
-  } catch (err) {
-    if ((err as Error).name === "TimeoutError") {
-      return await page.goto(url, { waitUntil: "load", timeout: NAV_TIMEOUT_MS });
-    }
-    throw err;
-  }
+function withPage<T>(fn: (page: Page) => Promise<T>): Promise<T> {
+  return sharedWithPage(browser, fn, { extraHTTPHeaders: PROGRAM_CRAWL_HEADERS });
 }
 
 // Discover internal program-candidate links from a seed URL.

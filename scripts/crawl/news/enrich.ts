@@ -8,7 +8,7 @@
 
 import { chromium, type Browser } from "playwright";
 
-import { gotoWithFallback, withPage } from "./playwright.ts";
+import { gotoWithFallback, withPage } from "../playwright.ts";
 import type { NewsItem } from "./types.ts";
 
 const inPageImageExtractor = `() => {
@@ -41,28 +41,39 @@ async function fetchImage(browser: Browser, url: string): Promise<string> {
   });
 }
 
+async function tryFetchImage(browser: Browser, url: string): Promise<string> {
+  try {
+    return await fetchImage(browser, url);
+  } catch {
+    // best-effort: an item without an image is acceptable
+    return "";
+  }
+}
+
+async function enrichLoop(
+  browser: Browser,
+  items: NewsItem[],
+  needs: NewsItem[],
+): Promise<NewsItem[]> {
+  const byId = new Map(items.map((i) => [i.id, i] as const));
+  for (const item of needs) {
+    const url = await tryFetchImage(browser, item.sourceUrl);
+    if (!url) continue;
+    const existing = byId.get(item.id);
+    if (existing) byId.set(item.id, { ...existing, imageUrl: url });
+  }
+  return items.map((i) => byId.get(i.id) ?? i);
+}
+
 export async function enrichWithImages(items: NewsItem[]): Promise<NewsItem[]> {
   const needs = items.filter((i) => !i.imageUrl);
   if (needs.length === 0) return items;
-
   const browser = await chromium.launch({
     headless: true,
     args: ["--disable-blink-features=AutomationControlled"],
   });
   try {
-    const byId = new Map(items.map((i) => [i.id, i] as const));
-    for (const item of needs) {
-      try {
-        const url = await fetchImage(browser, item.sourceUrl);
-        if (url) {
-          const existing = byId.get(item.id);
-          if (existing) byId.set(item.id, { ...existing, imageUrl: url });
-        }
-      } catch {
-        // best-effort: skip and keep the item without imageUrl
-      }
-    }
-    return items.map((i) => byId.get(i.id) ?? i);
+    return await enrichLoop(browser, items, needs);
   } finally {
     await browser.close();
   }

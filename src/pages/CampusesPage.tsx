@@ -115,30 +115,54 @@ function CampusCard({ campus, onHoverChange }: CampusCardProps) {
   );
 }
 
+interface GridLayout {
+  sectionPadding: string;
+  gridTemplateColumns: string;
+  outerGap: number;
+  mapPosition: "static" | "sticky";
+  cardsTemplateColumns: string;
+}
+
+function gridLayout(isMobile: boolean): GridLayout {
+  return isMobile
+    ? {
+        sectionPadding: "32px 20px 56px",
+        gridTemplateColumns: "1fr",
+        outerGap: 32,
+        mapPosition: "static",
+        cardsTemplateColumns: "1fr",
+      }
+    : {
+        sectionPadding: "56px 32px 96px",
+        gridTemplateColumns: "1.05fr 1.4fr",
+        outerGap: 80,
+        mapPosition: "sticky",
+        cardsTemplateColumns: "repeat(2, 1fr)",
+      };
+}
+
 function CampusesGrid() {
-  const isMobile = useIsMobile();
+  const layout = gridLayout(useIsMobile());
   const [hoverId, setHoverId] = useState<string | null>(null);
   return (
-    <section
-      style={{ padding: isMobile ? "32px 20px 56px" : "56px 32px 96px", background: "#fff" }}
-    >
+    <section style={{ padding: layout.sectionPadding, background: "#fff" }}>
       <div
         style={{
           maxWidth: 1440,
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: isMobile ? "1fr" : "1.05fr 1.4fr",
-          gap: isMobile ? 32 : 80,
+          gridTemplateColumns: layout.gridTemplateColumns,
+          gap: layout.outerGap,
           alignItems: "flex-start",
         }}
       >
-        <div style={{ position: isMobile ? "static" : "sticky", top: 116 }}>
+        <div style={{ position: layout.mapPosition, top: 116 }}>
           <CaliforniaMap variant="standalone" highlight={hoverId} />
         </div>
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
+            gridTemplateColumns: layout.cardsTemplateColumns,
             gap: 14,
           }}
         >

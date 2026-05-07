@@ -17,6 +17,7 @@ import { dirname, join } from "node:path";
 import { fetchRssNews } from "./rss.ts";
 import { scrapeNewsListing } from "./scrape.ts";
 import { enrichWithImages } from "./enrich.ts";
+import { filterSitesByCampus, parseCampusFlag } from "../cli.ts";
 import type { NewsCrawlResult, NewsItem } from "./types.ts";
 
 // Default keyword filter for campus-wide newsrooms. Used when a site sets
@@ -87,25 +88,8 @@ interface SiteConfig {
   enrichImages?: boolean;
 }
 
-interface Flags {
-  campus: Set<string> | null;
-}
-
-const flags: Flags = { campus: null };
-for (const arg of process.argv.slice(2)) {
-  const m = arg.match(/^--campus=(.+)$/);
-  if (m) {
-    flags.campus = new Set(
-      m[1]
-        .split(",")
-        .map((s) => s.trim())
-        .filter(Boolean),
-    );
-  }
-}
-
 const sitesAll: SiteConfig[] = JSON.parse(await readFile(join(__dirname, "sites.json"), "utf-8"));
-const sites = flags.campus ? sitesAll.filter((s) => flags.campus?.has(s.campus)) : sitesAll;
+const sites = filterSitesByCampus(sitesAll, parseCampusFlag());
 if (sites.length === 0) {
   console.error("No sites match the provided filters. Exiting.");
   process.exit(1);

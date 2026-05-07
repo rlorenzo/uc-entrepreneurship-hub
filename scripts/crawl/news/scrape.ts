@@ -8,9 +8,9 @@
 // a separate Chromium for the news pass is a few seconds of overhead and
 // keeps the pipelines decoupled.
 
-import { chromium, type Page } from "playwright";
+import { chromium, type Browser, type Page } from "playwright";
 
-import { gotoWithFallback, withPage } from "./playwright.ts";
+import { gotoWithFallback, withPage } from "../playwright.ts";
 import { buildArticleId } from "./id.ts";
 import { toIsoDate } from "./dates.ts";
 import type { NewsCrawlError, NewsItem } from "./types.ts";
@@ -155,10 +155,120 @@ async function discoverArticleLinks(
   return [...new Set(cleaned)];
 }
 
+function paginatedUrl(base: string, param: string | undefined, page: number): string {
+  if (!param || page === 0) return base;
+  return base + (base.includes("?") ? "&" : "?") + `${param}=${page}`;
+}
+
+function passesKeywordFilter(raw: RawArticle, allowlist: string[] | undefined): boolean {
+  if (!allowlist?.length) return true;
+  const hay = `${raw.title} ${raw.summary}`.toLowerCase();
+  return allowlist.some((k) => hay.includes(k.toLowerCase()));
+}
+
+function hostOf(url: string): string | undefined {
+  return safeUrl(url)?.hostname;
+}
+
+async function harvestPage(
+  browser: Browser,
+  pageUrl: string,
+  listingUrl: string,
+  pattern: RegExp,
+  denylist: RegExp[],
+): Promise<string[]> {
+  return await withPage(browser, async (page) => {
+    const resp = await gotoWithFallback(page, pageUrl);
+    if (!resp?.ok()) throw new Error(`HTTP ${resp?.status() ?? "?"}`);
+    return await discoverArticleLinks(page, listingUrl, pattern, denylist);
+  });
+}
+
+function unionInto(target: { seen: Set<string>; links: string[] }, found: string[]): void {
+  for (const url of found) {
+    if (target.seen.has(url)) continue;
+    target.seen.add(url);
+    target.links.push(url);
+  }
+}
+
+function paginationCount(site: PlaywrightSite): number {
+  return site.paginationPages && site.paginationParam ? site.paginationPages : 1;
+}
+
+async function harvestAllListings(
+  browser: Browser,
+  site: PlaywrightSite,
+  pattern: RegExp,
+  denylist: RegExp[],
+): Promise<{ links: string[]; errors: NewsCrawlError[] }> {
+  const errors: NewsCrawlError[] = [];
+  const acc = { seen: new Set<string>(), links: [] as string[] };
+  for (let i = 0; i < paginationCount(site); i++) {
+    const pageUrl = paginatedUrl(site.listingUrl, site.paginationParam, i);
+    try {
+      unionInto(acc, await harvestPage(browser, pageUrl, site.listingUrl, pattern, denylist));
+    } catch (err) {
+      errors.push({ stage: "listing", url: pageUrl, message: (err as Error).message });
+    }
+  }
+  return { links: acc.links, errors };
+}
+
+async function fetchArticle(browser: Browser, url: string): Promise<RawArticle> {
+  return await withPage(browser, async (page) => {
+    const resp = await gotoWithFallback(page, url);
+    if (!resp?.ok()) throw new Error(`HTTP ${resp?.status() ?? "?"}`);
+    await page.waitForTimeout(400);
+    return (await page.evaluate(`(${inPageNewsExtractor})()`)) as RawArticle;
+  });
+}
+
+function makeItem(site: PlaywrightSite, url: string, raw: RawArticle): NewsItem {
+  return {
+    id: buildArticleId(site.campus, url),
+    campus: site.campus,
+    title: raw.title,
+    summary: raw.summary,
+    publishedAt: toIsoDate(raw.publishedAt),
+    sourceUrl: url,
+    imageUrl: raw.imageUrl || undefined,
+    sourceHost: hostOf(url),
+  };
+}
+
+async function tryExtract(
+  browser: Browser,
+  site: PlaywrightSite,
+  url: string,
+): Promise<NewsItem | null> {
+  const raw = await fetchArticle(browser, url);
+  if (!raw.title || !passesKeywordFilter(raw, site.keywordAllowlist)) return null;
+  return makeItem(site, url, raw);
+}
+
+async function extractItems(
+  browser: Browser,
+  site: PlaywrightSite,
+  links: string[],
+): Promise<{ items: NewsItem[]; errors: NewsCrawlError[] }> {
+  const errors: NewsCrawlError[] = [];
+  const items: NewsItem[] = [];
+  const cap = site.maxArticles ?? DEFAULT_MAX;
+  for (const url of links.slice(0, cap)) {
+    try {
+      const item = await tryExtract(browser, site, url);
+      if (item) items.push(item);
+    } catch (err) {
+      errors.push({ stage: "article", url, message: (err as Error).message });
+    }
+  }
+  return { items, errors };
+}
+
 export async function scrapeNewsListing(
   site: PlaywrightSite,
 ): Promise<{ items: NewsItem[]; errors: NewsCrawlError[] }> {
-  const errors: NewsCrawlError[] = [];
   const browser = await chromium.launch({
     headless: true,
     args: ["--disable-blink-features=AutomationControlled"],
@@ -166,72 +276,15 @@ export async function scrapeNewsListing(
   try {
     const pattern = new RegExp(site.articleLinkPattern);
     const denylist = (site.linkDenylist ?? []).map((p) => new RegExp(p));
-    const pages = site.paginationPages && site.paginationParam ? site.paginationPages : 1;
-    const param = site.paginationParam;
-    const seen = new Set<string>();
-    const links: string[] = [];
-    for (let i = 0; i < pages; i++) {
-      const pageUrl =
-        pages > 1 && param
-          ? site.listingUrl + (site.listingUrl.includes("?") ? "&" : "?") + `${param}=${i}`
-          : site.listingUrl;
-      try {
-        const found = await withPage(browser, async (page) => {
-          const resp = await gotoWithFallback(page, pageUrl);
-          if (!resp?.ok()) throw new Error(`HTTP ${resp?.status() ?? "?"}`);
-          return await discoverArticleLinks(page, site.listingUrl, pattern, denylist);
-        });
-        for (const url of found) {
-          if (!seen.has(url)) {
-            seen.add(url);
-            links.push(url);
-          }
-        }
-      } catch (err) {
-        errors.push({ stage: "listing", url: pageUrl, message: (err as Error).message });
-      }
+    const listing = await harvestAllListings(browser, site, pattern, denylist);
+    if (listing.links.length === 0 && listing.errors.length > 0) {
+      return { items: [], errors: listing.errors };
     }
-    if (links.length === 0 && errors.length > 0) return { items: [], errors };
-
-    const cap = site.maxArticles ?? DEFAULT_MAX;
-    const slice = links.slice(0, cap);
-    const items: NewsItem[] = [];
-    for (const url of slice) {
-      try {
-        const raw = await withPage(browser, async (page) => {
-          const resp = await gotoWithFallback(page, url);
-          if (!resp?.ok()) throw new Error(`HTTP ${resp?.status() ?? "?"}`);
-          await page.waitForTimeout(400);
-          return (await page.evaluate(`(${inPageNewsExtractor})()`)) as RawArticle;
-        });
-        if (!raw.title) continue;
-        if (site.keywordAllowlist?.length) {
-          const hay = `${raw.title} ${raw.summary}`.toLowerCase();
-          const hit = site.keywordAllowlist.some((k) => hay.includes(k.toLowerCase()));
-          if (!hit) continue;
-        }
-        const sourceHost = (() => {
-          try {
-            return new URL(url).hostname;
-          } catch {
-            return undefined;
-          }
-        })();
-        items.push({
-          id: buildArticleId(site.campus, url),
-          campus: site.campus,
-          title: raw.title,
-          summary: raw.summary,
-          publishedAt: toIsoDate(raw.publishedAt),
-          sourceUrl: url,
-          imageUrl: raw.imageUrl || undefined,
-          sourceHost,
-        });
-      } catch (err) {
-        errors.push({ stage: "article", url, message: (err as Error).message });
-      }
-    }
-    return { items, errors };
+    const extracted = await extractItems(browser, site, listing.links);
+    return {
+      items: extracted.items,
+      errors: [...listing.errors, ...extracted.errors],
+    };
   } finally {
     await browser.close();
   }
