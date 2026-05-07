@@ -112,60 +112,74 @@ function passesKeywordFilter(haystack: string, allowlist: string[] | undefined):
 // A bare Chrome UA was the previous default; it failed on Merced.
 const FETCH_USER_AGENT = "uc-entrepreneurship-hub-crawler/1.0 (+github.com/rlorenzo)";
 
-export async function fetchRssNews(
-  site: RssSite,
-): Promise<{ items: NewsItem[]; errors: NewsCrawlError[] }> {
-  const errors: NewsCrawlError[] = [];
-  let xml = "";
-  try {
-    const resp = await fetch(site.feedUrl, {
-      headers: {
-        "User-Agent": FETCH_USER_AGENT,
-        Accept: "application/rss+xml, application/xml, text/xml, */*",
-      },
-    });
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    xml = await resp.text();
-  } catch (err) {
-    errors.push({ stage: "feed", url: site.feedUrl, message: (err as Error).message });
-    return { items: [], errors };
-  }
+async function fetchFeedXml(feedUrl: string): Promise<string> {
+  const resp = await fetch(feedUrl, {
+    headers: {
+      "User-Agent": FETCH_USER_AGENT,
+      Accept: "application/rss+xml, application/xml, text/xml, */*",
+    },
+  });
+  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+  return await resp.text();
+}
 
-  const raw = parseRss(xml);
+function hostOf(url: string): string | undefined {
+  try {
+    return new URL(url).hostname;
+  } catch {
+    return undefined;
+  }
+}
+
+function hasMinimalShape(r: RssItem): boolean {
+  return Boolean(r.link && r.title);
+}
+
+function shouldKeep(r: RssItem, summaryRaw: string, site: RssSite): boolean {
+  if (!hasMinimalShape(r)) return false;
+  if (isDenied(r.link, site.linkDenylist)) return false;
+  if (isDenied(r.title, site.titleDenylist)) return false;
+  return passesKeywordFilter(`${r.title} ${summaryRaw}`, site.keywordAllowlist);
+}
+
+function rssItemToNewsItem(r: RssItem, campus: string, summaryRaw: string): NewsItem {
+  return {
+    id: buildArticleId(campus, r.link),
+    campus,
+    title: stripHtml(r.title),
+    summary: summaryRaw.slice(0, 400),
+    publishedAt: toIsoDate(r.pubDate),
+    sourceUrl: r.link,
+    imageUrl: firstImageSrc(r.contentEncoded || r.description) || undefined,
+    sourceHost: hostOf(r.link),
+  };
+}
+
+function buildNewsItems(raw: RssItem[], site: RssSite): NewsItem[] {
   const items: NewsItem[] = [];
   const seen = new Set<string>();
   for (const r of raw) {
-    if (!r.link || !r.title) continue;
-    if (isDenied(r.link, site.linkDenylist)) continue;
-    if (isDenied(r.title, site.titleDenylist)) continue;
-
     const summaryRaw = stripHtml(r.description);
-    if (!passesKeywordFilter(`${r.title} ${summaryRaw}`, site.keywordAllowlist)) continue;
-
-    const id = buildArticleId(site.campus, r.link);
-    if (seen.has(id)) continue;
-    seen.add(id);
-
-    const summary = summaryRaw.slice(0, 400);
-    const imageUrl = firstImageSrc(r.contentEncoded || r.description) || undefined;
-    const sourceHost = (() => {
-      try {
-        return new URL(r.link).hostname;
-      } catch {
-        return undefined;
-      }
-    })();
-
-    items.push({
-      id,
-      campus: site.campus,
-      title: stripHtml(r.title),
-      summary,
-      publishedAt: toIsoDate(r.pubDate),
-      sourceUrl: r.link,
-      imageUrl,
-      sourceHost,
-    });
+    if (!shouldKeep(r, summaryRaw, site)) continue;
+    const item = rssItemToNewsItem(r, site.campus, summaryRaw);
+    if (seen.has(item.id)) continue;
+    seen.add(item.id);
+    items.push(item);
   }
-  return { items, errors };
+  return items;
+}
+
+export async function fetchRssNews(
+  site: RssSite,
+): Promise<{ items: NewsItem[]; errors: NewsCrawlError[] }> {
+  let xml: string;
+  try {
+    xml = await fetchFeedXml(site.feedUrl);
+  } catch (err) {
+    return {
+      items: [],
+      errors: [{ stage: "feed", url: site.feedUrl, message: (err as Error).message }],
+    };
+  }
+  return { items: buildNewsItems(parseRss(xml), site), errors: [] };
 }
