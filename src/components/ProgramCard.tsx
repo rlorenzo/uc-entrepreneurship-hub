@@ -19,7 +19,7 @@ function CardIndustries({ industries }: { industries: string[] }) {
       {visible.map((i) => (
         <Pill key={i}>{i}</Pill>
       ))}
-      {overflow > 0 && <Pill style={{ opacity: 0.6 }}>+{overflow}</Pill>}
+      {overflow > 0 && <Pill>+{overflow}</Pill>}
     </div>
   );
 }
@@ -103,6 +103,16 @@ function articleStyle(hover: boolean) {
   } as const;
 }
 
+const titleButtonStyle = {
+  background: "transparent",
+  border: 0,
+  padding: 0,
+  font: "inherit",
+  color: "inherit",
+  textAlign: "left",
+  cursor: "pointer",
+} as const;
+
 function CardBody({
   program,
   compact,
@@ -123,10 +133,8 @@ function CardBody({
       }}
     >
       <h3
-        onClick={onOpen}
         style={{
           margin: 0,
-          cursor: "pointer",
           fontFamily: "'Source Serif 4',Georgia,serif",
           fontWeight: 600,
           fontSize: compact ? 20 : 22,
@@ -135,7 +143,9 @@ function CardBody({
           textWrap: "pretty",
         }}
       >
-        {program.name}
+        <button type="button" onClick={onOpen} style={titleButtonStyle}>
+          {program.name}
+        </button>
       </h3>
       <p
         style={{
@@ -170,6 +180,15 @@ function CardBody({
   );
 }
 
+const artButtonStyle = {
+  background: "transparent",
+  border: 0,
+  padding: 0,
+  cursor: "pointer",
+  display: "block",
+  width: "100%",
+} as const;
+
 export function ProgramCard({ program, onOpen, compact = false }: Props) {
   const [hover, setHover] = useState(false);
   const open = () => onOpen(program);
@@ -179,9 +198,14 @@ export function ProgramCard({ program, onOpen, compact = false }: Props) {
       onMouseLeave={() => setHover(false)}
       style={articleStyle(hover)}
     >
-      <div onClick={open} style={{ cursor: "pointer" }}>
+      <button
+        type="button"
+        onClick={open}
+        aria-label={`Open ${program.name}`}
+        style={artButtonStyle}
+      >
         <CardArt program={program} height={compact ? 140 : 168} />
-      </div>
+      </button>
       <CardBody program={program} compact={compact} onOpen={open} />
     </article>
   );

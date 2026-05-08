@@ -43,3 +43,39 @@ jobs:
         run: vp build
         env:
           VITE_GH_PAGES: "1"
+
+  a11y:
+    # WCAG smoke check: builds the production bundle, serves it via
+    # `vp preview`, and runs axe-core/playwright + pa11y-ci against the
+    # routes listed in scripts/a11y/routes.mjs / .pa11yci.json. Independent
+    # of `check` so a lint failure doesn't mask a11y regressions (and vice
+    # versa).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: voidzero-dev/setup-vp@v1
+        with:
+          node-version: "24"
+          cache: true
+
+      - name: Install deps (with optional Playwright)
+        run: vp install
+
+      - name: Install Playwright Chromium
+        run: vp exec playwright install --with-deps chromium
+
+      - name: Install Puppeteer Chrome (for pa11y-ci)
+        # pa11y-ci uses puppeteer-core (no bundled Chrome) and pulls in
+        # the `puppeteer` package as a transitive dep. Its postinstall
+        # downloads Chrome to ~/.cache/puppeteer; setup-vp's pnpm cache
+        # restores node_modules but not that user-cache directory, so
+        # re-run the install script explicitly. With pnpm the script
+        # lives under .pnpm/, hence the glob.
+        run: node node_modules/.pnpm/puppeteer@*/node_modules/puppeteer/install.mjs
+
+      - name: Build
+        run: vp build
+
+      - name: Run a11y suite (axe-core + Pa11y)
+        run: vp run a11y

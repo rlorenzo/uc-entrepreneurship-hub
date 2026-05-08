@@ -196,22 +196,49 @@ interface MobileDrawerProps {
 }
 
 function MobileDrawer({ open, onClose, pathname }: MobileDrawerProps) {
+  // Close drawer on Escape — required for keyboard users since the backdrop
+  // is non-focusable (clicking it closes via mouse only).
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, onClose]);
+
   if (!open) return null;
   return (
     <div
       role="dialog"
       aria-modal="true"
+      aria-label="Site menu"
       style={{
         position: "fixed",
         inset: 0,
-        background: "rgba(0,32,51,.55)",
         zIndex: 40,
       }}
-      onClick={onClose}
     >
-      <div
-        onClick={(e) => e.stopPropagation()}
+      {/* Backdrop is a button so click-to-close works for mouse users while
+          keyboard users use Escape or the close button inside the panel.
+          Hidden from the tab order to avoid duplicating the close button. */}
+      <button
+        type="button"
+        aria-label="Close menu"
+        tabIndex={-1}
+        onClick={onClose}
         style={{
+          position: "absolute",
+          inset: 0,
+          background: "rgba(0,32,51,.55)",
+          border: 0,
+          cursor: "pointer",
+          padding: 0,
+        }}
+      />
+      <div
+        style={{
+          position: "relative",
           background: "#fff",
           marginLeft: "auto",
           width: "min(320px, 86%)",

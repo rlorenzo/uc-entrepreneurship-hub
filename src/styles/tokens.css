@@ -28,7 +28,7 @@
   --uc-teal: #00778b;
   --uc-teal-light: #00a3ad;
   --uc-gray: #4c4c4c;
-  --uc-gray-mid: #7c7e7f; /* "UC Gray" */
+  --uc-gray-mid: #5b5d5e; /* "UC Gray" — darkened from #7c7e7f for WCAG AA on white */
   --uc-warm-gray-1: #dbd5cd;
   --uc-warm-gray-3: #beb6af;
   --uc-warm-gray-8: #8f8884;

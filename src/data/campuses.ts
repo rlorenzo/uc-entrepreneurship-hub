@@ -1,8 +1,13 @@
 import type { Campus } from "./types";
+import { PROGRAMS } from "./programs";
 
-// Real campus latitudes/longitudes. The map component projects these into
-// SVG space so the geography is consistent with the California outline.
-export const CAMPUSES: Campus[] = [
+// Static campus metadata. The `programs` count is derived from the merged
+// PROGRAMS array (curated + crawled) below, so the hero stat, footer
+// "See all N programs" link, and CampusPage section header all stay in
+// sync with the actual catalog.
+type CampusMeta = Omit<Campus, "programs">;
+
+const CAMPUS_META: CampusMeta[] = [
   {
     id: "berkeley",
     name: "UC Berkeley",
@@ -11,7 +16,6 @@ export const CAMPUSES: Campus[] = [
     lon: -122.2727,
     color: "#003262",
     tagline: "The Bay’s deep-tech and consumer launchpad",
-    programs: 18,
     founded: 1868,
     hubUrl: "https://begin.berkeley.edu/",
   },
@@ -23,7 +27,6 @@ export const CAMPUSES: Campus[] = [
     lon: -121.7617,
     color: "#022851",
     tagline: "AgTech, food systems, sustainability",
-    programs: 11,
     founded: 1905,
     hubUrl: "https://iedo.ucdavis.edu/",
   },
@@ -35,7 +38,6 @@ export const CAMPUSES: Campus[] = [
     lon: -120.4242,
     color: "#002856",
     tagline: "Climate, water, the San Joaquin Valley",
-    programs: 6,
     founded: 2005,
     hubUrl: "https://research.ucmerced.edu/",
   },
@@ -47,7 +49,6 @@ export const CAMPUSES: Campus[] = [
     lon: -122.0609,
     color: "#003c6c",
     tagline: "Games, genomics, ocean science",
-    programs: 8,
     founded: 1965,
     hubUrl: "https://innovation.ucsc.edu/",
   },
@@ -59,7 +60,6 @@ export const CAMPUSES: Campus[] = [
     lon: -122.4582,
     color: "#052049",
     tagline: "Health and life-science startups",
-    programs: 9,
     founded: 1864,
     hubUrl: "https://innovation.ucsf.edu/",
   },
@@ -71,7 +71,6 @@ export const CAMPUSES: Campus[] = [
     lon: -119.8489,
     color: "#003660",
     tagline: "Materials, photonics, deep tech",
-    programs: 10,
     founded: 1909,
     hubUrl: "https://innovation.ucsb.edu/",
   },
@@ -83,7 +82,6 @@ export const CAMPUSES: Campus[] = [
     lon: -118.4452,
     color: "#2774AE",
     tagline: "Media, biosciences, consumer",
-    programs: 22,
     founded: 1919,
     hubUrl:
       "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation",
@@ -96,7 +94,6 @@ export const CAMPUSES: Campus[] = [
     lon: -117.8443,
     color: "#0064A4",
     tagline: "Beall, biotech, gaming",
-    programs: 14,
     founded: 1965,
     hubUrl: "https://innovation.uci.edu/",
   },
@@ -108,7 +105,6 @@ export const CAMPUSES: Campus[] = [
     lon: -117.3281,
     color: "#003DA5",
     tagline: "AgTech, Inland Empire founders",
-    programs: 7,
     founded: 1954,
     hubUrl: "https://techpartnerships.ucr.edu/",
   },
@@ -120,11 +116,26 @@ export const CAMPUSES: Campus[] = [
     lon: -117.234,
     color: "#182B49",
     tagline: "Biotech, hardware, climate",
-    programs: 16,
     founded: 1960,
     hubUrl: "https://innovation.ucsd.edu/",
   },
 ];
+
+function countProgramsByCampus(): Record<string, number> {
+  const counts: Record<string, number> = {};
+  for (const meta of CAMPUS_META) counts[meta.id] = 0;
+  for (const p of PROGRAMS) {
+    if (counts[p.campus] !== undefined) counts[p.campus] += 1;
+  }
+  return counts;
+}
+
+const PROGRAM_COUNTS = countProgramsByCampus();
+
+export const CAMPUSES: Campus[] = CAMPUS_META.map((meta) => ({
+  ...meta,
+  programs: PROGRAM_COUNTS[meta.id] ?? 0,
+}));
 
 export const CAMPUS_BY_ID: Record<string, Campus> = Object.fromEntries(
   CAMPUSES.map((c) => [c.id, c]),

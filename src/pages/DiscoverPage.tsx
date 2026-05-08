@@ -142,7 +142,7 @@ function FilterCheckbox({
       <span style={checkboxBoxStyle(checked)}>{checked && <I_Check size={12} />}</span>
       <input type="checkbox" checked={checked} onChange={onChange} style={{ display: "none" }} />
       <span style={checkboxLabelStyle(checked)}>{label}</span>
-      {count !== undefined && <span style={{ fontSize: 12, color: "#7C7E7F" }}>{count}</span>}
+      {count !== undefined && <span style={{ fontSize: 12, color: "#5B5D5E" }}>{count}</span>}
     </label>
   );
 }
@@ -467,7 +467,9 @@ function QueryChip({ q, onClear }: { q: string; onClear: () => void }) {
     >
       “{q}”
       <button
+        type="button"
         onClick={onClear}
+        aria-label="Clear search"
         style={{
           background: "transparent",
           border: 0,
@@ -501,7 +503,9 @@ function FilterChip({ k, v, onRemove }: { k: string; v: string; onRemove: () => 
     >
       {chipLabel(k, v)}
       <button
+        type="button"
         onClick={onRemove}
+        aria-label={`Remove ${chipLabel(k, v)} filter`}
         style={{
           background: "transparent",
           border: 0,
@@ -546,7 +550,9 @@ function ListRowMeta({ program }: { program: Program }) {
     <>
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
         <CampusBadge campusId={program.campus} />
-        <span style={{ color: "#7C7E7F" }}>·</span>
+        <span style={{ color: "#5B5D5E" }} aria-hidden="true">
+          ·
+        </span>
         <TypePill typeId={program.type} />
       </div>
       <h3
@@ -663,12 +669,36 @@ function ProgramListRow({ program, onOpen }: { program: Program; onOpen: (id: st
         alignItems: "center",
       }}
     >
-      <div onClick={open} style={{ cursor: "pointer" }}>
+      <button
+        type="button"
+        onClick={open}
+        aria-label={`Open ${program.name}`}
+        style={{
+          background: "transparent",
+          border: 0,
+          padding: 0,
+          cursor: "pointer",
+          display: "block",
+          width: "100%",
+        }}
+      >
         <CardArt program={program} height={104} />
-      </div>
-      <div onClick={open} style={{ cursor: "pointer" }}>
+      </button>
+      <button
+        type="button"
+        onClick={open}
+        style={{
+          background: "transparent",
+          border: 0,
+          padding: 0,
+          cursor: "pointer",
+          textAlign: "left",
+          font: "inherit",
+          color: "inherit",
+        }}
+      >
         <ListRowMeta program={program} />
-      </div>
+      </button>
       <ListRowActions program={program} onOpen={onOpen} />
     </article>
   );
@@ -765,10 +795,22 @@ function ViewToggle({ view, setView }: { view: ViewKind; setView: (v: ViewKind) 
         overflow: "hidden",
       }}
     >
-      <button onClick={() => setView("grid")} style={viewToggleButtonStyle(view === "grid")}>
+      <button
+        type="button"
+        onClick={() => setView("grid")}
+        aria-label="Grid view"
+        aria-pressed={view === "grid"}
+        style={viewToggleButtonStyle(view === "grid")}
+      >
         <I_Grid size={16} />
       </button>
-      <button onClick={() => setView("list")} style={viewToggleButtonStyle(view === "list")}>
+      <button
+        type="button"
+        onClick={() => setView("list")}
+        aria-label="List view"
+        aria-pressed={view === "list"}
+        style={viewToggleButtonStyle(view === "list")}
+      >
         <I_List size={16} />
       </button>
     </div>
@@ -911,8 +953,8 @@ function DiscoverHero({ q, setQ }: { q: string; setQ: (v: string) => void }) {
 function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
   const isMobile = useIsMobile();
   return (
-    <form
-      onSubmit={(e) => e.preventDefault()}
+    <div
+      role="search"
       style={{
         background: "#fff",
         borderRadius: 6,
@@ -940,6 +982,8 @@ function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
         value={q}
         onChange={(e) => setQ(e.target.value)}
         placeholder="Search programs, industries, campuses…"
+        aria-label="Search programs, industries, campuses"
+        type="search"
         style={{
           flex: 1,
           border: 0,
@@ -955,6 +999,7 @@ function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
         <button
           type="button"
           onClick={() => setQ("")}
+          aria-label="Clear search"
           style={{
             background: "transparent",
             border: 0,
@@ -968,7 +1013,7 @@ function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
           <I_X size={16} />
         </button>
       )}
-    </form>
+    </div>
   );
 }
 

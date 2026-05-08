@@ -7,7 +7,7 @@ export const TYPES: ProgramType[] = [
   { id: "funding", label: "Funding", color: "#FFB511" },
   { id: "competition", label: "Competition", color: "#E44C9A" },
   { id: "maker", label: "Maker space", color: "#FF6E1B" },
-  { id: "mentorship", label: "Mentorship", color: "#7C7E7F" },
+  { id: "mentorship", label: "Mentorship", color: "#5B5D5E" },
 ];
 
 export const TYPE_BY_ID: Record<string, ProgramType> = Object.fromEntries(
