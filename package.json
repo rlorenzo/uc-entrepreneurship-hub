@@ -11,6 +11,9 @@
     "lint": "vp lint",
     "fmt": "vp fmt",
     "check": "vp check && fallow",
+    "a11y": "node scripts/a11y/run.mjs",
+    "a11y:axe": "node scripts/a11y/axe.mjs",
+    "a11y:pa11y": "pa11y-ci --config .pa11yci.json",
     "crawl": "node scripts/crawl/run.ts",
     "crawl:news": "node scripts/crawl/news/run.ts",
     "build-data": "node scripts/crawl/build-data.ts",
@@ -24,10 +27,12 @@
     "react-router-dom": "^6.27.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^6.0.0",
     "fallow": "^2.65.0",
+    "pa11y-ci": "^4.1.0",
     "typescript": "^5.6.3",
     "vite-plus": "^0.1.20"
   },
@@ -37,7 +42,8 @@
   "packageManager": "pnpm@10.33.3",
   "pnpm": {
     "onlyBuiltDependencies": [
-      "fallow"
+      "fallow",
+      "puppeteer"
     ]
   }
 }

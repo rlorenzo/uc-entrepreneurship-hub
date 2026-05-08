@@ -1,0 +1,20 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 30000,
+    "wait": 500,
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox", "--disable-dev-shm-usage"]
+    },
+    "ignore": ["WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124.NoSuchID"]
+  },
+  "urls": [
+    "http://localhost:4173/#/",
+    "http://localhost:4173/#/discover",
+    "http://localhost:4173/#/campuses",
+    "http://localhost:4173/#/compare",
+    "http://localhost:4173/#/news",
+    "http://localhost:4173/#/campus/davis",
+    "http://localhost:4173/#/program/davis-aggie-venture-accelerator"
+  ]
+}
