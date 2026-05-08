@@ -294,7 +294,7 @@ function buildGlanceRows(program: Program): GlanceRow[] {
 }
 
 function cohortLabel(cohortSize: number | null): ReactNode {
-  if (!cohortSize) return <em style={{ color: "#7C7E7F", fontStyle: "normal" }}>Not disclosed</em>;
+  if (!cohortSize) return <em style={{ color: "#5B5D5E", fontStyle: "normal" }}>Not disclosed</em>;
   return `${cohortSize} ventures`;
 }
 

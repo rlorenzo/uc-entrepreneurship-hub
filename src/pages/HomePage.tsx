@@ -148,6 +148,8 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search programs, industries, campuses…"
+              aria-label="Search programs, industries, campuses"
+              type="search"
               style={{
                 flex: 1,
                 border: 0,
@@ -412,7 +414,7 @@ function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => 
                       fontSize: 32,
                       fontFamily: "'Source Serif 4',Georgia,serif",
                       fontWeight: 600,
-                      color: t.color,
+                      color: "#002033",
                       lineHeight: 1,
                     }}
                   >
@@ -480,7 +482,7 @@ function CampusButton({ campus, active, onHover, onPick }: CampusButtonProps) {
     >
       <span style={{ width: 8, height: 8, borderRadius: 999, background: campus.color }} />
       <span style={{ fontWeight: 600, fontSize: 15, color: "#002033" }}>{campus.name}</span>
-      <span style={{ marginLeft: "auto", fontSize: 12, color: "#7C7E7F" }}>
+      <span style={{ marginLeft: "auto", fontSize: 12, color: "#5B5D5E" }}>
         {campus.programs} programs
       </span>
     </button>

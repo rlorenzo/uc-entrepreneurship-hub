@@ -10,30 +10,39 @@ interface PillProps {
   style?: CSSProperties;
 }
 
+function pillStyle(color: string, bg: string | undefined, style: CSSProperties | undefined) {
+  const solid = bg !== undefined;
+  return {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    fontSize: 12,
+    fontWeight: 600,
+    padding: "4px 10px",
+    borderRadius: 999,
+    border: solid ? "1px solid transparent" : `1px solid ${color}33`,
+    color: solid ? "#fff" : color,
+    background: bg ?? `${color}14`,
+    letterSpacing: ".02em",
+    whiteSpace: "nowrap",
+    ...style,
+  } as CSSProperties;
+}
+
 export function Pill({ children, color = "#005581", bg, onClick, style }: PillProps) {
-  return (
-    <span
-      onClick={onClick}
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 6,
-        fontSize: 12,
-        fontWeight: 600,
-        padding: "4px 10px",
-        borderRadius: 999,
-        border: bg ? "1px solid transparent" : `1px solid ${color}33`,
-        color: bg ? "#fff" : color,
-        background: bg ?? `${color}14`,
-        letterSpacing: ".02em",
-        whiteSpace: "nowrap",
-        cursor: onClick ? "pointer" : "default",
-        ...style,
-      }}
-    >
-      {children}
-    </span>
-  );
+  const css = pillStyle(color, bg, style);
+  if (onClick) {
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        style={{ ...css, cursor: "pointer", font: "inherit" }}
+      >
+        {children}
+      </button>
+    );
+  }
+  return <span style={css}>{children}</span>;
 }
 
 export function TypePill({ typeId }: { typeId: string }) {

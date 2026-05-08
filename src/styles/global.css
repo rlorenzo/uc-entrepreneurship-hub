@@ -22,7 +22,11 @@ body {
 }
 
 :root {
-  --accent: #1295d8;
+  /* WCAG AA contrast: #005581 passes 4.5:1 on white (text) and 7:1 with
+     white text. The brighter #1295d8 is kept available for dark-background
+     accents (hero map lines, etc.) but should not be used as text on white. */
+  --accent: #005581;
+  --accent-bright: #1295d8;
 }
 
 a {

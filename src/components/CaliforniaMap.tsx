@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CAMPUSES } from "@/data/campuses";
 import type { Campus } from "@/data/types.ts";
@@ -409,18 +409,18 @@ const MAP_THEMES = {
   },
 } as const satisfies Record<"hero" | "standalone", MapTheme>;
 
-function MapBackdrop({ theme }: { theme: MapTheme }) {
+function MapBackdrop({ theme, fillId }: { theme: MapTheme; fillId: string }) {
   return (
     <>
       <defs>
-        <linearGradient id="caFill" x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id={fillId} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor={theme.fillTop} />
           <stop offset="1" stopColor={theme.fillBottom} />
         </linearGradient>
       </defs>
       <path
         d={CA_PATH}
-        fill="url(#caFill)"
+        fill={`url(#${fillId})`}
         stroke={theme.outline}
         strokeWidth="1.5"
         strokeLinejoin="round"
@@ -435,6 +435,10 @@ export function CaliforniaMap({ variant = "standalone", highlight = null, onPick
   const dark = variant === "hero";
   const theme = dark ? MAP_THEMES.hero : MAP_THEMES.standalone;
   const handlePick = (c: Campus) => (onPick ? onPick(c) : navigate(`/campus/${c.id}`));
+  // useId() ensures the gradient def has a page-unique id so multiple
+  // CaliforniaMap instances on the same page don't collide.
+  const reactId = useId();
+  const fillId = `caFill-${reactId.replace(/:/g, "")}`;
   return (
     <div
       style={{
@@ -451,7 +455,7 @@ export function CaliforniaMap({ variant = "standalone", highlight = null, onPick
         height="100%"
         style={{ display: "block" }}
       >
-        <MapBackdrop theme={theme} />
+        <MapBackdrop theme={theme} fillId={fillId} />
         {dark && <NetworkLines />}
         {dark && <PulseLayer />}
         {PLACED.map((p) => (

@@ -17,7 +17,7 @@ interface Row {
 }
 
 function CohortCell({ size }: { size: number | null }) {
-  if (!size) return <em style={{ color: "#7C7E7F" }}>Not disclosed</em>;
+  if (!size) return <em style={{ color: "#5B5D5E" }}>Not disclosed</em>;
   return <>{`${size} ventures`}</>;
 }
 
