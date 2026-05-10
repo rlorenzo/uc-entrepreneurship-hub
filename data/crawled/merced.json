@@ -2,7 +2,7 @@
   "campus": "merced",
   "name": "UC Merced",
   "seedUrl": "https://research.ucmerced.edu/",
-  "crawledAt": "2026-05-06T14:02:14.620Z",
+  "crawledAt": "2026-05-10T13:37:37.963Z",
   "candidates": [
     {
       "id": "merced-contracts-and-grants-administration",
@@ -14,7 +14,7 @@
       "industries": [],
       "applicationLink": "https://admissions.ucmerced.edu/first-year/apply?button",
       "sourceUrl": "https://research.ucmerced.edu/departments/contracts-and-grants-administration-cga",
-      "lastUpdated": "2026-05-06T14:03:18.611Z"
+      "lastUpdated": "2026-05-10T13:37:41.783Z"
     },
     {
       "id": "merced-regenerative-agriculture-initiatives-accelerators-incubators-entrepreneurship-centers-and-sbdcs",
@@ -29,7 +29,7 @@
       ],
       "applicationLink": "https://admissions.ucmerced.edu/first-year/apply?button",
       "sourceUrl": "https://research.ucmerced.edu/form/regenerative-agriculture-initiatives-accelerators-incubators-entrepreneurship-centers-and-sbdcs",
-      "lastUpdated": "2026-05-06T14:03:56.197Z"
+      "lastUpdated": "2026-05-10T13:37:46.166Z"
     },
     {
       "id": "merced-state-climate-funds",
@@ -44,7 +44,7 @@
       ],
       "applicationLink": "https://admissions.ucmerced.edu/first-year/apply?button",
       "sourceUrl": "https://research.ucmerced.edu/state-climate-funds",
-      "lastUpdated": "2026-05-06T14:05:00.287Z"
+      "lastUpdated": "2026-05-10T13:37:50.109Z"
     },
     {
       "id": "merced-spring-2023-climate-action-seed-funds",
@@ -59,7 +59,7 @@
       ],
       "applicationLink": "https://admissions.ucmerced.edu/first-year/apply?button",
       "sourceUrl": "https://research.ucmerced.edu/state-climate-funds/spring-2023-climate-action-seed-funds",
-      "lastUpdated": "2026-05-06T14:05:37.399Z"
+      "lastUpdated": "2026-05-10T13:37:52.120Z"
     },
     {
       "id": "merced-fall-2023-climate-action-seed-funds",
@@ -75,7 +75,7 @@
       ],
       "applicationLink": "https://admissions.ucmerced.edu/first-year/apply?button",
       "sourceUrl": "https://research.ucmerced.edu/state-climate-funds/fall-2023-climate-action-seed-funds",
-      "lastUpdated": "2026-05-06T14:06:13.291Z"
+      "lastUpdated": "2026-05-10T13:37:53.969Z"
     },
     {
       "id": "merced-fall-2023-climate-action-innovation-and-entrepreneurship-proof-of-concept-funds",
@@ -91,7 +91,7 @@
       ],
       "applicationLink": "https://admissions.ucmerced.edu/first-year/apply?button",
       "sourceUrl": "https://research.ucmerced.edu/state-climate-funds/fall-2023-climate-action-innovation-and-entrepreneurship-proof-concept-funds",
-      "lastUpdated": "2026-05-06T14:06:45.312Z"
+      "lastUpdated": "2026-05-10T13:37:55.891Z"
     },
     {
       "id": "merced-spring-2024-climate-action-innovation-and-entrepreneurship-proof-of-concept-funds",
@@ -106,7 +106,7 @@
       ],
       "applicationLink": "https://admissions.ucmerced.edu/first-year/apply?button",
       "sourceUrl": "https://research.ucmerced.edu/state-climate-funds/spring-2024-climate-action-innovation-and-entrepreneurship-proof-concept-funds",
-      "lastUpdated": "2026-05-06T14:07:17.263Z"
+      "lastUpdated": "2026-05-10T13:37:57.741Z"
     },
     {
       "id": "merced-research-sustainability-fund",
@@ -121,7 +121,7 @@
       ],
       "applicationLink": "https://admissions.ucmerced.edu/first-year/apply?button",
       "sourceUrl": "https://research.ucmerced.edu/research-sustainability-fund",
-      "lastUpdated": "2026-05-06T14:07:52.867Z"
+      "lastUpdated": "2026-05-10T13:37:59.738Z"
     }
   ],
   "errors": []

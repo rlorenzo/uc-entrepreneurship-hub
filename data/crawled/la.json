@@ -2,7 +2,7 @@
   "campus": "la",
   "name": "UCLA",
   "seedUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation",
-  "crawledAt": "2026-05-06T14:00:13.821Z",
+  "crawledAt": "2026-05-10T13:36:42.660Z",
   "candidates": [
     {
       "id": "la-center-for-healthcare-innovation",
@@ -15,7 +15,7 @@
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/center-for-healthcare-innovation",
-      "lastUpdated": "2026-05-06T14:00:24.998Z"
+      "lastUpdated": "2026-05-10T13:36:48.239Z"
     },
     {
       "id": "la-ucla-anderson-venture-accelerator",
@@ -28,7 +28,7 @@
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/anderson-venture-accelerator",
-      "lastUpdated": "2026-05-06T14:00:49.716Z"
+      "lastUpdated": "2026-05-10T13:36:58.953Z"
     },
     {
       "id": "la-information-systems-research-program",
@@ -41,7 +41,7 @@
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/faculty-and-research/information-systems-research-program",
-      "lastUpdated": "2026-05-06T14:00:57.353Z"
+      "lastUpdated": "2026-05-10T13:37:02.544Z"
     },
     {
       "id": "la-early-stage-investment-fund",
@@ -54,7 +54,7 @@
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/for-companies/early-stage-investment-fund",
-      "lastUpdated": "2026-05-06T14:01:02.006Z"
+      "lastUpdated": "2026-05-10T13:37:05.615Z"
     },
     {
       "id": "la-price-center-for-entrepreneurship-and-innovation-fellowships",
@@ -67,7 +67,7 @@
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-students/fellowships",
-      "lastUpdated": "2026-05-06T14:01:17.040Z"
+      "lastUpdated": "2026-05-10T13:37:12.842Z"
     },
     {
       "id": "la-student-investment-fund",
@@ -80,7 +80,7 @@
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-students/student-investment-fund",
-      "lastUpdated": "2026-05-06T14:01:20.486Z"
+      "lastUpdated": "2026-05-10T13:37:14.882Z"
     },
     {
       "id": "la-management-development-for-entrepreneurs",
@@ -93,7 +93,7 @@
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-professionals/management-development-for-entrepreneurs",
-      "lastUpdated": "2026-05-06T14:01:43.218Z"
+      "lastUpdated": "2026-05-10T13:37:24.409Z"
     },
     {
       "id": "la-news-and-events",
@@ -109,7 +109,7 @@
       ],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/anderson-venture-accelerator/news-and-events",
-      "lastUpdated": "2026-05-06T14:02:14.613Z"
+      "lastUpdated": "2026-05-10T13:37:37.955Z"
     }
   ],
   "errors": []
