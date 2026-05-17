@@ -2,7 +2,7 @@
   "campus": "sf",
   "name": "UC San Francisco",
   "seedUrl": "https://innovation.ucsf.edu/",
-  "crawledAt": "2026-05-10T13:37:15.542Z",
+  "crawledAt": "2026-05-17T13:37:31.695Z",
   "candidates": [
     {
       "id": "sf-translational-funding",
@@ -16,7 +16,7 @@
         "Health"
       ],
       "sourceUrl": "https://innovation.ucsf.edu/services/innovation-entrepreneurship/funding-translational",
-      "lastUpdated": "2026-05-10T13:37:20.889Z"
+      "lastUpdated": "2026-05-17T13:37:35.869Z"
     },
     {
       "id": "sf-engagement-opportunity-development",
@@ -28,7 +28,7 @@
       "longDescription": "Our Engagement and Opportunity Development Team collaborates with faculty to shape business opportunities around cutting-edge technologies. Taking a market-first approach, we identify product potential based on research discoveries, tailoring business models for optimal market entry. We focus on advancing innovations ready for business while providing the necessary support. Our streamlined process connects researchers to funding sources and, when needed, assists in launching new businesses. With a dedicated focus on assessing UCSF research for market potential, we ensure greater access to tran",
       "industries": [],
       "sourceUrl": "https://innovation.ucsf.edu/services/healthtech-commercialization/engagement-and-opportunity-development",
-      "lastUpdated": "2026-05-10T13:37:22.327Z"
+      "lastUpdated": "2026-05-17T13:37:37.171Z"
     },
     {
       "id": "sf-strategic-alliances",
@@ -40,7 +40,7 @@
       "longDescription": "The Office of Strategic Alliances develops and manages UCSF's largest industry partnerships. It is our goal to identify mutually beneficial collaborations between UCSF and strategic partners, often with the objective of providing research funding for projects at UCSF. We leverage our extensive internal and external networks to connect collaborators to our researchers and clinicians, and once a partnership is established we provide alliance support to ensure a successful relationship. Discover how you can thrive through strategic alliances, joint ventures, & mutually beneficial collaborations.",
       "industries": [],
       "sourceUrl": "https://innovation.ucsf.edu/services/healthtech-commercialization/strategic-alliances",
-      "lastUpdated": "2026-05-10T13:37:25.123Z"
+      "lastUpdated": "2026-05-17T13:37:39.613Z"
     },
     {
       "id": "sf-catalyst-program",
@@ -55,7 +55,7 @@
         "Health"
       ],
       "sourceUrl": "https://innovation.ucsf.edu/services/innovation-entrepreneurship/funding-translational/catalyst-program",
-      "lastUpdated": "2026-05-10T13:37:27.877Z"
+      "lastUpdated": "2026-05-17T13:37:41.778Z"
     },
     {
       "id": "sf-entrepreneurship-resources",
@@ -67,7 +67,7 @@
       "longDescription": "The Entrepreneurship program can direct you to the information and resources you need to start a company. We have aggregated websites and information on key topics that relate to entrepreneurship.",
       "industries": [],
       "sourceUrl": "https://innovation.ucsf.edu/resources/startup-resources",
-      "lastUpdated": "2026-05-10T13:37:29.084Z"
+      "lastUpdated": "2026-05-17T13:37:42.833Z"
     },
     {
       "id": "sf-panther-program",
@@ -79,7 +79,7 @@
       "longDescription": "The Pediatric Advanced Neurotherapeutics (PANTher) Program was developed to coordinate basic science, translational and clinical research efforts relevant to the treatment of childhood neurological diseases. We are particularly interested in treatments for rare diseases, including gene therapy and medications with novel therapeutic mechanisms. Its goals are to:",
       "industries": [],
       "sourceUrl": "https://innovation.ucsf.edu/partnerships/panther-program",
-      "lastUpdated": "2026-05-10T13:37:39.447Z"
+      "lastUpdated": "2026-05-17T13:37:49.601Z"
     }
   ],
   "errors": []

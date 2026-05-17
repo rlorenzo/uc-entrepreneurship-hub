@@ -2,7 +2,7 @@
   "campus": "santabarbara",
   "name": "UC Santa Barbara",
   "seedUrl": "https://innovation.ucsb.edu/",
-  "crawledAt": "2026-05-10T13:36:47.934Z",
+  "crawledAt": "2026-05-17T13:36:54.172Z",
   "candidates": [
     {
       "id": "santabarbara-prototyping-lab-space",
@@ -14,7 +14,7 @@
       "longDescription": "The CNSI Innovation Workshop – a makerspace facility – is now open in Elings Hall, envisioned as a resource to both local startups as well as the campus community. The Innovation Workshop enables innovators from UCSB and local companies to build and test prototypes their inventions. As not all ideas work, nor are all workable ideas practical or have the desired impact in solving important problems, the best way to develop ideas into impactful innovations is build, test, and persistently improve them. Thus the goal of the CNSI Innovation Workshop is to be a resource to address this stage of bus",
       "industries": [],
       "sourceUrl": "https://innovation.ucsb.edu/prototyping-lab-space",
-      "lastUpdated": "2026-05-10T13:36:50.729Z"
+      "lastUpdated": "2026-05-17T13:36:56.655Z"
     }
   ],
   "errors": []
