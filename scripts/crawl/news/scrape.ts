@@ -87,8 +87,15 @@ const inPageNewsExtractor = `() => {
   for (const node of ldNodes) {
     try {
       const data = JSON.parse(node.textContent || "{}");
-      const arr = Array.isArray(data) ? data : [data];
-      for (const obj of arr) {
+      const tops = Array.isArray(data) ? data : [data];
+      // WordPress/Yoast emit { "@graph": [ { @type: "Article", datePublished },
+      // ... ] }, so descend into @graph rather than only reading root objects.
+      const nodes = [];
+      for (const top of tops) {
+        if (top && Array.isArray(top["@graph"])) nodes.push(...top["@graph"]);
+        else nodes.push(top);
+      }
+      for (const obj of nodes) {
         if (obj && typeof obj.datePublished === "string") {
           publishedAt = obj.datePublished;
           break;
@@ -116,8 +123,9 @@ const inPageNewsExtractor = `() => {
       /\\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\\.? \\d{1,2},? \\d{4})\\b/,
     );
     if (m) {
-      const t = Date.parse(m[1]);
-      if (Number.isFinite(t)) publishedAt = new Date(t).toISOString();
+      // Hand the raw match to toIsoDate (Node side), which interprets tz-less
+      // dates as Pacific. Converting here would use the crawl browser's zone.
+      publishedAt = m[1];
     }
   }
 
@@ -146,7 +154,9 @@ async function discoverArticleLinks(
   denylist: RegExp[],
 ): Promise<string[]> {
   const origin = new URL(listingUrl).origin;
-  const hrefs = await page.$$eval("a[href]", (anchors) => anchors.map((a) => a.href));
+  const hrefs = await page.$$eval("a[href]", (anchors) =>
+    anchors.map((a) => (a as HTMLAnchorElement).href),
+  );
   const cleaned = hrefs
     .map(safeUrl)
     .filter((u): u is URL => u !== null && u.origin === origin)
@@ -247,6 +257,20 @@ async function tryExtract(
   return makeItem(site, url, raw);
 }
 
+async function collectArticle(
+  browser: Browser,
+  site: PlaywrightSite,
+  url: string,
+  errors: NewsCrawlError[],
+): Promise<NewsItem | null> {
+  try {
+    return await tryExtract(browser, site, url);
+  } catch (err) {
+    errors.push({ stage: "article", url, message: (err as Error).message });
+    return null;
+  }
+}
+
 async function extractItems(
   browser: Browser,
   site: PlaywrightSite,
@@ -255,13 +279,16 @@ async function extractItems(
   const errors: NewsCrawlError[] = [];
   const items: NewsItem[] = [];
   const cap = site.maxArticles ?? DEFAULT_MAX;
-  for (const url of links.slice(0, cap)) {
-    try {
-      const item = await tryExtract(browser, site, url);
-      if (item) items.push(item);
-    } catch (err) {
-      errors.push({ stage: "article", url, message: (err as Error).message });
-    }
+  // Cap the number of KEPT articles, not links visited. tryExtract applies the
+  // keywordAllowlist, and on a campus-wide newsroom the on-topic stories often
+  // sit past the first `cap` links — slicing to `cap` up front would let
+  // off-topic articles eat the budget and starve the result. Stop once we have
+  // `cap` matches, or exhaust the harvested links (already bounded by the
+  // listing harvest and paginationPages).
+  for (const url of links) {
+    if (items.length >= cap) break;
+    const item = await collectArticle(browser, site, url, errors);
+    if (item) items.push(item);
   }
   return { items, errors };
 }

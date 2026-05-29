@@ -135,7 +135,10 @@ async function discoverLinks(
   const seedOrigin = new URL(seedUrl).origin;
   const all = await page.$$eval("a[href]", (anchors) =>
     anchors
-      .map((a) => ({ href: a.href, text: (a.textContent || "").replace(/\s+/g, " ").trim() }))
+      .map((a) => ({
+        href: (a as HTMLAnchorElement).href,
+        text: (a.textContent || "").replace(/\s+/g, " ").trim(),
+      }))
       .filter((x) => x.href),
   );
 
