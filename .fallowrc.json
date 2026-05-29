@@ -1,6 +1,12 @@
 {
   "$schema": "https://raw.githubusercontent.com/fallow-rs/fallow/main/schema.json",
-  "entry": ["src/index.{ts,tsx,js,jsx}", "src/main.{ts,tsx,js,jsx}"],
+  "entry": [
+    "src/index.{ts,tsx,js,jsx}",
+    "src/main.{ts,tsx,js,jsx}",
+    // Loaded by the test runner via vite.config.ts `test.setupFiles`, not
+    // imported by any module, so register it as an entry for reachability.
+    "src/test/setup.ts"
+  ],
   "duplicates": {},
   "health": {
     // CRAP = cyclo² × (1 - coverage)³ + cyclo. With zero test coverage,

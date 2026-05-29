@@ -29,4 +29,11 @@ export default defineConfig({
     outDir: "dist",
     sourcemap: false,
   },
+  test: {
+    // Pure-logic tests live next to the code under src/ and scripts/.
+    include: ["src/**/*.test.{ts,tsx}", "scripts/**/*.test.ts"],
+    // jsdom only matters for the component render test; pure tests ignore it.
+    environment: "jsdom",
+    setupFiles: ["./src/test/setup.ts"],
+  },
 });
