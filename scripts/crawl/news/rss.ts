@@ -79,7 +79,19 @@ export function stripHtml(s: string): string {
   // mixed content (text + CDATA) would otherwise reach the tag regex below,
   // which treats `<![CDATA[...]]>` as one tag and deletes the text inside it.
   const unwrapped = s.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1");
-  return decodeEntities(unwrapped.replace(/<[^>]+>/g, " "))
+  // Decode, strip, decode. Some feeds (Drupal, e.g. UC Merced) entity-encode
+  // their markup (&lt;div&gt;…) and double-encode the inner text entities
+  // (&amp;#039;). The first decode turns &lt;div&gt; back into a real tag and
+  // peels one layer off the text entities; the strip removes those tags; the
+  // second decode resolves the now-single-encoded text entity (&#039; → ').
+  // A lone "<" with no closing ">" survives the strip unharmed.
+  const decoded = decodeEntities(unwrapped).replace(/<[^>]+>/g, " ");
+  // Drop zero-width and other invisible format characters (Unicode Cf) — some
+  // newsrooms (e.g. UC San Diego) prefix a U+200B onto summaries, which leaves
+  // a stray gap in the UI and skews search. Strip after the final decode so an
+  // entity-encoded one (&#8203;) is removed too.
+  return decodeEntities(decoded)
+    .replace(/\p{Cf}/gu, "")
     .replace(/\s+/g, " ")
     .trim();
 }

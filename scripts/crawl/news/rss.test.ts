@@ -43,4 +43,29 @@ describe("stripHtml", () => {
   it("decodes entities inside unwrapped CDATA", () => {
     expect(stripHtml("<![CDATA[Tom&#x27;s & Jerry]]>")).toBe("Tom's & Jerry");
   });
+
+  it("strips entity-encoded markup revealed by decoding (Drupal/Merced regression)", () => {
+    // UC Merced's feed entity-encodes its HTML; decoding turns &lt;div&gt; back
+    // into a real tag, so it must be stripped after decoding too.
+    const encoded = "&lt;div class=&quot;byline&quot;&gt;By Patty Guerra&lt;/div&gt; The body.";
+    expect(stripHtml(encoded)).toBe("By Patty Guerra The body.");
+  });
+
+  it("keeps a decoded '<' that is not a complete tag", () => {
+    expect(stripHtml("Cost &lt; $100 for founders")).toBe("Cost < $100 for founders");
+  });
+
+  it("resolves double-encoded text entities (Merced &amp;#039; -> ')", () => {
+    // The markup is entity-encoded and the inner apostrophe is double-encoded
+    // (&amp;#039;); both layers must resolve, not just the outer one.
+    expect(stripHtml("&lt;p&gt;Chen&amp;#039;s work&lt;/p&gt;")).toBe("Chen's work");
+  });
+
+  it("strips zero-width and invisible format characters", () => {
+    // UC San Diego prefixes a U+200B onto summaries; it must not survive.
+    expect(stripHtml("​From the lab")).toBe("From the lab");
+    expect(stripHtml("a‌‍﻿b")).toBe("ab");
+    // An entity-encoded zero-width space (&#8203;) is removed after decoding too.
+    expect(stripHtml("x&#8203;y")).toBe("xy");
+  });
 });
