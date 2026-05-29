@@ -841,7 +841,10 @@ function SourceFooter({ sourceUrl, lastUpdated }: { sourceUrl?: string; lastUpda
       )}
       {lastUpdated && (
         <div style={{ marginTop: 4, opacity: 0.8 }}>
-          Refreshed {new Date(lastUpdated).toLocaleDateString()}
+          Refreshed{" "}
+          {new Date(lastUpdated).toLocaleDateString(undefined, {
+            timeZone: "America/Los_Angeles",
+          })}
         </div>
       )}
     </div>
