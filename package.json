@@ -22,28 +22,35 @@
     "refresh-news": "vp run crawl:news && vp run build-news-data"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.27.0"
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-router-dom": "^7.15.1"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^6.0.0",
-    "fallow": "^2.65.0",
+    "@testing-library/dom": "10.4.1",
+    "@testing-library/react": "16.3.2",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "fallow": "^2.79.0",
+    "jsdom": "29.1.1",
     "pa11y-ci": "^4.1.0",
-    "typescript": "^5.6.3",
-    "vite-plus": "^0.1.20"
+    "typescript": "^6.0.3",
+    "vite-plus": "^0.1.22"
   },
   "optionalDependencies": {
-    "playwright": "^1.49.0"
+    "playwright": "^1.60.0"
   },
   "packageManager": "pnpm@10.33.3",
   "pnpm": {
     "onlyBuiltDependencies": [
       "fallow",
       "puppeteer"
-    ]
+    ],
+    "overrides": {
+      "ws@>=8.0.0 <8.20.1": ">=8.20.1",
+      "lodash@<4.18.0": ">=4.18.0"
+    }
   }
 }

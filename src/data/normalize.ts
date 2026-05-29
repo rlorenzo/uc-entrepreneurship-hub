@@ -301,7 +301,7 @@ function enrichWithCrawl(existing: Program, crawled: Program): Program {
   const merged: Program = { ...existing };
   for (const field of ENRICHABLE_FIELDS) {
     if (existing[field] === undefined) {
-      (merged as Record<string, unknown>)[field] = crawled[field];
+      (merged as unknown as Record<string, unknown>)[field] = crawled[field];
     }
   }
   if (crawled.lastUpdated) merged.lastUpdated = crawled.lastUpdated;

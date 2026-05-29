@@ -48,9 +48,15 @@ const HTML_ENTITIES: Record<string, string> = {
   "&#038;": "&",
 };
 
-function decodeEntities(s: string): string {
+export function decodeEntities(s: string): string {
   return s
-    .replace(/&#(\d+);/g, (_m, n) => String.fromCharCode(Number(n)))
+    .replace(/&#(\d+|x[0-9a-fA-F]+);/gi, (m, code: string) => {
+      // Numeric entities come in decimal (&#39;) and hex (&#x27;) forms; the
+      // hex form was previously left raw. fromCodePoint also handles astral
+      // code points (e.g. emoji) that fromCharCode would mangle.
+      const n = code[0].toLowerCase() === "x" ? parseInt(code.slice(1), 16) : Number(code);
+      return n >= 0 && n <= 0x10ffff ? String.fromCodePoint(n) : m;
+    })
     .replace(/&[a-zA-Z#0-9]+;/g, (m) => HTML_ENTITIES[m] ?? m);
 }
 
@@ -67,8 +73,13 @@ function extractTag(block: string, tag: string): string {
   return stripCdata(m[1].trim()).trim();
 }
 
-function stripHtml(s: string): string {
-  return decodeEntities(s.replace(/<[^>]+>/g, " "))
+export function stripHtml(s: string): string {
+  // Unwrap CDATA sections, keeping their inner text, before stripping tags.
+  // stripCdata only fires on a value that is a single clean CDATA block, so
+  // mixed content (text + CDATA) would otherwise reach the tag regex below,
+  // which treats `<![CDATA[...]]>` as one tag and deletes the text inside it.
+  const unwrapped = s.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1");
+  return decodeEntities(unwrapped.replace(/<[^>]+>/g, " "))
     .replace(/\s+/g, " ")
     .trim();
 }
