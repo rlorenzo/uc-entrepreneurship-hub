@@ -3,8 +3,58 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-05-07T01:18:04.964Z",
+  "crawledAt": "2026-05-29T23:33:23.304Z",
   "items": [
+    {
+      "id": "sd-in-the-worlds-economic-black-holes-data-still-leaks-out",
+      "campus": "sd",
+      "title": "In the World’s Economic “Black Holes,” Data Still Leaks Out",
+      "summary": "​​​​​​​From satellite imagery to clandestine price reports, a new study from the School of Global Policy and Strategy at UC San Diego draws on North Korea to explore economic activity in opaque regimes and information-scarce regions.",
+      "publishedAt": "2026-05-28T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/in-the-worlds-economic-black-holes-data-still-leaks-out",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/North-Korea-Flag-Barbed-Wire-photo-by-iStock_Diy13-1200-CROP-2187644088.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
+    {
+      "id": "sd-10-speakers-10-weeks-countless-career-lessons-from-fellow-tritons",
+      "campus": "sd",
+      "title": "10 Speakers, 10 Weeks, Countless Career Lessons from Fellow Tritons",
+      "summary": "Students often hear about the importance of networking for career success — but what does that actually look like? A new course launched by the Department of Economics in the School of Social Sciences gives students the chance to connect with accomplished professionals directly in the classroom.",
+      "publishedAt": "2026-05-28T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/10-speakers-10-weeks-countless-career-lessons-from-fellow-tritons",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/230607GPS-DSC_9581ErikJepsenUCSanDiego191%281%29%281%29.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
+    {
+      "id": "sd-risk-or-reward-first-thing-people-want-to-know-when-decision-is-uncertain",
+      "campus": "sd",
+      "title": "Risk or Reward: What’s the First Thing People Want to Know When a Decision Is Uncertain?",
+      "summary": "In a new paper, Uma Karmarkar and colleagues ask a deceptively simple question: When people face an uncertain opportunity, what information do they want to see first – the potential reward, or the odds of getting it?",
+      "publishedAt": "2026-05-26T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/risk-or-reward-first-thing-people-want-to-know-when-decision-is-uncertain",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Hand-Throwing-Dice-photo-by-iStock_Tero-Vesalainen-1174418152.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
+    {
+      "id": "sd-mba-students-take-on-real-consulting-work-at-the-rady-school",
+      "campus": "sd",
+      "title": "MBA Students Take On Real Consulting Work at the Rady School",
+      "summary": "At UC San Diego’s Rady School of Management, students in a required program work directly with companies across San Diego, delivering recommendations that shape business decisions.  ",
+      "publishedAt": "2026-05-14T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/mba-students-take-on-real-consulting-work-at-the-rady-school",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Rady-Action-Project-Sp2026-DSC09247-1200crop.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
+    {
+      "id": "sd-missing-information-can-misinform",
+      "campus": "sd",
+      "title": "Missing Information Can Misinform",
+      "summary": "In the online attention economy, new research from the UC San Diego Rady School finds that making science more clickable or shareable can help some readers learn more – but leaves many others with an incomplete understanding.",
+      "publishedAt": "2026-05-07T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/missing-information-can-misinform",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Missing-Puzzle-Piece-photo-by-iStock_Seng_kui_Lim-1658897093.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
     {
       "id": "sd-a-uc-san-diego-tool-teaching-code-to-25-million-is-even-more-critical-in-age-of-ai",
       "campus": "sd",
@@ -13,56 +63,6 @@
       "publishedAt": "2026-03-19T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/a-uc-san-diego-tool-teaching-code-to-25-million-is-even-more-critical-in-age-of-ai",
       "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/iStock-2175838440%282%29%281%29.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-americans-dont-just-fear-driverless-cars-will-crashthey-fear-mass-job-loss",
-      "campus": "sd",
-      "title": "Americans Don’t Just Fear Driverless Cars Will Crash",
-      "summary": "While much of the public debate about self-driving cars focuses on safety, a new national study from the UC San Diego reveals many Americans’ doubts about driverless focused on the technology’s economic ripple effects — especially job losses in driving and delivery work.  ",
-      "publishedAt": "2026-03-05T08:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/americans-dont-just-fear-driverless-cars-will-crashthey-fear-mass-job-loss",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/iStock-2204573658%281%29%282%29.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-why-tariff-uncertainty-may-hurt-more-than-tariffs",
-      "campus": "sd",
-      "title": "Why Tariff Uncertainty May Hurt More Than Tariffs",
-      "summary": "Q&A with School of Global Policy and Strategy economist on what uncertainty means for businesses, how volatility affects global credibility and what policy choices lie ahead.",
-      "publishedAt": "2026-02-26T08:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/why-tariff-uncertainty-may-hurt-more-than-tariffs",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Economic-Uncertainty-concept-image-by-iStock_DNY59-1069395454-crop1200.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-why-some-messages-are-more-convincing-than-others",
-      "campus": "sd",
-      "title": "Why Some Messages Are More Convincing Than Others",
-      "summary": "What kinds of marketing messages are effective — and what makes people believe certain political slogans more than others? New research from the University of California San Diego Rady School of Management explains. ",
-      "publishedAt": "2026-01-22T08:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/why-some-messages-are-more-convincing-than-others",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/iStock-2231577862%281%29%283%29.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-from-wharton-to-womens-fashion-designer-stuart-weitzman-inspires-rady-students",
-      "campus": "sd",
-      "title": "From Wharton to Women’s Fashion: Designer Stuart Weitzman Inspires Rady Students",
-      "summary": "Men buy around one to two pairs of shoes a year. Women purchase around 13 pairs annually. This was the data point that inspired Stuart Weitzman to create a business centered around women's footwear. Weitzman recently share his story with students at the Rady School of Management. ",
-      "publishedAt": "2026-01-15T08:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/from-wharton-to-womens-fashion-designer-stuart-weitzman-inspires-rady-students",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/DSC07669%281%29%281%29.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-calibaja-higher-education-consortium-officially-launches",
-      "campus": "sd",
-      "title": "CaliBaja Higher Education Consortium Officially Launches",
-      "summary": "The University of California San Diego is joining a new alliance uniting higher education institutions from California and Baja California, the CaliBaja Higher Education Consortium (CHEC). \n",
-      "publishedAt": "2025-12-10T08:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/calibaja-higher-education-consortium-officially-launches",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/iStock-2227414883%281%29.jpg",
       "sourceHost": "today.ucsd.edu"
     }
   ],

@@ -3,7 +3,38 @@
   "name": "UC Merced",
   "strategy": "rss",
   "source": "https://news.ucmerced.edu/rss.xml",
-  "crawledAt": "2026-05-07T01:18:24.943Z",
-  "items": [],
+  "crawledAt": "2026-05-29T23:33:39.171Z",
+  "items": [
+    {
+      "id": "merced-projects-make-world-better-promoted-merced-2-market",
+      "campus": "merced",
+      "title": "Projects to Make the World Better Promoted at Merced 2 Market",
+      "summary": "<div class=\"field field-name-field-news-byline-text field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">By Patty Guerra, UC Merced</div></div></div><div class=\"field field-name-field-news-date field-type-datetime field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><span property=\"dc:date\" datatype=\"xsd:dateTime\" content=\"2026-05-27T00:00:",
+      "publishedAt": "2026-05-27T18:05:03.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/projects-make-world-better-promoted-merced-2-market",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_merced_2_market_hero.jpeg",
+      "sourceHost": "news.ucmerced.edu"
+    },
+    {
+      "id": "merced-celebration-uc-merced-and-citris-looks-both-back-and-forward",
+      "campus": "merced",
+      "title": "Celebration of UC Merced and CITRIS Looks Both Back and Forward",
+      "summary": "<div class=\"field field-name-field-news-byline-text field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">By Patty Guerra, UC Merced</div></div></div><div class=\"field field-name-field-news-date field-type-datetime field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><span property=\"dc:date\" datatype=\"xsd:dateTime\" content=\"2026-05-18T00:00:",
+      "publishedAt": "2026-05-18T23:49:05.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/celebration-uc-merced-and-citris-looks-both-back-and-forward",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_citris_anniversary_hero.jpeg",
+      "sourceHost": "news.ucmerced.edu"
+    },
+    {
+      "id": "merced-remembering-yangquan-chen-mechanical-engineering-innovator-and-mentor-many",
+      "campus": "merced",
+      "title": "Remembering YangQuan Chen, Mechanical Engineering Innovator and Mentor to Many",
+      "summary": "<div class=\"field field-name-field-news-date field-type-datetime field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><span property=\"dc:date\" datatype=\"xsd:dateTime\" content=\"2026-05-15T00:00:00-07:00\" class=\"date-display-single\">May 15, 2026</span></div></div></div><div class=\"field field-name-field-news-hero-image field-type-image field-label-hidden\"><div class=\"field-items",
+      "publishedAt": "2026-05-15T16:00:00.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/remembering-yangquan-chen-mechanical-engineering-innovator-and-mentor-many",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_chen_obit_hero_0.jpg",
+      "sourceHost": "news.ucmerced.edu"
+    }
+  ],
   "errors": []
 }

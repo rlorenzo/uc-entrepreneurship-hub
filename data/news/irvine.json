@@ -3,8 +3,18 @@
   "name": "UC Irvine",
   "strategy": "rss",
   "source": "https://innovation.uci.edu/news/feed/",
-  "crawledAt": "2026-05-07T01:16:54.529Z",
+  "crawledAt": "2026-05-29T23:32:03.595Z",
   "items": [
+    {
+      "id": "irvine-cytoseen",
+      "campus": "irvine",
+      "title": "Seeing the Unseen in Disease",
+      "summary": "UC Irvine startup Cytoseen detects new drug targets for cancer and neurodegeneration.",
+      "publishedAt": "2026-05-08T22:46:18.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/cytoseen/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/05/Cytoseen-scaled.jpg",
+      "sourceHost": "innovation.uci.edu"
+    },
     {
       "id": "irvine-born-in-california-2026",
       "campus": "irvine",
@@ -93,16 +103,6 @@
       "publishedAt": "2025-12-02T16:00:20.000Z",
       "sourceUrl": "https://innovation.uci.edu/news/zeppelin-floods/",
       "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2025/11/Zeppelin-Floods.png",
-      "sourceHost": "innovation.uci.edu"
-    },
-    {
-      "id": "irvine-elder-wisdom",
-      "campus": "irvine",
-      "title": "Can a Digital Human Pass Down a Legacy?",
-      "summary": "Memoirs are static. Lectures are one-way. Books gather dust. What if wisdom talked back?",
-      "publishedAt": "2025-11-06T23:55:05.000Z",
-      "sourceUrl": "https://innovation.uci.edu/news/elder-wisdom/",
-      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2025/11/Elder-Wisdom-1.png",
       "sourceHost": "innovation.uci.edu"
     }
   ],

@@ -3,27 +3,107 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-05-07T01:17:01.576Z",
+  "crawledAt": "2026-05-29T23:32:03.664Z",
   "items": [
     {
-      "id": "berkeley-meet-debasish-behera-the-founder-making-global-payment-more-accessible",
+      "id": "berkeley-executive-mba-students-explore-japans-resurgent-economy-in-inaugural-immersion-trip",
       "campus": "berkeley",
-      "title": "Meet Debasish Behera, the Founder Making Global Payment more Accessible",
-      "summary": "Debasish Behera, originally a student from India, joined the SCET community after participating in the Startup Semester at Berkeley in the spring of 2025. Since then, he has immersed himself…",
-      "publishedAt": "2026-05-06T17:57:00.000Z",
-      "sourceUrl": "https://scet.berkeley.edu/meet-debasish-behera-the-founder-making-global-payment-more-accessible/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/debasish-683x1024.png",
-      "sourceHost": "scet.berkeley.edu"
+      "title": "Executive MBA students explore Japan’s resurgent economy in inaugural immersion trip",
+      "summary": "Students in the 2026 EMBA class (pictured in front of Tokyo Station) were the first to participate in the inaugural Japan Global Immersion Program. Photo: Mike Rielly UC Berkeley Haas…",
+      "publishedAt": "2026-05-27T23:18:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/executive-mba-students-explore-japans-resurgent-economy-in-inaugural-immersion-trip/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/Cohort-in-japan-scaled-768x429.jpeg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
     },
     {
-      "id": "berkeley-new-ai-entrepreneurship-course-is-a-hands-on-startup-accelerator-for-mba-founders",
+      "id": "berkeley-ai-is-expanding-the-boundaries-of-biological-research-will-drug-development-follow",
       "campus": "berkeley",
-      "title": "New AI Entrepreneurship course is a hands-on startup accelerator for MBA founders",
-      "summary": "Alex Zekoff, MBA 17, who co-teaches AI and Entrepreneurship with Professor Omri Even-Tov, posing a question about fundraising to the class. Photo: Noah Berger On a recent Thursday afternoon Alex…",
-      "publishedAt": "2026-05-06T16:01:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/new-ai-entrepreneurship-course-is-a-hands-on-startup-accelerator-for-mba-founders/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/bkc_580a-768x512.jpg",
+      "title": "AI is expanding the boundaries of biological research. Will drug development follow?",
+      "summary": "Protein illustration by Christoph Burgstedt/iStock A scant few years after a powerful artificial intelligence tool was hailed as a revolution that would transform drug discovery, a new UC Berkeley Haas…",
+      "publishedAt": "2026-05-27T22:04:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/research/ai-is-expanding-the-boundaries-of-biological-research-will-drug-development-follow/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/iStock-1388774756-1100x577-768x403.jpg",
       "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-congratulations-to-our-2026-uc-berkeley-haas-graduates",
+      "campus": "berkeley",
+      "title": "At UC Berkeley Haas 2026 commencement, grads urged to be ethical leaders who accomplish “wildly improbable things”",
+      "summary": "UC Berkeley Haas Undergraduate, Full-time MBA, and Evening & Weekend MBA students in the class of 2026 were urged to be ethical leaders who aspire to accomplish “difficult, ambitious, even…",
+      "publishedAt": "2026-05-27T01:53:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/congratulations-to-our-2026-uc-berkeley-haas-graduates/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/bkp_708a-scaled-768x512.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-shaping-californias-digital-future-the-cdt-and-citris-partnership",
+      "campus": "berkeley",
+      "title": "Shaping California’s Digital Future: The CDT and CITRIS Partnership",
+      "summary": "Shaping California’s Digital Future: The CDT and CITRIS Partnership",
+      "publishedAt": "2026-05-26T22:21:00.000Z",
+      "sourceUrl": "https://citris-uc.org/shaping-californias-digital-future-the-cdt-and-citris-partnership/?utm_source=rss&utm_medium=rss&utm_campaign=shaping-californias-digital-future-the-cdt-and-citris-partnership",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/Web-Banner-1540x368_Tech-Fellows-Showcase-scaled-768x184.jpg",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-nfl-top-pick-fernando-mendoza-surprises-crowd-at-uc-berkeley-haas-commencement",
+      "campus": "berkeley",
+      "title": "NFL top pick Fernando Mendoza surprises crowd at UC Berkeley Haas commencement",
+      "summary": "(Photo: Brittany Hosea-Small) Fernando Mendoza, BS 25, a quarterback for the Las Vegas Raiders, walked the stage at UC Berkeley Haas MBA commencement at the Greek Theatre on Saturday, surprising…",
+      "publishedAt": "2026-05-26T20:30:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/nfl-top-pick-fernando-mendoza-surprises-crowd-at-uc-berkeley-haas-commencement/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/20260523_HaasCommence_bhs_115-scaled-768x511.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-citris-and-uc-merced-commemorate-dual-anniversaries",
+      "campus": "berkeley",
+      "title": "CITRIS and UC Merced commemorate dual anniversaries",
+      "summary": "CITRIS and UC Merced commemorate dual anniversaries",
+      "publishedAt": "2026-05-21T16:00:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-and-uc-merced-commemorate-dual-anniversaries/?utm_source=rss&utm_medium=rss&utm_campaign=citris-and-uc-merced-commemorate-dual-anniversaries",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/CITRIS-and-UC-Merced-Anniversary-May-2026-768x184.png",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-jonathan-weigel-named-one-of-the-worlds-best-40-under-40-graduate-business-professors-by-poets-quants",
+      "campus": "berkeley",
+      "title": "Jonathan Weigel named one of the World’s Best 40-Under-40 Graduate Business Professors by Poets & Quants",
+      "summary": "Assistant Professor Jonathan Weigel, who teaches business ethics to MBA students and studies how fragile states can build more accountable governance, has been named one of Poets & Quants’ “World’s…",
+      "publishedAt": "2026-05-19T20:36:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/jonathan-weigel-named-one-of-the-worlds-best-40-under-40-graduate-business-professors-by-poets-quants/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/Jonathan-Weigel_PQ-40-under-40-768x506.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-pioneer-of-modern-financial-instruments-uc-berkeley-haas-professor-nils-hakansson-dies-at-88",
+      "campus": "berkeley",
+      "title": "Pioneer of modern financial instruments, UC Berkeley Haas Professor Nils Hakansson, dies at 88",
+      "summary": "Professor Emeritus Nils H. Hakansson, known for his personal warmth and pioneering vision for financial markets that helped give rise to some of the most consequential investment instruments of the…",
+      "publishedAt": "2026-05-19T15:12:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/pioneer-of-modern-financial-instruments-uc-berkeley-haas-professor-nils-hakansson-dies-at-88/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/Professor-Nils-Hakansson_Faculty-Photo-768x614.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-senior-fellow-spotlight-sonia-navani-and-bridging-the-health-divide-with-digital-innovation",
+      "campus": "berkeley",
+      "title": "Senior Fellow Spotlight: Sonia Navani and Bridging the Health Divide with Digital Innovation",
+      "summary": "Areas around Lake Tanganyika in Uvira, DR Congo are prone to flooding (courtesy photo) In regions upended by conflict and climate threats, how do you devise health systems and strategies…",
+      "publishedAt": "2026-05-18T20:23:00.000Z",
+      "sourceUrl": "https://blumcenter.berkeley.edu/senior-fellow-spotlight-sonia-navani-and-bridging-the-health-divide-with-digital-innovation/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/Flooding_Uvira_SN-768x435.jpg",
+      "sourceHost": "blumcenter.berkeley.edu"
+    },
+    {
+      "id": "berkeley-now-is-it-time-for-a-price-stabilizing-gas-tax",
+      "campus": "berkeley",
+      "title": "Is It Time for a Price-Stabilizing Gas Tax?",
+      "summary": "The post Is It Time for a Price-Stabilizing Gas Tax? appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-05-18T19:22:00.000Z",
+      "sourceUrl": "https://energyathaas.wordpress.com/2026/05/18/now-is-it-time-for-a-price-stabilizing-gas-tax/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/painatthe-pump-2-768x432.png",
+      "sourceHost": "energyathaas.wordpress.com"
     }
   ],
   "errors": []

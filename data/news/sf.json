@@ -3,8 +3,18 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-05-07T01:18:10.437Z",
+  "crawledAt": "2026-05-29T23:33:36.650Z",
   "items": [
+    {
+      "id": "sf-how-impossible-idea-led-pancreatic-cancer-breakthrough",
+      "campus": "sf",
+      "title": "How an ‘Impossible’ Idea Led to a Pancreatic Cancer Breakthrough",
+      "summary": "How an ‘Impossible’ Idea Led to a Pancreatic Cancer Breakthrough",
+      "publishedAt": "2026-05-12T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/how-impossible-idea-led-pancreatic-cancer-breakthrough",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
     {
       "id": "sf-qa-nicholas-hertz-president-ceo-montara-therapeutics",
       "campus": "sf",
@@ -142,16 +152,6 @@
       "summary": "Alace Tang achieved the Forbes 30 Under 30 in Science",
       "publishedAt": "2025-12-09T08:00:00.000Z",
       "sourceUrl": "https://innovation.ucsf.edu/media/news/alice-tang-made-forbes-30-under-30-list-science",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-trial-library-raises-10m-sell-clinical-trial-matching-insurers",
-      "campus": "sf",
-      "title": "Trial Library raises $10M to sell clinical trial matching to insurers",
-      "summary": "Trial Library raises $10M to sell clinical trial matching to insurers",
-      "publishedAt": "",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/trial-library-raises-10m-sell-clinical-trial-matching-insurers",
       "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
       "sourceHost": "innovation.ucsf.edu"
     }
