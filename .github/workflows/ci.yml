@@ -60,27 +60,23 @@ jobs:
           cache: true
 
       - name: Install deps (with optional Playwright)
+        # Skip puppeteer's postinstall Chrome download: on the runner it leaves
+        # a partial cache (folder present, executable missing) that pa11y-ci
+        # can't launch. pa11y uses the runner's preinstalled Chrome instead.
         run: vp install
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true"
 
       - name: Install Playwright Chromium
         run: vp exec playwright install --with-deps chromium
-
-      - name: Install Puppeteer Chrome (for pa11y-ci)
-        # pa11y-ci uses puppeteer-core (no bundled Chrome) and looks for the
-        # exact Chrome build puppeteer-core pins, under ~/.cache/puppeteer.
-        # setup-vp's pnpm cache restores node_modules but not that user-cache
-        # directory, and puppeteer's own install.mjs can silently skip the
-        # download — so install the pinned build explicitly via
-        # @puppeteer/browsers (a transitive dep already in the store).
-        run: |
-          REV=$(ls node_modules/.pnpm/puppeteer-core@*/node_modules/puppeteer-core/lib/cjs/puppeteer/revisions.js | head -1)
-          CHROME_VER=$(grep -oE "chrome: *'[0-9.]+'" "$REV" | head -1 | grep -oE "[0-9.]+")
-          CLI=$(ls node_modules/.pnpm/@puppeteer+browsers@*/node_modules/@puppeteer/browsers/lib/cjs/main-cli.js | head -1)
-          echo "Installing Chrome $CHROME_VER for puppeteer-core (pa11y-ci)"
-          node "$CLI" install "chrome@$CHROME_VER" --path "$HOME/.cache/puppeteer"
 
       - name: Build
         run: vp build
 
       - name: Run a11y suite (axe-core + Pa11y)
+        # ubuntu-latest ships Google Chrome stable; point pa11y/puppeteer-core
+        # at it so the scan is deterministic and independent of puppeteer's
+        # managed download.
         run: vp run a11y
+        env:
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome
