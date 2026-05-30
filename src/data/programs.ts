@@ -9,6 +9,7 @@ const CURATED: Program[] = [
   // Berkeley
   {
     id: "skydeck",
+    website: "https://skydeck.berkeley.edu/",
     name: "Berkeley SkyDeck",
     campus: "berkeley",
     type: "accelerator",
@@ -26,10 +27,10 @@ const CURATED: Program[] = [
   },
   {
     id: "foundry",
-    name: "The Foundry @ Berkeley",
+    name: "CITRIS Foundry",
     campus: "berkeley",
     type: "incubator",
-    desc: "Engineering-focused incubator inside Sutardja Center, pairing PhDs with industry mentors to commercialize lab IP.",
+    desc: "Deep-tech startup incubator at CITRIS on the UC Berkeley campus, backing UC-affiliated founders building hardware, robotics, and IT-for-society ventures.",
     industries: ["Hardware", "AI / ML", "Energy"],
     stage: "Prototype",
     eligibility: ["Graduate", "Postdoc", "Faculty"],
@@ -38,9 +39,11 @@ const CURATED: Program[] = [
     selectivity: "Selective",
     cohortSize: 12,
     deadline: "Sep 15, 2026",
+    website: "https://citrisfoundry.org",
   },
   {
     id: "bigideas",
+    website: "https://bigideascontest.org/",
     name: "Big Ideas Contest",
     campus: "berkeley",
     type: "competition",
@@ -56,6 +59,7 @@ const CURATED: Program[] = [
   },
   {
     id: "jacobs",
+    website: "https://jacobsinstitute.berkeley.edu/making-at-jacobs/get-maker-pass/",
     name: "Jacobs Institute Maker Pass",
     campus: "berkeley",
     type: "maker",
@@ -73,6 +77,8 @@ const CURATED: Program[] = [
   // UCLA
   {
     id: "andersonva",
+    website:
+      "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/anderson-venture-accelerator",
     name: "Anderson Venture Accelerator",
     campus: "la",
     type: "accelerator",
@@ -90,6 +96,7 @@ const CURATED: Program[] = [
   },
   {
     id: "startuc",
+    website: "https://startupucla.com/summer-accelerator/",
     name: "StartUp UCLA Summer Accelerator",
     campus: "la",
     type: "accelerator",
@@ -104,19 +111,20 @@ const CURATED: Program[] = [
     deadline: "May 1, 2026",
   },
   {
-    id: "btvc",
-    name: "Bruin Tech Venture Challenge",
+    id: "bruinventures",
+    name: "Bruin Ventures",
     campus: "la",
-    type: "competition",
-    desc: "Annual pitch competition with a $100K prize pool. Open to teams with at least one UCLA member.",
-    industries: ["AI / ML", "Consumer", "Health"],
-    stage: "Prototype",
+    type: "mentorship",
+    desc: "UCLA's student-run venture organization, connecting student and alumni founders with mentorship, investor networks, and early-stage support. (Successor to the Bruin Tech Venture Challenge.)",
+    industries: ["Consumer", "AI / ML", "Media"],
+    stage: "Idea",
     eligibility: ["Undergrad", "Graduate", "Alumni"],
-    duration: "Short-term (<1 mo)",
-    funding: "$100K prize pool",
+    duration: "Ongoing / rolling",
+    funding: "Network + introductions",
     selectivity: "Open",
     cohortSize: null,
-    deadline: "Feb 8, 2026",
+    deadline: "Rolling",
+    website: "https://www.uclabv.com",
   },
   {
     id: "ucla-tmp",
@@ -140,6 +148,7 @@ const CURATED: Program[] = [
   // UCSD
   {
     id: "baseline",
+    website: "https://thebasement.ucsd.edu/",
     name: "The Basement @ UC San Diego",
     campus: "sd",
     type: "incubator",
@@ -157,21 +166,23 @@ const CURATED: Program[] = [
   },
   {
     id: "startr",
-    name: "StartR Med",
+    name: "StartR Accelerators",
     campus: "sd",
     type: "accelerator",
-    desc: "Health-tech accelerator from the Institute for the Global Entrepreneur, focused on medical devices and diagnostics.",
-    industries: ["Health", "Biotech", "Hardware"],
+    desc: "A multi-session startup accelerator at the Rady School's Sullivan Center (StartR Stage 1 and beyond) that has supported 300+ founders across health, consumer, and tech ventures.",
+    industries: ["Health", "Consumer", "Hardware"],
     stage: "Prototype",
     eligibility: ["Graduate", "Alumni", "Faculty"],
     duration: "Semester",
     funding: "Up to $25K",
     selectivity: "Selective",
     cohortSize: 10,
-    deadline: "Jan 15, 2026",
+    deadline: "Rolling",
+    website: "https://rady.ucsd.edu/why/centers/sullivan/programs/accelerate.html#StartR",
   },
   {
     id: "tritonchallenge",
+    website: "https://rady.ucsd.edu/centers/ciid/triton-innovation-challenge/",
     name: "Triton Innovation Challenge",
     campus: "sd",
     type: "competition",
@@ -188,22 +199,24 @@ const CURATED: Program[] = [
 
   // Davis
   {
-    id: "pleat",
-    name: "PLeAT Lab",
+    id: "ucdavis-innovate",
+    name: "UC Davis Innovate",
     campus: "davis",
     type: "incubator",
-    desc: "Plant Lab Accelerator: a wet-lab incubator for AgTech and food-science startups built on UC Davis IP.",
-    industries: ["AgTech", "Biotech", "Climate"],
-    stage: "Prototype",
-    eligibility: ["Graduate", "Postdoc", "Faculty"],
-    duration: "Academic year",
-    funding: "Bench access + $30K",
-    selectivity: "Selective",
-    cohortSize: 8,
-    deadline: "Aug 12, 2026",
+    desc: "UC Davis's central innovation and entrepreneurship hub (Venture Catalyst), offering startup programs, IP commercialization, and accelerator resources across the campus.",
+    industries: ["AgTech", "Health", "Climate"],
+    stage: "Idea",
+    eligibility: ["Undergrad", "Graduate", "Postdoc", "Faculty", "Alumni"],
+    duration: "Ongoing / rolling",
+    funding: "Varies by program",
+    selectivity: "Open",
+    cohortSize: null,
+    deadline: "Rolling",
+    website: "https://innovate.ucdavis.edu",
   },
   {
     id: "bigbang",
+    website: "https://innovate.ucdavis.edu/big-bang-competition",
     name: "Big Bang! Business Competition",
     campus: "davis",
     type: "competition",
@@ -220,39 +233,26 @@ const CURATED: Program[] = [
 
   // UC San Francisco
   {
-    id: "rosenmanlab",
-    name: "Rosenman Innovators",
+    id: "ucsf-innovation",
+    name: "UCSF Innovation Ventures",
     campus: "sf",
-    type: "accelerator",
-    desc: "Health-tech fellowship pairing late-stage med students and founders for clinical-trial-ready ventures.",
+    type: "incubator",
+    desc: "UCSF's innovation and entrepreneurship office, supporting faculty and trainee founders with technology transfer, accelerator programs, and startup resources.",
     industries: ["Health", "Biotech"],
-    stage: "Pre-seed",
+    stage: "Idea",
     eligibility: ["Graduate", "Postdoc", "Faculty", "Alumni"],
-    duration: "Academic year",
-    funding: "$50K",
-    selectivity: "~5%",
-    cohortSize: 12,
-    deadline: "Dec 1, 2025",
-  },
-  {
-    id: "pioneer",
-    name: "Pioneer Lab",
-    campus: "sf",
-    type: "maker",
-    desc: "Wet-lab and prototyping space at Mission Bay open to UCSF-affiliated biotech founders.",
-    industries: ["Biotech", "Health"],
-    stage: "Prototype",
-    eligibility: ["Postdoc", "Faculty", "Alumni"],
     duration: "Ongoing / rolling",
-    funding: "Subsidized rates",
-    selectivity: "Application",
+    funding: "Varies by program",
+    selectivity: "Open",
     cohortSize: null,
     deadline: "Rolling",
+    website: "https://innovation.ucsf.edu",
   },
 
   // Irvine
   {
     id: "beall",
+    website: "https://innovation.uci.edu/",
     name: "Beall Applied Innovation",
     campus: "irvine",
     type: "incubator",
@@ -270,6 +270,8 @@ const CURATED: Program[] = [
   },
   {
     id: "newventure",
+    website:
+      "https://merage.uci.edu/research-faculty/centers/innovation-entrepreneurship/new-venture-competiton.html",
     name: "New Venture Competition",
     campus: "irvine",
     type: "competition",
@@ -304,6 +306,7 @@ const CURATED: Program[] = [
   },
   {
     id: "newventurecompUCSB",
+    website: "https://tmp.ucsb.edu/academics/new-venture-program",
     name: "NVCC New Venture Competition",
     campus: "santabarbara",
     type: "competition",
@@ -321,6 +324,7 @@ const CURATED: Program[] = [
   // Santa Cruz
   {
     id: "centerie",
+    website: "https://cied.ucsc.edu/",
     name: "Center for Innovation & Entrepreneurial Development",
     campus: "santacruz",
     type: "incubator",
@@ -338,6 +342,7 @@ const CURATED: Program[] = [
   // Riverside
   {
     id: "epic",
+    website: "https://techpartnerships.ucr.edu/programs-services/entrepreneurship-support-epic",
     name: "EPIC — Entrepreneurial Proof of Concept",
     campus: "riverside",
     type: "funding",
@@ -355,6 +360,7 @@ const CURATED: Program[] = [
   // Merced
   {
     id: "venturelab",
+    website: "https://venturelab.ucmerced.edu/",
     name: "Venture Lab @ Merced",
     campus: "merced",
     type: "incubator",
@@ -369,11 +375,11 @@ const CURATED: Program[] = [
     deadline: "Rolling",
   },
 
-  // System-wide
+  // Berkeley (Haas hosts the UC team for this cross-campus competition)
   {
     id: "ucventure",
     name: "UC Venture Capital Investment Competition",
-    campus: "la",
+    campus: "berkeley",
     type: "competition",
     desc: "Cross-campus competition where MBA teams play VC — evaluating real startups for real partners.",
     industries: ["Fintech", "Consumer"],
@@ -384,6 +390,7 @@ const CURATED: Program[] = [
     selectivity: "Selective",
     cohortSize: null,
     deadline: "Feb 1, 2026",
+    website: "https://www.vcicberkeley.com",
   },
 ];
 

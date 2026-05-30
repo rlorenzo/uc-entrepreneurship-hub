@@ -270,7 +270,7 @@ function HeroLeft({ vm }: { vm: DetailVM }) {
         {vm.program.desc}
       </p>
       <div style={{ display: "flex", gap: 14, marginTop: 28, flexWrap: "wrap" }}>
-        <HeroPrimaryCTA vm={vm} />
+        {vm.isExternal && <HeroPrimaryCTA vm={vm} />}
         <HeroCompareToggle programId={vm.program.id} />
       </div>
     </div>
@@ -708,24 +708,40 @@ function ApplyCard({ vm }: { vm: DetailVM }) {
         Applications go directly to the program team at {vm.campus.name}. Deadline:{" "}
         <strong>{vm.program.deadline}</strong>.
       </p>
-      <a
-        {...ExternalAnchorProps(vm.applyHref, vm.isExternal)}
-        style={{
-          display: "block",
-          textAlign: "center",
-          background: "var(--accent, #1295D8)",
-          color: "#fff",
-          padding: "14px 18px",
-          borderRadius: 4,
-          fontWeight: 600,
-          fontSize: 15,
-          textDecoration: "none",
-          marginTop: 16,
-        }}
-      >
-        {vm.program.applicationLink ? "Start application" : "Visit program page"}{" "}
-        <I_External size={14} />
-      </a>
+      {vm.isExternal ? (
+        <a
+          {...ExternalAnchorProps(vm.applyHref, vm.isExternal)}
+          style={{
+            display: "block",
+            textAlign: "center",
+            background: "var(--accent, #1295D8)",
+            color: "#fff",
+            padding: "14px 18px",
+            borderRadius: 4,
+            fontWeight: 600,
+            fontSize: 15,
+            textDecoration: "none",
+            marginTop: 16,
+          }}
+        >
+          {vm.program.applicationLink ? "Start application" : "Visit program page"}{" "}
+          <I_External size={14} />
+        </a>
+      ) : (
+        // No application/website/source URL on record — show a muted note
+        // rather than a button that goes nowhere.
+        <p
+          style={{
+            fontSize: 14,
+            color: "#9aa5ab",
+            fontWeight: 600,
+            marginTop: 16,
+            marginBottom: 0,
+          }}
+        >
+          Details coming soon
+        </p>
+      )}
       {vm.hasSeparateWebsite && vm.program.website && (
         <a
           href={vm.program.website}
