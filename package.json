@@ -11,7 +11,7 @@
     "lint": "vp lint",
     "fmt": "vp fmt",
     "check": "vp check && fallow",
-    "prepare": "git config core.hooksPath .githooks || true",
+    "prepare": "node scripts/setup-git-hooks.mjs",
     "a11y": "node scripts/a11y/run.mjs",
     "a11y:axe": "node scripts/a11y/axe.mjs",
     "a11y:pa11y": "pa11y-ci --config .pa11yci.json",
