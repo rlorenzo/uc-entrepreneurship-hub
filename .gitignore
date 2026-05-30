@@ -7,3 +7,5 @@ dist
 .env
 .env.local
 .fallow/
+.impeccable/live/sessions/
+.antigravitycli/
