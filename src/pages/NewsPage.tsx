@@ -338,6 +338,9 @@ function EmptyState({ active, onReset }: { active: boolean; onReset: () => void 
 
 function NewsGrid({ items }: { items: NewsItem[] }) {
   const isMobile = useIsMobile();
+  // Items arrive newest-first; give the lead story a full-width featured
+  // treatment so the feed has hierarchy instead of one flat wall of cards.
+  const [lead, ...rest] = items;
   return (
     <div
       style={{
@@ -346,7 +349,12 @@ function NewsGrid({ items }: { items: NewsItem[] }) {
         gap: isMobile ? 16 : 24,
       }}
     >
-      {items.map((item) => (
+      {lead && (
+        <div key={lead.id} style={{ gridColumn: isMobile ? "auto" : "1 / -1" }}>
+          <NewsCard item={lead} featured />
+        </div>
+      )}
+      {rest.map((item) => (
         <NewsCard key={item.id} item={item} />
       ))}
     </div>
