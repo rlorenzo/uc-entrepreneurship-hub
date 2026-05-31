@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Page } from "@/components/Page";
 import { PageHero } from "@/components/PageHero";
 import { NewsCard } from "@/components/NewsCard";
@@ -361,15 +361,62 @@ function NewsGrid({ items }: { items: NewsItem[] }) {
   );
 }
 
+const PAGE_SIZE = 24;
+
+function ShowMoreButton({ remaining, onClick }: { remaining: number; onClick: () => void }) {
+  const [hover, setHover] = useState(false);
+  return (
+    <div style={{ display: "flex", justifyContent: "center", marginTop: 36 }}>
+      <button
+        type="button"
+        onClick={onClick}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        style={{
+          background: hover ? "#002033" : "#fff",
+          border: "2px solid #002033",
+          color: hover ? "#fff" : "#002033",
+          padding: "14px 24px",
+          borderRadius: 4,
+          fontWeight: 600,
+          fontSize: 15,
+          cursor: "pointer",
+          transition: "background .15s ease, color .15s ease",
+        }}
+      >
+        Show more stories ({remaining} more)
+      </button>
+    </div>
+  );
+}
+
 function NewsResults({ items, filters }: { items: NewsItem[]; filters: NewsFilters }) {
   const isMobile = useIsMobile();
+  // Render in pages so the feed doesn't mount ~100 cards (and their images) at
+  // once. `items` is memoized on the filter state, so changing a filter resets
+  // the view to the first page.
+  const [visible, setVisible] = useState(PAGE_SIZE);
+  // Reset to the first page when the filter set changes (not on every render —
+  // `items` is a fresh array each render, which would otherwise reset
+  // pagination whenever the page re-renders for an unrelated reason).
+  useEffect(() => {
+    setVisible(PAGE_SIZE);
+  }, [filters.query, filters.selectedCampuses, filters.window]);
   return (
     <section style={{ padding: isMobile ? "24px 20px 64px" : "32px 32px 96px" }}>
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
         {items.length === 0 ? (
           <EmptyState active={isFilterActive(filters)} onReset={filters.reset} />
         ) : (
-          <NewsGrid items={items} />
+          <>
+            <NewsGrid items={items.slice(0, visible)} />
+            {visible < items.length && (
+              <ShowMoreButton
+                remaining={items.length - visible}
+                onClick={() => setVisible((v) => v + PAGE_SIZE)}
+              />
+            )}
+          </>
         )}
       </div>
     </section>
@@ -379,7 +426,13 @@ function NewsResults({ items, filters }: { items: NewsItem[]; filters: NewsFilte
 export function NewsPage() {
   const filters = useNewsFilters();
   const campusOptions = useMemo(() => buildCampusOptions(NEWS), []);
-  const filtered = useMemo(() => applyFilters(NEWS, filters), [filters]);
+  // Depend on the primitive filter values: useNewsFilters returns a fresh
+  // object each render, so [filters] would never actually memoize.
+  const filtered = useMemo(
+    () => applyFilters(NEWS, filters),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [filters.query, filters.selectedCampuses, filters.window],
+  );
   return (
     <Page>
       <NewsHero />
