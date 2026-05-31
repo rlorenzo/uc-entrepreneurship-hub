@@ -676,8 +676,13 @@ function RunByCard({ campus }: { campus: Campus }) {
   );
 }
 
+// Provenance shown on every record so trust is always visible: crawled
+// records link their source and show when they were refreshed; curated
+// records say so plainly instead of showing nothing.
 function SourceFooter({ sourceUrl, lastUpdated }: { sourceUrl?: string; lastUpdated?: string }) {
-  if (!sourceUrl && !lastUpdated) return null;
+  const hasSource = isValidWebUrl(sourceUrl);
+  const parsed = lastUpdated ? new Date(lastUpdated) : null;
+  const refreshed = parsed && !Number.isNaN(parsed.getTime()) ? parsed : null;
   return (
     <div
       style={{
@@ -688,7 +693,7 @@ function SourceFooter({ sourceUrl, lastUpdated }: { sourceUrl?: string; lastUpda
         lineHeight: 1.5,
       }}
     >
-      {sourceUrl && (
+      {hasSource ? (
         <a
           href={sourceUrl}
           target="_blank"
@@ -702,11 +707,13 @@ function SourceFooter({ sourceUrl, lastUpdated }: { sourceUrl?: string; lastUpda
         >
           View source page
         </a>
+      ) : refreshed ? null : (
+        <span style={{ fontWeight: 600 }}>Curated by the UC Entrepreneurship Hub</span>
       )}
-      {lastUpdated && (
+      {refreshed && (
         <div style={{ marginTop: 4, opacity: 0.8 }}>
           Refreshed{" "}
-          {new Date(lastUpdated).toLocaleDateString(undefined, {
+          {refreshed.toLocaleDateString(undefined, {
             timeZone: "America/Los_Angeles",
           })}
         </div>
