@@ -40,6 +40,8 @@ vp build
 vp preview
 ```
 
+A Git **pre-commit hook** runs `vp run check` (format, lint, type-check, and fallow) before every commit, so issues are caught locally instead of in CI. It activates automatically on `vp install` / `pnpm install` — the `prepare` script points `core.hooksPath` at `.githooks/`. Bypass a single commit with `git commit --no-verify`.
+
 ## Project layout
 
 ```

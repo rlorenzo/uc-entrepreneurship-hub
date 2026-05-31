@@ -1,0 +1,354 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-29T00:00:00Z",
+  "title": "Design System: UC Entrepreneurship Hub",
+  "extensions": {
+    "colorMeta": {
+      "uc-blue": {
+        "role": "primary",
+        "displayName": "UC Blue",
+        "canonical": "#1295D8",
+        "tonalRamp": [
+          "#002033",
+          "#003D5C",
+          "#005581",
+          "#0B79B0",
+          "#1295D8",
+          "#72CDF4",
+          "#A6DEF7",
+          "#BDE3F6"
+        ]
+      },
+      "uc-gold": {
+        "role": "primary",
+        "displayName": "UC Gold",
+        "canonical": "#FFB511",
+        "tonalRamp": [
+          "#3D2B00",
+          "#6B4D00",
+          "#996F00",
+          "#CC9400",
+          "#FFB511",
+          "#FFD200",
+          "#FFE552",
+          "#FFF1A8"
+        ]
+      },
+      "uc-dark-blue": {
+        "role": "neutral",
+        "displayName": "UC Dark Blue / Ink",
+        "canonical": "#002033",
+        "tonalRamp": [
+          "#000D14",
+          "#001620",
+          "#002033",
+          "#063047",
+          "#0E4360",
+          "#2E6480",
+          "#6E97AC",
+          "#B9CDD8"
+        ]
+      },
+      "uc-blue-deep": {
+        "role": "secondary",
+        "displayName": "UC Blue Deep",
+        "canonical": "#005581",
+        "tonalRamp": [
+          "#00121C",
+          "#00263A",
+          "#003A57",
+          "#004A6E",
+          "#005581",
+          "#1E7BA6",
+          "#5BA7C9",
+          "#A9D3E5"
+        ]
+      },
+      "uc-teal": {
+        "role": "tertiary",
+        "displayName": "UC Teal (Certificate)",
+        "canonical": "#00778B",
+        "tonalRamp": [
+          "#00171B",
+          "#002B33",
+          "#00424D",
+          "#005A68",
+          "#00778B",
+          "#00A3AD",
+          "#5BC4CB",
+          "#B3E6E9"
+        ]
+      },
+      "uc-pink": {
+        "role": "tertiary",
+        "displayName": "UC Pink (Competition)",
+        "canonical": "#E44C9A",
+        "tonalRamp": [
+          "#2E0C1E",
+          "#561438",
+          "#7E1B52",
+          "#B4316F",
+          "#E44C9A",
+          "#EE7DB6",
+          "#F6AED2",
+          "#FBD8EA"
+        ]
+      },
+      "uc-orange": {
+        "role": "tertiary",
+        "displayName": "UC Orange (Maker space)",
+        "canonical": "#FF6E1B",
+        "tonalRamp": [
+          "#331605",
+          "#5C2708",
+          "#8A3B0C",
+          "#C25411",
+          "#FF6E1B",
+          "#FF8F28",
+          "#FFB066",
+          "#FFD8B3"
+        ]
+      },
+      "ink-secondary": {
+        "role": "neutral",
+        "displayName": "Ink Secondary",
+        "canonical": "#4C4C4C",
+        "tonalRamp": [
+          "#0D0D0D",
+          "#1F1F1F",
+          "#333333",
+          "#404040",
+          "#4C4C4C",
+          "#7A7A7A",
+          "#A8A8A8",
+          "#D6D6D6"
+        ]
+      },
+      "surface-warm": {
+        "role": "neutral",
+        "displayName": "Surface Warm",
+        "canonical": "#F7F5F1",
+        "tonalRamp": [
+          "#2B2926",
+          "#46423D",
+          "#615C55",
+          "#8F8884",
+          "#BEB6AF",
+          "#DBD5CD",
+          "#F7F5F1",
+          "#FCFBF9"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home and page-hero titles, in the serif. Fluid clamp; text-wrap: balance."
+      },
+      "headline": { "displayName": "Headline", "purpose": "Major section openers, in the serif." },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Program-card names and subsection headings, serif at 22px."
+      },
+      "stat": {
+        "displayName": "Stat / Figure",
+        "purpose": "Serif quantitative figures, category counts, oversized campus-initial watermark."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Hero subheads and section intros, serif at reading weight."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text and dense UI in the sans; hold prose to 65-75ch."
+      },
+      "label": {
+        "displayName": "Label / Eyebrow",
+        "purpose": "Uppercase tracked section kickers, pill and chip text. One kicker per section, never stacked."
+      }
+    },
+    "shadows": [
+      {
+        "name": "resting",
+        "value": "0 1px 2px rgba(0,32,51,0.05)",
+        "purpose": "Default card and panel definition at rest; the hairline border does most of the work."
+      },
+      {
+        "name": "hover-lift",
+        "value": "0 12px 28px rgba(0,32,51,0.12)",
+        "purpose": "Paired with translateY(-2px) on interactive cards and category tiles on hover/focus."
+      },
+      {
+        "name": "overlay-drawer",
+        "value": "-12px 0 32px rgba(0,32,51,0.20)",
+        "purpose": "The right-side mobile navigation drawer."
+      },
+      {
+        "name": "overlay-search",
+        "value": "0 12px 32px rgba(0,0,0,0.18)",
+        "purpose": "The floating hero search field on the dark hero."
+      },
+      { "name": "token-sm", "value": "0 1px 2px rgba(0,32,51,0.08)", "purpose": "--shadow-sm." },
+      { "name": "token-md", "value": "0 4px 12px rgba(0,32,51,0.10)", "purpose": "--shadow-md." },
+      { "name": "token-lg", "value": "0 8px 24px rgba(0,32,51,0.12)", "purpose": "--shadow-lg." },
+      { "name": "token-xl", "value": "0 20px 40px rgba(0,32,51,0.16)", "purpose": "--shadow-xl." }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for every state transition."
+      },
+      { "name": "dur-fast", "value": "150ms", "purpose": "Buttons, links, small state changes." },
+      {
+        "name": "dur-base",
+        "value": "250ms",
+        "purpose": "Card hover lift, larger surface transitions."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "768px",
+        "purpose": "max-width below which layouts stack to one column (useIsMobile)."
+      },
+      {
+        "name": "container-max",
+        "value": "1440px",
+        "purpose": "Maximum content width; centered with auto margins."
+      },
+      { "name": "nav-h", "value": "80px", "purpose": "Desktop sticky-nav height (64px on mobile)." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main call to action: Find a program, Search. UC Blue, deepening on hover.",
+      "html": "<button class='ds-btn-primary'>Find a program</button>",
+      "css": ".ds-btn-primary{font-family:'Source Sans 3',Arial,sans-serif;font-weight:600;font-size:16px;line-height:1;color:#fff;background:#1295D8;border:2px solid transparent;border-radius:4px;padding:14px 24px;cursor:pointer;transition:background .15s cubic-bezier(.4,0,.2,1),transform .15s cubic-bezier(.4,0,.2,1)}.ds-btn-primary:hover{background:#005581}.ds-btn-primary:active{transform:scale(.98)}.ds-btn-primary:focus-visible{outline:3px solid #005581;outline-offset:3px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Low-emphasis ghost action. Blue Deep outline that inverts to a fill on hover.",
+      "html": "<button class='ds-btn-secondary'>Browse all programs</button>",
+      "css": ".ds-btn-secondary{font-family:'Source Sans 3',Arial,sans-serif;font-weight:600;font-size:16px;line-height:1;color:#005581;background:transparent;border:2px solid #005581;border-radius:4px;padding:14px 24px;cursor:pointer;transition:background .15s cubic-bezier(.4,0,.2,1),color .15s cubic-bezier(.4,0,.2,1),transform .15s cubic-bezier(.4,0,.2,1)}.ds-btn-secondary:hover{background:#005581;color:#fff}.ds-btn-secondary:active{transform:scale(.98)}.ds-btn-secondary:focus-visible{outline:3px solid #005581;outline-offset:3px}"
+    },
+    {
+      "name": "Gold Button",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "Rare high-emphasis or featured action. UC Gold with dark-blue text.",
+      "html": "<button class='ds-btn-gold'>View featured program</button>",
+      "css": ".ds-btn-gold{font-family:'Source Sans 3',Arial,sans-serif;font-weight:600;font-size:16px;line-height:1;color:#002033;background:#FFB511;border:2px solid transparent;border-radius:4px;padding:14px 24px;cursor:pointer;transition:background .15s cubic-bezier(.4,0,.2,1),transform .15s cubic-bezier(.4,0,.2,1)}.ds-btn-gold:hover{background:#FFD200}.ds-btn-gold:active{transform:scale(.98)}.ds-btn-gold:focus-visible{outline:3px solid #002033;outline-offset:3px}"
+    },
+    {
+      "name": "Industry Pill",
+      "kind": "chip",
+      "refersTo": "pill-industry",
+      "description": "Tint-mode classification tag for industries on cards. Accent color at low alpha; informs, does not act.",
+      "html": "<span class='ds-pill'>Biotech</span>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;gap:6px;font-family:'Source Sans 3',Arial,sans-serif;font-weight:600;font-size:12px;letter-spacing:.02em;color:#005581;background:rgba(0,85,129,.08);border:1px solid rgba(0,85,129,.20);border-radius:999px;padding:4px 10px;white-space:nowrap}"
+    },
+    {
+      "name": "Type Chip",
+      "kind": "chip",
+      "refersTo": "type-chip",
+      "description": "Program-type label printed over card art on near-opaque paper; the type color is the text color.",
+      "html": "<span class='ds-type-chip'>Accelerator</span>",
+      "css": ".ds-type-chip{display:inline-flex;align-items:center;font-family:'Source Sans 3',Arial,sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#005581;background:rgba(255,255,255,.95);border-radius:999px;padding:4px 10px}"
+    },
+    {
+      "name": "Compare Toggle",
+      "kind": "button",
+      "refersTo": "compare-toggle",
+      "description": "Signature add-to-compare control. Default ghost; inverts to a solid UC Blue Deep fill when on.",
+      "html": "<div style='display:flex;gap:10px'><button class='ds-compare'><svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'><path d='M12 5v14M5 12h14'/></svg> Compare</button><button class='ds-compare is-on'><svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6 9 17l-5-5'/></svg> Comparing</button></div>",
+      "css": ".ds-compare{display:inline-flex;align-items:center;gap:6px;font-family:'Source Sans 3',Arial,sans-serif;font-weight:600;font-size:12px;color:#002033;background:#fff;border:1px solid rgba(0,32,51,.15);border-radius:4px;padding:6px 10px;cursor:pointer;transition:background .15s,border-color .15s,color .15s}.ds-compare:hover{border-color:#005581}.ds-compare.is-on{background:#005581;border-color:#005581;color:#fff}.ds-compare:focus-visible{outline:3px solid #005581;outline-offset:3px}"
+    },
+    {
+      "name": "Program Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "The catalog's core record: campus-into-type gradient art with a serif name, clamped description, industry pills, and a compare toggle. Flat at rest, lifts 2px on hover.",
+      "html": "<article class='ds-card'><div class='ds-card-art'><span class='ds-card-initials'>BE</span><span class='ds-card-type'>Accelerator</span><span class='ds-card-campus'><svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z'/><circle cx='12' cy='10' r='3'/></svg> UC Berkeley</span></div><div class='ds-card-body'><h3 class='ds-card-title'>Berkeley SkyDeck</h3><p class='ds-card-desc'>The campus accelerator and global startup hub, with cohort funding and Berkeley's investor network.</p><div class='ds-card-pills'><span class='ds-pill'>Hardware</span><span class='ds-pill'>AI / ML</span><span class='ds-pill'>Climate</span></div><div class='ds-card-foot'><span class='ds-card-meta'><svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='18' rx='2'/><path d='M16 2v4M8 2v4M3 10h18'/></svg> Rolling</span><button class='ds-compare'><svg width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'><path d='M12 5v14M5 12h14'/></svg> Compare</button></div></div></article>",
+      "css": ".ds-card{display:flex;flex-direction:column;width:340px;background:#fff;border:1px solid rgba(0,32,51,.10);border-radius:8px;overflow:hidden;box-shadow:0 1px 2px rgba(0,32,51,.05);transform:translateY(0);transition:box-shadow .25s cubic-bezier(.4,0,.2,1),transform .25s cubic-bezier(.4,0,.2,1)}.ds-card:hover{box-shadow:0 12px 28px rgba(0,32,51,.12);transform:translateY(-2px)}.ds-card-art{position:relative;height:168px;overflow:hidden;background:linear-gradient(135deg,#003262 0%,#005581 100%)}.ds-card-initials{position:absolute;right:-20px;bottom:-50px;font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:200px;line-height:1;letter-spacing:-.02em;color:rgba(255,255,255,.15)}.ds-card-type{position:absolute;top:14px;left:14px;font-family:'Source Sans 3',Arial,sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#005581;background:rgba(255,255,255,.95);border-radius:999px;padding:4px 10px}.ds-card-campus{position:absolute;bottom:14px;left:14px;display:inline-flex;align-items:center;gap:6px;color:#fff;font-family:'Source Sans 3',Arial,sans-serif;font-size:13px;font-weight:600}.ds-card-body{display:flex;flex-direction:column;gap:10px;padding:20px 22px 22px}.ds-card-title{margin:0;font-family:'Source Serif 4',Georgia,serif;font-weight:600;font-size:22px;line-height:1.2;color:#002033}.ds-card-desc{margin:0;font-family:'Source Sans 3',Arial,sans-serif;font-size:14px;line-height:1.5;color:#4C4C4C}.ds-card-pills{display:flex;flex-wrap:wrap;gap:6px}.ds-pill{display:inline-flex;align-items:center;font-family:'Source Sans 3',Arial,sans-serif;font-weight:600;font-size:12px;letter-spacing:.02em;color:#005581;background:rgba(0,85,129,.08);border:1px solid rgba(0,85,129,.20);border-radius:999px;padding:4px 10px;white-space:nowrap}.ds-card-foot{margin-top:6px;padding-top:14px;border-top:1px solid rgba(0,32,51,.08);display:flex;justify-content:space-between;align-items:center;gap:8px}.ds-card-meta{display:inline-flex;align-items:center;gap:4px;font-family:'Source Sans 3',Arial,sans-serif;font-size:12px;color:#4C4C4C}.ds-compare{display:inline-flex;align-items:center;gap:6px;font-family:'Source Sans 3',Arial,sans-serif;font-weight:600;font-size:12px;color:#002033;background:#fff;border:1px solid rgba(0,32,51,.15);border-radius:4px;padding:6px 10px;cursor:pointer;transition:background .15s,border-color .15s,color .15s}.ds-compare:hover{border-color:#005581}.ds-compare:focus-visible{outline:3px solid #005581;outline-offset:3px}"
+    },
+    {
+      "name": "Hero Search Field",
+      "kind": "input",
+      "refersTo": "search",
+      "description": "The home hero's floating search: paper block, leading icon, borderless input, UC Blue submit.",
+      "html": "<form class='ds-search' onsubmit='return false'><span class='ds-search-icon'><svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'><circle cx='11' cy='11' r='7'/><path d='m21 21-4.3-4.3'/></svg></span><input class='ds-search-input' type='search' placeholder='Search programs, industries, campuses…' aria-label='Search programs, industries, campuses'><button class='ds-search-btn' type='submit'>Search</button></form>",
+      "css": ".ds-search{display:flex;align-items:center;gap:8px;max-width:680px;background:#fff;border-radius:8px;box-shadow:0 12px 32px rgba(0,0,0,.18);padding:8px}.ds-search-icon{display:flex;align-items:center;padding:0 6px 0 16px;color:#005581}.ds-search-input{flex:1;border:0;outline:none;background:transparent;font-family:'Source Sans 3',Arial,sans-serif;font-size:17px;color:#002033;padding:14px 0}.ds-search-input::placeholder{color:#5B5D5E}.ds-search-btn{font-family:'Source Sans 3',Arial,sans-serif;font-weight:600;font-size:15px;color:#fff;background:#1295D8;border:0;border-radius:6px;padding:12px 22px;cursor:pointer;transition:background .15s cubic-bezier(.4,0,.2,1)}.ds-search-btn:hover{background:#005581}.ds-search-btn:focus-visible{outline:3px solid #005581;outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Systemwide Field Guide",
+    "overview": "This is the single front door to every entrepreneurship program across all ten University of California campuses: incubators, accelerators, courses, funding, competitions, and maker spaces, described in standardized fields so a stranger can compare them apples to apples. It carries the identity all ten campuses share, so it reads as an institutional public resource, not a startup's pitch. The metaphor is a printed field guide to a varied ecosystem: a serif voice for headlines and program names, official UC blue and gold as the spine, generous column measure, and a calm, navigable structure that helps someone find their way rather than impressing them. The palette is the official UC systemwide blue and gold, applied with discipline, over a paper-white surface warmed by the UC warm-gray neutral on grouped sections. Every other hue earns its place as data: the seven program-type colors and the ten campus navies are the legend of the guide, and the card artwork is that encoding made visible as a 135-degree gradient from campus navy into program-type hue. Because the audience is students, faculty, and partners making a real decision under time pressure, the discipline that overrides every aesthetic impulse is clarity: AA contrast as the enforced floor pushing toward AAA where the palette allows, a loud focus ring, real button and table semantics, color paired with text so it never carries meaning alone, and motion that disappears under prefers-reduced-motion.",
+    "keyCharacteristics": [
+      "Editorial and institutional; a public field guide rather than a product pitch.",
+      "Official UC blue-and-gold as the spine; campus and program-type hues only as a data legend.",
+      "Paper-white with a warm off-white (#F7F5F1) for grouped surfaces; hairline borders, near-flat at rest.",
+      "Serif display voice (Source Serif 4) over humanist-sans body (Source Sans 3).",
+      "Comparison and accessibility are visible design features, not afterthoughts."
+    ],
+    "rules": [
+      {
+        "name": "The Blue-and-Gold Spine Rule",
+        "body": "UC Blue and UC Gold are the only colors permitted to carry identity. Every other hue must justify itself as data: which campus, which program type, which status. If a color is not distinguishing one thing from another, it does not belong on the page.",
+        "section": "colors"
+      },
+      {
+        "name": "The Campus-and-Type Legend Rule",
+        "body": "Categorical color comes only from two fixed sets: the ten official campus navies and the seven program-type hues. Do not invent new categorical colors. The card-art gradient is linear-gradient(135deg, <campus navy> 0%, <type hue> 100%), and that is the only place the two legends combine.",
+        "section": "colors"
+      },
+      {
+        "name": "The Contrast-First Rule",
+        "body": "Text and small-fill colors are chosen for WCAG AA on paper first, brand vibrancy second. Never use raw UC Blue (#1295D8), UC Gold (#FFB511), UC Orange (#FF6E1B), UC Pink (#E44C9A), or UC Light Blue (#72CDF4) as text or small-pill fills on white. Use UC Blue Deep (#005581) for blue text and the darkened status tokens for status.",
+        "section": "colors"
+      },
+      {
+        "name": "The Serif-for-Significance Rule",
+        "body": "Serif (Source Serif 4) carries headlines, program names, and figures; sans (Source Sans 3) carries everything you read in quantity and every UI control. Do not set body copy or button labels in the serif, or running prose in figures.",
+        "section": "typography"
+      },
+      {
+        "name": "The One-Kicker Rule",
+        "body": "The uppercase tracked eyebrow is a section kicker, not wallpaper. At most one per section, naming what follows. Never stack two, and never let every block on a page open with one; let the serif headline carry sections that do not need a label.",
+        "section": "typography"
+      },
+      {
+        "name": "The Lift-on-Intent Rule",
+        "body": "Surfaces are flat at rest. The 2px rise and drop shadow appear only as a response to hover or focus on something openable. If a static card is already casting a heavy shadow, the shadow is wrong. Borders define; shadows react.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do treat UC Blue (#1295D8) and UC Gold (#FFB511) as the identity spine and make every other hue earn its place as data: campus, program type, or status.",
+      "Do pull categorical color only from the ten campus navies and the seven program-type hues; combine them only in the 135deg card-art gradient.",
+      "Do pick text and small-fill colors for WCAG AA on paper first; use UC Blue Deep (#005581) for blue text and the darkened status tokens, never raw bright-brand hues, on white.",
+      "Do pair every categorical color with a text label or icon so meaning never rides on color alone; hold the AA floor that axe and pa11y enforce, and push toward AAA where the palette allows.",
+      "Do keep a loud global :focus-visible ring on every interactive element, and let real button and table semantics carry sort, disclosure, and compare state.",
+      "Do set headlines, program names, and figures in Source Serif 4 and reading text plus all UI in Source Sans 3; hold prose to roughly 65-75ch.",
+      "Do keep surfaces flat at rest and lift them only on hover/focus; tint every shadow toward rgba(0,32,51,...).",
+      "Do warm grouped sections and page heroes with #F7F5F1, the brand's own warm gray, and keep cards on pure paper.",
+      "Do honor prefers-reduced-motion: disable smooth scroll, the hover lift, and transitions entirely."
+    ],
+    "donts": [
+      "Don't build the generic SaaS landing: no gradient-on-dark hero cliche as a content substitute, no endless identical icon-heading-text feature-card grid, no big-number gradient hero-metric template.",
+      "Don't use gradient text (background-clip: text), glassmorphism, or decorative blur. The card-art gradient is a data encoding and the dark hero's glow is brand atmosphere; neither licenses gradient text.",
+      "Don't adopt a hypey startup voice: no marketing buzzwords (streamline, supercharge, empower, transform, seamless, world-class), no neon, no over-animation, no exclamation-point energy.",
+      "Don't let the utility surfaces collapse into a sterile all-gray admin dashboard. Density serves scanning, but UC blue-and-gold, the serif, and the warm surface stay present inside the tool.",
+      "Don't use side-stripe borders (a border-left/border-right greater than 1px as a colored accent). Use a full hairline border, a tint, a leading icon, or the type chip instead.",
+      "Don't nest a card inside a card, or use a card where a list row or inline group would read better.",
+      "Don't use UC Gold for text on white, or any color purely for vibrancy.",
+      "Don't animate layout properties or use bounce/elastic easing; transitions ease out on background, color, and transform over 150-250ms.",
+      "Don't use em dashes in interface copy; use commas, colons, or parentheses."
+    ]
+  }
+}
