@@ -8,7 +8,7 @@ import { CardArt } from "@/components/CardArt";
 import { Pill, TypePill, CampusBadge } from "@/components/Pill";
 import { CAMPUSES, CAMPUS_BY_ID } from "@/data/campuses";
 import { TYPES, TYPE_BY_ID, INDUSTRIES, STAGES, ELIGIBILITY, DURATIONS } from "@/data/types-list";
-import { PROGRAMS } from "@/data/programs";
+import { PROGRAMS, PROGRAM_COUNT } from "@/data/programs";
 import type { Program } from "@/data/types.ts";
 import { useCompare } from "@/lib/compare";
 import { useIsMobile } from "@/lib/useMediaQuery";
@@ -898,7 +898,7 @@ function ResultsView({
 function DiscoverTitle() {
   return (
     <div>
-      <Eyebrow>140+ programs across the system</Eyebrow>
+      <Eyebrow>{PROGRAM_COUNT} programs across the system</Eyebrow>
       <h1
         style={{
           fontFamily: "'Source Serif 4',Georgia,serif",

@@ -48,7 +48,7 @@ function UtilityBar() {
         >
           UC System
         </span>
-        <span style={{ opacity: 0.5 }}>—</span>
+        <span style={{ opacity: 0.5 }}>·</span>
         <span>Office of the President · Innovation &amp; Entrepreneurship Initiative</span>
       </div>
       <div style={{ display: "flex", gap: 18 }}>

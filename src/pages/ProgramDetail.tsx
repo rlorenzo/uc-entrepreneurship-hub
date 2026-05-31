@@ -2,6 +2,7 @@ import { type ReactNode } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Page } from "@/components/Page";
 import { Eyebrow } from "@/components/Eyebrow";
+import { NotFound } from "@/components/NotFound";
 import { ProgramCard } from "@/components/ProgramCard";
 import { CAMPUS_BY_ID } from "@/data/campuses";
 import { TYPE_BY_ID } from "@/data/types-list";
@@ -468,165 +469,9 @@ function KeyDetailsGrid({ program, type }: { program: Program; type: ProgramType
   );
 }
 
-function buildFitBullets(program: Program, campusName: string): string[] {
-  const industries = program.industries.slice(0, 2).join(" or ");
-  const stage = program.stage.toLowerCase();
-  return [
-    `Founders working on ${industries} ventures.`,
-    `Teams at the ${stage} stage with at least one ${campusName} affiliate.`,
-    "Committed to running the program full-time during cohort weeks.",
-    "Comfortable sharing progress with peer cohort and mentors.",
-  ];
-}
-
-function WhoShouldApply({
-  program,
-  campus,
-  type,
-}: {
-  program: Program;
-  campus: Campus;
-  type: ProgramType;
-}) {
-  const bullets = buildFitBullets(program, campus.name);
-  return (
-    <DetailBlock title="Who should apply" eyebrow="Fit">
-      <ul
-        style={{
-          paddingLeft: 0,
-          listStyle: "none",
-          display: "flex",
-          flexDirection: "column",
-          gap: 10,
-          marginTop: 10,
-        }}
-      >
-        {bullets.map((b) => (
-          <li
-            key={b}
-            style={{
-              display: "flex",
-              gap: 12,
-              fontSize: 16,
-              lineHeight: 1.5,
-              color: "#002033",
-            }}
-          >
-            <span
-              style={{
-                flexShrink: 0,
-                marginTop: 6,
-                width: 6,
-                height: 6,
-                borderRadius: 999,
-                background: type.color,
-              }}
-            />
-            <span>{b}</span>
-          </li>
-        ))}
-      </ul>
-    </DetailBlock>
-  );
-}
-
-interface TimelineItem {
-  date: string;
-  label: string;
-  body: string;
-}
-
-function buildTimeline(deadline: string): TimelineItem[] {
-  return [
-    {
-      date: "Now → Deadline",
-      label: "Applications open",
-      body: "Submit your team, traction snapshot, and a 2-minute video.",
-    },
-    {
-      date: deadline,
-      label: "Deadline",
-      body: "Final cutoff. We start reviewing immediately.",
-    },
-    {
-      date: "+2 weeks",
-      label: "Interviews",
-      body: "Selected teams meet with the partner team and program leads.",
-    },
-    {
-      date: "+4 weeks",
-      label: "Cohort kickoff",
-      body: "Onboarding, intros, mentor pairing, and goal-setting.",
-    },
-  ];
-}
-
-function Timeline({ deadline }: { deadline: string }) {
-  const items = buildTimeline(deadline);
-  return (
-    <DetailBlock title="Timeline" eyebrow="When">
-      <ol
-        style={{
-          paddingLeft: 0,
-          listStyle: "none",
-          display: "flex",
-          flexDirection: "column",
-          gap: 0,
-          marginTop: 10,
-        }}
-      >
-        {items.map((it, i) => (
-          <TimelineRow key={it.label} item={it} last={i === items.length - 1} />
-        ))}
-      </ol>
-    </DetailBlock>
-  );
-}
-
-function TimelineRow({ item, last }: { item: TimelineItem; last: boolean }) {
-  const isMobile = useIsMobile();
-  return (
-    <li
-      style={{
-        display: "grid",
-        gridTemplateColumns: isMobile ? "1fr" : "170px 1fr",
-        gap: isMobile ? 6 : 24,
-        padding: "18px 0",
-        borderBottom: last ? "none" : "1px solid rgba(0,32,51,.10)",
-      }}
-    >
-      <div
-        style={{
-          fontSize: 13,
-          fontWeight: 700,
-          color: "#005581",
-          letterSpacing: ".04em",
-          textTransform: "uppercase",
-        }}
-      >
-        {item.date}
-      </div>
-      <div>
-        <div
-          style={{
-            fontFamily: "'Source Serif 4',Georgia,serif",
-            fontWeight: 600,
-            fontSize: 20,
-            color: "#002033",
-            marginBottom: 4,
-          }}
-        >
-          {item.label}
-        </div>
-        <div style={{ fontSize: 15, color: "#4C4C4C", lineHeight: 1.5 }}>{item.body}</div>
-      </div>
-    </li>
-  );
-}
-
 function IndustryPills({ industries, color }: { industries: string[]; color: string }) {
   return (
-    <DetailBlock title="Industries we love" eyebrow="Focus areas">
+    <DetailBlock title="Focus areas" eyebrow="Industries">
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 10 }}>
         {industries.map((i) => (
           <span
@@ -679,9 +524,9 @@ function DetailOverview({ vm }: { vm: DetailVM }) {
       </p>
       <div style={{ marginTop: 48, display: "flex", flexDirection: "column", gap: 40 }}>
         <KeyDetailsGrid program={vm.program} type={vm.type} />
-        <WhoShouldApply program={vm.program} campus={vm.campus} type={vm.type} />
-        <Timeline deadline={vm.program.deadline} />
-        <IndustryPills industries={vm.program.industries} color={vm.type.color} />
+        {vm.program.industries.length > 0 && (
+          <IndustryPills industries={vm.program.industries} color={vm.type.color} />
+        )}
       </div>
     </div>
   );
@@ -983,9 +828,30 @@ function DetailRelated({ related }: { related: Program[] }) {
 
 export function ProgramDetail() {
   const { id } = useParams<{ id: string }>();
-  const program = PROGRAMS.find((p) => p.id === id || p.slug === id) ?? PROGRAMS[0];
-  const vm = buildVM(program);
+  // Guard on `id` first: without it, `p.slug === undefined` would match the
+  // first slug-less crawled program and bypass the not-found state.
+  const program = id ? PROGRAMS.find((p) => p.id === id || p.slug === id) : undefined;
   const isMobile = useIsMobile();
+
+  if (!program) {
+    return (
+      <NotFound
+        eyebrow="Program not found"
+        title="We couldn’t find that program"
+        body={
+          <>
+            {id
+              ? `No program matches “${id}”. It may have been renamed or removed since you last saw it.`
+              : "That program link is missing an identifier."}{" "}
+            Browse the full catalog to find what you’re looking for.
+          </>
+        }
+        ctaLabel="Browse all programs"
+        ctaTo="/discover"
+      />
+    );
+  }
+  const vm = buildVM(program);
 
   return (
     <Page>

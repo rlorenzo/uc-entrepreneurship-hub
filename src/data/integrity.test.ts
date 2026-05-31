@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vite-plus/test";
-import { PROGRAMS } from "./programs.ts";
+import { PROGRAMS, PROGRAM_COUNT, PROGRAM_COUNT_BY_TYPE } from "./programs.ts";
 import { CAMPUSES, CAMPUS_BY_ID } from "./campuses.ts";
 import { TYPE_BY_ID } from "./types-list.ts";
 
@@ -30,6 +30,28 @@ describe("PROGRAMS catalog integrity", () => {
   it("every program has a non-empty name and description", () => {
     const bad = PROGRAMS.filter((p) => !p.name?.trim() || !p.desc?.trim()).map((p) => p.id);
     expect(bad).toEqual([]);
+  });
+});
+
+// The hero badge, the home category grid, and the discover header all render
+// these derived numbers. They must reconcile with the real catalog — the
+// product's brand is accurate counts, and an earlier version inflated them by
+// hand ("140+", a hardcoded per-type grid) while /discover showed the truth.
+describe("derived program counts", () => {
+  it("PROGRAM_COUNT equals the merged catalog length", () => {
+    expect(PROGRAM_COUNT).toBe(PROGRAMS.length);
+  });
+
+  it("the per-type breakdown sums to the total (no inflation, no omission)", () => {
+    const sum = Object.values(PROGRAM_COUNT_BY_TYPE).reduce((a, b) => a + b, 0);
+    expect(sum).toBe(PROGRAM_COUNT);
+  });
+
+  it("every counted type is a known type and matches a direct count of the catalog", () => {
+    for (const [type, count] of Object.entries(PROGRAM_COUNT_BY_TYPE)) {
+      expect(TYPE_BY_ID[type], `unknown type ${type}`).toBeDefined();
+      expect(count, `count for ${type}`).toBe(PROGRAMS.filter((p) => p.type === type).length);
+    }
   });
 });
 

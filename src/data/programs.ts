@@ -395,3 +395,16 @@ const CURATED: Program[] = [
 ];
 
 export const PROGRAMS: Program[] = mergePrograms(CURATED, CRAWLED_PROGRAMS);
+
+// Derived, never hand-set. The catalog's headline number must always match the
+// data a visitor can count on /discover — inflating it (the old "140+") breaks
+// the product's core promise that the counts are real. Surfaces should render
+// these, not literals.
+export const PROGRAM_COUNT = PROGRAMS.length;
+
+export const PROGRAM_COUNT_BY_TYPE: Record<string, number> = PROGRAMS.reduce<
+  Record<string, number>
+>((counts, p) => {
+  counts[p.type] = (counts[p.type] ?? 0) + 1;
+  return counts;
+}, {});

@@ -6,7 +6,7 @@ import { ProgramCard } from "@/components/ProgramCard";
 import { CaliforniaMap } from "@/components/CaliforniaMap";
 import { CAMPUSES, CAMPUS_BY_ID } from "@/data/campuses";
 import { TYPE_BY_ID } from "@/data/types-list";
-import { PROGRAMS } from "@/data/programs";
+import { PROGRAMS, PROGRAM_COUNT, PROGRAM_COUNT_BY_TYPE } from "@/data/programs";
 import { NEWS } from "@/data/news.generated";
 import { formatNewsDate } from "@/lib/dates";
 import { useIsMobile } from "@/lib/useMediaQuery";
@@ -86,7 +86,7 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
             }}
           >
             <span style={{ width: 6, height: 6, borderRadius: 999, background: "#FFB511" }} /> 1
-            platform · 10 campuses · 140+ programs
+            platform · 10 campuses · {PROGRAM_COUNT} programs
           </div>
           <h1
             style={{
@@ -112,7 +112,7 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
               color: "#BDE3F6",
             }}
           >
-            Incubators, accelerators, courses, funding, competitions, and maker spaces — across all
+            Incubators, accelerators, courses, funding, competitions, and maker spaces across all
             ten UC campuses. Discover, compare, and apply from one front door.
           </p>
 
@@ -268,7 +268,7 @@ function FeaturedStrip({ onOpen }: { onOpen: (id: string) => void }) {
               textUnderlineOffset: 3,
             }}
           >
-            See all 140+ programs →
+            See all {PROGRAM_COUNT} programs →
           </Link>
         </div>
         <div
@@ -289,42 +289,38 @@ function FeaturedStrip({ onOpen }: { onOpen: (id: string) => void }) {
 
 function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => void }) {
   const isMobile = useIsMobile();
+  // Counts are derived from the catalog (PROGRAM_COUNT_BY_TYPE), never set by
+  // hand — the grid must agree with what /discover shows.
   const items = [
     {
       type: "accelerator",
       label: "Accelerators",
       desc: "Cohort-based programs with mentorship and capital.",
-      count: 18,
     },
     {
       type: "incubator",
       label: "Incubators",
       desc: "Long-term homes for early-stage ventures.",
-      count: 26,
     },
     {
       type: "funding",
       label: "Funding",
       desc: "Grants, prizes, and proof-of-concept funds.",
-      count: 31,
     },
     {
       type: "competition",
       label: "Competitions",
       desc: "Pitch contests and venture challenges.",
-      count: 22,
     },
     {
       type: "certificate",
       label: "Certificates",
       desc: "Year-long structured entrepreneurship certificate programs.",
-      count: 6,
     },
     {
       type: "maker",
       label: "Maker spaces",
       desc: "Open-access prototyping, fab, and wet labs.",
-      count: 14,
     },
   ];
 
@@ -418,7 +414,7 @@ function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => 
                       lineHeight: 1,
                     }}
                   >
-                    {it.count}
+                    {PROGRAM_COUNT_BY_TYPE[it.type] ?? 0}
                   </span>
                 </div>
                 <div
@@ -746,7 +742,7 @@ function AudienceBand() {
       eyebrow: "For partners",
       title: "Mentor, sponsor, or invest across UC.",
       cta: "Partner with UC",
-      body: "A single front door for the system’s 140+ programs — no more campus-by-campus outreach.",
+      body: `A single front door to the system’s ${PROGRAM_COUNT} programs, instead of campus-by-campus outreach.`,
       go: "/discover",
     },
   ];

@@ -2,6 +2,7 @@ import { useState, type CSSProperties } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Page } from "@/components/Page";
 import { Eyebrow } from "@/components/Eyebrow";
+import { NotFound } from "@/components/NotFound";
 import { ProgramCard } from "@/components/ProgramCard";
 import { CaliforniaMap } from "@/components/CaliforniaMap";
 import { NewsCard } from "@/components/NewsCard";
@@ -288,8 +289,10 @@ function CampusHero({
             </p>
             <div style={{ display: "flex", gap: 36, marginTop: 32, flexWrap: "wrap" }}>
               <Stat n={campus.programs} l="Active programs" />
-              <Stat n={programTypeCount} l="Program types" />
-              <Stat n="$200M+" l="Capital deployed (FY24)" />
+              <Stat
+                n={programTypeCount}
+                l={programTypeCount === 1 ? "Program type" : "Program types"}
+              />
             </div>
           </div>
           <div style={{ position: "relative" }}>
@@ -745,7 +748,23 @@ function buildTypeCounts(programs: Program[]): Record<string, number> {
 
 export function CampusPage() {
   const { id } = useParams<{ id: string }>();
-  const campus = CAMPUS_BY_ID[id ?? ""] ?? CAMPUSES[0];
+  const campus = id ? CAMPUS_BY_ID[id] : undefined;
+  if (!campus) {
+    return (
+      <NotFound
+        eyebrow="Campus not found"
+        title="No UC campus by that name"
+        body={
+          <>
+            {id ? `“${id}” isn’t one of the ten UC campuses.` : "That link is missing a campus."}{" "}
+            Explore all ten to find the one you’re after.
+          </>
+        }
+        ctaLabel="Explore all campuses"
+        ctaTo="/campuses"
+      />
+    );
+  }
   const programs = PROGRAMS.filter((p) => p.campus === campus.id);
   const typeCounts = buildTypeCounts(programs);
   const news = NEWS.filter((n) => n.campus === campus.id).slice(0, 6);
