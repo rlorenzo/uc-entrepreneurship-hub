@@ -37,12 +37,21 @@ interface DetailVM {
   related: Program[];
 }
 
+// Only ever treat http(s) URLs as links — crawled data could carry a
+// javascript:/data: value that would be a DOM-XSS vector in an href.
+function isValidWebUrl(url: string | undefined): boolean {
+  return !!url && (url.startsWith("http://") || url.startsWith("https://"));
+}
+
 function buildVM(program: Program): DetailVM {
   const campus = CAMPUS_BY_ID[program.campus];
   const type = TYPE_BY_ID[program.type];
-  const applyHref = program.applicationLink || program.website || program.sourceUrl || "#";
+  const applyHref =
+    [program.applicationLink, program.website, program.sourceUrl].find(isValidWebUrl) ?? "#";
   const isExternal = applyHref !== "#";
-  const hasSeparateWebsite = Boolean(program.website && program.website !== applyHref);
+  const hasSeparateWebsite = Boolean(
+    program.website && isValidWebUrl(program.website) && program.website !== applyHref,
+  );
   const related = PROGRAMS.filter((p) => isRelated(p, program)).slice(0, 3);
   return { program, campus, type, applyHref, isExternal, hasSeparateWebsite, related };
 }
@@ -56,11 +65,13 @@ function isRelated(p: Program, target: Program): boolean {
 // ── shared building blocks ─────────────────────────────────────────────
 
 function ExternalAnchorProps(href: string, isExternal: boolean) {
+  // Re-validate at render: never emit a live href for a non-http(s) URL.
+  const safe = isExternal && isValidWebUrl(href);
   return {
-    href,
-    target: isExternal ? "_blank" : undefined,
-    rel: isExternal ? "noopener noreferrer" : undefined,
-    onClick: isExternal ? undefined : (e: React.MouseEvent) => e.preventDefault(),
+    href: safe ? href : "#",
+    target: safe ? "_blank" : undefined,
+    rel: safe ? "noopener noreferrer" : undefined,
+    onClick: safe ? undefined : (e: React.MouseEvent) => e.preventDefault(),
   } as const;
 }
 
@@ -184,10 +195,19 @@ function HeroChips({
   );
 }
 
+// A crawled applicationLink is sometimes a campus *admissions* root, not the
+// program's own application. Don't promise "Start application" in that case.
+function isGenericAdmissionsLink(url: string | undefined): boolean {
+  return !!url && /admissions/i.test(url);
+}
+
+function applyCtaLabel(program: Program, fallback: string): string {
+  if (!program.applicationLink) return fallback;
+  return isGenericAdmissionsLink(program.applicationLink) ? "How to apply" : "Start application";
+}
+
 function HeroPrimaryCTA({ vm }: { vm: DetailVM }) {
-  const label = vm.program.applicationLink
-    ? "Start application"
-    : `Visit on ${vm.campus.short}.edu`;
+  const label = applyCtaLabel(vm.program, `Visit on ${vm.campus.short}.edu`);
   return (
     <a
       {...ExternalAnchorProps(vm.applyHref, vm.isExternal)}
@@ -304,11 +324,10 @@ function AtAGlanceCard({ program }: { program: Program }) {
   return (
     <div
       style={{
-        background: "rgba(255,255,255,.06)",
+        background: "rgba(255,255,255,.08)",
         border: "1px solid rgba(255,255,255,.18)",
         borderRadius: 8,
         padding: "24px 26px",
-        backdropFilter: "blur(8px)",
       }}
     >
       <div
@@ -426,7 +445,7 @@ function buildKeyDetails(program: Program): KeyDetail[] {
   ];
 }
 
-function KeyDetailsGrid({ program, type }: { program: Program; type: ProgramType }) {
+function KeyDetailsGrid({ program }: { program: Program }) {
   const isMobile = useIsMobile();
   return (
     <DetailBlock title="Key details" eyebrow="What you get">
@@ -445,7 +464,7 @@ function KeyDetailsGrid({ program, type }: { program: Program; type: ProgramType
               padding: "14px 16px",
               background: "#F7F5F1",
               borderRadius: 6,
-              borderLeft: `3px solid ${type.color}`,
+              border: "1px solid rgba(0,32,51,.10)",
             }}
           >
             <div
@@ -523,7 +542,7 @@ function DetailOverview({ vm }: { vm: DetailVM }) {
         {vm.program.longDescription ?? vm.program.desc}
       </p>
       <div style={{ marginTop: 48, display: "flex", flexDirection: "column", gap: 40 }}>
-        <KeyDetailsGrid program={vm.program} type={vm.type} />
+        <KeyDetailsGrid program={vm.program} />
         {vm.program.industries.length > 0 && (
           <IndustryPills industries={vm.program.industries} color={vm.type.color} />
         )}
@@ -569,8 +588,7 @@ function ApplyCard({ vm }: { vm: DetailVM }) {
             marginTop: 16,
           }}
         >
-          {vm.program.applicationLink ? "Start application" : "Visit program page"}{" "}
-          <I_External size={14} />
+          {applyCtaLabel(vm.program, "Visit program page")} <I_External size={14} />
         </a>
       ) : (
         // No application/website/source URL on record — show a muted note
@@ -589,9 +607,7 @@ function ApplyCard({ vm }: { vm: DetailVM }) {
       )}
       {vm.hasSeparateWebsite && vm.program.website && (
         <a
-          href={vm.program.website}
-          target="_blank"
-          rel="noopener noreferrer"
+          {...ExternalAnchorProps(vm.program.website, true)}
           style={{
             display: "block",
             textAlign: "center",
