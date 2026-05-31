@@ -153,7 +153,6 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
               style={{
                 flex: 1,
                 border: 0,
-                outline: "none",
                 fontSize: 17,
                 fontFamily: "'Source Sans 3',sans-serif",
                 color: "#002033",

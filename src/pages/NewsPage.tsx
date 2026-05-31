@@ -135,7 +135,6 @@ function SearchInput({ query, setQuery }: SearchInputProps) {
         style={{
           flex: 1,
           border: 0,
-          outline: 0,
           fontSize: 15,
           color: "#002033",
           background: "transparent",

@@ -139,8 +139,15 @@ function FilterCheckbox({
         userSelect: "none",
       }}
     >
-      <span style={checkboxBoxStyle(checked)}>{checked && <I_Check size={12} />}</span>
-      <input type="checkbox" checked={checked} onChange={onChange} style={{ display: "none" }} />
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={onChange}
+        className="uc-filter-checkbox__input"
+      />
+      <span className="uc-filter-checkbox__box" style={checkboxBoxStyle(checked)}>
+        {checked && <I_Check size={12} />}
+      </span>
       <span style={checkboxLabelStyle(checked)}>{label}</span>
       {count !== undefined && <span style={{ fontSize: 12, color: "#5B5D5E" }}>{count}</span>}
     </label>
@@ -987,7 +994,6 @@ function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
         style={{
           flex: 1,
           border: 0,
-          outline: "none",
           fontSize: 15,
           padding: "10px 0",
           background: "transparent",

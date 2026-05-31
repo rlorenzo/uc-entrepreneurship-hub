@@ -35,6 +35,36 @@ a {
 button {
   font-family: inherit;
 }
+
+/* Global keyboard focus ring. Bright UC Blue reads clearly on the light
+   content surfaces, the dark navy hero, and the gold audience band alike.
+   :focus-visible only shows for keyboard/AT navigation, never on mouse click,
+   so it adds no visual noise for pointer users. WCAG 2.2 AA (2.4.7 / 2.4.11). */
+:focus-visible {
+  outline: 3px solid var(--accent-bright);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Discover filter checkboxes paint a custom box but must keep a real, focusable
+   <input>. `display:none` dropped it from the tab order (keyboard-dead filters);
+   the clip pattern hides it visually while leaving it keyboard- and
+   screen-reader-operable. The focus ring shows on the adjacent painted box. */
+.uc-filter-checkbox__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.uc-filter-checkbox__input:focus-visible + .uc-filter-checkbox__box {
+  outline: 3px solid var(--accent-bright);
+  outline-offset: 2px;
+}
 table {
   font-family: inherit;
 }

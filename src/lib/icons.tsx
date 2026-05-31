@@ -4,6 +4,10 @@ interface IconProps {
   size?: number;
 }
 
+// All icons are decorative: they sit beside text, or inside controls that
+// carry their own aria-label. Hide them from assistive tech so screen readers
+// don't announce unlabelled SVGs. A control that is icon-only must always
+// supply its own aria-label.
 const Icon = ({ d, size = 20 }: IconProps & { d: ReactNode }) => (
   <svg
     viewBox="0 0 24 24"
@@ -14,6 +18,8 @@ const Icon = ({ d, size = 20 }: IconProps & { d: ReactNode }) => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
+    aria-hidden="true"
+    focusable="false"
   >
     {d}
   </svg>
