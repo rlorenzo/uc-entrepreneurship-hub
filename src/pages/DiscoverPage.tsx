@@ -84,14 +84,47 @@ function buildFacetCounts(): FacetCounts {
   return counts;
 }
 
+// Allowlist of real filter facets. Anything else in the URL (q, sort, utm_*,
+// referral ids) is left untouched and never rendered as a filter chip.
+const VALID_FILTER_KEYS = new Set<string>(FILTER_RULES.map((r) => String(r.key)));
+
 // Map URL search params (single-value via the homepage chips) to multi-select filter arrays.
 function paramsToFilters(params: URLSearchParams): Filters {
   const f: Filters = {};
   for (const [k, v] of params.entries()) {
-    if (k === "q") continue;
-    f[k] = [...(f[k] ?? []), v];
+    if (VALID_FILTER_KEYS.has(k)) f[k] = [...(f[k] ?? []), v];
   }
   return f;
+}
+
+function parseSort(value: string | null): SortKey {
+  // hasOwnProperty (not `in`) so ?sort=toString/constructor can't resolve to a
+  // prototype method and crash toSorted() with a non-comparator.
+  return value && Object.prototype.hasOwnProperty.call(SORTERS, value)
+    ? (value as SortKey)
+    : "featured";
+}
+
+// Inverse of paramsToFilters: write the active filters/query/sort back to the
+// URL so the discover view is shareable and Back/refresh restore it. Clones the
+// current params so unrelated keys (utm_*, referrals) survive; only the managed
+// keys are rewritten, and the default sort is omitted to keep URLs clean.
+function buildSearchParams(
+  current: URLSearchParams,
+  filters: Filters,
+  q: string,
+  sort: SortKey,
+): URLSearchParams {
+  const params = new URLSearchParams(current);
+  for (const rule of FILTER_RULES) params.delete(String(rule.key));
+  params.delete("q");
+  params.delete("sort");
+  for (const rule of FILTER_RULES) {
+    for (const v of filters[rule.key] ?? []) params.append(String(rule.key), v);
+  }
+  if (q.trim()) params.set("q", q);
+  if (sort !== "featured") params.set("sort", sort);
+  return params;
 }
 
 // ── filter sidebar ────────────────────────────────────────────────────
@@ -773,7 +806,7 @@ function SortControl({ sort, setSort }: { sort: SortKey; setSort: (s: SortKey) =
           cursor: "pointer",
         }}
       >
-        <option value="featured">Most popular</option>
+        <option value="featured">Featured</option>
         <option value="deadline">Deadline approaching</option>
         <option value="campus">Campus (A–Z)</option>
         <option value="name">Program name</option>
@@ -959,6 +992,16 @@ function DiscoverHero({ q, setQ }: { q: string; setQ: (v: string) => void }) {
 
 function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
   const isMobile = useIsMobile();
+  // Type into local state for instant, lag-free input; debounce the write to
+  // the URL so each keystroke doesn't trigger a navigation. Re-sync when the
+  // URL changes externally (reset, Back/forward).
+  const [value, setValue] = useState(q);
+  useEffect(() => setValue(q), [q]);
+  useEffect(() => {
+    if (value === q) return;
+    const t = setTimeout(() => setQ(value), 200);
+    return () => clearTimeout(t);
+  }, [value, q, setQ]);
   return (
     <div
       role="search"
@@ -986,8 +1029,8 @@ function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
         <I_Search size={18} />
       </div>
       <input
-        value={q}
-        onChange={(e) => setQ(e.target.value)}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
         placeholder="Search programs, industries, campuses…"
         aria-label="Search programs, industries, campuses"
         type="search"
@@ -1001,10 +1044,13 @@ function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
           fontFamily: "inherit",
         }}
       />
-      {q && (
+      {value && (
         <button
           type="button"
-          onClick={() => setQ("")}
+          onClick={() => {
+            setValue("");
+            setQ("");
+          }}
           aria-label="Clear search"
           style={{
             background: "transparent",
@@ -1136,24 +1182,26 @@ function DiscoverBody(props: DiscoverBodyProps) {
 
 export function DiscoverPage() {
   const navigate = useNavigate();
-  const [params] = useSearchParams();
-  const [filters, setFilters] = useState<Filters>(() => paramsToFilters(params));
-  const [q, setQ] = useState(params.get("q") ?? "");
-  const [sort, setSort] = useState<SortKey>("featured");
+  const [params, setSearchParams] = useSearchParams();
   const [view, setView] = useState<ViewKind>("grid");
 
-  useEffect(() => {
-    setFilters(paramsToFilters(params));
-    setQ(params.get("q") ?? "");
-  }, [params]);
+  // The URL is the single source of truth for filters/query/sort, so the view
+  // is shareable and Back/refresh restore it. `replace` keeps every keystroke
+  // and toggle out of the history stack.
+  const filters = useMemo(() => paramsToFilters(params), [params]);
+  const q = params.get("q") ?? "";
+  const sort = parseSort(params.get("sort"));
+
+  const commit = (nextFilters: Filters, nextQ: string, nextSort: SortKey) =>
+    setSearchParams(buildSearchParams(params, nextFilters, nextQ, nextSort), { replace: true });
+  const setFilters = (updater: (f: Filters) => Filters) => commit(updater(filters), q, sort);
+  const setQ = (value: string) => commit(filters, value, sort);
+  const setSort = (next: SortKey) => commit(filters, q, next);
+  const reset = () => setSearchParams({}, { replace: true });
 
   const filtered = useMemo(() => applyFiltersAndSort(q, filters, sort), [q, filters, sort]);
   const counts = useMemo(buildFacetCounts, []);
   const open = (id: string) => navigate(`/program/${id}`);
-  const reset = () => {
-    setFilters(() => ({}));
-    setQ("");
-  };
 
   return (
     <Page>
