@@ -1,8 +1,8 @@
 name: Weekly data refresh
 
 # Crawl every UC innovation hub once a week and commit the regenerated
-# program catalog. The deploy workflow then redeploys the site on the
-# resulting push to main.
+# program catalog and news feed. The deploy workflow then redeploys the
+# site on the resulting push to main.
 #
 # Schedule: 13:00 UTC every Sunday (≈ 06:00 PT, before West Coast traffic).
 # Use the workflow_dispatch trigger to refresh on demand from the Actions tab.
@@ -65,8 +65,11 @@ jobs:
             fi
             vp run crawl -- --campus="${CAMPUS_INPUT}"
             vp run build-data
+            vp run crawl:news -- --campus="${CAMPUS_INPUT}"
+            vp run build-news-data
           else
             vp run refresh-data
+            vp run refresh-news
           fi
 
       - name: Commit refreshed catalog
@@ -74,7 +77,7 @@ jobs:
         run: |
           git config user.name "uc-hub-bot"
           git config user.email "uc-hub-bot@users.noreply.github.com"
-          git add data/crawled src/data/programs.generated.ts
+          git add data/crawled data/news src/data/programs.generated.ts src/data/news.generated.ts
           if git diff --cached --quiet; then
             echo "No changes from this crawl."
             echo "changed=false" >> "$GITHUB_OUTPUT"

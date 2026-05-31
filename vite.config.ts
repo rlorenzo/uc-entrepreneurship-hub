@@ -7,13 +7,14 @@ declare const process: { env: Record<string, string | undefined> };
 // Set VITE_GH_PAGES=1 in CI to enable the /uc-entrepreneurship-hub/ prefix.
 export default defineConfig({
   fmt: {
-    // Machine-generated artifacts. The crawler writes data/crawled/*.json
-    // via JSON.stringify, and build-data.ts emits programs.generated.ts /
-    // news.generated.ts. All round-trip every refresh; format-checking
-    // them just makes the bot fight oxfmt's whitespace rules without
-    // buying anything.
+    // Machine-generated artifacts. The crawlers write data/crawled/*.json and
+    // data/news/*.json via JSON.stringify, and build-data.ts emits
+    // programs.generated.ts / news.generated.ts. All round-trip every refresh;
+    // format-checking them just makes the bot fight oxfmt's whitespace rules
+    // without buying anything.
     ignorePatterns: [
       "data/crawled/**",
+      "data/news/**",
       "src/data/programs.generated.ts",
       "src/data/news.generated.ts",
     ],

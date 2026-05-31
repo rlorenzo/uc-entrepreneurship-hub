@@ -3,8 +3,18 @@
   "name": "UC Riverside",
   "strategy": "playwright",
   "source": "https://news.ucr.edu/topic/business",
-  "crawledAt": "2026-05-07T01:17:30.131Z",
+  "crawledAt": "2026-05-29T23:32:57.054Z",
   "items": [
+    {
+      "id": "riverside-uc-riverside-launches-online-mba-program",
+      "campus": "riverside",
+      "title": "UC Riverside launches online MBA program",
+      "summary": "UC Riverside is launching a fully online Master of Business Administration program this fall, opening the door for students across California, the nation, and around the world to earn a University of California MBA degree remotely while continuing their careers and personal responsibilities. ",
+      "publishedAt": "",
+      "sourceUrl": "https://news.ucr.edu/articles/2026/05/21/uc-riverside-launches-online-mba-program",
+      "imageUrl": "https://news.ucr.edu/sites/default/files/2026-05/biz-header-960.jpg",
+      "sourceHost": "news.ucr.edu"
+    },
     {
       "id": "riverside-reclaiming-context-creative-works",
       "campus": "riverside",
@@ -193,16 +203,6 @@
       "publishedAt": "",
       "sourceUrl": "https://news.ucr.edu/articles/2025/04/07/it-good-know-how-much-your-co-workers-make",
       "imageUrl": "https://news.ucr.edu/sites/default/files/2025-04/960-gettyimages-1258125025-copy-2_1.jpg",
-      "sourceHost": "news.ucr.edu"
-    },
-    {
-      "id": "riverside-democracies-boost-womens-participation-labor-market",
-      "campus": "riverside",
-      "title": "Democracies boost women’s participation in the labor market",
-      "summary": "UCR study finds freer, democratic societies compel more women to pursue careers",
-      "publishedAt": "",
-      "sourceUrl": "https://news.ucr.edu/articles/2025/03/13/democracies-boost-womens-participation-labor-market",
-      "imageUrl": "https://news.ucr.edu/sites/default/files/2025-03/960-gettyimages-3308588.jpg",
       "sourceHost": "news.ucr.edu"
     }
   ],

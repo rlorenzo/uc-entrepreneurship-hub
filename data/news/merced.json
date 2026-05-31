@@ -3,7 +3,38 @@
   "name": "UC Merced",
   "strategy": "rss",
   "source": "https://news.ucmerced.edu/rss.xml",
-  "crawledAt": "2026-05-07T01:18:24.943Z",
-  "items": [],
+  "crawledAt": "2026-05-29T23:48:07.579Z",
+  "items": [
+    {
+      "id": "merced-projects-make-world-better-promoted-merced-2-market",
+      "campus": "merced",
+      "title": "Projects to Make the World Better Promoted at Merced 2 Market",
+      "summary": "By Patty Guerra, UC Merced May 27, 2026 The event highlighted projects aimed at helping people and communities solve problems. An artificial intelligence-powered system to ensure the safety of the elderly while still providing privacy. Wearable muscle monitoring to speed recovery from injury. A chemical-free method of putting out fires. A more effective way to detect methane leaks. These were just",
+      "publishedAt": "2026-05-27T18:05:03.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/projects-make-world-better-promoted-merced-2-market",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_merced_2_market_hero.jpeg",
+      "sourceHost": "news.ucmerced.edu"
+    },
+    {
+      "id": "merced-celebration-uc-merced-and-citris-looks-both-back-and-forward",
+      "campus": "merced",
+      "title": "Celebration of UC Merced and CITRIS Looks Both Back and Forward",
+      "summary": "By Patty Guerra, UC Merced May 18, 2026 The event was held at UC Merced on Main. A recent celebration marked important anniversaries for two partners in research and innovation, but both emphasized that the most exciting events still lie ahead. The commemoration at UC Merced on Main marked 25 years of the Center for Information Technology Research in the Interest of Society (CITRIS) and the Banata",
+      "publishedAt": "2026-05-18T23:49:05.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/celebration-uc-merced-and-citris-looks-both-back-and-forward",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_citris_anniversary_hero.jpeg",
+      "sourceHost": "news.ucmerced.edu"
+    },
+    {
+      "id": "merced-remembering-yangquan-chen-mechanical-engineering-innovator-and-mentor-many",
+      "campus": "merced",
+      "title": "Remembering YangQuan Chen, Mechanical Engineering Innovator and Mentor to Many",
+      "summary": "May 15, 2026 Chen's work contributed to the advancement of engineering on a global scale. Services are set Sunday afternoon for Professor YangQuan Chen, whose contibutions to UC Merced's School of Engineering and to the university as a whole will endure through programs he helped build, the research he advanced, and the many students and colleagues he inspired. Chen, a professor of mechanical engi",
+      "publishedAt": "2026-05-15T16:00:00.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/remembering-yangquan-chen-mechanical-engineering-innovator-and-mentor-many",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_chen_obit_hero_0.jpg",
+      "sourceHost": "news.ucmerced.edu"
+    }
+  ],
   "errors": []
 }

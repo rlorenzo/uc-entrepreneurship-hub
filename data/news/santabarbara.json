@@ -3,7 +3,7 @@
   "name": "UC Santa Barbara",
   "strategy": "playwright",
   "source": "https://innovation.ucsb.edu/blog/news",
-  "crawledAt": "2026-05-07T01:17:01.917Z",
+  "crawledAt": "2026-05-29T23:32:23.682Z",
   "items": [
     {
       "id": "santabarbara-new-venture-competition-finalists-2026",
@@ -106,102 +106,71 @@
       "sourceHost": "innovation.ucsb.edu"
     },
     {
-      "id": "santabarbara-rallio-won-netty-award-best-use-ai-marketing",
-      "campus": "santabarbara",
-      "title": "Rallio Won the Netty Award for Best Use of AI in Marketing",
-      "summary": "Rallio, an AI-powered social publishing platform, won the Netty Award for Best Use of AI in Marketing. Rallio’s CEO and Co-Founder, Chuck Goetschel, is a member of the UCSB Innovators Circle.",
-      "publishedAt": "2025-11-20T08:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/rallio-won-netty-award-best-use-ai-marketing",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-11/rallio_netty-awards_cover-image.png",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-aeluma-inc-wins-2025-leap-award-advanced-materials-innovation",
-      "campus": "santabarbara",
-      "title": "Aeluma, Inc. Wins 2025 LEAP Award for Advanced Materials Innovation",
-      "summary": "Aeluma includes the leadership of UCSB Professor Jonathan Klamkin, who serves as CEO and Director, and Professor Steven DenBaars, who sits on the company’s Board of Directors. Aeluma, Inc., a transformative semiconductor company, has received a 2025 LEAP Award.",
-      "publishedAt": "2025-11-20T08:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/aeluma-inc-wins-2025-leap-award-advanced-materials-innovation",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-11/Aeluma.png",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-ucsb-startup-turns-agricultural-waste-fabric-future",
-      "campus": "santabarbara",
-      "title": "UCSB Startup Turns Agricultural Waste into the Fabric of the Future",
-      "summary": "The Hurt Co. was founded by Bren School graduates Taylor Heisley-Cook and David Mun. What started as a UCSB thesis project is now helping shift the fashion industry toward more affordable, eco-friendly materials.",
-      "publishedAt": "2025-11-13T08:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-startup-turns-agricultural-waste-fabric-future",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-11/output-onlinepngtools%2B%282%29.png",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-nereid-biomaterials-named-startup-month",
-      "campus": "santabarbara",
-      "title": "Nereid Biomaterials Named Startup of the Month",
-      "summary": "Nereid Biomaterials was named Startup of the Month by Comstock's Magazine for developing ocean-degradable materials to reduce marine plastic pollution.",
-      "publishedAt": "2025-11-13T08:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/nereid-biomaterials-named-startup-month",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-11/1125-startup-lead-template.png",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-ucsb-faculty-and-alumni-recognized-times-best-inventions-2025",
-      "campus": "santabarbara",
-      "title": "UCSB Faculty and Alumni Recognized in TIME’s Best Inventions of 2025",
-      "summary": "Three Gauchos made TIME’s Best Inventions of 2025, reflecting the university’s ongoing impact in sustainability, technology, and health research.",
-      "publishedAt": "2025-10-30T07:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-faculty-and-alumni-recognized-times-best-inventions-2025",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-10/majorana-1-time-inventions.jpg",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-ucsb-alum-heather-hochrein-turns-class-project-evmatch",
-      "campus": "santabarbara",
-      "title": "UCSB Alum Heather Hochrein Turns Class Project into EVmatch",
-      "summary": "Heather Hochrein founded EVmatch while earning her master’s at UCSB’s Bren School. What began as a class project to improve EV charging access has grown into a company expanding shared charging options for renters and multifamily housing.",
-      "publishedAt": "2025-10-30T07:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-alum-heather-hochrein-turns-class-project-evmatch",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-10/Hochrein_headshot_2022_square.jpg.jpeg",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-ucsbs-technology-incubator-celebrates-10-years-campus",
-      "campus": "santabarbara",
-      "title": "UCSB’s Technology Incubator celebrates 10 years on campus",
-      "summary": "In 2015, the California NanoSystems Institute (CNSI) at UC Santa Barbara established the Technology Incubator in Elings Hall to support startup companies stemming from technologies developed on campus. Now in its 10th anniversary year, the incubator has become “a humming innovation ecosystem\".",
-      "publishedAt": "2025-06-23T07:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsbs-technology-incubator-celebrates-10-years-campus",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-06/CNSI%20Incubator%20Wall.jpg",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-next-energy-upgrades-pilot-production-line-opv-windows",
-      "campus": "santabarbara",
-      "title": "Next Energy upgrades pilot production line on OPV windows",
-      "summary": "Next Energy Technologies, a Goleta-based organic photovoltaic (OPV) technology company and UCSB CNSI Incubator Alum, has upgraded its pilot production line.",
-      "publishedAt": "2025-03-06T08:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/next-energy-upgrades-pilot-production-line-opv-windows",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-03/NEXT_Energy_40_x_60_OPV_Pilot_Production.jpg",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-palisades-fire-serves-unfortunate-test-case-plan-b-power-system-coming-soon-santa-barbara",
-      "campus": "santabarbara",
-      "title": "Palisades Fire Serves as ‘Unfortunate Test Case’ for Plan-B Power System Coming Soon to Santa Barbara",
-      "summary": "Unite to Light, James S. Bower Foundation Partner with Dragon Q Energy to Install 10 PowerPoles Across S.B. County.",
-      "publishedAt": "2025-01-31T08:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/palisades-fire-serves-unfortunate-test-case-plan-b-power-system-coming-soon-santa-barbara",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-01/DragonQ%20PowerPole.jpg",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
       "id": "santabarbara-pseudolithic-inc-raises-6m-seed-funding-revolutionize-wireless-chips-proprietary-chiplet",
       "campus": "santabarbara",
       "title": "PseudolithIC Inc. Raises $6M in Seed Funding to Revolutionize Wireless Chips with Proprietary Chiplet Heterogeneous Integration Technology.",
       "summary": "PseudolithIC Inc., an innovative leader in RF (radio frequency) chipset products, today announced it has successfully raised $6 million in a seed funding round. The round was led by Entrada Ventures, with additional investments from Foothill Ventures and Uncork Capital.",
       "publishedAt": "2025-01-28T08:00:00.000Z",
       "sourceUrl": "https://innovation.ucsb.edu/blog/news/pseudolithic-inc-raises-6m-seed-funding-revolutionize-wireless-chips-proprietary-chiplet",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-ucsbs-integrated-biosciences-raises-17m-seed-round",
+      "campus": "santabarbara",
+      "title": "UCSB's Integrated Biosciences Raises $17M Seed Round",
+      "summary": "Why does everyone have to die? That’s the thought that’s puzzled 2023 Under 30 Healthcare lister Felix Wong since he was six years old. In 2022, the age-old question led him to launch Integrated Biosciences—a biotech company discovering and developing drugs to cure age-associated illnesses like cancer, Alzheimer's and diabetes. This week, the company announced it’s raised some $17 million in seed ",
+      "publishedAt": "2025-01-07T08:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsbs-integrated-biosciences-raises-17m-seed-round",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-01/IB.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-new-drug-delivery-technology-promises-more-accurate-dosing",
+      "campus": "santabarbara",
+      "title": "New drug delivery technology promises more accurate dosing",
+      "summary": "UCSB spinoff Hikari advances drug dosing technology.",
+      "publishedAt": "2024-08-22T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/new-drug-delivery-technology-promises-more-accurate-dosing",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2024-08/AriaG-WillusF-Hikari-perko-uc-santa-barbara.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-hurd-co-be-featured-global-fashion-summit",
+      "campus": "santabarbara",
+      "title": "The Hurd Co to be featured at Global Fashion Summit",
+      "summary": "The Hurd Co will be featured at the Global Fashion Summit in Copenhagen next week as one of eight \"Trailblazers.\" As a featured Trailblazer, The Hurd Co will be showcasing agrilose at the \"Trailblazer Programme\" exhibition stand. The Trailblazer Programme is an initiative by Global Fashion Agenda and PDS Ventures to identify fashion’s most promising early-stage innovators. The program is dedicated",
+      "publishedAt": "2024-05-17T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/hurd-co-be-featured-global-fashion-summit",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2024-05/HurdCo.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-startup-highlights-start-2024",
+      "campus": "santabarbara",
+      "title": "Startup Highlights from the Start of 2024",
+      "summary": "Updates on funding, awards, and more from UCSB Affiliated Startups.",
+      "publishedAt": "2024-05-17T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/startup-highlights-start-2024",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2024-05/Untitled%20design%20%2813%29.png",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-nexus-photonics-closes-first-round-funding",
+      "campus": "santabarbara",
+      "title": "Nexus Photonics Closes First Round of Funding",
+      "summary": "Nexus backed by three seasoned VC firms — Phoenix Venture Partners, BlueSky Capital, and iGlobe Partners",
+      "publishedAt": "2022-05-18T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/nexus-photonics-closes-first-round-funding",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-funding-review-fall-2021-through-winter-2022",
+      "campus": "santabarbara",
+      "title": "Funding Review: Fall 2021 through Winter 2022",
+      "summary": "A look back at recent fundraising events by UCSB startups",
+      "publishedAt": "2022-04-28T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/funding-review-fall-2021-through-winter-2022",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2022-04/Funding%20Review%20Hero_0.png",
       "sourceHost": "innovation.ucsb.edu"
     }
   ],
