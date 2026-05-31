@@ -226,6 +226,18 @@ function CampusHero({
           backgroundSize: "18px 18px",
         }}
       />
+      {/* Legibility scrim: keep the hero text AA-contrast over the lighter
+          campus colors (e.g. UCLA, Irvine). Darkens behind the left text
+          column and fades to clear over the map on the right. */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+          background:
+            "linear-gradient(90deg, rgba(0,32,51,.6) 0%, rgba(0,32,51,.3) 45%, rgba(0,32,51,0) 75%)",
+        }}
+      />
       <div
         style={{
           position: "relative",

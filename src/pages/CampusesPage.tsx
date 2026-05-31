@@ -91,7 +91,10 @@ function CampusCard({ campus, onHoverChange }: CampusCardProps) {
             letterSpacing: ".10em",
             textTransform: "uppercase",
             fontWeight: 700,
-            color: campus.color,
+            // The card's top stripe carries the campus color; raw campus.color
+            // here fails AA on white for the lighter campuses. Use the AA-safe
+            // accent instead.
+            color: "#005581",
           }}
         >
           {campus.programs} programs
