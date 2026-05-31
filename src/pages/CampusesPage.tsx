@@ -144,6 +144,15 @@ function gridLayout(isMobile: boolean): GridLayout {
       };
 }
 
+// Group the directory by geography (north/south of ~lat 36) so the ten
+// campuses read as two scannable sets instead of one flat grid. The headings
+// also give the directory the heading structure it was missing.
+const NORTH_OF_LAT = 36;
+const REGIONS = [
+  { label: "Northern California", campuses: CAMPUSES.filter((c) => c.lat > NORTH_OF_LAT) },
+  { label: "Southern California", campuses: CAMPUSES.filter((c) => c.lat <= NORTH_OF_LAT) },
+];
+
 function CampusesGrid() {
   const layout = gridLayout(useIsMobile());
   const [hoverId, setHoverId] = useState<string | null>(null);
@@ -162,15 +171,32 @@ function CampusesGrid() {
         <div style={{ position: layout.mapPosition, top: 116 }}>
           <CaliforniaMap variant="standalone" highlight={hoverId} />
         </div>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: layout.cardsTemplateColumns,
-            gap: 14,
-          }}
-        >
-          {CAMPUSES.map((c) => (
-            <CampusCard key={c.id} campus={c} onHoverChange={setHoverId} />
+        <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+          {REGIONS.map((region) => (
+            <div key={region.label}>
+              <h2
+                style={{
+                  fontFamily: "'Source Serif 4',Georgia,serif",
+                  fontWeight: 600,
+                  fontSize: 20,
+                  color: "#002033",
+                  margin: "0 0 14px",
+                }}
+              >
+                {region.label}
+              </h2>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: layout.cardsTemplateColumns,
+                  gap: 14,
+                }}
+              >
+                {region.campuses.map((c) => (
+                  <CampusCard key={c.id} campus={c} onHoverChange={setHoverId} />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>

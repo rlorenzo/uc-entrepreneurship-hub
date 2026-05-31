@@ -342,22 +342,14 @@ function EcosystemRow({
       }}
     >
       <div
+        aria-hidden="true"
         style={{
-          width: 48,
-          height: 48,
-          borderRadius: 4,
+          width: 10,
+          height: 10,
+          borderRadius: 999,
           background: campusColor,
-          color: "#fff",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontFamily: "'Source Serif 4',Georgia,serif",
-          fontWeight: 600,
-          fontSize: 18,
         }}
-      >
-        {(index + 1).toString().padStart(2, "0")}
-      </div>
+      />
       <div>
         <div
           style={{
