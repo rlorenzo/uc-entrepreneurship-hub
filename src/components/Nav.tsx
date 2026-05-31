@@ -26,8 +26,8 @@ function UtilityBar() {
   return (
     <div
       style={{
-        background: "#002033",
-        color: "#BDE3F6",
+        background: "var(--uc-dark-blue)",
+        color: "var(--uc-blue-xlight)",
         fontSize: 13,
         padding: "8px 24px",
         display: "flex",
@@ -39,7 +39,7 @@ function UtilityBar() {
       <div style={{ display: "flex", gap: 18, alignItems: "center" }}>
         <span
           style={{
-            color: "#FFB511",
+            color: "var(--uc-gold)",
             fontWeight: 600,
             letterSpacing: ".08em",
             textTransform: "uppercase",
@@ -53,7 +53,11 @@ function UtilityBar() {
       </div>
       <div style={{ display: "flex", gap: 18 }}>
         {UTILITY_LINKS.map((u) => (
-          <a key={u.label} href={u.href} style={{ color: "#BDE3F6", textDecoration: "none" }}>
+          <a
+            key={u.label}
+            href={u.href}
+            style={{ color: "var(--uc-blue-xlight)", textDecoration: "none" }}
+          >
             {u.label}
           </a>
         ))}
@@ -76,7 +80,7 @@ function Brand() {
             fontFamily: "'Source Serif 4',Georgia,serif",
             fontWeight: 600,
             fontSize: 18,
-            color: "#002033",
+            color: "var(--uc-dark-blue)",
           }}
         >
           Entrepreneurship
@@ -108,7 +112,7 @@ function DesktopLinks({ pathname }: { pathname: string }) {
             key={l.to}
             to={l.to}
             style={{
-              color: "#002033",
+              color: "var(--uc-dark-blue)",
               textDecoration: "none",
               fontWeight: 600,
               fontSize: 15,
@@ -134,9 +138,9 @@ function CompareChip() {
         display: "inline-flex",
         alignItems: "center",
         gap: 8,
-        background: "#fff",
+        background: "var(--uc-white)",
         border: "2px solid #002033",
-        color: "#002033",
+        color: "var(--uc-dark-blue)",
         padding: "10px 16px",
         borderRadius: 4,
         fontWeight: 600,
@@ -155,7 +159,7 @@ function FindCTA() {
       to="/discover"
       style={{
         background: "var(--accent, #1295D8)",
-        color: "#fff",
+        color: "var(--uc-white)",
         padding: "12px 22px",
         borderRadius: 4,
         fontWeight: 600,
@@ -178,7 +182,7 @@ function SearchButton() {
       style={{
         background: "transparent",
         border: 0,
-        color: "#002033",
+        color: "var(--uc-dark-blue)",
         cursor: "pointer",
         padding: 8,
         display: "flex",
@@ -239,7 +243,7 @@ function MobileDrawer({ open, onClose, pathname }: MobileDrawerProps) {
       <div
         style={{
           position: "relative",
-          background: "#fff",
+          background: "var(--uc-white)",
           marginLeft: "auto",
           width: "min(320px, 86%)",
           height: "100%",
@@ -265,7 +269,7 @@ function MobileDrawer({ open, onClose, pathname }: MobileDrawerProps) {
               background: "transparent",
               border: 0,
               cursor: "pointer",
-              color: "#002033",
+              color: "var(--uc-dark-blue)",
               padding: 6,
               display: "flex",
             }}
@@ -281,7 +285,7 @@ function MobileDrawer({ open, onClose, pathname }: MobileDrawerProps) {
               to={l.to}
               onClick={onClose}
               style={{
-                color: active ? "var(--accent, #1295D8)" : "#002033",
+                color: active ? "var(--accent, #1295D8)" : "var(--uc-dark-blue)",
                 textDecoration: "none",
                 fontWeight: 700,
                 fontSize: 18,
@@ -299,7 +303,7 @@ function MobileDrawer({ open, onClose, pathname }: MobileDrawerProps) {
           style={{
             marginTop: 18,
             background: "var(--accent, #1295D8)",
-            color: "#fff",
+            color: "var(--uc-white)",
             padding: "14px 18px",
             borderRadius: 4,
             fontWeight: 600,
@@ -326,7 +330,7 @@ function MobileDrawer({ open, onClose, pathname }: MobileDrawerProps) {
               href={u.href}
               onClick={onClose}
               style={{
-                color: "#4C4C4C",
+                color: "var(--uc-gray)",
                 textDecoration: "none",
                 fontSize: 14,
                 fontWeight: 500,
@@ -358,7 +362,7 @@ function MobileNav({ pathname }: { pathname: string }) {
           padding: "0 16px",
           borderBottom: "1px solid rgba(0,32,51,.10)",
           gap: 12,
-          background: "#fff",
+          background: "var(--uc-white)",
           position: "sticky",
           top: 0,
           zIndex: 30,
@@ -373,7 +377,7 @@ function MobileNav({ pathname }: { pathname: string }) {
           style={{
             background: "transparent",
             border: 0,
-            color: "#002033",
+            color: "var(--uc-dark-blue)",
             cursor: "pointer",
             padding: 8,
             display: "flex",
@@ -399,7 +403,7 @@ function DesktopNav({ pathname }: { pathname: string }) {
           padding: "0 32px",
           borderBottom: "1px solid rgba(0,32,51,.10)",
           gap: 32,
-          background: "#fff",
+          background: "var(--uc-white)",
           position: "sticky",
           top: 0,
           zIndex: 30,

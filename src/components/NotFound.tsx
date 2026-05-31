@@ -46,14 +46,16 @@ export function NotFound({ eyebrow, title, body, ctaLabel, ctaTo }: NotFoundProp
             fontSize: "clamp(32px,4vw,48px)",
             lineHeight: 1.1,
             margin: "12px 0 0",
-            color: "#002033",
+            color: "var(--uc-dark-blue)",
             textWrap: "balance",
             outline: "none",
           }}
         >
           {title}
         </h1>
-        <p style={{ margin: "16px 0 28px", fontSize: 18, lineHeight: 1.55, color: "#4C4C4C" }}>
+        <p
+          style={{ margin: "16px 0 28px", fontSize: 18, lineHeight: 1.55, color: "var(--uc-gray)" }}
+        >
           {body}
         </p>
         <Link
@@ -63,7 +65,7 @@ export function NotFound({ eyebrow, title, body, ctaLabel, ctaTo }: NotFoundProp
             alignItems: "center",
             gap: 8,
             background: "var(--accent)",
-            color: "#fff",
+            color: "var(--uc-white)",
             padding: "14px 24px",
             borderRadius: 6,
             fontWeight: 600,

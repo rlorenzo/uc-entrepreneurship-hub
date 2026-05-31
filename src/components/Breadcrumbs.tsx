@@ -16,7 +16,7 @@ export function Breadcrumbs({ trail }: { trail: Crumb[] }) {
         margin: "0 auto",
         width: "100%",
         fontSize: 13,
-        color: "#4C4C4C",
+        color: "var(--uc-gray)",
         display: "flex",
         gap: 8,
         alignItems: "center",
@@ -27,11 +27,14 @@ export function Breadcrumbs({ trail }: { trail: Crumb[] }) {
         <Fragment key={i}>
           {i > 0 && <I_Chevron size={12} />}
           {t.to ? (
-            <Link to={t.to} style={{ color: "#005581", textDecoration: "none", fontWeight: 600 }}>
+            <Link
+              to={t.to}
+              style={{ color: "var(--accent)", textDecoration: "none", fontWeight: 600 }}
+            >
               {t.label}
             </Link>
           ) : (
-            <span style={{ color: "#002033", fontWeight: 600 }}>{t.label}</span>
+            <span style={{ color: "var(--uc-dark-blue)", fontWeight: 600 }}>{t.label}</span>
           )}
         </Fragment>
       ))}

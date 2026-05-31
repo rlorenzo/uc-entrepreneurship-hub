@@ -9,8 +9,8 @@ export function Page({ children }: { children: ReactNode }) {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        background: "#fff",
-        color: "#002033",
+        background: "var(--uc-white)",
+        color: "var(--uc-dark-blue)",
       }}
     >
       <Nav />

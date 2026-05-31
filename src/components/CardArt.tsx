@@ -35,7 +35,13 @@ function CampusInitials({ initials }: { initials: string }) {
 
 function TypeChip({ label, color }: { label?: string; color?: string }) {
   return (
-    <span style={{ ...CHIP_BASE, background: "rgba(255,255,255,.95)", color: color ?? "#002033" }}>
+    <span
+      style={{
+        ...CHIP_BASE,
+        background: "rgba(255,255,255,.95)",
+        color: color ?? "var(--uc-dark-blue)",
+      }}
+    >
       {label}
     </span>
   );
@@ -46,8 +52,8 @@ function FeaturedChip() {
     <span
       style={{
         ...CHIP_BASE,
-        background: "#FFB511",
-        color: "#002033",
+        background: "var(--uc-gold)",
+        color: "var(--uc-dark-blue)",
         display: "inline-flex",
         alignItems: "center",
         gap: 4,
@@ -84,7 +90,7 @@ function CampusBadge({ name }: { name?: string }) {
         position: "absolute",
         bottom: 14,
         left: 14,
-        color: "#fff",
+        color: "var(--uc-white)",
         fontSize: 13,
         fontWeight: 600,
         display: "inline-flex",

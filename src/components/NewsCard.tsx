@@ -25,7 +25,7 @@ function CampusPill({ campusId }: { campusId: string }) {
         left: 12,
         fontSize: 12,
         fontWeight: 600,
-        color: "#fff",
+        color: "var(--uc-white)",
         display: "inline-flex",
         alignItems: "center",
         gap: 6,
@@ -35,7 +35,7 @@ function CampusPill({ campusId }: { campusId: string }) {
         background: "rgba(0,32,51,.78)",
       }}
     >
-      <span style={{ width: 8, height: 8, borderRadius: 999, background: "#fff" }} />
+      <span style={{ width: 8, height: 8, borderRadius: 999, background: "var(--uc-white)" }} />
       {name}
     </div>
   );
@@ -99,7 +99,7 @@ function NewsCardSummary({ summary, lines }: { summary: string; lines: number })
       style={{
         fontSize: 14,
         lineHeight: 1.5,
-        color: "#4C4C4C",
+        color: "var(--uc-gray)",
         margin: "0 0 14px",
         display: "-webkit-box",
         WebkitLineClamp: lines,
@@ -144,7 +144,7 @@ function NewsCardBody({ item, featured }: { item: NewsItem; featured: boolean })
           fontWeight: 600,
           fontSize: featured ? 28 : 20,
           lineHeight: 1.22,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
           margin: "0 0 10px",
           textWrap: "pretty",
         }}
@@ -185,7 +185,7 @@ export function NewsCard({ item, hideCampusName = false, featured = false }: New
         color: "inherit",
         display: "flex",
         flexDirection: horizontal ? "row" : "column",
-        background: "#fff",
+        background: "var(--uc-white)",
         border: "1px solid rgba(0,32,51,.10)",
         borderRadius: 8,
         overflow: "hidden",
