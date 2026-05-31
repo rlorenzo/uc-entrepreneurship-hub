@@ -137,17 +137,22 @@ function checkboxBoxStyle(checked: boolean) {
     height: 18,
     borderRadius: 3,
     border: checked ? `2px solid ${ACCENT}` : "1.5px solid rgba(0,32,51,.30)",
-    background: checked ? ACCENT : "#fff",
+    background: checked ? ACCENT : "var(--uc-white)",
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    color: "#fff",
+    color: "var(--uc-white)",
     flexShrink: 0,
   } as const;
 }
 
 function checkboxLabelStyle(checked: boolean) {
-  return { flex: 1, fontSize: 14, color: "#002033", fontWeight: checked ? 600 : 400 } as const;
+  return {
+    flex: 1,
+    fontSize: 14,
+    color: "var(--uc-dark-blue)",
+    fontWeight: checked ? 600 : 400,
+  } as const;
 }
 
 function FilterCheckbox({
@@ -182,7 +187,9 @@ function FilterCheckbox({
         {checked && <I_Check size={12} />}
       </span>
       <span style={checkboxLabelStyle(checked)}>{label}</span>
-      {count !== undefined && <span style={{ fontSize: 12, color: "#5B5D5E" }}>{count}</span>}
+      {count !== undefined && (
+        <span style={{ fontSize: 12, color: "var(--uc-gray-mid)" }}>{count}</span>
+      )}
     </label>
   );
 }
@@ -218,7 +225,7 @@ function FilterSection({
             letterSpacing: ".14em",
             textTransform: "uppercase",
             fontWeight: 700,
-            color: "#002033",
+            color: "var(--uc-dark-blue)",
           }}
         >
           {title}
@@ -227,7 +234,7 @@ function FilterSection({
           style={{
             transform: open ? "rotate(90deg)" : "rotate(0)",
             transition: "transform .2s",
-            color: "#4C4C4C",
+            color: "var(--uc-gray)",
           }}
         >
           <I_Chevron size={14} />
@@ -351,7 +358,7 @@ function FilterHeader({ activeCount, onClear }: { activeCount: number; onClear: 
           fontFamily: "'Source Serif 4',Georgia,serif",
           fontWeight: 600,
           fontSize: 22,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
         }}
       >
         Filters
@@ -362,7 +369,7 @@ function FilterHeader({ activeCount, onClear }: { activeCount: number; onClear: 
           style={{
             background: "transparent",
             border: 0,
-            color: "#005581",
+            color: "var(--accent)",
             fontWeight: 600,
             fontSize: 13,
             cursor: "pointer",
@@ -434,7 +441,7 @@ function MobileFilterPanel({ filters, setFilters, counts }: FilterSidebarProps) 
       onToggle={(e) => setOpen((e.currentTarget as HTMLDetailsElement).open)}
       style={{
         marginBottom: 16,
-        background: "#F7F5F1",
+        background: "var(--bg-2)",
         borderRadius: 8,
         padding: "12px 16px",
       }}
@@ -448,7 +455,7 @@ function MobileFilterPanel({ filters, setFilters, counts }: FilterSidebarProps) 
           alignItems: "center",
           fontWeight: 600,
           fontSize: 15,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
         }}
       >
         <span>
@@ -497,8 +504,8 @@ function QueryChip({ q, onClear }: { q: string; onClear: () => void }) {
         display: "inline-flex",
         alignItems: "center",
         gap: 6,
-        background: "#002033",
-        color: "#fff",
+        background: "var(--uc-dark-blue)",
+        color: "var(--uc-white)",
         padding: "6px 10px 6px 12px",
         borderRadius: 999,
         fontSize: 13,
@@ -513,7 +520,7 @@ function QueryChip({ q, onClear }: { q: string; onClear: () => void }) {
         style={{
           background: "transparent",
           border: 0,
-          color: "#fff",
+          color: "var(--uc-white)",
           cursor: "pointer",
           padding: 0,
           display: "flex",
@@ -532,9 +539,9 @@ function FilterChip({ k, v, onRemove }: { k: string; v: string; onRemove: () => 
         display: "inline-flex",
         alignItems: "center",
         gap: 6,
-        background: "#fff",
+        background: "var(--uc-white)",
         border: "1px solid rgba(0,32,51,.18)",
-        color: "#002033",
+        color: "var(--uc-dark-blue)",
         padding: "6px 10px 6px 12px",
         borderRadius: 999,
         fontSize: 13,
@@ -549,7 +556,7 @@ function FilterChip({ k, v, onRemove }: { k: string; v: string; onRemove: () => 
         style={{
           background: "transparent",
           border: 0,
-          color: "#4C4C4C",
+          color: "var(--uc-gray)",
           cursor: "pointer",
           padding: 0,
           display: "flex",
@@ -590,7 +597,7 @@ function ListRowMeta({ program }: { program: Program }) {
     <>
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
         <CampusBadge campusId={program.campus} />
-        <span style={{ color: "#5B5D5E" }} aria-hidden="true">
+        <span style={{ color: "var(--uc-gray-mid)" }} aria-hidden="true">
           ·
         </span>
         <TypePill typeId={program.type} />
@@ -601,7 +608,7 @@ function ListRowMeta({ program }: { program: Program }) {
           fontFamily: "'Source Serif 4',Georgia,serif",
           fontWeight: 600,
           fontSize: 22,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
         }}
       >
         {program.name}
@@ -611,7 +618,7 @@ function ListRowMeta({ program }: { program: Program }) {
           margin: 0,
           fontSize: 14,
           lineHeight: 1.5,
-          color: "#4C4C4C",
+          color: "var(--uc-gray)",
           display: "-webkit-box",
           WebkitLineClamp: 2,
           WebkitBoxOrient: "vertical",
@@ -637,7 +644,7 @@ function ListRowActions({ program, onOpen }: { program: Program; onOpen: (id: st
       <div
         style={{
           fontSize: 12,
-          color: "#4C4C4C",
+          color: "var(--uc-gray)",
           display: "inline-flex",
           alignItems: "center",
           gap: 6,
@@ -645,14 +652,16 @@ function ListRowActions({ program, onOpen }: { program: Program; onOpen: (id: st
       >
         <I_Calendar size={13} /> {program.deadline}
       </div>
-      <div style={{ fontSize: 14, fontWeight: 600, color: "#002033" }}>{program.funding}</div>
+      <div style={{ fontSize: 14, fontWeight: 600, color: "var(--uc-dark-blue)" }}>
+        {program.funding}
+      </div>
       <div style={{ display: "flex", gap: 6, marginTop: 4 }}>
         <button
           onClick={() => (inCompare ? remove(program.id) : add(program.id))}
           style={{
-            border: `1px solid ${inCompare ? "#005581" : "rgba(0,32,51,.15)"}`,
-            background: inCompare ? "#005581" : "#fff",
-            color: inCompare ? "#fff" : "#002033",
+            border: `1px solid ${inCompare ? "var(--accent)" : "rgba(0,32,51,.15)"}`,
+            background: inCompare ? "var(--accent)" : "var(--uc-white)",
+            color: inCompare ? "var(--uc-white)" : "var(--uc-dark-blue)",
             borderRadius: 4,
             padding: "8px 12px",
             fontSize: 12,
@@ -677,7 +686,7 @@ function ListRowActions({ program, onOpen }: { program: Program; onOpen: (id: st
           onClick={() => onOpen(program.id)}
           style={{
             background: "var(--accent, #1295D8)",
-            color: "#fff",
+            color: "var(--uc-white)",
             border: 0,
             borderRadius: 4,
             padding: "8px 14px",
@@ -703,7 +712,7 @@ function ProgramListRow({ program, onOpen }: { program: Program; onOpen: (id: st
         gridTemplateColumns: isMobile ? "1fr" : "160px 1fr 200px",
         gap: isMobile ? 14 : 24,
         padding: 18,
-        background: "#fff",
+        background: "var(--uc-white)",
         border: "1px solid rgba(0,32,51,.10)",
         borderRadius: 8,
         alignItems: "center",
@@ -767,8 +776,8 @@ function ResultsToolbar({ count, query, sort, setSort, view, setView }: ResultsT
         flexWrap: "wrap",
       }}
     >
-      <div style={{ fontSize: 14, color: "#4C4C4C" }}>
-        <strong style={{ color: "#002033", fontWeight: 700 }}>{count}</strong>{" "}
+      <div style={{ fontSize: 14, color: "var(--uc-gray)" }}>
+        <strong style={{ color: "var(--uc-dark-blue)", fontWeight: 700 }}>{count}</strong>{" "}
         {count === 1 ? "program" : "programs"} {query && <>matching “{query}”</>}
       </div>
       <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
@@ -787,7 +796,7 @@ function SortControl({ sort, setSort }: { sort: SortKey; setSort: (s: SortKey) =
         alignItems: "center",
         gap: 8,
         fontSize: 13,
-        color: "#4C4C4C",
+        color: "var(--uc-gray)",
       }}
     >
       Sort by
@@ -798,11 +807,11 @@ function SortControl({ sort, setSort }: { sort: SortKey; setSort: (s: SortKey) =
           fontFamily: "inherit",
           fontSize: 14,
           fontWeight: 600,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
           padding: "8px 28px 8px 10px",
           border: "1px solid rgba(0,32,51,.15)",
           borderRadius: 4,
-          background: "#fff",
+          background: "var(--uc-white)",
           cursor: "pointer",
         }}
       >
@@ -817,8 +826,8 @@ function SortControl({ sort, setSort }: { sort: SortKey; setSort: (s: SortKey) =
 
 const viewToggleButtonStyle = (active: boolean) =>
   ({
-    background: active ? "#002033" : "#fff",
-    color: active ? "#fff" : "#002033",
+    background: active ? "var(--uc-dark-blue)" : "var(--uc-white)",
+    color: active ? "var(--uc-white)" : "var(--uc-dark-blue)",
     border: 0,
     padding: "8px 10px",
     cursor: "pointer",
@@ -863,7 +872,7 @@ function EmptyResults({ onReset }: { onReset: () => void }) {
       style={{
         padding: "80px 24px",
         textAlign: "center",
-        background: "#F7F5F1",
+        background: "var(--bg-2)",
         borderRadius: 8,
       }}
     >
@@ -872,12 +881,12 @@ function EmptyResults({ onReset }: { onReset: () => void }) {
           fontFamily: "'Source Serif 4',Georgia,serif",
           fontWeight: 600,
           fontSize: 28,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
         }}
       >
         No programs match those filters.
       </div>
-      <p style={{ fontSize: 16, color: "#4C4C4C", margin: "12px 0 24px" }}>
+      <p style={{ fontSize: 16, color: "var(--uc-gray)", margin: "12px 0 24px" }}>
         Try clearing a filter or broadening your search.
       </p>
       <button
@@ -885,7 +894,7 @@ function EmptyResults({ onReset }: { onReset: () => void }) {
         style={{
           background: "transparent",
           border: "2px solid #005581",
-          color: "#005581",
+          color: "var(--accent)",
           padding: "12px 22px",
           borderRadius: 4,
           fontWeight: 600,
@@ -946,7 +955,7 @@ function DiscoverTitle() {
           fontSize: "clamp(36px,4vw,52px)",
           lineHeight: 1.1,
           margin: "10px 0 0",
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
         }}
       >
         Explore programs
@@ -957,7 +966,7 @@ function DiscoverTitle() {
 
 function discoverHeroSection(isMobile: boolean) {
   return {
-    background: "#F7F5F1",
+    background: "var(--bg-2)",
     padding: isMobile ? "20px 20px 18px" : "32px 32px 28px",
     borderBottom: "1px solid rgba(0,32,51,.08)",
   } as const;
@@ -1006,7 +1015,7 @@ function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
     <div
       role="search"
       style={{
-        background: "#fff",
+        background: "var(--uc-white)",
         borderRadius: 6,
         border: "1px solid rgba(0,32,51,.15)",
         padding: 6,
@@ -1023,7 +1032,7 @@ function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
           display: "flex",
           alignItems: "center",
           padding: "0 12px",
-          color: "#4C4C4C",
+          color: "var(--uc-gray)",
         }}
       >
         <I_Search size={18} />
@@ -1040,7 +1049,7 @@ function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
           fontSize: 15,
           padding: "10px 0",
           background: "transparent",
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
           fontFamily: "inherit",
         }}
       />
@@ -1055,7 +1064,7 @@ function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
           style={{
             background: "transparent",
             border: 0,
-            color: "#4C4C4C",
+            color: "var(--uc-gray)",
             padding: "0 10px",
             cursor: "pointer",
             display: "flex",
@@ -1094,7 +1103,7 @@ interface DiscoverBodyProps {
 function discoverBodySection(isMobile: boolean) {
   return {
     padding: isMobile ? "20px 20px 56px" : "32px 32px 80px",
-    background: "#fff",
+    background: "var(--uc-white)",
   } as const;
 }
 

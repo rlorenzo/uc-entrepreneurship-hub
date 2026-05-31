@@ -30,7 +30,12 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
 
   return (
     <section
-      style={{ position: "relative", background: "#002033", color: "#fff", overflow: "hidden" }}
+      style={{
+        position: "relative",
+        background: "var(--uc-dark-blue)",
+        color: "var(--uc-white)",
+        overflow: "hidden",
+      }}
     >
       <div
         style={{
@@ -76,7 +81,7 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
               padding: "6px 14px",
               borderRadius: 999,
               background: "rgba(255,181,17,.14)",
-              color: "#FFB511",
+              color: "var(--uc-gold)",
               fontSize: 12,
               fontWeight: 600,
               letterSpacing: ".12em",
@@ -84,8 +89,10 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
               marginBottom: 24,
             }}
           >
-            <span style={{ width: 6, height: 6, borderRadius: 999, background: "#FFB511" }} /> 1
-            platform · 10 campuses · {PROGRAM_COUNT} programs
+            <span
+              style={{ width: 6, height: 6, borderRadius: 999, background: "var(--uc-gold)" }}
+            />{" "}
+            1 platform · 10 campuses · {PROGRAM_COUNT} programs
           </div>
           <h1
             style={{
@@ -108,7 +115,7 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
               lineHeight: 1.45,
               marginTop: 22,
               maxWidth: 620,
-              color: "#BDE3F6",
+              color: "var(--uc-blue-xlight)",
             }}
           >
             Incubators, accelerators, courses, funding, competitions, and maker spaces across all
@@ -122,7 +129,7 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
             }}
             style={{
               marginTop: 28,
-              background: "#fff",
+              background: "var(--uc-white)",
               borderRadius: 8,
               boxShadow: "0 12px 32px rgba(0,0,0,.18)",
               padding: 8,
@@ -138,7 +145,7 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
                 alignItems: "center",
                 gap: 10,
                 padding: "0 16px",
-                color: "#005581",
+                color: "var(--accent)",
               }}
             >
               <I_Search size={20} />
@@ -154,7 +161,7 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
                 border: 0,
                 fontSize: 17,
                 fontFamily: "'Source Sans 3',sans-serif",
-                color: "#002033",
+                color: "var(--uc-dark-blue)",
                 padding: "14px 0",
                 background: "transparent",
               }}
@@ -163,7 +170,7 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
               type="submit"
               style={{
                 background: "var(--accent, #1295D8)",
-                color: "#fff",
+                color: "var(--uc-white)",
                 border: 0,
                 borderRadius: 6,
                 padding: "12px 22px",
@@ -180,7 +187,14 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
           </form>
 
           <div style={{ marginTop: 18, display: "flex", gap: 8, flexWrap: "wrap", maxWidth: 680 }}>
-            <span style={{ fontSize: 13, color: "#BDE3F6", alignSelf: "center", marginRight: 4 }}>
+            <span
+              style={{
+                fontSize: 13,
+                color: "var(--uc-blue-xlight)",
+                alignSelf: "center",
+                marginRight: 4,
+              }}
+            >
               Try:
             </span>
             {chips.map((c) => (
@@ -189,7 +203,7 @@ function Hero({ onSearch }: { onSearch: (opts: SearchOpts) => void }) {
                 onClick={() => onSearch({ filter: c.filter })}
                 style={{
                   background: "rgba(255,255,255,.08)",
-                  color: "#fff",
+                  color: "var(--uc-white)",
                   border: "1px solid rgba(255,255,255,.18)",
                   borderRadius: 999,
                   padding: "7px 14px",
@@ -215,7 +229,10 @@ function FeaturedStrip({ onOpen }: { onOpen: (id: string) => void }) {
   const isMobile = useIsMobile();
   return (
     <section
-      style={{ padding: isMobile ? "56px 20px 32px" : "96px 32px 48px", background: "#fff" }}
+      style={{
+        padding: isMobile ? "56px 20px 32px" : "96px 32px 48px",
+        background: "var(--uc-white)",
+      }}
     >
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
         <div
@@ -236,7 +253,7 @@ function FeaturedStrip({ onOpen }: { onOpen: (id: string) => void }) {
                 fontSize: "clamp(32px,3.6vw,48px)",
                 lineHeight: 1.1,
                 margin: "12px 0 0",
-                color: "#002033",
+                color: "var(--uc-dark-blue)",
                 textWrap: "balance",
               }}
             >
@@ -247,7 +264,7 @@ function FeaturedStrip({ onOpen }: { onOpen: (id: string) => void }) {
                 margin: "14px 0 0",
                 fontSize: 18,
                 lineHeight: 1.5,
-                color: "#4C4C4C",
+                color: "var(--uc-gray)",
                 maxWidth: 640,
               }}
             >
@@ -258,7 +275,7 @@ function FeaturedStrip({ onOpen }: { onOpen: (id: string) => void }) {
           <Link
             to="/discover"
             style={{
-              color: "#005581",
+              color: "var(--accent)",
               fontWeight: 600,
               fontSize: 15,
               textDecoration: "underline",
@@ -322,7 +339,7 @@ function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => 
   ];
 
   return (
-    <section style={{ background: "#F7F5F1", padding: isMobile ? "48px 20px" : "80px 32px" }}>
+    <section style={{ background: "var(--bg-2)", padding: isMobile ? "48px 20px" : "80px 32px" }}>
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
         <div
           style={{
@@ -342,7 +359,7 @@ function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => 
                 fontSize: "clamp(28px,3vw,40px)",
                 lineHeight: 1.1,
                 margin: "12px 0 0",
-                color: "#002033",
+                color: "var(--uc-dark-blue)",
               }}
             >
               Find what fits where you are
@@ -372,7 +389,7 @@ function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => 
                 }}
                 style={{
                   textAlign: "left",
-                  background: "#fff",
+                  background: "var(--uc-white)",
                   border: "1px solid rgba(0,32,51,.10)",
                   borderRadius: 8,
                   padding: "24px 24px 22px",
@@ -406,7 +423,7 @@ function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => 
                       fontSize: 32,
                       fontFamily: "'Source Serif 4',Georgia,serif",
                       fontWeight: 600,
-                      color: "#002033",
+                      color: "var(--uc-dark-blue)",
                       lineHeight: 1,
                     }}
                   >
@@ -418,17 +435,19 @@ function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => 
                     fontFamily: "'Source Serif 4',Georgia,serif",
                     fontWeight: 600,
                     fontSize: 24,
-                    color: "#002033",
+                    color: "var(--uc-dark-blue)",
                     marginTop: 8,
                   }}
                 >
                   {it.label}
                 </div>
-                <div style={{ fontSize: 15, color: "#4C4C4C", lineHeight: 1.45 }}>{it.desc}</div>
+                <div style={{ fontSize: 15, color: "var(--uc-gray)", lineHeight: 1.45 }}>
+                  {it.desc}
+                </div>
                 <div
                   style={{
                     marginTop: 10,
-                    color: "#005581",
+                    color: "var(--accent)",
                     fontSize: 14,
                     fontWeight: 600,
                     display: "inline-flex",
@@ -462,7 +481,7 @@ function CampusButton({ campus, active, onHover, onPick }: CampusButtonProps) {
       onClick={() => onPick(campus.id)}
       style={{
         textAlign: "left",
-        background: active ? "#F7F5F1" : "transparent",
+        background: active ? "var(--bg-2)" : "transparent",
         border: 0,
         padding: "10px 12px",
         borderRadius: 6,
@@ -473,8 +492,10 @@ function CampusButton({ campus, active, onHover, onPick }: CampusButtonProps) {
       }}
     >
       <span style={{ width: 8, height: 8, borderRadius: 999, background: campus.color }} />
-      <span style={{ fontWeight: 600, fontSize: 15, color: "#002033" }}>{campus.name}</span>
-      <span style={{ marginLeft: "auto", fontSize: 12, color: "#5B5D5E" }}>
+      <span style={{ fontWeight: 600, fontSize: 15, color: "var(--uc-dark-blue)" }}>
+        {campus.name}
+      </span>
+      <span style={{ marginLeft: "auto", fontSize: 12, color: "var(--uc-gray-mid)" }}>
         {campus.programs} programs
       </span>
     </button>
@@ -500,18 +521,19 @@ function MapSectionLeft({
           fontSize: "clamp(36px,4vw,56px)",
           lineHeight: 1.08,
           margin: "12px 0 0",
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
           textWrap: "balance",
         }}
       >
-        One mission. Ten campuses. <span style={{ color: "#005581" }}>Hundreds of paths.</span>
+        One mission. Ten campuses.{" "}
+        <span style={{ color: "var(--accent)" }}>Hundreds of paths.</span>
       </h2>
       <p
         style={{
           margin: "18px 0 0",
           fontSize: 18,
           lineHeight: 1.55,
-          color: "#4C4C4C",
+          color: "var(--uc-gray)",
           maxWidth: 520,
         }}
       >
@@ -546,7 +568,9 @@ function MapSection() {
   const [active, setActive] = useState<string | null>(null);
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "56px 20px" : "96px 32px", background: "#fff" }}>
+    <section
+      style={{ padding: isMobile ? "56px 20px" : "96px 32px", background: "var(--uc-white)" }}
+    >
       <div
         style={{
           maxWidth: 1440,
@@ -578,8 +602,8 @@ function SpotlightStories() {
     <section
       style={{
         padding: isMobile ? "56px 20px" : "96px 32px",
-        background: "#002033",
-        color: "#fff",
+        background: "var(--uc-dark-blue)",
+        color: "var(--uc-white)",
       }}
     >
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
@@ -601,7 +625,7 @@ function SpotlightStories() {
                 fontSize: "clamp(32px,3.6vw,48px)",
                 lineHeight: 1.1,
                 margin: "12px 0 0",
-                color: "#fff",
+                color: "var(--uc-white)",
               }}
             >
               What’s shipping out of UC
@@ -610,7 +634,7 @@ function SpotlightStories() {
           <Link
             to="/news"
             style={{
-              color: "#FFB511",
+              color: "var(--uc-gold)",
               fontWeight: 600,
               fontSize: 15,
               textDecoration: "underline",
@@ -663,7 +687,7 @@ function SpotlightStories() {
                       left: 14,
                       fontSize: 12,
                       fontWeight: 600,
-                      color: "#fff",
+                      color: "var(--uc-white)",
                       display: "inline-flex",
                       alignItems: "center",
                       gap: 6,
@@ -673,7 +697,14 @@ function SpotlightStories() {
                       backdropFilter: "blur(4px)",
                     }}
                   >
-                    <span style={{ width: 8, height: 8, borderRadius: 999, background: "#fff" }} />{" "}
+                    <span
+                      style={{
+                        width: 8,
+                        height: 8,
+                        borderRadius: 999,
+                        background: "var(--uc-white)",
+                      }}
+                    />{" "}
                     {c?.name ?? n.campus}
                   </div>
                 </div>
@@ -684,7 +715,7 @@ function SpotlightStories() {
                       fontWeight: 600,
                       letterSpacing: ".12em",
                       textTransform: "uppercase",
-                      color: "#FFB511",
+                      color: "var(--uc-gold)",
                       marginBottom: 10,
                     }}
                   >
@@ -696,7 +727,7 @@ function SpotlightStories() {
                       fontWeight: 600,
                       fontSize: 24,
                       lineHeight: 1.22,
-                      color: "#fff",
+                      color: "var(--uc-white)",
                       margin: "0 0 12px",
                       textWrap: "pretty",
                     }}
@@ -704,7 +735,9 @@ function SpotlightStories() {
                     {n.title}
                   </h3>
                   {n.sourceHost ? (
-                    <div style={{ fontSize: 13, color: "#BDE3F6" }}>{n.sourceHost} ↗</div>
+                    <div style={{ fontSize: 13, color: "var(--uc-blue-xlight)" }}>
+                      {n.sourceHost} ↗
+                    </div>
                   ) : null}
                 </div>
               </a>
@@ -746,8 +779,8 @@ function AudienceBand() {
     <section
       style={{
         padding: isMobile ? "48px 20px" : "80px 32px",
-        background: "#FFB511",
-        color: "#002033",
+        background: "var(--uc-gold)",
+        color: "var(--uc-dark-blue)",
       }}
     >
       <div
@@ -788,7 +821,7 @@ function AudienceBand() {
               to={a.go}
               style={{
                 marginTop: "auto",
-                color: "#002033",
+                color: "var(--uc-dark-blue)",
                 fontWeight: 700,
                 fontSize: 15,
                 textDecoration: "underline",

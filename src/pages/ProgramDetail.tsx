@@ -84,7 +84,7 @@ function DetailBlock({ title, children }: { title: string; children: ReactNode }
           fontSize: 28,
           lineHeight: 1.15,
           margin: "10px 0 4px",
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
         }}
       >
         {title}
@@ -97,12 +97,16 @@ function DetailBlock({ title, children }: { title: string; children: ReactNode }
 // ── hero section ───────────────────────────────────────────────────────
 
 function HeroBreadcrumbs({ campus, programName }: { campus: Campus; programName: string }) {
-  const linkStyle = { color: "#BDE3F6", textDecoration: "none", fontWeight: 600 } as const;
+  const linkStyle = {
+    color: "var(--uc-blue-xlight)",
+    textDecoration: "none",
+    fontWeight: 600,
+  } as const;
   return (
     <div
       style={{
         fontSize: 13,
-        color: "#BDE3F6",
+        color: "var(--uc-blue-xlight)",
         display: "flex",
         gap: 8,
         alignItems: "center",
@@ -122,7 +126,7 @@ function HeroBreadcrumbs({ campus, programName }: { campus: Campus; programName:
         {campus.name}
       </Link>
       <I_Chevron size={12} />
-      <span style={{ color: "#fff", fontWeight: 600 }}>{programName}</span>
+      <span style={{ color: "var(--uc-white)", fontWeight: 600 }}>{programName}</span>
     </div>
   );
 }
@@ -154,13 +158,15 @@ function HeroChips({
         flexWrap: "wrap",
       }}
     >
-      <span style={{ ...chipBase, background: "#fff", color: type.color }}>{type.label}</span>
+      <span style={{ ...chipBase, background: "var(--uc-white)", color: type.color }}>
+        {type.label}
+      </span>
       {featured && (
         <span
           style={{
             ...chipBase,
-            background: "#FFB511",
-            color: "#002033",
+            background: "var(--uc-gold)",
+            color: "var(--uc-dark-blue)",
             display: "inline-flex",
             alignItems: "center",
             gap: 4,
@@ -174,7 +180,7 @@ function HeroChips({
           display: "inline-flex",
           alignItems: "center",
           gap: 6,
-          color: "#BDE3F6",
+          color: "var(--uc-blue-xlight)",
           fontSize: 14,
           fontWeight: 600,
         }}
@@ -202,8 +208,8 @@ function HeroPrimaryCTA({ vm }: { vm: DetailVM }) {
     <a
       {...ExternalAnchorProps(vm.applyHref, vm.isExternal)}
       style={{
-        background: "#FFB511",
-        color: "#002033",
+        background: "var(--uc-gold)",
+        color: "var(--uc-dark-blue)",
         padding: "14px 24px",
         borderRadius: 4,
         fontWeight: 700,
@@ -226,7 +232,7 @@ function HeroCompareToggle({ programId }: { programId: string }) {
       onClick={() => (inCompare ? remove(programId) : add(programId))}
       style={{
         background: "transparent",
-        color: "#fff",
+        color: "var(--uc-white)",
         padding: "13px 22px",
         borderRadius: 4,
         fontWeight: 600,
@@ -275,7 +281,7 @@ function HeroLeft({ vm }: { vm: DetailVM }) {
           lineHeight: 1.45,
           marginTop: 20,
           maxWidth: 760,
-          color: "#BDE3F6",
+          color: "var(--uc-blue-xlight)",
         }}
       >
         {vm.program.desc}
@@ -305,7 +311,8 @@ function buildGlanceRows(program: Program): GlanceRow[] {
 }
 
 function cohortLabel(cohortSize: number | null): ReactNode {
-  if (!cohortSize) return <em style={{ color: "#5B5D5E", fontStyle: "normal" }}>Not disclosed</em>;
+  if (!cohortSize)
+    return <em style={{ color: "var(--uc-gray-mid)", fontStyle: "normal" }}>Not disclosed</em>;
   return `${cohortSize} ventures`;
 }
 
@@ -326,7 +333,7 @@ function AtAGlanceCard({ program }: { program: Program }) {
           letterSpacing: ".14em",
           textTransform: "uppercase",
           fontWeight: 700,
-          color: "#FFB511",
+          color: "var(--uc-gold)",
           marginBottom: 18,
         }}
       >
@@ -356,12 +363,12 @@ function GlanceRowItem({ row, first }: { row: GlanceRow; first: boolean }) {
           alignItems: "center",
           gap: 8,
           fontSize: 13,
-          color: "#BDE3F6",
+          color: "var(--uc-blue-xlight)",
         }}
       >
         {row.icon} {row.label}
       </span>
-      <span style={{ fontSize: 14, fontWeight: 600, color: "#fff", textAlign: "right" }}>
+      <span style={{ fontSize: 14, fontWeight: 600, color: "var(--uc-white)", textAlign: "right" }}>
         {row.value}
       </span>
     </div>
@@ -372,7 +379,12 @@ function DetailHero({ vm }: { vm: DetailVM }) {
   const isMobile = useIsMobile();
   return (
     <section
-      style={{ background: "#002033", color: "#fff", position: "relative", overflow: "hidden" }}
+      style={{
+        background: "var(--uc-dark-blue)",
+        color: "var(--uc-white)",
+        position: "relative",
+        overflow: "hidden",
+      }}
     >
       <div
         style={{
@@ -452,7 +464,7 @@ function KeyDetailsGrid({ program }: { program: Program }) {
             key={d.label}
             style={{
               padding: "14px 16px",
-              background: "#F7F5F1",
+              background: "var(--bg-2)",
               borderRadius: 6,
               border: "1px solid rgba(0,32,51,.10)",
             }}
@@ -463,12 +475,14 @@ function KeyDetailsGrid({ program }: { program: Program }) {
                 letterSpacing: ".12em",
                 textTransform: "uppercase",
                 fontWeight: 700,
-                color: "#4C4C4C",
+                color: "var(--uc-gray)",
               }}
             >
               {d.label}
             </div>
-            <div style={{ fontSize: 16, fontWeight: 600, color: "#002033", marginTop: 4 }}>
+            <div
+              style={{ fontSize: 16, fontWeight: 600, color: "var(--uc-dark-blue)", marginTop: 4 }}
+            >
               {d.value}
             </div>
           </div>
@@ -488,7 +502,7 @@ function IndustryPills({ industries, color }: { industries: string[]; color: str
             style={{
               padding: "8px 14px",
               borderRadius: 999,
-              background: "#fff",
+              background: "var(--uc-white)",
               border: `1px solid ${color}33`,
               color,
               fontSize: 14,
@@ -513,7 +527,7 @@ function DetailOverview({ vm }: { vm: DetailVM }) {
           fontSize: 36,
           lineHeight: 1.15,
           margin: "12px 0 18px",
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
           textWrap: "balance",
         }}
       >
@@ -523,7 +537,7 @@ function DetailOverview({ vm }: { vm: DetailVM }) {
         style={{
           fontSize: 18,
           lineHeight: 1.6,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
           marginTop: 0,
           maxWidth: 720,
         }}
@@ -544,19 +558,19 @@ function DetailOverview({ vm }: { vm: DetailVM }) {
 
 function ApplyCard({ vm }: { vm: DetailVM }) {
   return (
-    <div style={{ background: "#F7F5F1", borderRadius: 8, padding: "24px 24px 22px" }}>
+    <div style={{ background: "var(--bg-2)", borderRadius: 8, padding: "24px 24px 22px" }}>
       <h3
         style={{
           fontFamily: "'Source Serif 4',Georgia,serif",
           fontWeight: 600,
           fontSize: 24,
           margin: "10px 0 6px",
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
         }}
       >
         Ready to apply?
       </h3>
-      <p style={{ fontSize: 15, lineHeight: 1.45, color: "#4C4C4C", marginTop: 0 }}>
+      <p style={{ fontSize: 15, lineHeight: 1.45, color: "var(--uc-gray)", marginTop: 0 }}>
         Applications go directly to the program team at {vm.campus.name}. Deadline:{" "}
         <strong>{vm.program.deadline}</strong>.
       </p>
@@ -567,7 +581,7 @@ function ApplyCard({ vm }: { vm: DetailVM }) {
             display: "block",
             textAlign: "center",
             background: "var(--accent, #1295D8)",
-            color: "#fff",
+            color: "var(--uc-white)",
             padding: "14px 18px",
             borderRadius: 4,
             fontWeight: 600,
@@ -601,7 +615,7 @@ function ApplyCard({ vm }: { vm: DetailVM }) {
             textAlign: "center",
             background: "transparent",
             border: "2px solid #002033",
-            color: "#002033",
+            color: "var(--uc-dark-blue)",
             padding: "12px 18px",
             borderRadius: 4,
             fontWeight: 600,
@@ -638,7 +652,7 @@ function RunByCard({ campus }: { campus: Campus }) {
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            color: "#fff",
+            color: "var(--uc-white)",
             fontFamily: "'Source Serif 4',Georgia,serif",
             fontWeight: 600,
             fontSize: 18,
@@ -653,7 +667,7 @@ function RunByCard({ campus }: { campus: Campus }) {
               fontFamily: "'Source Serif 4',Georgia,serif",
               fontWeight: 600,
               fontSize: 18,
-              color: "#002033",
+              color: "var(--uc-dark-blue)",
             }}
           >
             {campus.name}
@@ -662,7 +676,7 @@ function RunByCard({ campus }: { campus: Campus }) {
             to={`/campus/${campus.id}`}
             style={{
               fontSize: 13,
-              color: "#005581",
+              color: "var(--accent)",
               fontWeight: 600,
               textDecoration: "underline",
               textUnderlineOffset: 3,
@@ -699,7 +713,7 @@ function SourceFooter({ sourceUrl, lastUpdated }: { sourceUrl?: string; lastUpda
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            color: "#002033",
+            color: "var(--uc-dark-blue)",
             textDecoration: "underline",
             textUnderlineOffset: 2,
             fontWeight: 600,
@@ -728,8 +742,8 @@ function HeadsUpCard({ program }: { program: Program }) {
       style={{
         marginTop: 20,
         padding: "20px 22px",
-        background: "#FFB511",
-        color: "#002033",
+        background: "var(--uc-gold)",
+        color: "var(--uc-dark-blue)",
         borderRadius: 8,
       }}
     >
@@ -774,7 +788,7 @@ function DetailRelated({ related }: { related: Program[] }) {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "48px 20px" : "72px 32px", background: "#F7F5F1" }}>
+    <section style={{ padding: isMobile ? "48px 20px" : "72px 32px", background: "var(--bg-2)" }}>
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
         <div
           style={{
@@ -794,7 +808,7 @@ function DetailRelated({ related }: { related: Program[] }) {
                 fontSize: "clamp(28px,3vw,40px)",
                 lineHeight: 1.1,
                 margin: "12px 0 0",
-                color: "#002033",
+                color: "var(--uc-dark-blue)",
               }}
             >
               Programs with similar fit across UC
@@ -803,7 +817,7 @@ function DetailRelated({ related }: { related: Program[] }) {
           <Link
             to="/discover"
             style={{
-              color: "#005581",
+              color: "var(--accent)",
               fontWeight: 600,
               fontSize: 15,
               textDecoration: "underline",
@@ -865,7 +879,9 @@ export function ProgramDetail() {
   return (
     <Page>
       <DetailHero vm={vm} />
-      <section style={{ padding: isMobile ? "40px 20px" : "72px 32px", background: "#fff" }}>
+      <section
+        style={{ padding: isMobile ? "40px 20px" : "72px 32px", background: "var(--uc-white)" }}
+      >
         <div
           style={{
             maxWidth: 1440,

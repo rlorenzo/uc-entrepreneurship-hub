@@ -47,11 +47,11 @@ function CampusCard({ campus, onHoverChange }: CampusCardProps) {
         flexDirection: "column",
         gap: 8,
         padding: "20px 22px",
-        background: "#fff",
+        background: "var(--uc-white)",
         border: "1px solid rgba(0,32,51,.10)",
         borderRadius: 8,
         textDecoration: "none",
-        color: "#002033",
+        color: "var(--uc-dark-blue)",
         transition: "box-shadow .25s, transform .25s",
         position: "relative",
         overflow: "hidden",
@@ -80,7 +80,7 @@ function CampusCard({ campus, onHoverChange }: CampusCardProps) {
             fontFamily: "'Source Serif 4',Georgia,serif",
             fontWeight: 600,
             fontSize: 22,
-            color: "#002033",
+            color: "var(--uc-dark-blue)",
           }}
         >
           {campus.name}
@@ -94,17 +94,19 @@ function CampusCard({ campus, onHoverChange }: CampusCardProps) {
             // The card's top stripe carries the campus color; raw campus.color
             // here fails AA on white for the lighter campuses. Use the AA-safe
             // accent instead.
-            color: "#005581",
+            color: "var(--accent)",
           }}
         >
           {campus.programs} programs
         </span>
       </div>
-      <div style={{ fontSize: 14, color: "#4C4C4C", lineHeight: 1.45 }}>{campus.tagline}.</div>
+      <div style={{ fontSize: 14, color: "var(--uc-gray)", lineHeight: 1.45 }}>
+        {campus.tagline}.
+      </div>
       <div
         style={{
           marginTop: 8,
-          color: "#005581",
+          color: "var(--accent)",
           fontWeight: 600,
           fontSize: 14,
           display: "inline-flex",
@@ -157,7 +159,7 @@ function CampusesGrid() {
   const layout = gridLayout(useIsMobile());
   const [hoverId, setHoverId] = useState<string | null>(null);
   return (
-    <section style={{ padding: layout.sectionPadding, background: "#fff" }}>
+    <section style={{ padding: layout.sectionPadding, background: "var(--uc-white)" }}>
       <div
         style={{
           maxWidth: 1440,
@@ -179,7 +181,7 @@ function CampusesGrid() {
                   fontFamily: "'Source Serif 4',Georgia,serif",
                   fontWeight: 600,
                   fontSize: 20,
-                  color: "#002033",
+                  color: "var(--uc-dark-blue)",
                   margin: "0 0 14px",
                 }}
               >

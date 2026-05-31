@@ -23,20 +23,22 @@ function Stat({ n, l }: { n: string | number; l: string }) {
           fontWeight: 600,
           fontSize: 48,
           lineHeight: 1,
-          color: "#FFB511",
+          color: "var(--uc-gold)",
         }}
       >
         {n}
       </div>
-      <div style={{ marginTop: 8, fontSize: 14, color: "#BDE3F6", maxWidth: 160 }}>{l}</div>
+      <div style={{ marginTop: 8, fontSize: 14, color: "var(--uc-blue-xlight)", maxWidth: 160 }}>
+        {l}
+      </div>
     </div>
   );
 }
 
 function tabPill(active: boolean, color: string): CSSProperties {
   return {
-    background: active ? color : "#fff",
-    color: active ? "#fff" : "#002033",
+    background: active ? color : "var(--uc-white)",
+    color: active ? "var(--uc-white)" : "var(--uc-dark-blue)",
     border: `1px solid ${active ? color : "rgba(0,32,51,.15)"}`,
     borderRadius: 999,
     padding: "8px 16px",
@@ -169,13 +171,17 @@ function ecosystemFor(campusId: string) {
 // ── hero ──────────────────────────────────────────────────────────────
 
 function HeroBreadcrumbs({ campusName }: { campusName: string }) {
-  const linkStyle = { color: "#BDE3F6", textDecoration: "none", fontWeight: 600 } as const;
+  const linkStyle = {
+    color: "var(--uc-blue-xlight)",
+    textDecoration: "none",
+    fontWeight: 600,
+  } as const;
   const isMobile = useIsMobile();
   return (
     <div
       style={{
         fontSize: 13,
-        color: "#BDE3F6",
+        color: "var(--uc-blue-xlight)",
         display: "flex",
         gap: 8,
         alignItems: "center",
@@ -191,7 +197,7 @@ function HeroBreadcrumbs({ campusName }: { campusName: string }) {
         Campuses
       </Link>
       <I_Chevron size={12} />
-      <span style={{ color: "#fff", fontWeight: 600 }}>{campusName}</span>
+      <span style={{ color: "var(--uc-white)", fontWeight: 600 }}>{campusName}</span>
     </div>
   );
 }
@@ -207,7 +213,12 @@ function CampusHero({
   const isMobile = useIsMobile();
   return (
     <section
-      style={{ position: "relative", background: campus.color, color: "#fff", overflow: "hidden" }}
+      style={{
+        position: "relative",
+        background: campus.color,
+        color: "var(--uc-white)",
+        overflow: "hidden",
+      }}
     >
       <div
         style={{
@@ -293,7 +304,7 @@ function CampusHero({
                 lineHeight: 1.4,
                 marginTop: 22,
                 maxWidth: 680,
-                color: "#BDE3F6",
+                color: "var(--uc-blue-xlight)",
               }}
             >
               {campus.tagline}.
@@ -356,12 +367,12 @@ function EcosystemRow({
             fontFamily: "'Source Serif 4',Georgia,serif",
             fontWeight: 600,
             fontSize: 22,
-            color: "#002033",
+            color: "var(--uc-dark-blue)",
           }}
         >
           {entry.name}
         </div>
-        <div style={{ fontSize: 14, color: "#4C4C4C", marginTop: 4, maxWidth: 600 }}>
+        <div style={{ fontSize: 14, color: "var(--uc-gray)", marginTop: 4, maxWidth: 600 }}>
           {entry.desc}
         </div>
       </div>
@@ -371,7 +382,7 @@ function EcosystemRow({
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            color: "#005581",
+            color: "var(--accent)",
             fontWeight: 600,
             fontSize: 14,
             textDecoration: "none",
@@ -393,7 +404,9 @@ function EcosystemRow({
 function CampusEcosystem({ campus }: { campus: (typeof CAMPUSES)[number] }) {
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "40px 20px" : "72px 32px", background: "#fff" }}>
+    <section
+      style={{ padding: isMobile ? "40px 20px" : "72px 32px", background: "var(--uc-white)" }}
+    >
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
         <div
           style={{
@@ -411,7 +424,7 @@ function CampusEcosystem({ campus }: { campus: (typeof CAMPUSES)[number] }) {
                 fontSize: "clamp(28px,3.2vw,42px)",
                 lineHeight: 1.1,
                 margin: "12px 0 0",
-                color: "#002033",
+                color: "var(--uc-dark-blue)",
                 textWrap: "balance",
               }}
             >
@@ -463,7 +476,7 @@ function ProgramsHeader({
             fontSize: "clamp(28px,3.2vw,42px)",
             lineHeight: 1.1,
             margin: "12px 0 0",
-            color: "#002033",
+            color: "var(--uc-dark-blue)",
           }}
         >
           {programCount} programs at {campus.short}
@@ -472,7 +485,7 @@ function ProgramsHeader({
       <Link
         to={`/discover?campus=${campus.id}`}
         style={{
-          color: "#005581",
+          color: "var(--accent)",
           fontWeight: 600,
           fontSize: 15,
           textDecoration: "underline",
@@ -530,10 +543,10 @@ function ProgramsResults({
       <div
         style={{
           padding: "40px",
-          background: "#fff",
+          background: "var(--uc-white)",
           borderRadius: 8,
           textAlign: "center",
-          color: "#4C4C4C",
+          color: "var(--uc-gray)",
         }}
       >
         No programs of this type yet at {campus.short}.
@@ -560,7 +573,7 @@ function CampusPrograms({ campus, programs, typeCounts }: CampusProgramsProps) {
   const filtered = filter === "all" ? programs : programs.filter((p) => p.type === filter);
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "40px 20px" : "72px 32px", background: "#F7F5F1" }}>
+    <section style={{ padding: isMobile ? "40px 20px" : "72px 32px", background: "var(--bg-2)" }}>
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
         <ProgramsHeader campus={campus} programCount={programs.length} />
         <ProgramFilterTabs
@@ -582,7 +595,9 @@ function CampusNews({ campus, items }: { campus: (typeof CAMPUSES)[number]; item
   const isMobile = useIsMobile();
   if (items.length === 0) return null;
   return (
-    <section style={{ padding: isMobile ? "40px 20px" : "72px 32px", background: "#fff" }}>
+    <section
+      style={{ padding: isMobile ? "40px 20px" : "72px 32px", background: "var(--uc-white)" }}
+    >
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
         <div
           style={{
@@ -602,7 +617,7 @@ function CampusNews({ campus, items }: { campus: (typeof CAMPUSES)[number]; item
                 fontSize: "clamp(28px,3.2vw,42px)",
                 lineHeight: 1.1,
                 margin: "12px 0 0",
-                color: "#002033",
+                color: "var(--uc-dark-blue)",
               }}
             >
               What’s coming out of {campus.short}
@@ -611,7 +626,7 @@ function CampusNews({ campus, items }: { campus: (typeof CAMPUSES)[number]; item
           <Link
             to="/news"
             style={{
-              color: "#005581",
+              color: "var(--accent)",
               fontWeight: 600,
               fontSize: 15,
               textDecoration: "underline",
@@ -652,7 +667,7 @@ function CrossCampusCard({ campus }: { campus: (typeof CAMPUSES)[number] }) {
         borderRadius: 6,
         background: "rgba(255,255,255,.04)",
         border: "1px solid rgba(255,255,255,.10)",
-        color: "#fff",
+        color: "var(--uc-white)",
         textDecoration: "none",
       }}
     >
@@ -668,7 +683,9 @@ function CrossCampusCard({ campus }: { campus: (typeof CAMPUSES)[number] }) {
         />
         <span style={{ fontWeight: 600, fontSize: 15 }}>{campus.name}</span>
       </span>
-      <span style={{ fontSize: 13, color: "#BDE3F6" }}>{campus.programs} programs</span>
+      <span style={{ fontSize: 13, color: "var(--uc-blue-xlight)" }}>
+        {campus.programs} programs
+      </span>
     </Link>
   );
 }
@@ -680,8 +697,8 @@ function CampusCrossLinks({ campus }: { campus: (typeof CAMPUSES)[number] }) {
     <section
       style={{
         padding: isMobile ? "40px 20px" : "72px 32px",
-        background: "#002033",
-        color: "#fff",
+        background: "var(--uc-dark-blue)",
+        color: "var(--uc-white)",
       }}
     >
       <div
@@ -702,7 +719,7 @@ function CampusCrossLinks({ campus }: { campus: (typeof CAMPUSES)[number] }) {
               fontSize: "clamp(28px,3.4vw,44px)",
               lineHeight: 1.1,
               margin: "12px 0 0",
-              color: "#fff",
+              color: "var(--uc-white)",
               textWrap: "balance",
             }}
           >
@@ -713,7 +730,7 @@ function CampusCrossLinks({ campus }: { campus: (typeof CAMPUSES)[number] }) {
               margin: "18px 0 0",
               fontSize: 17,
               lineHeight: 1.55,
-              color: "#BDE3F6",
+              color: "var(--uc-blue-xlight)",
               maxWidth: 520,
             }}
           >
