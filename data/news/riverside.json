@@ -3,7 +3,7 @@
   "name": "UC Riverside",
   "strategy": "playwright",
   "source": "https://news.ucr.edu/topic/business",
-  "crawledAt": "2026-05-29T23:32:57.054Z",
+  "crawledAt": "2026-05-31T13:40:08.468Z",
   "items": [
     {
       "id": "riverside-uc-riverside-launches-online-mba-program",

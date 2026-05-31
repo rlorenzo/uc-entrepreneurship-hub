@@ -3,7 +3,7 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-05-29T23:33:23.304Z",
+  "crawledAt": "2026-05-31T13:40:14.073Z",
   "items": [
     {
       "id": "sd-in-the-worlds-economic-black-holes-data-still-leaks-out",

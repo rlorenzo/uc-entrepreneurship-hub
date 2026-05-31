@@ -2,7 +2,7 @@
   "campus": "irvine",
   "name": "UC Irvine",
   "seedUrl": "https://innovation.uci.edu/",
-  "crawledAt": "2026-05-17T13:36:58.016Z",
+  "crawledAt": "2026-05-31T13:38:16.625Z",
   "candidates": [
     {
       "id": "irvine-pop-grants-uci-beall-applied-innovation",
@@ -16,7 +16,7 @@
         "AI / ML"
       ],
       "sourceUrl": "https://innovation.uci.edu/pop-grants/",
-      "lastUpdated": "2026-05-17T13:37:06.429Z"
+      "lastUpdated": "2026-05-31T13:38:23.253Z"
     },
     {
       "id": "irvine-funding-resources-uci-beall-applied-innovation",
@@ -28,7 +28,7 @@
       "longDescription": "Proof of Product (POP) Grants is a program that awards funding to researchers to accelerate the development of UCI’s commercially promising technology. Real-world, hands-on learning that involves finding customers and understanding their problems to achieve a product/market fit. We work with an extensive network of angel and venture capital investors to provide deal flow opportunities and connection to startups and entrepreneurs from campus and the Orange County community. Small Business Innovative Research (SBIR) and Small business Technology Transfer (STTR) are competitive programs that awar",
       "industries": [],
       "sourceUrl": "https://innovation.uci.edu/funding-resources",
-      "lastUpdated": "2026-05-17T13:37:16.381Z"
+      "lastUpdated": "2026-05-31T13:38:30.932Z"
     }
   ],
   "errors": []
