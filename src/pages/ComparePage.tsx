@@ -7,7 +7,7 @@ import { CAMPUS_BY_ID } from "@/data/campuses";
 import { TYPE_BY_ID } from "@/data/types-list";
 import { PROGRAMS } from "@/data/programs";
 import type { Program } from "@/data/types";
-import { useCompare } from "@/lib/compare";
+import { useCompare, MAX_COMPARE } from "@/lib/compare";
 import { useIsMobile } from "@/lib/useMediaQuery";
 import { I_Arrow, I_Compare, I_Plus, I_X } from "@/lib/icons";
 
@@ -49,7 +49,15 @@ const COMPARE_ROWS: Row[] = [
   { k: "Industries", render: (p) => <IndustriesCell industries={p.industries} /> },
 ];
 
-function CompareHero({ canClear, onClear }: { canClear: boolean; onClear: () => void }) {
+function CompareHero({
+  count,
+  canClear,
+  onClear,
+}: {
+  count: number;
+  canClear: boolean;
+  onClear: () => void;
+}) {
   const isMobile = useIsMobile();
   return (
     <section
@@ -92,8 +100,14 @@ function CompareHero({ canClear, onClear }: { canClear: boolean; onClear: () => 
               Compare programs
             </h1>
             <p style={{ margin: "10px 0 0", color: "#4C4C4C", fontSize: 16, maxWidth: 600 }}>
-              Pick up to four programs to compare standardized details.
+              Pick up to {MAX_COMPARE} programs to compare standardized details.
             </p>
+            {count > 0 && (
+              <p style={{ margin: "8px 0 0", fontSize: 13, fontWeight: 600, color: "#005581" }}>
+                {count} of {MAX_COMPARE} selected
+                {count >= MAX_COMPARE ? " · remove one to add another" : ""}
+              </p>
+            )}
           </div>
           {canClear && (
             <button
@@ -129,7 +143,7 @@ export function ComparePage() {
 
   return (
     <Page>
-      <CompareHero canClear={programs.length > 0} onClear={clear} />
+      <CompareHero count={programs.length} canClear={programs.length > 0} onClear={clear} />
       <section
         style={{
           padding: isMobile ? "24px 20px 56px" : "48px 32px 96px",
@@ -216,7 +230,7 @@ export function ComparePage() {
                         >
                           <button
                             onClick={() => remove(p.id)}
-                            aria-label="Remove"
+                            aria-label={`Remove ${p.name} from comparison`}
                             style={{
                               position: "absolute",
                               top: 10,
@@ -263,7 +277,7 @@ export function ComparePage() {
                         </div>
                       </th>
                     ))}
-                    {programs.length < 4 && (
+                    {programs.length < MAX_COMPARE && (
                       <th style={{ padding: 0, verticalAlign: "top", minWidth: 240 }}>
                         <button
                           onClick={() => navigate("/discover")}
@@ -302,10 +316,8 @@ export function ComparePage() {
                         style={{
                           textAlign: "left",
                           padding: "16px 20px 16px 16px",
-                          fontSize: 11.5,
-                          letterSpacing: ".12em",
-                          textTransform: "uppercase",
-                          fontWeight: 700,
+                          fontSize: 14,
+                          fontWeight: 600,
                           color: "#4C4C4C",
                           verticalAlign: "top",
                           width: 200,
@@ -332,7 +344,7 @@ export function ComparePage() {
                           {row.render(p)}
                         </td>
                       ))}
-                      {programs.length < 4 && <td />}
+                      {programs.length < MAX_COMPARE && <td />}
                     </tr>
                   ))}
                   <tr>
@@ -361,7 +373,7 @@ export function ComparePage() {
                         </Link>
                       </td>
                     ))}
-                    {programs.length < 4 && <td />}
+                    {programs.length < MAX_COMPARE && <td />}
                   </tr>
                 </tbody>
               </table>
