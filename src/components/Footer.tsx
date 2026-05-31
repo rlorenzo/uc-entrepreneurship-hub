@@ -122,8 +122,8 @@ function FooterBrand() {
           marginBottom: 16,
         }}
       >
-        A central nervous system for entrepreneurship across the world’s leading public research
-        university.
+        Every entrepreneurship program across the ten UC campuses, in one place to search and
+        compare.
       </div>
       <div style={{ fontSize: 13, color: "#BDE3F6" }}>
         An initiative of the UC Office of the President.

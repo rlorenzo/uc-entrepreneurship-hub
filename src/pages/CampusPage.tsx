@@ -1,7 +1,6 @@
 import { useState, type CSSProperties } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Page } from "@/components/Page";
-import { Eyebrow } from "@/components/Eyebrow";
 import { NotFound } from "@/components/NotFound";
 import { ProgramCard } from "@/components/ProgramCard";
 import { CaliforniaMap } from "@/components/CaliforniaMap";
@@ -413,7 +412,6 @@ function CampusEcosystem({ campus }: { campus: (typeof CAMPUSES)[number] }) {
           }}
         >
           <div>
-            <Eyebrow>Ecosystem overview</Eyebrow>
             <h2
               style={{
                 fontFamily: "'Source Serif 4',Georgia,serif",
@@ -466,7 +464,6 @@ function ProgramsHeader({
       }}
     >
       <div>
-        <Eyebrow>Browse the catalog</Eyebrow>
         <h2
           style={{
             fontFamily: "'Source Serif 4',Georgia,serif",
@@ -606,7 +603,6 @@ function CampusNews({ campus, items }: { campus: (typeof CAMPUSES)[number]; item
           }}
         >
           <div>
-            <Eyebrow>Latest news</Eyebrow>
             <h2
               style={{
                 fontFamily: "'Source Serif 4',Georgia,serif",
@@ -707,7 +703,6 @@ function CampusCrossLinks({ campus }: { campus: (typeof CAMPUSES)[number] }) {
         }}
       >
         <div>
-          <Eyebrow color="#FFB511">Cross-campus exploration</Eyebrow>
           <h2
             style={{
               fontFamily: "'Source Serif 4',Georgia,serif",

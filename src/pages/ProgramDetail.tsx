@@ -1,7 +1,6 @@
 import { type ReactNode } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Page } from "@/components/Page";
-import { Eyebrow } from "@/components/Eyebrow";
 import { NotFound } from "@/components/NotFound";
 import { ProgramCard } from "@/components/ProgramCard";
 import { CAMPUS_BY_ID } from "@/data/campuses";
@@ -75,18 +74,9 @@ function ExternalAnchorProps(href: string, isExternal: boolean) {
   } as const;
 }
 
-function DetailBlock({
-  title,
-  eyebrow,
-  children,
-}: {
-  title: string;
-  eyebrow: string;
-  children: ReactNode;
-}) {
+function DetailBlock({ title, children }: { title: string; children: ReactNode }) {
   return (
     <div>
-      <Eyebrow>{eyebrow}</Eyebrow>
       <h3
         style={{
           fontFamily: "'Source Serif 4',Georgia,serif",
@@ -448,7 +438,7 @@ function buildKeyDetails(program: Program): KeyDetail[] {
 function KeyDetailsGrid({ program }: { program: Program }) {
   const isMobile = useIsMobile();
   return (
-    <DetailBlock title="Key details" eyebrow="What you get">
+    <DetailBlock title="Key details">
       <div
         style={{
           display: "grid",
@@ -490,7 +480,7 @@ function KeyDetailsGrid({ program }: { program: Program }) {
 
 function IndustryPills({ industries, color }: { industries: string[]; color: string }) {
   return (
-    <DetailBlock title="Focus areas" eyebrow="Industries">
+    <DetailBlock title="Focus areas">
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 10 }}>
         {industries.map((i) => (
           <span
@@ -516,7 +506,6 @@ function IndustryPills({ industries, color }: { industries: string[]; color: str
 function DetailOverview({ vm }: { vm: DetailVM }) {
   return (
     <div>
-      <Eyebrow>Overview</Eyebrow>
       <h2
         style={{
           fontFamily: "'Source Serif 4',Georgia,serif",
@@ -556,7 +545,6 @@ function DetailOverview({ vm }: { vm: DetailVM }) {
 function ApplyCard({ vm }: { vm: DetailVM }) {
   return (
     <div style={{ background: "#F7F5F1", borderRadius: 8, padding: "24px 24px 22px" }}>
-      <Eyebrow>Apply</Eyebrow>
       <h3
         style={{
           fontFamily: "'Source Serif 4',Georgia,serif",
@@ -640,7 +628,6 @@ function RunByCard({ campus }: { campus: Campus }) {
         borderRadius: 8,
       }}
     >
-      <Eyebrow>Run by</Eyebrow>
       <div style={{ display: "flex", gap: 14, alignItems: "center", marginTop: 12 }}>
         <div
           style={{
@@ -793,7 +780,6 @@ function DetailRelated({ related }: { related: Program[] }) {
           }}
         >
           <div>
-            <Eyebrow>Cross-campus suggestions</Eyebrow>
             <h2
               style={{
                 fontFamily: "'Source Serif 4',Georgia,serif",

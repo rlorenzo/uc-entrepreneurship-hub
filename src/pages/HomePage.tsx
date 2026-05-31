@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Page } from "@/components/Page";
-import { Eyebrow } from "@/components/Eyebrow";
 import { ProgramCard } from "@/components/ProgramCard";
 import { CaliforniaMap } from "@/components/CaliforniaMap";
 import { CAMPUSES, CAMPUS_BY_ID } from "@/data/campuses";
@@ -230,7 +229,6 @@ function FeaturedStrip({ onOpen }: { onOpen: (id: string) => void }) {
           }}
         >
           <div style={{ maxWidth: 720 }}>
-            <Eyebrow>Spotlight programs</Eyebrow>
             <h2
               style={{
                 fontFamily: "'Source Serif 4',Georgia,serif",
@@ -337,7 +335,6 @@ function CategoryGrid({ onPick }: { onPick: (filter: Record<string, string>) => 
           }}
         >
           <div>
-            <Eyebrow>Browse by program type</Eyebrow>
             <h2
               style={{
                 fontFamily: "'Source Serif 4',Georgia,serif",
@@ -496,7 +493,6 @@ function MapSectionLeft({
   const isMobile = useIsMobile();
   return (
     <div>
-      <Eyebrow>The UC system</Eyebrow>
       <h2
         style={{
           fontFamily: "'Source Serif 4',Georgia,serif",
@@ -598,7 +594,6 @@ function SpotlightStories() {
           }}
         >
           <div>
-            <Eyebrow color="#FFB511">Latest news</Eyebrow>
             <h2
               style={{
                 fontFamily: "'Source Serif 4',Georgia,serif",
@@ -796,7 +791,8 @@ function AudienceBand() {
                 color: "#002033",
                 fontWeight: 700,
                 fontSize: 15,
-                textDecoration: "none",
+                textDecoration: "underline",
+                textUnderlineOffset: 4,
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 8,
