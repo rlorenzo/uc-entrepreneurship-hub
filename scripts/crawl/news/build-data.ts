@@ -67,10 +67,19 @@ async function loadAll(): Promise<NewsItem[]> {
 
 const items = await loadAll();
 
+// Quality gate: a real story has a headline AND a summary. Crawlers sometimes
+// surface index/landing pages as feed entries (e.g. UC Davis's "Innovation and
+// Economic Development Office" nav page), which arrive with an empty summary
+// and no usable date. Drop them so the published feed stays trustworthy across
+// future weekly crawls. Items with real content but no date are kept — the UI
+// renders them without a date rather than hiding them.
+const publishable = items.filter((item) => item.title.trim() !== "" && item.summary.trim() !== "");
+const droppedForQuality = items.length - publishable.length;
+
 // Dedupe by id (campus-prefixed). Sort newest first so the UI can
 // `slice(0, n)` to render the most recent without re-sorting.
 const seen = new Map<string, NewsItem>();
-for (const item of items) {
+for (const item of publishable) {
   if (!seen.has(item.id)) seen.set(item.id, item);
 }
 const sorted = [...seen.values()].toSorted((a, b) =>
@@ -90,4 +99,7 @@ export const NEWS: NewsItem[] = ${JSON.stringify(sorted, null, 2)};
 
 await writeFile(OUT, `${banner}\n${body}`);
 
-console.log(`Wrote ${sorted.length} news item(s) → ${OUT}`);
+console.log(
+  `Wrote ${sorted.length} news item(s) → ${OUT}` +
+    (droppedForQuality ? ` (dropped ${droppedForQuality} without title/summary)` : ""),
+);

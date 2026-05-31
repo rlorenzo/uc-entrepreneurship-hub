@@ -81,18 +81,20 @@ function NewsCardBody({ item }: { item: NewsItem }) {
   const date = formatNewsDate(item.publishedAt);
   return (
     <div style={{ padding: "20px 22px 22px", display: "flex", flexDirection: "column", flex: 1 }}>
-      <div
-        style={{
-          fontSize: 11.5,
-          fontWeight: 600,
-          letterSpacing: ".12em",
-          textTransform: "uppercase",
-          color: "var(--accent, #005581)",
-          marginBottom: 8,
-        }}
-      >
-        {date}
-      </div>
+      {date ? (
+        <div
+          style={{
+            fontSize: 11.5,
+            fontWeight: 600,
+            letterSpacing: ".12em",
+            textTransform: "uppercase",
+            color: "var(--accent, #005581)",
+            marginBottom: 8,
+          }}
+        >
+          {date}
+        </div>
+      ) : null}
       <h3
         style={{
           fontFamily: "'Source Serif 4',Georgia,serif",
