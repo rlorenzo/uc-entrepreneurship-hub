@@ -1,6 +1,7 @@
 import { CAMPUS_BY_ID } from "@/data/campuses";
 import { formatNewsDate } from "@/lib/dates";
 import { useIsMobile } from "@/lib/useMediaQuery";
+import { isValidWebUrl } from "@/lib/url";
 import type { NewsItem } from "@/data/news";
 
 function liftCard(e: React.MouseEvent<HTMLAnchorElement>) {
@@ -173,11 +174,15 @@ interface NewsCardProps {
 export function NewsCard({ item, hideCampusName = false, featured = false }: NewsCardProps) {
   const isMobile = useIsMobile();
   const horizontal = featured && !isMobile;
+  // sourceUrl comes from crawled feeds — only emit a live external link (and the
+  // new-tab cue) when it's a real http(s) URL, so a javascript:/data: scheme
+  // can't become a DOM-XSS vector or mislead assistive tech.
+  const safe = isValidWebUrl(item.sourceUrl);
   return (
     <a
-      href={item.sourceUrl}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={safe ? item.sourceUrl : undefined}
+      target={safe ? "_blank" : undefined}
+      rel={safe ? "noopener noreferrer" : undefined}
       onMouseEnter={liftCard}
       onMouseLeave={dropCard}
       style={{
@@ -203,8 +208,8 @@ export function NewsCard({ item, hideCampusName = false, featured = false }: New
       </div>
       <NewsCardBody item={item} featured={featured} />
       {/* Announce the new-tab behavior to screen readers without an aria-label
-          that would mask the card's visible content. */}
-      <span className="sr-only"> (opens in new tab)</span>
+          that would mask the card's visible content. Only when the link is live. */}
+      {safe && <span className="sr-only"> (opens in new tab)</span>}
     </a>
   );
 }

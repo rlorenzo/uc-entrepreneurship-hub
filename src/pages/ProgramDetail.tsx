@@ -10,6 +10,7 @@ import type { Campus, Program, ProgramType } from "@/data/types.ts";
 import { useCompare } from "@/lib/compare";
 import { useIsMobile } from "@/lib/useMediaQuery";
 import { programGradient } from "@/lib/programGradient";
+import { isValidWebUrl } from "@/lib/url";
 import {
   I_Calendar,
   I_Check,
@@ -34,12 +35,6 @@ interface DetailVM {
   isExternal: boolean;
   hasSeparateWebsite: boolean;
   related: Program[];
-}
-
-// Only ever treat http(s) URLs as links — crawled data could carry a
-// javascript:/data: value that would be a DOM-XSS vector in an href.
-function isValidWebUrl(url: string | undefined): boolean {
-  return !!url && (url.startsWith("http://") || url.startsWith("https://"));
 }
 
 function buildVM(program: Program): DetailVM {
