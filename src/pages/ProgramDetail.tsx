@@ -198,7 +198,10 @@ function applyCtaLabel(program: Program, fallback: string): string {
 }
 
 function HeroPrimaryCTA({ vm }: { vm: DetailVM }) {
-  const label = applyCtaLabel(vm.program, `Visit on ${vm.campus.short}.edu`);
+  // Neutral fallback: applyHref may resolve to a non-*.edu program site
+  // (e.g. curated programs like CITRIS Foundry → citrisfoundry.org), so don't
+  // promise a campus .edu destination. Mirrors the apply card's fallback.
+  const label = applyCtaLabel(vm.program, "Visit program page");
   return (
     <a
       {...ExternalAnchorProps(vm.applyHref, vm.isExternal)}
