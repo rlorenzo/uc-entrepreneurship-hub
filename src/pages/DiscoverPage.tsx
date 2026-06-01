@@ -1206,7 +1206,10 @@ export function DiscoverPage() {
   const setFilters = (updater: (f: Filters) => Filters) => commit(updater(filters), q, sort);
   const setQ = (value: string) => commit(filters, value, sort);
   const setSort = (next: SortKey) => commit(filters, q, next);
-  const reset = () => setSearchParams({}, { replace: true });
+  // Clear only the managed keys (filters/q/sort); buildSearchParams preserves
+  // unrelated params (utm_*, referrals) just like every other URL write.
+  const reset = () =>
+    setSearchParams(buildSearchParams(params, {}, "", "featured"), { replace: true });
 
   const filtered = useMemo(() => applyFiltersAndSort(q, filters, sort), [q, filters, sort]);
   const counts = useMemo(buildFacetCounts, []);
