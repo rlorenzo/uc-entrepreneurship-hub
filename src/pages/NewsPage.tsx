@@ -374,7 +374,7 @@ function ShowMoreButton({ remaining, onClick }: { remaining: number; onClick: ()
         onMouseLeave={() => setHover(false)}
         style={{
           background: hover ? "var(--uc-dark-blue)" : "var(--uc-white)",
-          border: "2px solid #002033",
+          border: "2px solid var(--uc-dark-blue)",
           color: hover ? "var(--uc-white)" : "var(--uc-dark-blue)",
           padding: "14px 24px",
           borderRadius: 4,
