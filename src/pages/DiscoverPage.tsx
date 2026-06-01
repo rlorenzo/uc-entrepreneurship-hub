@@ -893,7 +893,7 @@ function EmptyResults({ onReset }: { onReset: () => void }) {
         onClick={onReset}
         style={{
           background: "transparent",
-          border: "2px solid #005581",
+          border: "2px solid var(--accent)",
           color: "var(--accent)",
           padding: "12px 22px",
           borderRadius: 4,

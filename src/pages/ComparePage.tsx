@@ -119,7 +119,7 @@ function CompareHero({
               onClick={onClear}
               style={{
                 background: "transparent",
-                border: "2px solid #002033",
+                border: "2px solid var(--uc-dark-blue)",
                 color: "var(--uc-dark-blue)",
                 padding: "10px 18px",
                 borderRadius: 4,

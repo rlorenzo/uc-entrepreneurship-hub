@@ -207,7 +207,7 @@ function CampusChip({
         fontWeight: 600,
         padding: "6px 12px",
         borderRadius: 999,
-        border: active ? "1px solid #002033" : "1px solid rgba(0,32,51,.18)",
+        border: active ? "1px solid var(--uc-dark-blue)" : "1px solid rgba(0,32,51,.18)",
         background: active ? "var(--uc-dark-blue)" : "var(--uc-white)",
         color: active ? "var(--uc-white)" : "var(--uc-dark-blue)",
         cursor: "pointer",
