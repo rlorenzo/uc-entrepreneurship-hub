@@ -8,7 +8,7 @@ import { CardArt } from "@/components/CardArt";
 import { Pill, TypePill, CampusBadge } from "@/components/Pill";
 import { CAMPUSES, CAMPUS_BY_ID } from "@/data/campuses";
 import { TYPES, TYPE_BY_ID, INDUSTRIES, STAGES, ELIGIBILITY, DURATIONS } from "@/data/types-list";
-import { PROGRAMS } from "@/data/programs";
+import { PROGRAMS, PROGRAM_COUNT } from "@/data/programs";
 import type { Program } from "@/data/types.ts";
 import { useCompare } from "@/lib/compare";
 import { useIsMobile } from "@/lib/useMediaQuery";
@@ -84,14 +84,47 @@ function buildFacetCounts(): FacetCounts {
   return counts;
 }
 
+// Allowlist of real filter facets. Anything else in the URL (q, sort, utm_*,
+// referral ids) is left untouched and never rendered as a filter chip.
+const VALID_FILTER_KEYS = new Set<string>(FILTER_RULES.map((r) => String(r.key)));
+
 // Map URL search params (single-value via the homepage chips) to multi-select filter arrays.
 function paramsToFilters(params: URLSearchParams): Filters {
   const f: Filters = {};
   for (const [k, v] of params.entries()) {
-    if (k === "q") continue;
-    f[k] = [...(f[k] ?? []), v];
+    if (VALID_FILTER_KEYS.has(k)) f[k] = [...(f[k] ?? []), v];
   }
   return f;
+}
+
+function parseSort(value: string | null): SortKey {
+  // hasOwnProperty (not `in`) so ?sort=toString/constructor can't resolve to a
+  // prototype method and crash toSorted() with a non-comparator.
+  return value && Object.prototype.hasOwnProperty.call(SORTERS, value)
+    ? (value as SortKey)
+    : "featured";
+}
+
+// Inverse of paramsToFilters: write the active filters/query/sort back to the
+// URL so the discover view is shareable and Back/refresh restore it. Clones the
+// current params so unrelated keys (utm_*, referrals) survive; only the managed
+// keys are rewritten, and the default sort is omitted to keep URLs clean.
+function buildSearchParams(
+  current: URLSearchParams,
+  filters: Filters,
+  q: string,
+  sort: SortKey,
+): URLSearchParams {
+  const params = new URLSearchParams(current);
+  for (const rule of FILTER_RULES) params.delete(String(rule.key));
+  params.delete("q");
+  params.delete("sort");
+  for (const rule of FILTER_RULES) {
+    for (const v of filters[rule.key] ?? []) params.append(String(rule.key), v);
+  }
+  if (q.trim()) params.set("q", q);
+  if (sort !== "featured") params.set("sort", sort);
+  return params;
 }
 
 // ── filter sidebar ────────────────────────────────────────────────────
@@ -104,17 +137,22 @@ function checkboxBoxStyle(checked: boolean) {
     height: 18,
     borderRadius: 3,
     border: checked ? `2px solid ${ACCENT}` : "1.5px solid rgba(0,32,51,.30)",
-    background: checked ? ACCENT : "#fff",
+    background: checked ? ACCENT : "var(--uc-white)",
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    color: "#fff",
+    color: "var(--uc-white)",
     flexShrink: 0,
   } as const;
 }
 
 function checkboxLabelStyle(checked: boolean) {
-  return { flex: 1, fontSize: 14, color: "#002033", fontWeight: checked ? 600 : 400 } as const;
+  return {
+    flex: 1,
+    fontSize: 14,
+    color: "var(--uc-dark-blue)",
+    fontWeight: checked ? 600 : 400,
+  } as const;
 }
 
 function FilterCheckbox({
@@ -139,10 +177,19 @@ function FilterCheckbox({
         userSelect: "none",
       }}
     >
-      <span style={checkboxBoxStyle(checked)}>{checked && <I_Check size={12} />}</span>
-      <input type="checkbox" checked={checked} onChange={onChange} style={{ display: "none" }} />
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={onChange}
+        className="uc-filter-checkbox__input"
+      />
+      <span className="uc-filter-checkbox__box" style={checkboxBoxStyle(checked)}>
+        {checked && <I_Check size={12} />}
+      </span>
       <span style={checkboxLabelStyle(checked)}>{label}</span>
-      {count !== undefined && <span style={{ fontSize: 12, color: "#5B5D5E" }}>{count}</span>}
+      {count !== undefined && (
+        <span style={{ fontSize: 12, color: "var(--uc-gray-mid)" }}>{count}</span>
+      )}
     </label>
   );
 }
@@ -178,7 +225,7 @@ function FilterSection({
             letterSpacing: ".14em",
             textTransform: "uppercase",
             fontWeight: 700,
-            color: "#002033",
+            color: "var(--uc-dark-blue)",
           }}
         >
           {title}
@@ -187,7 +234,7 @@ function FilterSection({
           style={{
             transform: open ? "rotate(90deg)" : "rotate(0)",
             transition: "transform .2s",
-            color: "#4C4C4C",
+            color: "var(--uc-gray)",
           }}
         >
           <I_Chevron size={14} />
@@ -311,7 +358,7 @@ function FilterHeader({ activeCount, onClear }: { activeCount: number; onClear: 
           fontFamily: "'Source Serif 4',Georgia,serif",
           fontWeight: 600,
           fontSize: 22,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
         }}
       >
         Filters
@@ -322,7 +369,7 @@ function FilterHeader({ activeCount, onClear }: { activeCount: number; onClear: 
           style={{
             background: "transparent",
             border: 0,
-            color: "#005581",
+            color: "var(--accent)",
             fontWeight: 600,
             fontSize: 13,
             cursor: "pointer",
@@ -394,7 +441,7 @@ function MobileFilterPanel({ filters, setFilters, counts }: FilterSidebarProps) 
       onToggle={(e) => setOpen((e.currentTarget as HTMLDetailsElement).open)}
       style={{
         marginBottom: 16,
-        background: "#F7F5F1",
+        background: "var(--bg-2)",
         borderRadius: 8,
         padding: "12px 16px",
       }}
@@ -408,7 +455,7 @@ function MobileFilterPanel({ filters, setFilters, counts }: FilterSidebarProps) 
           alignItems: "center",
           fontWeight: 600,
           fontSize: 15,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
         }}
       >
         <span>
@@ -457,8 +504,8 @@ function QueryChip({ q, onClear }: { q: string; onClear: () => void }) {
         display: "inline-flex",
         alignItems: "center",
         gap: 6,
-        background: "#002033",
-        color: "#fff",
+        background: "var(--uc-dark-blue)",
+        color: "var(--uc-white)",
         padding: "6px 10px 6px 12px",
         borderRadius: 999,
         fontSize: 13,
@@ -473,7 +520,7 @@ function QueryChip({ q, onClear }: { q: string; onClear: () => void }) {
         style={{
           background: "transparent",
           border: 0,
-          color: "#fff",
+          color: "var(--uc-white)",
           cursor: "pointer",
           padding: 0,
           display: "flex",
@@ -492,9 +539,9 @@ function FilterChip({ k, v, onRemove }: { k: string; v: string; onRemove: () => 
         display: "inline-flex",
         alignItems: "center",
         gap: 6,
-        background: "#fff",
+        background: "var(--uc-white)",
         border: "1px solid rgba(0,32,51,.18)",
-        color: "#002033",
+        color: "var(--uc-dark-blue)",
         padding: "6px 10px 6px 12px",
         borderRadius: 999,
         fontSize: 13,
@@ -509,7 +556,7 @@ function FilterChip({ k, v, onRemove }: { k: string; v: string; onRemove: () => 
         style={{
           background: "transparent",
           border: 0,
-          color: "#4C4C4C",
+          color: "var(--uc-gray)",
           cursor: "pointer",
           padding: 0,
           display: "flex",
@@ -550,7 +597,7 @@ function ListRowMeta({ program }: { program: Program }) {
     <>
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
         <CampusBadge campusId={program.campus} />
-        <span style={{ color: "#5B5D5E" }} aria-hidden="true">
+        <span style={{ color: "var(--uc-gray-mid)" }} aria-hidden="true">
           ·
         </span>
         <TypePill typeId={program.type} />
@@ -561,7 +608,7 @@ function ListRowMeta({ program }: { program: Program }) {
           fontFamily: "'Source Serif 4',Georgia,serif",
           fontWeight: 600,
           fontSize: 22,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
         }}
       >
         {program.name}
@@ -571,7 +618,7 @@ function ListRowMeta({ program }: { program: Program }) {
           margin: 0,
           fontSize: 14,
           lineHeight: 1.5,
-          color: "#4C4C4C",
+          color: "var(--uc-gray)",
           display: "-webkit-box",
           WebkitLineClamp: 2,
           WebkitBoxOrient: "vertical",
@@ -597,7 +644,7 @@ function ListRowActions({ program, onOpen }: { program: Program; onOpen: (id: st
       <div
         style={{
           fontSize: 12,
-          color: "#4C4C4C",
+          color: "var(--uc-gray)",
           display: "inline-flex",
           alignItems: "center",
           gap: 6,
@@ -605,14 +652,16 @@ function ListRowActions({ program, onOpen }: { program: Program; onOpen: (id: st
       >
         <I_Calendar size={13} /> {program.deadline}
       </div>
-      <div style={{ fontSize: 14, fontWeight: 600, color: "#002033" }}>{program.funding}</div>
+      <div style={{ fontSize: 14, fontWeight: 600, color: "var(--uc-dark-blue)" }}>
+        {program.funding}
+      </div>
       <div style={{ display: "flex", gap: 6, marginTop: 4 }}>
         <button
           onClick={() => (inCompare ? remove(program.id) : add(program.id))}
           style={{
-            border: `1px solid ${inCompare ? "#005581" : "rgba(0,32,51,.15)"}`,
-            background: inCompare ? "#005581" : "#fff",
-            color: inCompare ? "#fff" : "#002033",
+            border: `1px solid ${inCompare ? "var(--accent)" : "rgba(0,32,51,.15)"}`,
+            background: inCompare ? "var(--accent)" : "var(--uc-white)",
+            color: inCompare ? "var(--uc-white)" : "var(--uc-dark-blue)",
             borderRadius: 4,
             padding: "8px 12px",
             fontSize: 12,
@@ -637,7 +686,7 @@ function ListRowActions({ program, onOpen }: { program: Program; onOpen: (id: st
           onClick={() => onOpen(program.id)}
           style={{
             background: "var(--accent, #1295D8)",
-            color: "#fff",
+            color: "var(--uc-white)",
             border: 0,
             borderRadius: 4,
             padding: "8px 14px",
@@ -663,7 +712,7 @@ function ProgramListRow({ program, onOpen }: { program: Program; onOpen: (id: st
         gridTemplateColumns: isMobile ? "1fr" : "160px 1fr 200px",
         gap: isMobile ? 14 : 24,
         padding: 18,
-        background: "#fff",
+        background: "var(--uc-white)",
         border: "1px solid rgba(0,32,51,.10)",
         borderRadius: 8,
         alignItems: "center",
@@ -727,8 +776,8 @@ function ResultsToolbar({ count, query, sort, setSort, view, setView }: ResultsT
         flexWrap: "wrap",
       }}
     >
-      <div style={{ fontSize: 14, color: "#4C4C4C" }}>
-        <strong style={{ color: "#002033", fontWeight: 700 }}>{count}</strong>{" "}
+      <div style={{ fontSize: 14, color: "var(--uc-gray)" }}>
+        <strong style={{ color: "var(--uc-dark-blue)", fontWeight: 700 }}>{count}</strong>{" "}
         {count === 1 ? "program" : "programs"} {query && <>matching “{query}”</>}
       </div>
       <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
@@ -747,7 +796,7 @@ function SortControl({ sort, setSort }: { sort: SortKey; setSort: (s: SortKey) =
         alignItems: "center",
         gap: 8,
         fontSize: 13,
-        color: "#4C4C4C",
+        color: "var(--uc-gray)",
       }}
     >
       Sort by
@@ -758,15 +807,15 @@ function SortControl({ sort, setSort }: { sort: SortKey; setSort: (s: SortKey) =
           fontFamily: "inherit",
           fontSize: 14,
           fontWeight: 600,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
           padding: "8px 28px 8px 10px",
           border: "1px solid rgba(0,32,51,.15)",
           borderRadius: 4,
-          background: "#fff",
+          background: "var(--uc-white)",
           cursor: "pointer",
         }}
       >
-        <option value="featured">Most popular</option>
+        <option value="featured">Featured</option>
         <option value="deadline">Deadline approaching</option>
         <option value="campus">Campus (A–Z)</option>
         <option value="name">Program name</option>
@@ -777,8 +826,8 @@ function SortControl({ sort, setSort }: { sort: SortKey; setSort: (s: SortKey) =
 
 const viewToggleButtonStyle = (active: boolean) =>
   ({
-    background: active ? "#002033" : "#fff",
-    color: active ? "#fff" : "#002033",
+    background: active ? "var(--uc-dark-blue)" : "var(--uc-white)",
+    color: active ? "var(--uc-white)" : "var(--uc-dark-blue)",
     border: 0,
     padding: "8px 10px",
     cursor: "pointer",
@@ -823,7 +872,7 @@ function EmptyResults({ onReset }: { onReset: () => void }) {
       style={{
         padding: "80px 24px",
         textAlign: "center",
-        background: "#F7F5F1",
+        background: "var(--bg-2)",
         borderRadius: 8,
       }}
     >
@@ -832,20 +881,20 @@ function EmptyResults({ onReset }: { onReset: () => void }) {
           fontFamily: "'Source Serif 4',Georgia,serif",
           fontWeight: 600,
           fontSize: 28,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
         }}
       >
         No programs match those filters.
       </div>
-      <p style={{ fontSize: 16, color: "#4C4C4C", margin: "12px 0 24px" }}>
+      <p style={{ fontSize: 16, color: "var(--uc-gray)", margin: "12px 0 24px" }}>
         Try clearing a filter or broadening your search.
       </p>
       <button
         onClick={onReset}
         style={{
           background: "transparent",
-          border: "2px solid #005581",
-          color: "#005581",
+          border: "2px solid var(--accent)",
+          color: "var(--accent)",
           padding: "12px 22px",
           borderRadius: 4,
           fontWeight: 600,
@@ -898,7 +947,7 @@ function ResultsView({
 function DiscoverTitle() {
   return (
     <div>
-      <Eyebrow>140+ programs across the system</Eyebrow>
+      <Eyebrow>{PROGRAM_COUNT} programs across the system</Eyebrow>
       <h1
         style={{
           fontFamily: "'Source Serif 4',Georgia,serif",
@@ -906,7 +955,7 @@ function DiscoverTitle() {
           fontSize: "clamp(36px,4vw,52px)",
           lineHeight: 1.1,
           margin: "10px 0 0",
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
         }}
       >
         Explore programs
@@ -917,7 +966,7 @@ function DiscoverTitle() {
 
 function discoverHeroSection(isMobile: boolean) {
   return {
-    background: "#F7F5F1",
+    background: "var(--bg-2)",
     padding: isMobile ? "20px 20px 18px" : "32px 32px 28px",
     borderBottom: "1px solid rgba(0,32,51,.08)",
   } as const;
@@ -952,11 +1001,21 @@ function DiscoverHero({ q, setQ }: { q: string; setQ: (v: string) => void }) {
 
 function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
   const isMobile = useIsMobile();
+  // Type into local state for instant, lag-free input; debounce the write to
+  // the URL so each keystroke doesn't trigger a navigation. Re-sync when the
+  // URL changes externally (reset, Back/forward).
+  const [value, setValue] = useState(q);
+  useEffect(() => setValue(q), [q]);
+  useEffect(() => {
+    if (value === q) return;
+    const t = setTimeout(() => setQ(value), 200);
+    return () => clearTimeout(t);
+  }, [value, q, setQ]);
   return (
     <div
       role="search"
       style={{
-        background: "#fff",
+        background: "var(--uc-white)",
         borderRadius: 6,
         border: "1px solid rgba(0,32,51,.15)",
         padding: 6,
@@ -973,37 +1032,39 @@ function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
           display: "flex",
           alignItems: "center",
           padding: "0 12px",
-          color: "#4C4C4C",
+          color: "var(--uc-gray)",
         }}
       >
         <I_Search size={18} />
       </div>
       <input
-        value={q}
-        onChange={(e) => setQ(e.target.value)}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
         placeholder="Search programs, industries, campuses…"
         aria-label="Search programs, industries, campuses"
         type="search"
         style={{
           flex: 1,
           border: 0,
-          outline: "none",
           fontSize: 15,
           padding: "10px 0",
           background: "transparent",
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
           fontFamily: "inherit",
         }}
       />
-      {q && (
+      {value && (
         <button
           type="button"
-          onClick={() => setQ("")}
+          onClick={() => {
+            setValue("");
+            setQ("");
+          }}
           aria-label="Clear search"
           style={{
             background: "transparent",
             border: 0,
-            color: "#4C4C4C",
+            color: "var(--uc-gray)",
             padding: "0 10px",
             cursor: "pointer",
             display: "flex",
@@ -1042,7 +1103,7 @@ interface DiscoverBodyProps {
 function discoverBodySection(isMobile: boolean) {
   return {
     padding: isMobile ? "20px 20px 56px" : "32px 32px 80px",
-    background: "#fff",
+    background: "var(--uc-white)",
   } as const;
 }
 
@@ -1130,24 +1191,29 @@ function DiscoverBody(props: DiscoverBodyProps) {
 
 export function DiscoverPage() {
   const navigate = useNavigate();
-  const [params] = useSearchParams();
-  const [filters, setFilters] = useState<Filters>(() => paramsToFilters(params));
-  const [q, setQ] = useState(params.get("q") ?? "");
-  const [sort, setSort] = useState<SortKey>("featured");
+  const [params, setSearchParams] = useSearchParams();
   const [view, setView] = useState<ViewKind>("grid");
 
-  useEffect(() => {
-    setFilters(paramsToFilters(params));
-    setQ(params.get("q") ?? "");
-  }, [params]);
+  // The URL is the single source of truth for filters/query/sort, so the view
+  // is shareable and Back/refresh restore it. `replace` keeps every keystroke
+  // and toggle out of the history stack.
+  const filters = useMemo(() => paramsToFilters(params), [params]);
+  const q = params.get("q") ?? "";
+  const sort = parseSort(params.get("sort"));
+
+  const commit = (nextFilters: Filters, nextQ: string, nextSort: SortKey) =>
+    setSearchParams(buildSearchParams(params, nextFilters, nextQ, nextSort), { replace: true });
+  const setFilters = (updater: (f: Filters) => Filters) => commit(updater(filters), q, sort);
+  const setQ = (value: string) => commit(filters, value, sort);
+  const setSort = (next: SortKey) => commit(filters, q, next);
+  // Clear only the managed keys (filters/q/sort); buildSearchParams preserves
+  // unrelated params (utm_*, referrals) just like every other URL write.
+  const reset = () =>
+    setSearchParams(buildSearchParams(params, {}, "", "featured"), { replace: true });
 
   const filtered = useMemo(() => applyFiltersAndSort(q, filters, sort), [q, filters, sort]);
   const counts = useMemo(buildFacetCounts, []);
   const open = (id: string) => navigate(`/program/${id}`);
-  const reset = () => {
-    setFilters(() => ({}));
-    setQ("");
-  };
 
   return (
     <Page>

@@ -21,7 +21,7 @@ function pillStyle(color: string, bg: string | undefined, style: CSSProperties |
     padding: "4px 10px",
     borderRadius: 999,
     border: solid ? "1px solid transparent" : `1px solid ${color}33`,
-    color: solid ? "#fff" : color,
+    color: solid ? "var(--uc-white)" : color,
     background: bg ?? `${color}14`,
     letterSpacing: ".02em",
     whiteSpace: "nowrap",
@@ -29,6 +29,8 @@ function pillStyle(color: string, bg: string | undefined, style: CSSProperties |
   } as CSSProperties;
 }
 
+// `color` is interpolated with hex alpha suffixes in pillStyle (`${color}33`),
+// so the default must stay a hex literal, not a CSS var.
 export function Pill({ children, color = "#005581", bg, onClick, style }: PillProps) {
   const css = pillStyle(color, bg, style);
   if (onClick) {
@@ -62,7 +64,7 @@ export function CampusBadge({ campusId, dark = false }: { campusId: string; dark
         gap: 6,
         fontSize: 12,
         fontWeight: 600,
-        color: dark ? "#BDE3F6" : "#4C4C4C",
+        color: dark ? "var(--uc-blue-xlight)" : "var(--uc-gray)",
       }}
     >
       <span

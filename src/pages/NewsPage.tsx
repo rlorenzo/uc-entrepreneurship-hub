@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Page } from "@/components/Page";
 import { PageHero } from "@/components/PageHero";
 import { NewsCard } from "@/components/NewsCard";
@@ -122,7 +122,7 @@ function SearchInput({ query, setQuery }: SearchInputProps) {
         border: "1px solid rgba(0,32,51,.18)",
         borderRadius: 4,
         padding: "8px 12px",
-        background: "#fff",
+        background: "var(--uc-white)",
       }}
     >
       <I_Search size={16} />
@@ -135,9 +135,8 @@ function SearchInput({ query, setQuery }: SearchInputProps) {
         style={{
           flex: 1,
           border: 0,
-          outline: 0,
           fontSize: 15,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
           background: "transparent",
         }}
       />
@@ -148,7 +147,7 @@ function SearchInput({ query, setQuery }: SearchInputProps) {
           style={{
             background: "transparent",
             border: 0,
-            color: "#4C4C4C",
+            color: "var(--uc-gray)",
             cursor: "pointer",
             display: "flex",
             padding: 2,
@@ -177,8 +176,8 @@ function TimeSelect({ value, onChange }: TimeSelectProps) {
         borderRadius: 4,
         padding: "9px 12px",
         fontSize: 15,
-        color: "#002033",
-        background: "#fff",
+        color: "var(--uc-dark-blue)",
+        background: "var(--uc-white)",
         cursor: "pointer",
       }}
     >
@@ -208,9 +207,9 @@ function CampusChip({
         fontWeight: 600,
         padding: "6px 12px",
         borderRadius: 999,
-        border: active ? "1px solid #002033" : "1px solid rgba(0,32,51,.18)",
-        background: active ? "#002033" : "#fff",
-        color: active ? "#fff" : "#002033",
+        border: active ? "1px solid var(--uc-dark-blue)" : "1px solid rgba(0,32,51,.18)",
+        background: active ? "var(--uc-dark-blue)" : "var(--uc-white)",
+        color: active ? "var(--uc-white)" : "var(--uc-dark-blue)",
         cursor: "pointer",
         display: "inline-flex",
         alignItems: "center",
@@ -249,13 +248,13 @@ function ResultMeta({ resultCount, totalCount }: { resultCount: number; totalCou
   if (resultCount === totalCount) {
     const noun = totalCount === 1 ? "story" : "stories";
     return (
-      <div style={{ marginLeft: "auto", fontSize: 13, color: "#4C4C4C" }}>
+      <div style={{ marginLeft: "auto", fontSize: 13, color: "var(--uc-gray)" }}>
         {totalCount} {noun}
       </div>
     );
   }
   return (
-    <div style={{ marginLeft: "auto", fontSize: 13, color: "#4C4C4C" }}>
+    <div style={{ marginLeft: "auto", fontSize: 13, color: "var(--uc-gray)" }}>
       {resultCount} of {totalCount}
     </div>
   );
@@ -274,7 +273,7 @@ function FilterBar({ filters, campuses, resultCount, totalCount }: FilterBarProp
   return (
     <div
       style={{
-        background: "#fff",
+        background: "var(--uc-white)",
         borderBottom: "1px solid rgba(0,32,51,.08)",
         padding: isMobile ? "16px 20px" : "20px 32px",
         position: "sticky",
@@ -314,7 +313,7 @@ function FilterBar({ filters, campuses, resultCount, totalCount }: FilterBarProp
 
 function EmptyState({ active, onReset }: { active: boolean; onReset: () => void }) {
   return (
-    <div style={{ color: "#4C4C4C", padding: "48px 0", textAlign: "center" }}>
+    <div style={{ color: "var(--uc-gray)", padding: "48px 0", textAlign: "center" }}>
       No stories match these filters.{" "}
       {active ? (
         <button
@@ -339,6 +338,9 @@ function EmptyState({ active, onReset }: { active: boolean; onReset: () => void 
 
 function NewsGrid({ items }: { items: NewsItem[] }) {
   const isMobile = useIsMobile();
+  // Items arrive newest-first; give the lead story a full-width featured
+  // treatment so the feed has hierarchy instead of one flat wall of cards.
+  const [lead, ...rest] = items;
   return (
     <div
       style={{
@@ -347,22 +349,74 @@ function NewsGrid({ items }: { items: NewsItem[] }) {
         gap: isMobile ? 16 : 24,
       }}
     >
-      {items.map((item) => (
+      {lead && (
+        <div key={lead.id} style={{ gridColumn: isMobile ? "auto" : "1 / -1" }}>
+          <NewsCard item={lead} featured />
+        </div>
+      )}
+      {rest.map((item) => (
         <NewsCard key={item.id} item={item} />
       ))}
     </div>
   );
 }
 
+const PAGE_SIZE = 24;
+
+function ShowMoreButton({ remaining, onClick }: { remaining: number; onClick: () => void }) {
+  const [hover, setHover] = useState(false);
+  return (
+    <div style={{ display: "flex", justifyContent: "center", marginTop: 36 }}>
+      <button
+        type="button"
+        onClick={onClick}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        style={{
+          background: hover ? "var(--uc-dark-blue)" : "var(--uc-white)",
+          border: "2px solid var(--uc-dark-blue)",
+          color: hover ? "var(--uc-white)" : "var(--uc-dark-blue)",
+          padding: "14px 24px",
+          borderRadius: 4,
+          fontWeight: 600,
+          fontSize: 15,
+          cursor: "pointer",
+          transition: "background .15s ease, color .15s ease",
+        }}
+      >
+        Show more stories ({remaining} more)
+      </button>
+    </div>
+  );
+}
+
 function NewsResults({ items, filters }: { items: NewsItem[]; filters: NewsFilters }) {
   const isMobile = useIsMobile();
+  // Render in pages so the feed doesn't mount ~100 cards (and their images) at
+  // once. `items` is memoized on the filter state, so changing a filter resets
+  // the view to the first page.
+  const [visible, setVisible] = useState(PAGE_SIZE);
+  // Reset to the first page when the filter set changes (not on every render —
+  // `items` is a fresh array each render, which would otherwise reset
+  // pagination whenever the page re-renders for an unrelated reason).
+  useEffect(() => {
+    setVisible(PAGE_SIZE);
+  }, [filters.query, filters.selectedCampuses, filters.window]);
   return (
     <section style={{ padding: isMobile ? "24px 20px 64px" : "32px 32px 96px" }}>
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
         {items.length === 0 ? (
           <EmptyState active={isFilterActive(filters)} onReset={filters.reset} />
         ) : (
-          <NewsGrid items={items} />
+          <>
+            <NewsGrid items={items.slice(0, visible)} />
+            {visible < items.length && (
+              <ShowMoreButton
+                remaining={items.length - visible}
+                onClick={() => setVisible((v) => v + PAGE_SIZE)}
+              />
+            )}
+          </>
         )}
       </div>
     </section>
@@ -372,7 +426,13 @@ function NewsResults({ items, filters }: { items: NewsItem[]; filters: NewsFilte
 export function NewsPage() {
   const filters = useNewsFilters();
   const campusOptions = useMemo(() => buildCampusOptions(NEWS), []);
-  const filtered = useMemo(() => applyFilters(NEWS, filters), [filters]);
+  // Depend on the primitive filter values: useNewsFilters returns a fresh
+  // object each render, so [filters] would never actually memoize.
+  const filtered = useMemo(
+    () => applyFilters(NEWS, filters),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [filters.query, filters.selectedCampuses, filters.window],
+  );
   return (
     <Page>
       <NewsHero />

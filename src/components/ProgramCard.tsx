@@ -26,7 +26,9 @@ function CardIndustries({ industries }: { industries: string[] }) {
 
 function CardMeta({ program }: { program: Program }) {
   return (
-    <div style={{ fontSize: 12, color: "#4C4C4C", display: "flex", gap: 12, flexWrap: "wrap" }}>
+    <div
+      style={{ fontSize: 12, color: "var(--uc-gray)", display: "flex", gap: 12, flexWrap: "wrap" }}
+    >
       <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
         <I_Calendar size={13} /> {program.deadline}
       </span>
@@ -41,9 +43,9 @@ function CardMeta({ program }: { program: Program }) {
 
 function compareToggleStyle(inCompare: boolean) {
   return {
-    border: `1px solid ${inCompare ? "#005581" : "rgba(0,32,51,.15)"}`,
-    background: inCompare ? "#005581" : "#fff",
-    color: inCompare ? "#fff" : "#002033",
+    border: `1px solid ${inCompare ? "var(--accent)" : "rgba(0,32,51,.15)"}`,
+    background: inCompare ? "var(--accent)" : "var(--uc-white)",
+    color: inCompare ? "var(--uc-white)" : "var(--uc-dark-blue)",
     borderRadius: 4,
     padding: "6px 10px",
     fontSize: 12,
@@ -91,7 +93,7 @@ function CompareToggle({ programId }: { programId: string }) {
 
 function articleStyle(hover: boolean) {
   return {
-    background: "#fff",
+    background: "var(--uc-white)",
     border: "1px solid rgba(0,32,51,.10)",
     borderRadius: 8,
     overflow: "hidden",
@@ -139,7 +141,7 @@ function CardBody({
           fontWeight: 600,
           fontSize: compact ? 20 : 22,
           lineHeight: 1.2,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
           textWrap: "pretty",
         }}
       >
@@ -152,7 +154,7 @@ function CardBody({
           margin: 0,
           fontSize: 14,
           lineHeight: 1.5,
-          color: "#4C4C4C",
+          color: "var(--uc-gray)",
           display: "-webkit-box",
           WebkitLineClamp: compact ? 2 : 3,
           WebkitBoxOrient: "vertical",

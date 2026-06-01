@@ -47,11 +47,11 @@ function CampusCard({ campus, onHoverChange }: CampusCardProps) {
         flexDirection: "column",
         gap: 8,
         padding: "20px 22px",
-        background: "#fff",
+        background: "var(--uc-white)",
         border: "1px solid rgba(0,32,51,.10)",
         borderRadius: 8,
         textDecoration: "none",
-        color: "#002033",
+        color: "var(--uc-dark-blue)",
         transition: "box-shadow .25s, transform .25s",
         position: "relative",
         overflow: "hidden",
@@ -80,7 +80,7 @@ function CampusCard({ campus, onHoverChange }: CampusCardProps) {
             fontFamily: "'Source Serif 4',Georgia,serif",
             fontWeight: 600,
             fontSize: 22,
-            color: "#002033",
+            color: "var(--uc-dark-blue)",
           }}
         >
           {campus.name}
@@ -91,17 +91,22 @@ function CampusCard({ campus, onHoverChange }: CampusCardProps) {
             letterSpacing: ".10em",
             textTransform: "uppercase",
             fontWeight: 700,
-            color: campus.color,
+            // The card's top stripe carries the campus color; raw campus.color
+            // here fails AA on white for the lighter campuses. Use the AA-safe
+            // accent instead.
+            color: "var(--accent)",
           }}
         >
           {campus.programs} programs
         </span>
       </div>
-      <div style={{ fontSize: 14, color: "#4C4C4C", lineHeight: 1.45 }}>{campus.tagline}.</div>
+      <div style={{ fontSize: 14, color: "var(--uc-gray)", lineHeight: 1.45 }}>
+        {campus.tagline}.
+      </div>
       <div
         style={{
           marginTop: 8,
-          color: "#005581",
+          color: "var(--accent)",
           fontWeight: 600,
           fontSize: 14,
           display: "inline-flex",
@@ -141,11 +146,20 @@ function gridLayout(isMobile: boolean): GridLayout {
       };
 }
 
+// Group the directory by geography (north/south of ~lat 36) so the ten
+// campuses read as two scannable sets instead of one flat grid. The headings
+// also give the directory the heading structure it was missing.
+const NORTH_OF_LAT = 36;
+const REGIONS = [
+  { label: "Northern California", campuses: CAMPUSES.filter((c) => c.lat > NORTH_OF_LAT) },
+  { label: "Southern California", campuses: CAMPUSES.filter((c) => c.lat <= NORTH_OF_LAT) },
+];
+
 function CampusesGrid() {
   const layout = gridLayout(useIsMobile());
   const [hoverId, setHoverId] = useState<string | null>(null);
   return (
-    <section style={{ padding: layout.sectionPadding, background: "#fff" }}>
+    <section style={{ padding: layout.sectionPadding, background: "var(--uc-white)" }}>
       <div
         style={{
           maxWidth: 1440,
@@ -159,15 +173,32 @@ function CampusesGrid() {
         <div style={{ position: layout.mapPosition, top: 116 }}>
           <CaliforniaMap variant="standalone" highlight={hoverId} />
         </div>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: layout.cardsTemplateColumns,
-            gap: 14,
-          }}
-        >
-          {CAMPUSES.map((c) => (
-            <CampusCard key={c.id} campus={c} onHoverChange={setHoverId} />
+        <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+          {REGIONS.map((region) => (
+            <div key={region.label}>
+              <h2
+                style={{
+                  fontFamily: "'Source Serif 4',Georgia,serif",
+                  fontWeight: 600,
+                  fontSize: 20,
+                  color: "var(--uc-dark-blue)",
+                  margin: "0 0 14px",
+                }}
+              >
+                {region.label}
+              </h2>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: layout.cardsTemplateColumns,
+                  gap: 14,
+                }}
+              >
+                {region.campuses.map((c) => (
+                  <CampusCard key={c.id} campus={c} onHoverChange={setHoverId} />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>

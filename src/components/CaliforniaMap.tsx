@@ -360,10 +360,21 @@ function CampusMarker({ placed, dark, active, hovered, onHoverChange, onPick }: 
   const style = dark ? MARKER_STYLES.hero : MARKER_STYLES.standalone;
   return (
     <g
+      role="button"
+      tabIndex={0}
+      aria-label={`${campus.name}, ${campus.programs} programs`}
       style={{ cursor: "pointer" }}
       onMouseEnter={() => onHoverChange(campus.id)}
       onMouseLeave={() => onHoverChange(null)}
+      onFocus={() => onHoverChange(campus.id)}
+      onBlur={() => onHoverChange(null)}
       onClick={() => onPick(campus)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onPick(campus);
+        }
+      }}
     >
       {emphasized && <MarkerHalo x={x} y={y} fill={style.haloFill} />}
       <MarkerDot x={x} y={y} emphasized={emphasized} style={style} />
@@ -454,6 +465,8 @@ export function CaliforniaMap({ variant = "standalone", highlight = null, onPick
         width="100%"
         height="100%"
         style={{ display: "block" }}
+        role="group"
+        aria-label="Map of the ten UC campuses"
       >
         <MapBackdrop theme={theme} fillId={fillId} />
         {dark && <NetworkLines />}

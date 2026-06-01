@@ -58,7 +58,7 @@ const COLUMNS: FooterColumn[] = [
 ];
 
 function FooterLink({ item }: { item: FooterItem }) {
-  const baseStyle = { color: "#fff", textDecoration: "none", fontSize: 14 } as const;
+  const baseStyle = { color: "var(--uc-white)", textDecoration: "none", fontSize: 14 } as const;
   if (!item.to) {
     return <span style={{ ...baseStyle, color: "rgba(255,255,255,.55)" }}>{item.label}</span>;
   }
@@ -78,7 +78,7 @@ function FooterColumnView({ column }: { column: FooterColumn }) {
           fontSize: 11.5,
           letterSpacing: ".14em",
           textTransform: "uppercase",
-          color: "#FFB511",
+          color: "var(--uc-gold)",
           fontWeight: 700,
         }}
       >
@@ -117,15 +117,15 @@ function FooterBrand() {
           fontFamily: "'Source Serif 4',Georgia,serif",
           fontSize: 20,
           lineHeight: 1.35,
-          color: "#fff",
+          color: "var(--uc-white)",
           maxWidth: 360,
           marginBottom: 16,
         }}
       >
-        A central nervous system for entrepreneurship across the world’s leading public research
-        university.
+        Every entrepreneurship program across the ten UC campuses, in one place to search and
+        compare.
       </div>
-      <div style={{ fontSize: 13, color: "#BDE3F6" }}>
+      <div style={{ fontSize: 13, color: "var(--uc-blue-xlight)" }}>
         An initiative of the UC Office of the President.
       </div>
     </div>
@@ -143,7 +143,7 @@ function FooterBottom() {
         display: "flex",
         justifyContent: "space-between",
         fontSize: 13,
-        color: "#BDE3F6",
+        color: "var(--uc-blue-xlight)",
         flexWrap: "wrap",
         gap: 12,
       }}
@@ -158,8 +158,8 @@ export function Footer() {
   return (
     <footer
       style={{
-        background: "#002033",
-        color: "#fff",
+        background: "var(--uc-dark-blue)",
+        color: "var(--uc-white)",
         padding: isMobile ? "48px 20px 20px" : "72px 32px 28px",
         marginTop: 0,
       }}

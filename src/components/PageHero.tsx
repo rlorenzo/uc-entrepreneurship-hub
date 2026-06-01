@@ -16,7 +16,7 @@ export function PageHero({ trail, eyebrow, title, blurb }: PageHeroProps) {
     <section
       style={{
         padding: isMobile ? "24px 20px 18px" : "48px 32px 24px",
-        background: "#F7F5F1",
+        background: "var(--bg-2)",
         borderBottom: "1px solid rgba(0,32,51,.08)",
       }}
     >
@@ -30,12 +30,20 @@ export function PageHero({ trail, eyebrow, title, blurb }: PageHeroProps) {
             fontSize: "clamp(40px,4.4vw,60px)",
             lineHeight: 1.05,
             margin: "12px 0 16px",
-            color: "#002033",
+            color: "var(--uc-dark-blue)",
           }}
         >
           {title}
         </h1>
-        <p style={{ fontSize: 18, maxWidth: 680, color: "#4C4C4C", lineHeight: 1.5, margin: 0 }}>
+        <p
+          style={{
+            fontSize: 18,
+            maxWidth: 680,
+            color: "var(--uc-gray)",
+            lineHeight: 1.5,
+            margin: 0,
+          }}
+        >
           {blurb}
         </p>
       </div>

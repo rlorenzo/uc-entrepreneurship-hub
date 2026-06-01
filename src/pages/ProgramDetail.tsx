@@ -1,7 +1,7 @@
 import { type ReactNode } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Page } from "@/components/Page";
-import { Eyebrow } from "@/components/Eyebrow";
+import { NotFound } from "@/components/NotFound";
 import { ProgramCard } from "@/components/ProgramCard";
 import { CAMPUS_BY_ID } from "@/data/campuses";
 import { TYPE_BY_ID } from "@/data/types-list";
@@ -10,6 +10,7 @@ import type { Campus, Program, ProgramType } from "@/data/types.ts";
 import { useCompare } from "@/lib/compare";
 import { useIsMobile } from "@/lib/useMediaQuery";
 import { programGradient } from "@/lib/programGradient";
+import { isValidWebUrl } from "@/lib/url";
 import {
   I_Calendar,
   I_Check,
@@ -39,9 +40,12 @@ interface DetailVM {
 function buildVM(program: Program): DetailVM {
   const campus = CAMPUS_BY_ID[program.campus];
   const type = TYPE_BY_ID[program.type];
-  const applyHref = program.applicationLink || program.website || program.sourceUrl || "#";
+  const applyHref =
+    [program.applicationLink, program.website, program.sourceUrl].find(isValidWebUrl) ?? "#";
   const isExternal = applyHref !== "#";
-  const hasSeparateWebsite = Boolean(program.website && program.website !== applyHref);
+  const hasSeparateWebsite = Boolean(
+    program.website && isValidWebUrl(program.website) && program.website !== applyHref,
+  );
   const related = PROGRAMS.filter((p) => isRelated(p, program)).slice(0, 3);
   return { program, campus, type, applyHref, isExternal, hasSeparateWebsite, related };
 }
@@ -55,26 +59,19 @@ function isRelated(p: Program, target: Program): boolean {
 // ── shared building blocks ─────────────────────────────────────────────
 
 function ExternalAnchorProps(href: string, isExternal: boolean) {
+  // Re-validate at render: never emit a live href for a non-http(s) URL.
+  const safe = isExternal && isValidWebUrl(href);
   return {
-    href,
-    target: isExternal ? "_blank" : undefined,
-    rel: isExternal ? "noopener noreferrer" : undefined,
-    onClick: isExternal ? undefined : (e: React.MouseEvent) => e.preventDefault(),
+    href: safe ? href : "#",
+    target: safe ? "_blank" : undefined,
+    rel: safe ? "noopener noreferrer" : undefined,
+    onClick: safe ? undefined : (e: React.MouseEvent) => e.preventDefault(),
   } as const;
 }
 
-function DetailBlock({
-  title,
-  eyebrow,
-  children,
-}: {
-  title: string;
-  eyebrow: string;
-  children: ReactNode;
-}) {
+function DetailBlock({ title, children }: { title: string; children: ReactNode }) {
   return (
     <div>
-      <Eyebrow>{eyebrow}</Eyebrow>
       <h3
         style={{
           fontFamily: "'Source Serif 4',Georgia,serif",
@@ -82,7 +79,7 @@ function DetailBlock({
           fontSize: 28,
           lineHeight: 1.15,
           margin: "10px 0 4px",
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
         }}
       >
         {title}
@@ -95,12 +92,16 @@ function DetailBlock({
 // ── hero section ───────────────────────────────────────────────────────
 
 function HeroBreadcrumbs({ campus, programName }: { campus: Campus; programName: string }) {
-  const linkStyle = { color: "#BDE3F6", textDecoration: "none", fontWeight: 600 } as const;
+  const linkStyle = {
+    color: "var(--uc-blue-xlight)",
+    textDecoration: "none",
+    fontWeight: 600,
+  } as const;
   return (
     <div
       style={{
         fontSize: 13,
-        color: "#BDE3F6",
+        color: "var(--uc-blue-xlight)",
         display: "flex",
         gap: 8,
         alignItems: "center",
@@ -120,7 +121,7 @@ function HeroBreadcrumbs({ campus, programName }: { campus: Campus; programName:
         {campus.name}
       </Link>
       <I_Chevron size={12} />
-      <span style={{ color: "#fff", fontWeight: 600 }}>{programName}</span>
+      <span style={{ color: "var(--uc-white)", fontWeight: 600 }}>{programName}</span>
     </div>
   );
 }
@@ -152,13 +153,15 @@ function HeroChips({
         flexWrap: "wrap",
       }}
     >
-      <span style={{ ...chipBase, background: "#fff", color: type.color }}>{type.label}</span>
+      <span style={{ ...chipBase, background: "var(--uc-white)", color: type.color }}>
+        {type.label}
+      </span>
       {featured && (
         <span
           style={{
             ...chipBase,
-            background: "#FFB511",
-            color: "#002033",
+            background: "var(--uc-gold)",
+            color: "var(--uc-dark-blue)",
             display: "inline-flex",
             alignItems: "center",
             gap: 4,
@@ -172,7 +175,7 @@ function HeroChips({
           display: "inline-flex",
           alignItems: "center",
           gap: 6,
-          color: "#BDE3F6",
+          color: "var(--uc-blue-xlight)",
           fontSize: 14,
           fontWeight: 600,
         }}
@@ -183,16 +186,28 @@ function HeroChips({
   );
 }
 
+// A crawled applicationLink is sometimes a campus *admissions* root, not the
+// program's own application. Don't promise "Start application" in that case.
+function isGenericAdmissionsLink(url: string | undefined): boolean {
+  return !!url && /admissions/i.test(url);
+}
+
+function applyCtaLabel(program: Program, fallback: string): string {
+  if (!program.applicationLink) return fallback;
+  return isGenericAdmissionsLink(program.applicationLink) ? "How to apply" : "Start application";
+}
+
 function HeroPrimaryCTA({ vm }: { vm: DetailVM }) {
-  const label = vm.program.applicationLink
-    ? "Start application"
-    : `Visit on ${vm.campus.short}.edu`;
+  // Neutral fallback: applyHref may resolve to a non-*.edu program site
+  // (e.g. curated programs like CITRIS Foundry → citrisfoundry.org), so don't
+  // promise a campus .edu destination. Mirrors the apply card's fallback.
+  const label = applyCtaLabel(vm.program, "Visit program page");
   return (
     <a
       {...ExternalAnchorProps(vm.applyHref, vm.isExternal)}
       style={{
-        background: "#FFB511",
-        color: "#002033",
+        background: "var(--uc-gold)",
+        color: "var(--uc-dark-blue)",
         padding: "14px 24px",
         borderRadius: 4,
         fontWeight: 700,
@@ -215,7 +230,7 @@ function HeroCompareToggle({ programId }: { programId: string }) {
       onClick={() => (inCompare ? remove(programId) : add(programId))}
       style={{
         background: "transparent",
-        color: "#fff",
+        color: "var(--uc-white)",
         padding: "13px 22px",
         borderRadius: 4,
         fontWeight: 600,
@@ -264,7 +279,7 @@ function HeroLeft({ vm }: { vm: DetailVM }) {
           lineHeight: 1.45,
           marginTop: 20,
           maxWidth: 760,
-          color: "#BDE3F6",
+          color: "var(--uc-blue-xlight)",
         }}
       >
         {vm.program.desc}
@@ -294,7 +309,8 @@ function buildGlanceRows(program: Program): GlanceRow[] {
 }
 
 function cohortLabel(cohortSize: number | null): ReactNode {
-  if (!cohortSize) return <em style={{ color: "#5B5D5E", fontStyle: "normal" }}>Not disclosed</em>;
+  if (!cohortSize)
+    return <em style={{ color: "var(--uc-gray-mid)", fontStyle: "normal" }}>Not disclosed</em>;
   return `${cohortSize} ventures`;
 }
 
@@ -303,11 +319,10 @@ function AtAGlanceCard({ program }: { program: Program }) {
   return (
     <div
       style={{
-        background: "rgba(255,255,255,.06)",
+        background: "rgba(255,255,255,.08)",
         border: "1px solid rgba(255,255,255,.18)",
         borderRadius: 8,
         padding: "24px 26px",
-        backdropFilter: "blur(8px)",
       }}
     >
       <div
@@ -316,7 +331,7 @@ function AtAGlanceCard({ program }: { program: Program }) {
           letterSpacing: ".14em",
           textTransform: "uppercase",
           fontWeight: 700,
-          color: "#FFB511",
+          color: "var(--uc-gold)",
           marginBottom: 18,
         }}
       >
@@ -346,12 +361,12 @@ function GlanceRowItem({ row, first }: { row: GlanceRow; first: boolean }) {
           alignItems: "center",
           gap: 8,
           fontSize: 13,
-          color: "#BDE3F6",
+          color: "var(--uc-blue-xlight)",
         }}
       >
         {row.icon} {row.label}
       </span>
-      <span style={{ fontSize: 14, fontWeight: 600, color: "#fff", textAlign: "right" }}>
+      <span style={{ fontSize: 14, fontWeight: 600, color: "var(--uc-white)", textAlign: "right" }}>
         {row.value}
       </span>
     </div>
@@ -362,7 +377,12 @@ function DetailHero({ vm }: { vm: DetailVM }) {
   const isMobile = useIsMobile();
   return (
     <section
-      style={{ background: "#002033", color: "#fff", position: "relative", overflow: "hidden" }}
+      style={{
+        background: "var(--uc-dark-blue)",
+        color: "var(--uc-white)",
+        position: "relative",
+        overflow: "hidden",
+      }}
     >
       <div
         style={{
@@ -425,10 +445,10 @@ function buildKeyDetails(program: Program): KeyDetail[] {
   ];
 }
 
-function KeyDetailsGrid({ program, type }: { program: Program; type: ProgramType }) {
+function KeyDetailsGrid({ program }: { program: Program }) {
   const isMobile = useIsMobile();
   return (
-    <DetailBlock title="Key details" eyebrow="What you get">
+    <DetailBlock title="Key details">
       <div
         style={{
           display: "grid",
@@ -442,9 +462,9 @@ function KeyDetailsGrid({ program, type }: { program: Program; type: ProgramType
             key={d.label}
             style={{
               padding: "14px 16px",
-              background: "#F7F5F1",
+              background: "var(--bg-2)",
               borderRadius: 6,
-              borderLeft: `3px solid ${type.color}`,
+              border: "1px solid rgba(0,32,51,.10)",
             }}
           >
             <div
@@ -453,12 +473,14 @@ function KeyDetailsGrid({ program, type }: { program: Program; type: ProgramType
                 letterSpacing: ".12em",
                 textTransform: "uppercase",
                 fontWeight: 700,
-                color: "#4C4C4C",
+                color: "var(--uc-gray)",
               }}
             >
               {d.label}
             </div>
-            <div style={{ fontSize: 16, fontWeight: 600, color: "#002033", marginTop: 4 }}>
+            <div
+              style={{ fontSize: 16, fontWeight: 600, color: "var(--uc-dark-blue)", marginTop: 4 }}
+            >
               {d.value}
             </div>
           </div>
@@ -468,165 +490,9 @@ function KeyDetailsGrid({ program, type }: { program: Program; type: ProgramType
   );
 }
 
-function buildFitBullets(program: Program, campusName: string): string[] {
-  const industries = program.industries.slice(0, 2).join(" or ");
-  const stage = program.stage.toLowerCase();
-  return [
-    `Founders working on ${industries} ventures.`,
-    `Teams at the ${stage} stage with at least one ${campusName} affiliate.`,
-    "Committed to running the program full-time during cohort weeks.",
-    "Comfortable sharing progress with peer cohort and mentors.",
-  ];
-}
-
-function WhoShouldApply({
-  program,
-  campus,
-  type,
-}: {
-  program: Program;
-  campus: Campus;
-  type: ProgramType;
-}) {
-  const bullets = buildFitBullets(program, campus.name);
-  return (
-    <DetailBlock title="Who should apply" eyebrow="Fit">
-      <ul
-        style={{
-          paddingLeft: 0,
-          listStyle: "none",
-          display: "flex",
-          flexDirection: "column",
-          gap: 10,
-          marginTop: 10,
-        }}
-      >
-        {bullets.map((b) => (
-          <li
-            key={b}
-            style={{
-              display: "flex",
-              gap: 12,
-              fontSize: 16,
-              lineHeight: 1.5,
-              color: "#002033",
-            }}
-          >
-            <span
-              style={{
-                flexShrink: 0,
-                marginTop: 6,
-                width: 6,
-                height: 6,
-                borderRadius: 999,
-                background: type.color,
-              }}
-            />
-            <span>{b}</span>
-          </li>
-        ))}
-      </ul>
-    </DetailBlock>
-  );
-}
-
-interface TimelineItem {
-  date: string;
-  label: string;
-  body: string;
-}
-
-function buildTimeline(deadline: string): TimelineItem[] {
-  return [
-    {
-      date: "Now → Deadline",
-      label: "Applications open",
-      body: "Submit your team, traction snapshot, and a 2-minute video.",
-    },
-    {
-      date: deadline,
-      label: "Deadline",
-      body: "Final cutoff. We start reviewing immediately.",
-    },
-    {
-      date: "+2 weeks",
-      label: "Interviews",
-      body: "Selected teams meet with the partner team and program leads.",
-    },
-    {
-      date: "+4 weeks",
-      label: "Cohort kickoff",
-      body: "Onboarding, intros, mentor pairing, and goal-setting.",
-    },
-  ];
-}
-
-function Timeline({ deadline }: { deadline: string }) {
-  const items = buildTimeline(deadline);
-  return (
-    <DetailBlock title="Timeline" eyebrow="When">
-      <ol
-        style={{
-          paddingLeft: 0,
-          listStyle: "none",
-          display: "flex",
-          flexDirection: "column",
-          gap: 0,
-          marginTop: 10,
-        }}
-      >
-        {items.map((it, i) => (
-          <TimelineRow key={it.label} item={it} last={i === items.length - 1} />
-        ))}
-      </ol>
-    </DetailBlock>
-  );
-}
-
-function TimelineRow({ item, last }: { item: TimelineItem; last: boolean }) {
-  const isMobile = useIsMobile();
-  return (
-    <li
-      style={{
-        display: "grid",
-        gridTemplateColumns: isMobile ? "1fr" : "170px 1fr",
-        gap: isMobile ? 6 : 24,
-        padding: "18px 0",
-        borderBottom: last ? "none" : "1px solid rgba(0,32,51,.10)",
-      }}
-    >
-      <div
-        style={{
-          fontSize: 13,
-          fontWeight: 700,
-          color: "#005581",
-          letterSpacing: ".04em",
-          textTransform: "uppercase",
-        }}
-      >
-        {item.date}
-      </div>
-      <div>
-        <div
-          style={{
-            fontFamily: "'Source Serif 4',Georgia,serif",
-            fontWeight: 600,
-            fontSize: 20,
-            color: "#002033",
-            marginBottom: 4,
-          }}
-        >
-          {item.label}
-        </div>
-        <div style={{ fontSize: 15, color: "#4C4C4C", lineHeight: 1.5 }}>{item.body}</div>
-      </div>
-    </li>
-  );
-}
-
 function IndustryPills({ industries, color }: { industries: string[]; color: string }) {
   return (
-    <DetailBlock title="Industries we love" eyebrow="Focus areas">
+    <DetailBlock title="Focus areas">
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 10 }}>
         {industries.map((i) => (
           <span
@@ -634,7 +500,7 @@ function IndustryPills({ industries, color }: { industries: string[]; color: str
             style={{
               padding: "8px 14px",
               borderRadius: 999,
-              background: "#fff",
+              background: "var(--uc-white)",
               border: `1px solid ${color}33`,
               color,
               fontSize: 14,
@@ -652,7 +518,6 @@ function IndustryPills({ industries, color }: { industries: string[]; color: str
 function DetailOverview({ vm }: { vm: DetailVM }) {
   return (
     <div>
-      <Eyebrow>Overview</Eyebrow>
       <h2
         style={{
           fontFamily: "'Source Serif 4',Georgia,serif",
@@ -660,7 +525,7 @@ function DetailOverview({ vm }: { vm: DetailVM }) {
           fontSize: 36,
           lineHeight: 1.15,
           margin: "12px 0 18px",
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
           textWrap: "balance",
         }}
       >
@@ -670,7 +535,7 @@ function DetailOverview({ vm }: { vm: DetailVM }) {
         style={{
           fontSize: 18,
           lineHeight: 1.6,
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
           marginTop: 0,
           maxWidth: 720,
         }}
@@ -678,10 +543,10 @@ function DetailOverview({ vm }: { vm: DetailVM }) {
         {vm.program.longDescription ?? vm.program.desc}
       </p>
       <div style={{ marginTop: 48, display: "flex", flexDirection: "column", gap: 40 }}>
-        <KeyDetailsGrid program={vm.program} type={vm.type} />
-        <WhoShouldApply program={vm.program} campus={vm.campus} type={vm.type} />
-        <Timeline deadline={vm.program.deadline} />
-        <IndustryPills industries={vm.program.industries} color={vm.type.color} />
+        <KeyDetailsGrid program={vm.program} />
+        {vm.program.industries.length > 0 && (
+          <IndustryPills industries={vm.program.industries} color={vm.type.color} />
+        )}
       </div>
     </div>
   );
@@ -691,20 +556,19 @@ function DetailOverview({ vm }: { vm: DetailVM }) {
 
 function ApplyCard({ vm }: { vm: DetailVM }) {
   return (
-    <div style={{ background: "#F7F5F1", borderRadius: 8, padding: "24px 24px 22px" }}>
-      <Eyebrow>Apply</Eyebrow>
+    <div style={{ background: "var(--bg-2)", borderRadius: 8, padding: "24px 24px 22px" }}>
       <h3
         style={{
           fontFamily: "'Source Serif 4',Georgia,serif",
           fontWeight: 600,
           fontSize: 24,
           margin: "10px 0 6px",
-          color: "#002033",
+          color: "var(--uc-dark-blue)",
         }}
       >
         Ready to apply?
       </h3>
-      <p style={{ fontSize: 15, lineHeight: 1.45, color: "#4C4C4C", marginTop: 0 }}>
+      <p style={{ fontSize: 15, lineHeight: 1.45, color: "var(--uc-gray)", marginTop: 0 }}>
         Applications go directly to the program team at {vm.campus.name}. Deadline:{" "}
         <strong>{vm.program.deadline}</strong>.
       </p>
@@ -715,7 +579,7 @@ function ApplyCard({ vm }: { vm: DetailVM }) {
             display: "block",
             textAlign: "center",
             background: "var(--accent, #1295D8)",
-            color: "#fff",
+            color: "var(--uc-white)",
             padding: "14px 18px",
             borderRadius: 4,
             fontWeight: 600,
@@ -724,8 +588,7 @@ function ApplyCard({ vm }: { vm: DetailVM }) {
             marginTop: 16,
           }}
         >
-          {vm.program.applicationLink ? "Start application" : "Visit program page"}{" "}
-          <I_External size={14} />
+          {applyCtaLabel(vm.program, "Visit program page")} <I_External size={14} />
         </a>
       ) : (
         // No application/website/source URL on record — show a muted note
@@ -744,15 +607,13 @@ function ApplyCard({ vm }: { vm: DetailVM }) {
       )}
       {vm.hasSeparateWebsite && vm.program.website && (
         <a
-          href={vm.program.website}
-          target="_blank"
-          rel="noopener noreferrer"
+          {...ExternalAnchorProps(vm.program.website, true)}
           style={{
             display: "block",
             textAlign: "center",
             background: "transparent",
             border: "2px solid #002033",
-            color: "#002033",
+            color: "var(--uc-dark-blue)",
             padding: "12px 18px",
             borderRadius: 4,
             fontWeight: 600,
@@ -779,7 +640,6 @@ function RunByCard({ campus }: { campus: Campus }) {
         borderRadius: 8,
       }}
     >
-      <Eyebrow>Run by</Eyebrow>
       <div style={{ display: "flex", gap: 14, alignItems: "center", marginTop: 12 }}>
         <div
           style={{
@@ -790,7 +650,7 @@ function RunByCard({ campus }: { campus: Campus }) {
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            color: "#fff",
+            color: "var(--uc-white)",
             fontFamily: "'Source Serif 4',Georgia,serif",
             fontWeight: 600,
             fontSize: 18,
@@ -805,7 +665,7 @@ function RunByCard({ campus }: { campus: Campus }) {
               fontFamily: "'Source Serif 4',Georgia,serif",
               fontWeight: 600,
               fontSize: 18,
-              color: "#002033",
+              color: "var(--uc-dark-blue)",
             }}
           >
             {campus.name}
@@ -814,7 +674,7 @@ function RunByCard({ campus }: { campus: Campus }) {
             to={`/campus/${campus.id}`}
             style={{
               fontSize: 13,
-              color: "#005581",
+              color: "var(--accent)",
               fontWeight: 600,
               textDecoration: "underline",
               textUnderlineOffset: 3,
@@ -828,8 +688,13 @@ function RunByCard({ campus }: { campus: Campus }) {
   );
 }
 
+// Provenance shown on every record so trust is always visible: crawled
+// records link their source and show when they were refreshed; curated
+// records say so plainly instead of showing nothing.
 function SourceFooter({ sourceUrl, lastUpdated }: { sourceUrl?: string; lastUpdated?: string }) {
-  if (!sourceUrl && !lastUpdated) return null;
+  const hasSource = isValidWebUrl(sourceUrl);
+  const parsed = lastUpdated ? new Date(lastUpdated) : null;
+  const refreshed = parsed && !Number.isNaN(parsed.getTime()) ? parsed : null;
   return (
     <div
       style={{
@@ -840,13 +705,13 @@ function SourceFooter({ sourceUrl, lastUpdated }: { sourceUrl?: string; lastUpda
         lineHeight: 1.5,
       }}
     >
-      {sourceUrl && (
+      {hasSource ? (
         <a
           href={sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            color: "#002033",
+            color: "var(--uc-dark-blue)",
             textDecoration: "underline",
             textUnderlineOffset: 2,
             fontWeight: 600,
@@ -854,11 +719,13 @@ function SourceFooter({ sourceUrl, lastUpdated }: { sourceUrl?: string; lastUpda
         >
           View source page
         </a>
+      ) : refreshed ? null : (
+        <span style={{ fontWeight: 600 }}>Curated by the UC Entrepreneurship Hub</span>
       )}
-      {lastUpdated && (
+      {refreshed && (
         <div style={{ marginTop: 4, opacity: 0.8 }}>
           Refreshed{" "}
-          {new Date(lastUpdated).toLocaleDateString(undefined, {
+          {refreshed.toLocaleDateString(undefined, {
             timeZone: "America/Los_Angeles",
           })}
         </div>
@@ -873,8 +740,8 @@ function HeadsUpCard({ program }: { program: Program }) {
       style={{
         marginTop: 20,
         padding: "20px 22px",
-        background: "#FFB511",
-        color: "#002033",
+        background: "var(--uc-gold)",
+        color: "var(--uc-dark-blue)",
         borderRadius: 8,
       }}
     >
@@ -919,7 +786,7 @@ function DetailRelated({ related }: { related: Program[] }) {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   return (
-    <section style={{ padding: isMobile ? "48px 20px" : "72px 32px", background: "#F7F5F1" }}>
+    <section style={{ padding: isMobile ? "48px 20px" : "72px 32px", background: "var(--bg-2)" }}>
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
         <div
           style={{
@@ -932,7 +799,6 @@ function DetailRelated({ related }: { related: Program[] }) {
           }}
         >
           <div>
-            <Eyebrow>Cross-campus suggestions</Eyebrow>
             <h2
               style={{
                 fontFamily: "'Source Serif 4',Georgia,serif",
@@ -940,7 +806,7 @@ function DetailRelated({ related }: { related: Program[] }) {
                 fontSize: "clamp(28px,3vw,40px)",
                 lineHeight: 1.1,
                 margin: "12px 0 0",
-                color: "#002033",
+                color: "var(--uc-dark-blue)",
               }}
             >
               Programs with similar fit across UC
@@ -949,7 +815,7 @@ function DetailRelated({ related }: { related: Program[] }) {
           <Link
             to="/discover"
             style={{
-              color: "#005581",
+              color: "var(--accent)",
               fontWeight: 600,
               fontSize: 15,
               textDecoration: "underline",
@@ -983,14 +849,37 @@ function DetailRelated({ related }: { related: Program[] }) {
 
 export function ProgramDetail() {
   const { id } = useParams<{ id: string }>();
-  const program = PROGRAMS.find((p) => p.id === id || p.slug === id) ?? PROGRAMS[0];
-  const vm = buildVM(program);
+  // Guard on `id` first: without it, `p.slug === undefined` would match the
+  // first slug-less crawled program and bypass the not-found state.
+  const program = id ? PROGRAMS.find((p) => p.id === id || p.slug === id) : undefined;
   const isMobile = useIsMobile();
+
+  if (!program) {
+    return (
+      <NotFound
+        eyebrow="Program not found"
+        title="We couldn’t find that program"
+        body={
+          <>
+            {id
+              ? `No program matches “${id}”. It may have been renamed or removed since you last saw it.`
+              : "That program link is missing an identifier."}{" "}
+            Browse the full catalog to find what you’re looking for.
+          </>
+        }
+        ctaLabel="Browse all programs"
+        ctaTo="/discover"
+      />
+    );
+  }
+  const vm = buildVM(program);
 
   return (
     <Page>
       <DetailHero vm={vm} />
-      <section style={{ padding: isMobile ? "40px 20px" : "72px 32px", background: "#fff" }}>
+      <section
+        style={{ padding: isMobile ? "40px 20px" : "72px 32px", background: "var(--uc-white)" }}
+      >
         <div
           style={{
             maxWidth: 1440,
