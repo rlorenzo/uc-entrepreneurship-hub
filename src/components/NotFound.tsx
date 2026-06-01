@@ -48,7 +48,6 @@ export function NotFound({ eyebrow, title, body, ctaLabel, ctaTo }: NotFoundProp
             margin: "12px 0 0",
             color: "var(--uc-dark-blue)",
             textWrap: "balance",
-            outline: "none",
           }}
         >
           {title}
