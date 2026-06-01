@@ -4,6 +4,11 @@ import { MemoryRouter } from "react-router-dom";
 import { CompareProvider } from "@/lib/compare";
 import { Nav } from "./Nav";
 
+// Capture the real matchMedia up front so afterEach can restore it exactly.
+// Resetting to a desktop stub instead would leak this file's behavior into
+// other suites that rely on the environment's matchMedia.
+const originalMatchMedia = window.matchMedia;
+
 // The rest of the suite only exercises the desktop branch (jsdom's matchMedia
 // stub reports matches:false). Drive useIsMobile both ways here so the
 // responsive Nav switch — hamburger drawer vs. inline links — stays covered.
@@ -32,8 +37,10 @@ function renderNav() {
 }
 
 describe("Nav responsive layout", () => {
-  // Restore the default (desktop) stub so other tests are unaffected.
-  afterEach(() => setMobile(false));
+  // Restore the real matchMedia so this file's stub can't leak into other tests.
+  afterEach(() => {
+    window.matchMedia = originalMatchMedia;
+  });
 
   it("renders the hamburger menu (and no inline links) on mobile", () => {
     setMobile(true);
