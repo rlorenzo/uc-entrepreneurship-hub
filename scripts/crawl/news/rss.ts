@@ -135,8 +135,38 @@ function passesKeywordFilter(haystack: string, allowlist: string[] | undefined):
 // A bare Chrome UA was the previous default; it failed on Merced.
 const FETCH_USER_AGENT = "uc-entrepreneurship-hub-crawler/1.0 (+github.com/rlorenzo)";
 
+// The exact set of RSS feeds this crawler is allowed to fetch, as in-code
+// string literals. The config file (news/sites.json) decides *which* campus
+// to crawl, but the URL actually handed to fetch() is always one of these
+// constants — never the raw string read from the file. That hardens us
+// against a tampered/typo'd config reaching an arbitrary host, and keeps the
+// file-data → outbound-request flow CodeQL flags broken (js/file-access-to-http).
+//
+// Adding a new RSS site means adding its feed URL here as well as in
+// sites.json; an unlisted URL is refused rather than fetched.
+const ALLOWED_RSS_FEEDS = [
+  "https://innovation.uci.edu/news/feed/",
+  "https://begin.berkeley.edu/feed/",
+  "https://innovation.ucsb.edu/rss.xml",
+  "https://news.ucsc.edu/feed/",
+  "https://news.ucmerced.edu/rss.xml",
+] as const;
+
+// Returns the matching allowlist *constant* (not the passed-in, file-derived
+// string) so nothing tainted by the file read flows onward to the network.
+function resolveAllowedFeed(requested: string): string {
+  const match = ALLOWED_RSS_FEEDS.find((feed) => feed === requested);
+  if (!match) {
+    throw new Error(
+      `Refusing to fetch unrecognized feed URL: ${requested}. ` +
+        `Add it to ALLOWED_RSS_FEEDS in scripts/crawl/news/rss.ts.`,
+    );
+  }
+  return match;
+}
+
 async function fetchFeedXml(feedUrl: string): Promise<string> {
-  const resp = await fetch(feedUrl, {
+  const resp = await fetch(resolveAllowedFeed(feedUrl), {
     headers: {
       "User-Agent": FETCH_USER_AGENT,
       Accept: "application/rss+xml, application/xml, text/xml, */*",

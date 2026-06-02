@@ -10,6 +10,12 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# CI only reads the repo (checkout + build); it never writes back. Pin the
+# default GITHUB_TOKEN to read-only so a compromised dependency or action
+# can't push commits, open releases, etc. Both jobs inherit this.
+permissions:
+  contents: read
+
 # A new push to a PR cancels the in-progress run for that same PR — we
 # only care about the latest commit's status, no point burning minutes
 # on superseded work.
@@ -23,7 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: voidzero-dev/setup-vp@v1
+      - uses: voidzero-dev/setup-vp@2dec1e33f4ab2c6d5bce1b0c4607961bb1a3f7a1 # v1.12.0
         with:
           node-version: "24"
           cache: true
@@ -54,7 +60,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: voidzero-dev/setup-vp@v1
+      - uses: voidzero-dev/setup-vp@2dec1e33f4ab2c6d5bce1b0c4607961bb1a3f7a1 # v1.12.0
         with:
           node-version: "24"
           cache: true

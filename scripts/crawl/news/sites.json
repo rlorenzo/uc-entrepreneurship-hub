@@ -17,11 +17,9 @@
   {
     "campus": "santabarbara",
     "name": "UC Santa Barbara",
-    "strategy": "playwright",
-    "listingUrl": "https://innovation.ucsb.edu/blog/news",
-    "articleLinkPattern": "^/blog/news/[a-z0-9-]+$",
-    "paginationPages": 4,
-    "paginationParam": "page"
+    "strategy": "rss",
+    "feedUrl": "https://innovation.ucsb.edu/rss.xml",
+    "enrichImages": true
   },
   {
     "campus": "la",
