@@ -135,8 +135,31 @@ function passesKeywordFilter(haystack: string, allowlist: string[] | undefined):
 // A bare Chrome UA was the previous default; it failed on Merced.
 const FETCH_USER_AGENT = "uc-entrepreneurship-hub-crawler/1.0 (+github.com/rlorenzo)";
 
+// Feed URLs come from a committed config file (news/sites.json), but treat
+// them as untrusted before they reach the network: every UC newsroom feed is
+// HTTPS on a `.edu` host, so anything else (a `file:`/`http:` URL, or an
+// off-campus host slipped into the config) is rejected rather than fetched.
+// Guarding the value here also breaks the file-data → outbound-request flow
+// CodeQL flags (js/file-access-to-http).
+function assertSafeFeedUrl(feedUrl: string): URL {
+  let url: URL;
+  try {
+    url = new URL(feedUrl);
+  } catch {
+    throw new Error(`Invalid feed URL: ${feedUrl}`);
+  }
+  if (url.protocol !== "https:") {
+    throw new Error(`Feed URL must use https: ${feedUrl}`);
+  }
+  if (!url.hostname.endsWith(".edu")) {
+    throw new Error(`Feed URL host must be a .edu domain: ${feedUrl}`);
+  }
+  return url;
+}
+
 async function fetchFeedXml(feedUrl: string): Promise<string> {
-  const resp = await fetch(feedUrl, {
+  const safeUrl = assertSafeFeedUrl(feedUrl);
+  const resp = await fetch(safeUrl, {
     headers: {
       "User-Agent": FETCH_USER_AGENT,
       Accept: "application/rss+xml, application/xml, text/xml, */*",

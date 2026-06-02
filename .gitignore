@@ -9,3 +9,11 @@ dist
 .fallow/
 .impeccable/live/sessions/
 .antigravitycli/
+
+# TypeScript incremental build cache (regenerated on every build)
+*.tsbuildinfo
+
+# Claude Code — local/transient files only. Shared config (.claude/settings.json,
+# hooks, commands) is intentionally left committable.
+.claude/settings.local.json
+.claude/scheduled_tasks.lock

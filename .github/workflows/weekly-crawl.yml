@@ -40,7 +40,7 @@ jobs:
       # Official Vite+ CI action — installs vp, sets up Node, picks the
       # package manager from `packageManager` in package.json, and caches
       # the install. https://viteplus.dev/guide/ci
-      - uses: voidzero-dev/setup-vp@v1
+      - uses: voidzero-dev/setup-vp@2dec1e33f4ab2c6d5bce1b0c4607961bb1a3f7a1 # v1.12.0
         with:
           node-version: "24"
           cache: true
