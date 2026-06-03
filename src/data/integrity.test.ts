@@ -2,6 +2,7 @@ import { describe, it, expect } from "vite-plus/test";
 import { PROGRAMS, PROGRAM_COUNT, PROGRAM_COUNT_BY_TYPE } from "./programs.ts";
 import { CAMPUSES, CAMPUS_BY_ID } from "./campuses.ts";
 import { TYPE_BY_ID } from "./types-list.ts";
+import { isValidWebUrl } from "../lib/url.ts";
 
 // These guard the shipped catalog (curated + crawled, merged) against bad
 // data sneaking in from a crawl run: dangling type/campus ids, duplicate
@@ -29,6 +30,18 @@ describe("PROGRAMS catalog integrity", () => {
 
   it("every program has a non-empty name and description", () => {
     const bad = PROGRAMS.filter((p) => !p.name?.trim() || !p.desc?.trim()).map((p) => p.id);
+    expect(bad).toEqual([]);
+  });
+
+  // imageUrl is optional and lands in an <img src> / CSS background, so a
+  // crawled record must never ship a non-http(s) value (data:/javascript:),
+  // and a relative path that slipped past sanitization would 404 against our
+  // own origin. Sanitization happens in coerceToProgram; this is the catalog
+  // guard that it actually held across a real crawl.
+  it("every program image URL, when present, is a safe absolute http(s) URL", () => {
+    const bad = PROGRAMS.filter((p) => p.imageUrl !== undefined && !isValidWebUrl(p.imageUrl)).map(
+      (p) => `${p.id}:${p.imageUrl}`,
+    );
     expect(bad).toEqual([]);
   });
 });

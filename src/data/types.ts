@@ -62,6 +62,13 @@ export interface Program {
   lastUpdated?: string;
   /** The page the program was extracted from, when crawled. */
   sourceUrl?: string;
+  /**
+   * Optional hero image (the program page's og:image, harvested by the
+   * crawler). Mirrors NewsItem.imageUrl. When absent — which is the common
+   * case, since program pages rarely publish hero photos — the card and
+   * detail hero fall back to the branded `programGradient` art.
+   */
+  imageUrl?: string;
   featured?: boolean;
   eyebrow?: string;
 }

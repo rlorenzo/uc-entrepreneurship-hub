@@ -13,6 +13,7 @@ interface NavLink {
 const NAV_LINKS: NavLink[] = [
   { to: "/discover", label: "Explore programs", match: "/discover" },
   { to: "/campuses", label: "Campuses", match: "/camp" },
+  { to: "/news", label: "News", match: "/news" },
   { to: "/compare", label: "Compare", match: "/compare" },
 ];
 

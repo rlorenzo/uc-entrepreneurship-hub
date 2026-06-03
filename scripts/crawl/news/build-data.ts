@@ -10,6 +10,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 import { stripHtml } from "./rss.ts";
+import { sanitizeImageUrl } from "../../../src/data/normalize.ts";
 import type { NewsItem } from "../../../src/data/news.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -20,26 +21,6 @@ const OUT = join(ROOT, "src", "data", "news.generated.ts");
 interface NewsCrawlFile {
   campus: string;
   items?: NewsItem[];
-}
-
-// Resolve a possibly site-relative image URL against its source site's root.
-// Feeds like UC San Francisco emit Drupal asset paths such as
-// "sites/innovation.ucsf.edu/themes/.../social-default.jpg" — root-relative but
-// shipped without a leading slash. The UI drops imageUrl straight into a CSS
-// url(), so a relative path would otherwise resolve against our own origin and
-// 404. Resolve against the source origin (not the article path, which would
-// yield a bogus ".../media/news/sites/…") and drop anything that won't parse.
-function absoluteImageUrl(imageUrl: string | undefined, sourceUrl: string): string | undefined {
-  if (!imageUrl) return undefined;
-  try {
-    const resolved = new URL(imageUrl, new URL(sourceUrl).origin);
-    // Only ship http(s) images — the value lands in a CSS url(), so keep
-    // odd schemes (data:, javascript:, file:, …) out even if a feed emits one.
-    if (resolved.protocol !== "http:" && resolved.protocol !== "https:") return undefined;
-    return resolved.href;
-  } catch {
-    return undefined;
-  }
 }
 
 async function loadAll(): Promise<NewsItem[]> {
@@ -58,7 +39,7 @@ async function loadAll(): Promise<NewsItem[]> {
         ...item,
         title: stripHtml(item.title),
         summary: stripHtml(item.summary),
-        imageUrl: absoluteImageUrl(item.imageUrl, item.sourceUrl),
+        imageUrl: sanitizeImageUrl(item.imageUrl, item.sourceUrl),
       });
     }
   }

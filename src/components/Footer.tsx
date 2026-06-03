@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import { useIsMobile } from "@/lib/useMediaQuery";
+import { SUBMIT_PROGRAM_URL } from "@/lib/links";
 
 interface FooterItem {
   label: string;
+  /** Internal route (react-router Link). */
   to?: string;
+  /** External destination (opens in a new tab). Mutually exclusive with `to`. */
+  href?: string;
 }
 
 interface FooterColumn {
@@ -22,7 +26,7 @@ const COLUMNS: FooterColumn[] = [
       { label: "Browse by campus", to: "/campuses" },
       { label: "Browse by industry", to: "/discover" },
       { label: "Compare programs", to: "/compare" },
-      { label: "Spotlight stories" },
+      { label: "Spotlight stories", to: "/news" },
       { label: "Events calendar" },
     ],
   },
@@ -48,9 +52,9 @@ const COLUMNS: FooterColumn[] = [
   {
     h: "About",
     l: [
-      { label: "The initiative" },
-      { label: "Submit a program" },
-      { label: "Data & methodology" },
+      { label: "The initiative", to: "/about#initiative" },
+      { label: "Submit a program", href: SUBMIT_PROGRAM_URL },
+      { label: "Data & methodology", to: "/about#methodology" },
       { label: "Press" },
       { label: "Contact" },
     ],
@@ -59,14 +63,23 @@ const COLUMNS: FooterColumn[] = [
 
 function FooterLink({ item }: { item: FooterItem }) {
   const baseStyle = { color: "var(--uc-white)", textDecoration: "none", fontSize: 14 } as const;
-  if (!item.to) {
-    return <span style={{ ...baseStyle, color: "rgba(255,255,255,.55)" }}>{item.label}</span>;
+  if (item.href) {
+    return (
+      <a href={item.href} target="_blank" rel="noopener noreferrer" style={baseStyle}>
+        {item.label} <span aria-hidden="true">↗</span>
+        <span className="sr-only"> (opens in new tab)</span>
+      </a>
+    );
   }
-  return (
-    <Link to={item.to} style={baseStyle}>
-      {item.label}
-    </Link>
-  );
+  if (item.to) {
+    return (
+      <Link to={item.to} style={baseStyle}>
+        {item.label}
+      </Link>
+    );
+  }
+  // No destination yet — render as muted text rather than a dead link.
+  return <span style={{ ...baseStyle, color: "rgba(255,255,255,.55)" }}>{item.label}</span>;
 }
 
 function FooterColumnView({ column }: { column: FooterColumn }) {

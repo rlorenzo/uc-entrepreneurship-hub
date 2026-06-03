@@ -201,7 +201,115 @@ export interface ProgramCandidate {
   associatedCenter?: string;
   tags?: string[];
   sourceUrl?: string;
+  imageUrl?: string;
   lastUpdated?: string;
+}
+
+/**
+ * Resolve a possibly site-relative og:image to an absolute http(s) URL.
+ *
+ * Shared by the program crawler (`coerceToProgram`) and the news pipeline
+ * (`build-data.ts`): a source page can emit a root-relative image path — e.g.
+ * a Drupal asset path shipped without a leading slash — which we resolve
+ * against the source page's origin (not its path, which would yield a bogus
+ * nested URL). The value ends up in a CSS background / `<img src>`, so anything
+ * that isn't http(s) (data:, javascript:, file:, …) is dropped rather than
+ * shipped — a missing image is acceptable, an unsafe one is not.
+ */
+export function sanitizeImageUrl(
+  imageUrl: string | undefined,
+  base: string | undefined,
+): string | undefined {
+  if (!imageUrl) return undefined;
+  try {
+    const origin = base ? new URL(base).origin : undefined;
+    const resolved = origin ? new URL(imageUrl, origin) : new URL(imageUrl);
+    if (resolved.protocol !== "http:" && resolved.protocol !== "https:") return undefined;
+    return resolved.href;
+  } catch {
+    return undefined;
+  }
+}
+
+/**
+ * Many pages expose a generic site-wide social card or a logo as their
+ * og:image instead of a real hero photo — e.g. UCSF serves the same
+ * `social-default.jpg` for every program page, and UCLA's accelerator page
+ * advertises an `accelerator-logo-card.png`. Stretched into a full-bleed
+ * cover those look worse than the branded gradient art, so the program
+ * pipeline drops them and lets the gradient show. Matched on filename tokens
+ * with separator boundaries so it won't fire inside a real photo's slug.
+ * Also catches "under construction" / "coming soon" placeholder graphics
+ * (e.g. UC Merced's `construction_3.png`), screenshots (UCSC shipped a logo
+ * screengrab), CTA/marketing modules (UCSD's `Triton-GPT-CTA-Module`), and
+ * testimonial graphics (typically a single headshot or quote card, e.g. UCLA's
+ * `accelerator-student-testimonial-…png`).
+ */
+const GENERIC_IMAGE_RE =
+  /(?:^|[/_-])(?:logo|wordmark|icon|favicon|sprite|avatar|placeholder|construction|coming-soon|screenshot|cta|testimonial|social-default|default-(?:image|share|social|og)|og-default|meta-logo)(?:[._-]|$)/i;
+
+export function isGenericImage(url: string): boolean {
+  return GENERIC_IMAGE_RE.test(url);
+}
+
+/**
+ * Specific harvested images a human has flagged as wrong for a program hero —
+ * e.g. a faculty headshot or an off-topic photo the heuristic above can't
+ * catch. Matched as a case-insensitive substring of the resolved URL; add the
+ * distinctive part of a filename when you spot a bad one in the catalog.
+ */
+const IMAGE_DENYLIST = [
+  "phd-finance-garmaise", // UCLA Early-Stage Investment Fund — advisor headshot, not a hero
+  "makani-2", // UCI POP Grants — a portfolio company's product photo, off-topic for a grants program
+];
+
+function isDenylistedImage(url: string): boolean {
+  const u = url.toLowerCase();
+  return IMAGE_DENYLIST.some((token) => u.includes(token));
+}
+
+/**
+ * Resolve a program's hero image, then drop it when it's a generic social
+ * card / logo / placeholder (heuristic) or a specifically denylisted image.
+ * Keeps the crawler permissive (it harvests whatever og:image a page offers)
+ * while keeping the catalog's imagery honest; dropped images fall back to the
+ * gradient art.
+ */
+function programHeroImage(raw: string | undefined, base: string | undefined): string | undefined {
+  const url = sanitizeImageUrl(raw, base);
+  if (!url || isGenericImage(url) || isDenylistedImage(url)) return undefined;
+  return url;
+}
+
+/**
+ * Pick the best hero image from an ordered, best-first list of raw candidates
+ * (og:image, twitter:image, a hero-section CSS background, a body image). The
+ * crawler harvests them all; this returns the first that survives sanitize +
+ * generic/denylist filtering, so a page whose og:image is a generic social
+ * card still gets its real hero-section background. Returns undefined when
+ * none qualify (the UI falls back to the gradient).
+ */
+export function pickProgramImage(
+  candidates: (string | undefined)[],
+  base: string | undefined,
+): string | undefined {
+  for (const candidate of candidates) {
+    const url = programHeroImage(candidate, base);
+    if (url) return url;
+  }
+  return undefined;
+}
+
+/**
+ * A crawled "Apply" anchor is often a campus-wide *admissions* CTA (e.g.
+ * admissions.ucmerced.edu/first-year/apply) rather than the program's own
+ * application — undergraduate admissions is never the right "apply to this
+ * program" link. Detect those so the pipeline can drop them and the apply CTA
+ * falls back to the program's own page. Also used as a render-time backstop in
+ * ProgramDetail for curated records.
+ */
+export function isGenericAdmissionsLink(url: string | undefined): boolean {
+  return !!url && /admissions/i.test(url);
 }
 
 const FIELD_FALLBACKS = {
@@ -252,11 +360,14 @@ export function coerceToProgram(c: ProgramCandidate): Program {
     deadline: trimOr(c.deadline, FIELD_FALLBACKS.deadline),
     deadlines: c.deadlines,
     website: c.website,
-    applicationLink: c.applicationLink,
+    // Drop generic admissions CTAs (undergrad admissions ≠ program application);
+    // the apply CTA then falls back to website/sourceUrl (the program's page).
+    applicationLink: isGenericAdmissionsLink(c.applicationLink) ? undefined : c.applicationLink,
     associatedCenter: c.associatedCenter,
     tags: c.tags,
     lastUpdated: c.lastUpdated,
     sourceUrl: c.sourceUrl,
+    imageUrl: programHeroImage(c.imageUrl, c.sourceUrl),
   };
 }
 
@@ -294,6 +405,7 @@ const ENRICHABLE_FIELDS = [
   "associatedCenter",
   "tags",
   "sourceUrl",
+  "imageUrl",
   "deadlines",
 ] as const satisfies readonly (keyof Program)[];
 

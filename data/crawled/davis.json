@@ -2,7 +2,7 @@
   "campus": "davis",
   "name": "UC Davis",
   "seedUrl": "https://iedo.ucdavis.edu/",
-  "crawledAt": "2026-05-17T13:36:49.812Z",
+  "crawledAt": "2026-06-03T03:03:03.387Z",
   "candidates": [
     {
       "id": "davis-innovation-and-economic-development-office",
@@ -11,11 +11,13 @@
       "campus": "davis",
       "type": "incubator",
       "desc": "UC Davis’ Innovation and Economic Development Office advances research and entrepreneurship by helping launch startups and accelerating technologies born in the lab.",
-      "longDescription": "Located on UC Davis' Sacramento campus, Aggie Square is where the university, private industry and the community convene. Whether you want to take a tour of the buildings, host an event here for your team or organization or lease space, we'd love to see you at Aggie Square!",
-      "industries": [],
-      "applicationLink": "https://www.ucdavis.edu/admissions/apply/#quicklink",
+      "longDescription": "Are you a PhD student looking to turn breakthrough science into real-world health solutions? Located on UC Davis' Sacramento campus, Aggie Square is where the university, private industry and the community convene. Whether you want to take a tour of the buildings, host an event here for your team or organization or lease space, we'd love to see you at Aggie Square!",
+      "industries": [
+        "Health"
+      ],
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_hero_banner/public/media/images/Post%20TCO%20Final%20Photos%204%20%282%29.jpg?h=b7e2cbf2&itok=ZFYRAVtp",
       "sourceUrl": "https://iedo.ucdavis.edu/",
-      "lastUpdated": "2026-05-17T13:36:51.648Z"
+      "lastUpdated": "2026-06-03T03:03:06.281Z"
     },
     {
       "id": "davis-aggie-venture-accelerator",
@@ -29,9 +31,8 @@
         "Health"
       ],
       "deadline": "June 20",
-      "applicationLink": "https://www.ucdavis.edu/admissions/apply/#quicklink",
       "sourceUrl": "https://iedo.ucdavis.edu/aggie-venture-accelerator",
-      "lastUpdated": "2026-05-17T13:36:54.076Z"
+      "lastUpdated": "2026-06-03T03:03:08.682Z"
     }
   ],
   "errors": []
