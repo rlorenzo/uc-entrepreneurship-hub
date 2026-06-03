@@ -220,10 +220,14 @@ export function sanitizeImageUrl(
   imageUrl: string | undefined,
   base: string | undefined,
 ): string | undefined {
-  if (!imageUrl) return undefined;
+  // Trim first: the WHATWG URL parser strips surrounding whitespace, so a
+  // whitespace-only value ("   ", "\n\t") would otherwise resolve to the base
+  // origin (the site root) and slip through as a bogus image. Treat it as empty.
+  const raw = imageUrl?.trim();
+  if (!raw) return undefined;
   try {
     const origin = base ? new URL(base).origin : undefined;
-    const resolved = origin ? new URL(imageUrl, origin) : new URL(imageUrl);
+    const resolved = origin ? new URL(raw, origin) : new URL(raw);
     if (resolved.protocol !== "http:" && resolved.protocol !== "https:") return undefined;
     return resolved.href;
   } catch {

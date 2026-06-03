@@ -404,6 +404,11 @@ describe("sanitizeImageUrl", () => {
     expect(sanitizeImageUrl("", base)).toBeUndefined();
   });
 
+  it("treats a whitespace-only value as empty (does not resolve to the origin)", () => {
+    expect(sanitizeImageUrl("   ", base)).toBeUndefined();
+    expect(sanitizeImageUrl("\n\t", base)).toBeUndefined();
+  });
+
   it("resolves a root-relative path against the source origin (not the path)", () => {
     expect(sanitizeImageUrl("/img/hero.jpg", base)).toBe("https://x.edu/img/hero.jpg");
   });
