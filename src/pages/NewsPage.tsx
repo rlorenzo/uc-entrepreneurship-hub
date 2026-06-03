@@ -276,9 +276,6 @@ function FilterBar({ filters, campuses, resultCount, totalCount }: FilterBarProp
         background: "var(--uc-white)",
         borderBottom: "1px solid rgba(0,32,51,.08)",
         padding: isMobile ? "16px 20px" : "20px 32px",
-        position: "sticky",
-        top: isMobile ? 64 : 116,
-        zIndex: 20,
       }}
     >
       <div

@@ -15,6 +15,8 @@
 
 import {
   detectIndustriesInText,
+  isRejectedProgramName,
+  pickProgramImage,
   slugify,
   tryCanonicalType,
   type ProgramCandidate,
@@ -185,7 +187,10 @@ export const inPageExtractor = `() => {
 
   const applyAnchor = Array.from(document.querySelectorAll("a")).find((a) => {
     const t = text(a).toLowerCase();
-    return /^(apply|application|submit|register)( now| here| today)?$/.test(t);
+    if (!/^(apply|application|submit|register)( now| here| today)?$/.test(t)) return false;
+    // Skip campus-wide admissions CTAs (e.g. admissions.<campus>.edu/.../apply) —
+    // undergraduate admissions is not a program's own application link.
+    return !/admissions/i.test(a.href);
   });
 
   const bodyText = (document.body.textContent || "").replace(/\\s+/g, " ");
@@ -193,12 +198,61 @@ export const inPageExtractor = `() => {
     /\\b(?:deadline|apply by|applications? close|submissions? due)[^.]{0,80}\\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\\.? \\d{1,2}(?:,? \\d{4})?|\\d{1,2}\\/\\d{1,2}\\/\\d{2,4})/i,
   );
 
+  // Hero image candidates, best-first: the page's own social card (og/twitter),
+  // a hero-section CSS background, then the first non-icon body image. The build
+  // step (pickProgramImage) keeps the first that survives sanitize + generic
+  // filtering, so a page whose og:image is a generic social card still gets its
+  // real hero-section background (e.g. UCSF's .section--hero). Most program
+  // pages have none, so this is usually empty and the UI falls back to gradient.
+  //
+  // og:/twitter:/background values are returned RAW (absolute or root-relative);
+  // the build step's sanitizeImageUrl resolves them against the source ORIGIN,
+  // which correctly handles the leading-slash-less root-relative paths Drupal
+  // emits (e.g. UCSF's "sites/innovation.ucsf.edu/.../x.jpg"). This mirrors the
+  // news enricher.
+  const bgImage = (el) => {
+    if (!el) return "";
+    let bg = (el.style && el.style.backgroundImage) || "";
+    if (!bg || bg === "none") {
+      try {
+        bg = getComputedStyle(el).backgroundImage || "";
+      } catch {
+        bg = "";
+      }
+    }
+    const m = bg.match(/url\\(["']?([^"')]+)["']?\\)/i);
+    return m ? m[1] : "";
+  };
+  const heroEl = document.querySelector(
+    ".section--hero, .hero--page, .page-hero, .hero-banner, .hero-section, .hero, header.hero",
+  );
+
+  // A body <img src> can be path-relative, so resolve it against the page URL
+  // (origin-only resolution at build time would drop the path segment).
+  const bodyImgEl = Array.from(
+    document.querySelectorAll("article img, main img, .entry-content img, .post-content img"),
+  ).find((el) => {
+    const src = el.getAttribute("src");
+    return src && !/icon|logo|sprite|avatar/i.test(src);
+  });
+  let bodyImg = bodyImgEl?.getAttribute("src") || "";
+  if (bodyImg) {
+    try {
+      bodyImg = new URL(bodyImg, location.href).toString();
+    } catch {
+      bodyImg = "";
+    }
+  }
+
+  const images = [meta("og:image"), meta("twitter:image"), bgImage(heroEl), bodyImg].filter(Boolean);
+
   return {
     name,
     description,
     longDescription,
     applicationLink: applyAnchor?.href || "",
     deadline: deadlineMatch ? deadlineMatch[1] : "",
+    images,
     bodyExcerpt: bodyText.slice(0, 4000),
   };
 }`;
@@ -209,13 +263,10 @@ export interface RawPageData {
   longDescription: string;
   applicationLink: string;
   deadline: string;
+  images: string[];
   bodyExcerpt: string;
 }
 
-// Names that obviously aren't programs even when the page would otherwise
-// look like one (footer landing pages, etc.).
-const REJECTED_NAMES = new Set(["home", "about", "contact"]);
-const REJECTED_NAME_PREFIXES = ["welcome to "];
 const NAME_LEN = { min: 4, max: 140 } as const;
 
 type NameValidator = (name: string) => boolean;
@@ -224,10 +275,10 @@ function isInLength(name: string): boolean {
   return name.length >= NAME_LEN.min && name.length <= NAME_LEN.max;
 }
 
+// Reject section/navigation page names (News and Events, Contact, …) that the
+// keyword heuristics would otherwise promote. Shared with the build step.
 function isAllowedLabel(name: string): boolean {
-  const lower = name.toLowerCase();
-  if (REJECTED_NAMES.has(lower)) return false;
-  return !REJECTED_NAME_PREFIXES.some((p) => lower.startsWith(p));
+  return !isRejectedProgramName(name);
 }
 
 const NAME_VALIDATORS: NameValidator[] = [isInLength, isAllowedLabel];
@@ -251,6 +302,7 @@ interface NormalizedPage {
   longDescription: string;
   deadline: string;
   applicationLink: string;
+  images: string[];
 }
 
 const PAGE_DEFAULTS = {
@@ -258,6 +310,7 @@ const PAGE_DEFAULTS = {
   longDescription: "",
   deadline: "",
   applicationLink: "",
+  images: [] as string[],
 } as const;
 
 function normalizePage(raw: RawPageData | null | undefined, name: string): NormalizedPage {
@@ -280,6 +333,7 @@ function assembleCandidate(page: NormalizedPage, url: string, campus: string): P
     industries: detectIndustriesInText(`${page.name} ${page.longDescription}`),
     deadline: blankToUndefined(page.deadline),
     applicationLink: blankToUndefined(page.applicationLink),
+    imageUrl: pickProgramImage(page.images, url),
     sourceUrl: url,
     lastUpdated: new Date().toISOString(),
   };

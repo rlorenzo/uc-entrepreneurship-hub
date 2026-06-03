@@ -6,6 +6,7 @@ import { ProgramCard } from "@/components/ProgramCard";
 import { CAMPUS_BY_ID } from "@/data/campuses";
 import { TYPE_BY_ID } from "@/data/types-list";
 import { PROGRAMS } from "@/data/programs";
+import { isGenericAdmissionsLink } from "@/data/normalize";
 import type { Campus, Program, ProgramType } from "@/data/types.ts";
 import { useCompare } from "@/lib/compare";
 import { useIsMobile } from "@/lib/useMediaQuery";
@@ -184,12 +185,6 @@ function HeroChips({
       </span>
     </div>
   );
-}
-
-// A crawled applicationLink is sometimes a campus *admissions* root, not the
-// program's own application. Don't promise "Start application" in that case.
-function isGenericAdmissionsLink(url: string | undefined): boolean {
-  return !!url && /admissions/i.test(url);
 }
 
 function applyCtaLabel(program: Program, fallback: string): string {
@@ -373,6 +368,59 @@ function GlanceRowItem({ row, first }: { row: GlanceRow; first: boolean }) {
   );
 }
 
+// The hero photo (a program page's og:image) when one exists, otherwise the
+// branded gradient. Both sit under a navy scrim so the white headline,
+// breadcrumbs, and chips stay legible — the photo gets a heavier scrim since
+// it can be any color.
+function DetailHeroBackground({ program }: { program: Program }) {
+  if (isValidWebUrl(program.imageUrl)) {
+    return (
+      <>
+        {/* Eager: this is the hero / LCP image. Decorative — the H1 names it. */}
+        <img
+          src={program.imageUrl}
+          alt=""
+          loading="eager"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(180deg, rgba(0,32,51,.62) 0%, rgba(0,32,51,.78) 45%, rgba(0,32,51,.92) 100%)",
+          }}
+        />
+      </>
+    );
+  }
+  return (
+    <>
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: programGradient(program),
+          opacity: 0.55,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(180deg, rgba(0,32,51,.4) 0%, rgba(0,32,51,.85) 100%)",
+        }}
+      />
+    </>
+  );
+}
+
 function DetailHero({ vm }: { vm: DetailVM }) {
   const isMobile = useIsMobile();
   return (
@@ -384,21 +432,7 @@ function DetailHero({ vm }: { vm: DetailVM }) {
         overflow: "hidden",
       }}
     >
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: programGradient(vm.program),
-          opacity: 0.55,
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: "linear-gradient(180deg, rgba(0,32,51,.4) 0%, rgba(0,32,51,.85) 100%)",
-        }}
-      />
+      <DetailHeroBackground program={vm.program} />
       <div
         style={{
           position: "relative",

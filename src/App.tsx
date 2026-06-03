@@ -8,13 +8,25 @@ import { CampusPage } from "@/pages/CampusPage";
 import { CampusesPage } from "@/pages/CampusesPage";
 import { ComparePage } from "@/pages/ComparePage";
 import { NewsPage } from "@/pages/NewsPage";
+import { AboutPage } from "@/pages/AboutPage";
 
-// Reset scroll on every route change so deep-link navigation lands at the top.
+// Reset scroll on every route change so deep-link navigation lands at the top —
+// unless the location carries a hash (e.g. /about#methodology from the footer),
+// in which case scroll that section into view. Instant scroll, so it's
+// reduced-motion-safe. The DOM is committed before this effect runs, so the
+// target element is already present.
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
+    if (hash) {
+      const el = document.getElementById(decodeURIComponent(hash.slice(1)));
+      if (el) {
+        el.scrollIntoView();
+        return;
+      }
+    }
     window.scrollTo({ top: 0 });
-  }, [pathname]);
+  }, [pathname, hash]);
   return null;
 }
 
@@ -31,6 +43,7 @@ export function App() {
           <Route path="/campuses" element={<CampusesPage />} />
           <Route path="/compare" element={<ComparePage />} />
           <Route path="/news" element={<NewsPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </CompareProvider>

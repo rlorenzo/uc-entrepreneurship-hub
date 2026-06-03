@@ -1,0 +1,8 @@
+# Keep blank issues available for bug reports / dev discussion, but surface the
+# structured forms first. The contact link points the public at the live
+# catalog so they can check what's already listed before submitting.
+blank_issues_enabled: true
+contact_links:
+  - name: Browse the catalog
+    url: https://rlorenzo.github.io/uc-entrepreneurship-hub/
+    about: See the programs already listed before submitting a new one.

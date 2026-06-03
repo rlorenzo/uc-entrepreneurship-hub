@@ -5,6 +5,13 @@ import {
   detectIndustriesInText,
   coerceToProgram,
   mergePrograms,
+  sanitizeImageUrl,
+  isGenericImage,
+  isGenericAdmissionsLink,
+  pickProgramImage,
+  isRejectedProgramName,
+  isRejectedProgramId,
+  isBoilerplateDescription,
 } from "./normalize.ts";
 import type { Program } from "./types.ts";
 
@@ -144,6 +151,280 @@ describe("coerceToProgram", () => {
     expect(p.type).toBe("accelerator");
     expect(p.industries).toEqual(["AI / ML", "Climate"]);
   });
+
+  it("resolves a relative imageUrl against the source origin and drops unsafe schemes", () => {
+    const resolved = coerceToProgram({
+      name: "X",
+      campus: "c",
+      imageUrl: "/media/hero.png",
+      sourceUrl: "https://innovation.example.edu/programs/x",
+    });
+    expect(resolved.imageUrl).toBe("https://innovation.example.edu/media/hero.png");
+
+    const unsafe = coerceToProgram({
+      name: "X",
+      campus: "c",
+      imageUrl: "javascript:alert(1)",
+      sourceUrl: "https://innovation.example.edu/programs/x",
+    });
+    expect(unsafe.imageUrl).toBeUndefined();
+  });
+
+  it("drops a generic social-card / logo og:image, keeping a real photo", () => {
+    // UCSF serves the same social-default.jpg for every page; UCLA advertises a
+    // logo card. Both should fall back to the gradient (imageUrl undefined).
+    const social = coerceToProgram({
+      name: "X",
+      campus: "sf",
+      imageUrl: "/sites/innovation.ucsf.edu/files/social-default.jpg",
+      sourceUrl: "https://innovation.ucsf.edu/programs/x",
+    });
+    expect(social.imageUrl).toBeUndefined();
+
+    const logo = coerceToProgram({
+      name: "Y",
+      campus: "la",
+      imageUrl: "/sites/default/files/image/accelerator-logo-card.png",
+      sourceUrl: "https://www.anderson.ucla.edu/x",
+    });
+    expect(logo.imageUrl).toBeUndefined();
+
+    const photo = coerceToProgram({
+      name: "Z",
+      campus: "la",
+      imageUrl: "/sites/default/files/2025-healthcare-hero-home.jpg",
+      sourceUrl: "https://www.anderson.ucla.edu/z",
+    });
+    expect(photo.imageUrl).toBe(
+      "https://www.anderson.ucla.edu/sites/default/files/2025-healthcare-hero-home.jpg",
+    );
+  });
+
+  it("drops an under-construction placeholder image and a denylisted headshot", () => {
+    const construction = coerceToProgram({
+      name: "X",
+      campus: "merced",
+      imageUrl: "/sites/research.ucmerced.edu/files/page/images/construction_3.png",
+      sourceUrl: "https://research.ucmerced.edu/departments/cga",
+    });
+    expect(construction.imageUrl).toBeUndefined();
+
+    const headshot = coerceToProgram({
+      name: "Early-Stage Investment Fund",
+      campus: "la",
+      imageUrl: "/sites/default/files/PHD-finance-garmaise.jpg",
+      sourceUrl: "https://www.anderson.ucla.edu/for-companies/early-stage-investment-fund",
+    });
+    expect(headshot.imageUrl).toBeUndefined();
+  });
+
+  it("drops a generic admissions applicationLink, keeps a real one", () => {
+    const admissions = coerceToProgram({
+      name: "X",
+      campus: "merced",
+      applicationLink: "https://admissions.ucmerced.edu/first-year/apply?button",
+      sourceUrl: "https://research.ucmerced.edu/departments/cga",
+    });
+    expect(admissions.applicationLink).toBeUndefined();
+
+    const real = coerceToProgram({
+      name: "Y",
+      campus: "berkeley",
+      applicationLink: "https://skydeck.berkeley.edu/apply",
+    });
+    expect(real.applicationLink).toBe("https://skydeck.berkeley.edu/apply");
+  });
+});
+
+describe("pickProgramImage", () => {
+  const base = "https://innovation.ucsf.edu/partnerships/panther-program";
+
+  it("skips a generic og:image and takes the real hero-section background", () => {
+    expect(
+      pickProgramImage(
+        [
+          "/sites/innovation.ucsf.edu/files/social-default.jpg",
+          "/sites/innovation.ucsf.edu/files/2025-01/page-hero-3.jpg",
+        ],
+        base,
+      ),
+    ).toBe("https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2025-01/page-hero-3.jpg");
+  });
+
+  it("prefers an earlier real candidate over a later one", () => {
+    expect(pickProgramImage(["/files/real-hero.jpg", "/files/also-good.jpg"], base)).toBe(
+      "https://innovation.ucsf.edu/files/real-hero.jpg",
+    );
+  });
+
+  it("returns undefined when every candidate is generic, empty, or unsafe", () => {
+    expect(pickProgramImage(["/x/logo.png", "", undefined, "javascript:alert(1)"], base)).toBe(
+      undefined,
+    );
+  });
+});
+
+describe("isRejectedProgramName", () => {
+  it("rejects section/navigation page names", () => {
+    for (const n of [
+      "News and Events",
+      "news & events",
+      "Contact",
+      "Home",
+      "Newsletter",
+      "Events",
+    ]) {
+      expect(isRejectedProgramName(n), n).toBe(true);
+    }
+    expect(isRejectedProgramName("Welcome to Beall")).toBe(true);
+    expect(isRejectedProgramName("")).toBe(true);
+  });
+
+  it("keeps real program names", () => {
+    for (const n of ["Berkeley SkyDeck", "POP Grants", "Big Ideas Contest", "The Basement"]) {
+      expect(isRejectedProgramName(n), n).toBe(false);
+    }
+  });
+});
+
+describe("isBoilerplateDescription", () => {
+  it("flags cookie banners and enable-JavaScript notices", () => {
+    expect(
+      isBoilerplateDescription(
+        "This website stores cookies on your computer. These cookies are used to improve your website experience.",
+      ),
+    ).toBe(true);
+    expect(isBoilerplateDescription("Please enable JavaScript to view this site.")).toBe(true);
+  });
+
+  it("passes a real program description", () => {
+    expect(
+      isBoilerplateDescription("A six-month accelerator backing growth-stage UC startups."),
+    ).toBe(false);
+  });
+});
+
+describe("coerceToProgram description cleaning", () => {
+  it("replaces a cookie-banner desc with the real longDescription", () => {
+    const p = coerceToProgram({
+      name: "Funding Resources",
+      campus: "irvine",
+      desc: "This website stores cookies on your computer. See our Privacy Policy.",
+      longDescription: "Proof of Product (POP) Grants awards funding to accelerate UCI technology.",
+    });
+    expect(p.desc).toBe(
+      "Proof of Product (POP) Grants awards funding to accelerate UCI technology.",
+    );
+  });
+
+  it("falls back to the neutral default when desc and longDescription are both boilerplate", () => {
+    const p = coerceToProgram({
+      name: "X",
+      campus: "irvine",
+      desc: "We use cookies to improve your experience.",
+      longDescription: "This website uses cookies.",
+    });
+    expect(p.desc).toBe(
+      "Program details not yet aggregated. Visit the source page for full information.",
+    );
+  });
+
+  it("replaces a too-short nav-fragment desc ('Search') with the longDescription", () => {
+    const p = coerceToProgram({
+      name: "Prototyping + Lab Space",
+      campus: "santabarbara",
+      desc: "Search",
+      longDescription: "The CNSI Innovation Workshop is a makerspace facility open in Elings Hall.",
+    });
+    expect(p.desc).toBe(
+      "The CNSI Innovation Workshop is a makerspace facility open in Elings Hall.",
+    );
+  });
+});
+
+describe("isRejectedProgramId", () => {
+  it("rejects specific human-flagged non-program ids", () => {
+    expect(isRejectedProgramId("merced-contracts-and-grants-administration")).toBe(true);
+    expect(isRejectedProgramId("sd-explore-uc-san-diego-s-ecosystem")).toBe(true);
+  });
+
+  it("keeps real program ids", () => {
+    expect(isRejectedProgramId("berkeley-skydeck")).toBe(false);
+    expect(isRejectedProgramId(undefined)).toBe(false);
+  });
+});
+
+describe("isGenericAdmissionsLink", () => {
+  it("flags admissions URLs, passes program application links", () => {
+    expect(isGenericAdmissionsLink("https://admissions.ucmerced.edu/first-year/apply")).toBe(true);
+    expect(isGenericAdmissionsLink("https://www.ucdavis.edu/admissions/apply/#quicklink")).toBe(
+      true,
+    );
+    expect(isGenericAdmissionsLink("https://skydeck.berkeley.edu/apply")).toBe(false);
+    expect(isGenericAdmissionsLink(undefined)).toBe(false);
+  });
+});
+
+describe("isGenericImage", () => {
+  it("flags logos, generic social cards, and placeholders", () => {
+    for (const u of [
+      "https://x.edu/sites/social-default.jpg",
+      "https://x.edu/img/accelerator-logo-card.png",
+      "https://x.edu/themes/wordmark.svg",
+      "https://x.edu/meta-logo.jpg",
+      "https://x.edu/assets/placeholder.png",
+      "https://x.edu/default-share.png",
+      "https://x.edu/files/page/images/construction_3.png",
+      "https://x.edu/files/2026/04/Screenshot-2026-04-08-at-1.png",
+      "https://x.edu/wp-content/uploads/Triton-GPT-CTA-Module-3.png",
+      "https://x.edu/files/accelerator-student-testimonial-sagar-pande.png",
+    ]) {
+      expect(isGenericImage(u), u).toBe(true);
+    }
+  });
+
+  it("does NOT flag real photos with incidental substrings", () => {
+    for (const u of [
+      "https://x.edu/files/2025-healthcare-hero-home.jpg",
+      "https://x.edu/uploads/Makani-2.png",
+      "https://x.edu/files/Janelle-King-Student-Startup-Fund.png",
+      "https://x.edu/files/Innovation_Workshop_Lab_004.jpg",
+      "https://x.edu/files/PRICE-MDE-online-banner.jpg",
+    ]) {
+      expect(isGenericImage(u), u).toBe(false);
+    }
+  });
+});
+
+describe("sanitizeImageUrl", () => {
+  const base = "https://x.edu/programs/a";
+
+  it("returns undefined for empty input", () => {
+    expect(sanitizeImageUrl(undefined, base)).toBeUndefined();
+    expect(sanitizeImageUrl("", base)).toBeUndefined();
+  });
+
+  it("treats a whitespace-only value as empty (does not resolve to the origin)", () => {
+    expect(sanitizeImageUrl("   ", base)).toBeUndefined();
+    expect(sanitizeImageUrl("\n\t", base)).toBeUndefined();
+  });
+
+  it("resolves a root-relative path against the source origin (not the path)", () => {
+    expect(sanitizeImageUrl("/img/hero.jpg", base)).toBe("https://x.edu/img/hero.jpg");
+  });
+
+  it("passes through an absolute http(s) URL unchanged", () => {
+    expect(sanitizeImageUrl("https://cdn.x.edu/h.png", base)).toBe("https://cdn.x.edu/h.png");
+  });
+
+  it("drops non-http(s) schemes so a src can't carry javascript:/data:", () => {
+    expect(sanitizeImageUrl("javascript:alert(1)", base)).toBeUndefined();
+    expect(sanitizeImageUrl("data:image/png;base64,AAAA", base)).toBeUndefined();
+  });
+
+  it("drops a relative path when there is no base to resolve against", () => {
+    expect(sanitizeImageUrl("hero.jpg", undefined)).toBeUndefined();
+  });
 });
 
 describe("mergePrograms", () => {
@@ -208,6 +489,21 @@ describe("mergePrograms", () => {
     const merged = mergePrograms([curated], [crawled]);
 
     expect(merged[0].lastUpdated).toBe("2026-05-01T00:00:00.000Z");
+  });
+
+  it("enriches a curated program's missing imageUrl from the crawl", () => {
+    const curated = prog({ slug: "z", name: "Z", campus: "sd" });
+    const crawled = prog({
+      slug: "z",
+      name: "Z",
+      campus: "sd",
+      imageUrl: "https://x.edu/hero.png",
+    });
+
+    const merged = mergePrograms([curated], [crawled]);
+
+    expect(merged).toHaveLength(1);
+    expect(merged[0].imageUrl).toBe("https://x.edu/hero.png");
   });
 
   it("appends a crawled record that has no curated counterpart", () => {

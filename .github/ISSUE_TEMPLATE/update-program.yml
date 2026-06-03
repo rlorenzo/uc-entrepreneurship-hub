@@ -1,0 +1,73 @@
+name: Suggest a correction
+description: Report something out of date or wrong on a program already in the hub.
+title: "[Correction] <program name>"
+labels:
+  - data correction
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Accuracy is the whole point of the hub — thanks for flagging this. Tell
+        us which program, what’s wrong, and what it should say. A source link
+        lets us verify and ship the fix quickly.
+  - type: input
+    id: name
+    attributes:
+      label: Program name
+      placeholder: e.g. Berkeley SkyDeck
+    validations:
+      required: true
+  - type: input
+    id: program_url
+    attributes:
+      label: Its page on the hub (if you have it)
+      placeholder: https://rlorenzo.github.io/uc-entrepreneurship-hub/#/program/…
+    validations:
+      required: false
+  - type: dropdown
+    id: field
+    attributes:
+      label: Which detail is incorrect?
+      options:
+        - Name
+        - Short description
+        - Program type
+        - Campus
+        - Application deadline
+        - Funding
+        - Website / application link
+        - Eligibility
+        - Stage
+        - Focus areas (industries)
+        - The program no longer exists
+        - Other / multiple
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: What the hub shows now
+      description: Copy the current (incorrect) value, if you can.
+    validations:
+      required: false
+  - type: textarea
+    id: corrected
+    attributes:
+      label: What it should say
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: A page that confirms the correct information.
+      placeholder: https://…
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: This correction is accurate to the best of my knowledge.
+          required: true

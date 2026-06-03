@@ -17,3 +17,9 @@ dist
 # hooks, commands) is intentionally left committable.
 .claude/settings.local.json
 .claude/scheduled_tasks.lock
+
+# AI code-review loop scratch output (see code-review-loop) and tool caches —
+# local artifacts, never committed.
+agent-code-review.md
+agent-review-summary.md
+cache/
