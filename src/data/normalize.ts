@@ -325,6 +325,63 @@ function trimOr(value: string | undefined, fallback: string): string {
   return value?.trim() || fallback;
 }
 
+/**
+ * Section / navigation pages the crawler's keyword heuristics sometimes promote
+ * into candidates — a "News and Events" listing that mentions "accelerator", a
+ * "Contact" page, a newsletter index. Reject by normalized name so they never
+ * enter the catalog. Shared by the crawler (extract.ts) and the build step
+ * (build-data.ts).
+ */
+const REJECTED_PROGRAM_NAMES = new Set([
+  "home",
+  "about",
+  "contact",
+  "news",
+  "events",
+  "news and events",
+  "news & events",
+  "events calendar",
+  "newsletter",
+  "press",
+  "blog",
+]);
+const REJECTED_NAME_PREFIXES = ["welcome to "];
+
+export function isRejectedProgramName(name: string | undefined | null): boolean {
+  const lower = name?.normalize("NFKC").trim().toLowerCase();
+  if (!lower) return true;
+  if (REJECTED_PROGRAM_NAMES.has(lower)) return true;
+  return REJECTED_NAME_PREFIXES.some((p) => lower.startsWith(p));
+}
+
+/**
+ * Cookie-consent / "enable JavaScript" boilerplate the crawler occasionally
+ * scrapes as a description when a page's og:description or first paragraph is
+ * the cookie banner (e.g. UCI Beall's "This website stores cookies…"). Detected
+ * so the pipeline falls back to a real description instead of shipping it.
+ */
+const BOILERPLATE_DESC_RE =
+  /(this (?:website|site) (?:stores|uses) cookies|we use cookies|uses? cookies to|cookies are used to|accept (?:all )?cookies|cookie (?:policy|consent|preferences|settings)|enable javascript|javascript is (?:disabled|required))/i;
+
+export function isBoilerplateDescription(text: string | undefined | null): boolean {
+  return !!text && BOILERPLATE_DESC_RE.test(text);
+}
+
+/**
+ * Choose a usable card description: the crawled desc unless it's boilerplate,
+ * then a (truncated) longDescription, then the neutral fallback. Keeps cookie
+ * banners and "enable JavaScript" notices out of the catalog.
+ */
+function cleanDesc(desc: string | undefined, longDescription: string | undefined): string {
+  const d = desc?.trim();
+  if (d && !isBoilerplateDescription(d)) return d;
+  const ld = longDescription?.trim();
+  if (ld && !isBoilerplateDescription(ld)) {
+    return ld.length > 220 ? `${ld.slice(0, 217).trimEnd()}…` : ld;
+  }
+  return FIELD_FALLBACKS.desc;
+}
+
 const DEFAULT_ELIGIBILITY = ["Open to public"] as const;
 
 function deriveSlug(c: ProgramCandidate): string {
@@ -348,7 +405,7 @@ export function coerceToProgram(c: ProgramCandidate): Program {
     name: c.name.trim(),
     campus: c.campus,
     type: canonicalType(c.type),
-    desc: trimOr(c.desc, FIELD_FALLBACKS.desc),
+    desc: cleanDesc(c.desc, c.longDescription),
     longDescription: c.longDescription?.trim(),
     industries: canonicalIndustries(c.industries),
     stage: canonicalStage(c.stage),

@@ -9,6 +9,8 @@ import {
   isGenericImage,
   isGenericAdmissionsLink,
   pickProgramImage,
+  isRejectedProgramName,
+  isBoilerplateDescription,
 } from "./normalize.ts";
 import type { Program } from "./types.ts";
 
@@ -257,6 +259,72 @@ describe("pickProgramImage", () => {
   it("returns undefined when every candidate is generic, empty, or unsafe", () => {
     expect(pickProgramImage(["/x/logo.png", "", undefined, "javascript:alert(1)"], base)).toBe(
       undefined,
+    );
+  });
+});
+
+describe("isRejectedProgramName", () => {
+  it("rejects section/navigation page names", () => {
+    for (const n of [
+      "News and Events",
+      "news & events",
+      "Contact",
+      "Home",
+      "Newsletter",
+      "Events",
+    ]) {
+      expect(isRejectedProgramName(n), n).toBe(true);
+    }
+    expect(isRejectedProgramName("Welcome to Beall")).toBe(true);
+    expect(isRejectedProgramName("")).toBe(true);
+  });
+
+  it("keeps real program names", () => {
+    for (const n of ["Berkeley SkyDeck", "POP Grants", "Big Ideas Contest", "The Basement"]) {
+      expect(isRejectedProgramName(n), n).toBe(false);
+    }
+  });
+});
+
+describe("isBoilerplateDescription", () => {
+  it("flags cookie banners and enable-JavaScript notices", () => {
+    expect(
+      isBoilerplateDescription(
+        "This website stores cookies on your computer. These cookies are used to improve your website experience.",
+      ),
+    ).toBe(true);
+    expect(isBoilerplateDescription("Please enable JavaScript to view this site.")).toBe(true);
+  });
+
+  it("passes a real program description", () => {
+    expect(
+      isBoilerplateDescription("A six-month accelerator backing growth-stage UC startups."),
+    ).toBe(false);
+  });
+});
+
+describe("coerceToProgram description cleaning", () => {
+  it("replaces a cookie-banner desc with the real longDescription", () => {
+    const p = coerceToProgram({
+      name: "Funding Resources",
+      campus: "irvine",
+      desc: "This website stores cookies on your computer. See our Privacy Policy.",
+      longDescription: "Proof of Product (POP) Grants awards funding to accelerate UCI technology.",
+    });
+    expect(p.desc).toBe(
+      "Proof of Product (POP) Grants awards funding to accelerate UCI technology.",
+    );
+  });
+
+  it("falls back to the neutral default when desc and longDescription are both boilerplate", () => {
+    const p = coerceToProgram({
+      name: "X",
+      campus: "irvine",
+      desc: "We use cookies to improve your experience.",
+      longDescription: "This website uses cookies.",
+    });
+    expect(p.desc).toBe(
+      "Program details not yet aggregated. Visit the source page for full information.",
     );
   });
 });

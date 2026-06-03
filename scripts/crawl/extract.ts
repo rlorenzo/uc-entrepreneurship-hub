@@ -15,6 +15,7 @@
 
 import {
   detectIndustriesInText,
+  isRejectedProgramName,
   pickProgramImage,
   slugify,
   tryCanonicalType,
@@ -266,10 +267,6 @@ export interface RawPageData {
   bodyExcerpt: string;
 }
 
-// Names that obviously aren't programs even when the page would otherwise
-// look like one (footer landing pages, etc.).
-const REJECTED_NAMES = new Set(["home", "about", "contact"]);
-const REJECTED_NAME_PREFIXES = ["welcome to "];
 const NAME_LEN = { min: 4, max: 140 } as const;
 
 type NameValidator = (name: string) => boolean;
@@ -278,10 +275,10 @@ function isInLength(name: string): boolean {
   return name.length >= NAME_LEN.min && name.length <= NAME_LEN.max;
 }
 
+// Reject section/navigation page names (News and Events, Contact, …) that the
+// keyword heuristics would otherwise promote. Shared with the build step.
 function isAllowedLabel(name: string): boolean {
-  const lower = name.toLowerCase();
-  if (REJECTED_NAMES.has(lower)) return false;
-  return !REJECTED_NAME_PREFIXES.some((p) => lower.startsWith(p));
+  return !isRejectedProgramName(name);
 }
 
 const NAME_VALIDATORS: NameValidator[] = [isInLength, isAllowedLabel];
