@@ -16,6 +16,7 @@ import { dirname, join } from "node:path";
 
 import {
   coerceToProgram,
+  isRejectedProgramId,
   isRejectedProgramName,
   type ProgramCandidate,
 } from "../../src/data/normalize.ts";
@@ -50,9 +51,10 @@ const candidates = await loadAll();
 // stable (alphabetical by campus filename), so earlier wins.
 const seen = new Map<string, Program>();
 for (const c of candidates) {
-  // Drop section/navigation pages (e.g. "News and Events") that slipped past
-  // the crawler's keyword gate before they reach the shipped catalog.
-  if (isRejectedProgramName(c.name)) continue;
+  // Drop section/navigation pages (e.g. "News and Events") and specific
+  // human-flagged non-programs (admin offices, overview pages) before they
+  // reach the shipped catalog.
+  if (isRejectedProgramName(c.name) || isRejectedProgramId(c.id)) continue;
   const program = coerceToProgram(c);
   if (!seen.has(program.id)) seen.set(program.id, program);
 }

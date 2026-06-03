@@ -10,6 +10,7 @@ import {
   isGenericAdmissionsLink,
   pickProgramImage,
   isRejectedProgramName,
+  isRejectedProgramId,
   isBoilerplateDescription,
 } from "./normalize.ts";
 import type { Program } from "./types.ts";
@@ -326,6 +327,30 @@ describe("coerceToProgram description cleaning", () => {
     expect(p.desc).toBe(
       "Program details not yet aggregated. Visit the source page for full information.",
     );
+  });
+
+  it("replaces a too-short nav-fragment desc ('Search') with the longDescription", () => {
+    const p = coerceToProgram({
+      name: "Prototyping + Lab Space",
+      campus: "santabarbara",
+      desc: "Search",
+      longDescription: "The CNSI Innovation Workshop is a makerspace facility open in Elings Hall.",
+    });
+    expect(p.desc).toBe(
+      "The CNSI Innovation Workshop is a makerspace facility open in Elings Hall.",
+    );
+  });
+});
+
+describe("isRejectedProgramId", () => {
+  it("rejects specific human-flagged non-program ids", () => {
+    expect(isRejectedProgramId("merced-contracts-and-grants-administration")).toBe(true);
+    expect(isRejectedProgramId("sd-explore-uc-san-diego-s-ecosystem")).toBe(true);
+  });
+
+  it("keeps real program ids", () => {
+    expect(isRejectedProgramId("berkeley-skydeck")).toBe(false);
+    expect(isRejectedProgramId(undefined)).toBe(false);
   });
 });
 

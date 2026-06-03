@@ -355,6 +355,22 @@ export function isRejectedProgramName(name: string | undefined | null): boolean 
 }
 
 /**
+ * Specific crawled entries a human has confirmed are not programs (research-admin
+ * offices, "explore our centers" overview pages) that the name/keyword
+ * heuristics don't catch. Matched by candidate id. Add an id here when you spot
+ * one in the catalog. Only affects generated entries — curated programs in
+ * programs.ts are never run through the crawler pipeline.
+ */
+const REJECTED_PROGRAM_IDS = new Set([
+  "merced-contracts-and-grants-administration", // research-admin office, not a program
+  "sd-explore-uc-san-diego-s-ecosystem", // a "more centers" overview/landing page
+]);
+
+export function isRejectedProgramId(id: string | undefined | null): boolean {
+  return !!id && REJECTED_PROGRAM_IDS.has(id);
+}
+
+/**
  * Cookie-consent / "enable JavaScript" boilerplate the crawler occasionally
  * scrapes as a description when a page's og:description or first paragraph is
  * the cookie banner (e.g. UCI Beall's "This website stores cookies…"). Detected
@@ -367,16 +383,26 @@ export function isBoilerplateDescription(text: string | undefined | null): boole
   return !!text && BOILERPLATE_DESC_RE.test(text);
 }
 
+// A usable card description is a real sentence — not boilerplate and not a
+// scraped nav fragment like "Search" or "Menu". Real crawled descriptions are
+// always full sentences, so anything this short is junk.
+const MIN_DESC_LEN = 20;
+
+function isUsableDesc(trimmed: string): boolean {
+  return trimmed.length >= MIN_DESC_LEN && !isBoilerplateDescription(trimmed);
+}
+
 /**
- * Choose a usable card description: the crawled desc unless it's boilerplate,
- * then a (truncated) longDescription, then the neutral fallback. Keeps cookie
- * banners and "enable JavaScript" notices out of the catalog.
+ * Choose a usable card description: the crawled desc unless it's boilerplate or
+ * a too-short nav fragment, then a (truncated) longDescription, then the neutral
+ * fallback. Keeps cookie banners, "enable JavaScript" notices, and stray nav
+ * labels out of the catalog.
  */
 function cleanDesc(desc: string | undefined, longDescription: string | undefined): string {
   const d = desc?.trim();
-  if (d && !isBoilerplateDescription(d)) return d;
+  if (d && isUsableDesc(d)) return d;
   const ld = longDescription?.trim();
-  if (ld && !isBoilerplateDescription(ld)) {
+  if (ld && isUsableDesc(ld)) {
     return ld.length > 220 ? `${ld.slice(0, 217).trimEnd()}…` : ld;
   }
   return FIELD_FALLBACKS.desc;
