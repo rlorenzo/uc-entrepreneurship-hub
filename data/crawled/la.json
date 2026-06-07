@@ -2,7 +2,7 @@
   "campus": "la",
   "name": "UCLA",
   "seedUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation",
-  "crawledAt": "2026-06-03T03:03:03.387Z",
+  "crawledAt": "2026-06-07T13:39:05.508Z",
   "candidates": [
     {
       "id": "la-center-for-healthcare-innovation",
@@ -16,7 +16,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/image/2025-11/2025-healthcare-hero-home.jpg?itok=AsXoRokf",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/center-for-healthcare-innovation",
-      "lastUpdated": "2026-06-03T03:03:07.769Z"
+      "lastUpdated": "2026-06-07T13:39:10.875Z"
     },
     {
       "id": "la-ucla-anderson-venture-accelerator",
@@ -28,9 +28,8 @@
       "longDescription": "Confirmed registrants will receive detailed information on location and logistics.",
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
-      "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/max_1300x1300/public/image/2024-06/accelerator-student-testimonial-sagar-pande.png?itok=0TXP1f_J",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/anderson-venture-accelerator",
-      "lastUpdated": "2026-06-03T03:03:15.802Z"
+      "lastUpdated": "2026-06-07T13:39:22.007Z"
     },
     {
       "id": "la-information-systems-research-program",
@@ -44,7 +43,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/programs/hero-h440-tpl.jpg?itok=XIKD0kkK",
       "sourceUrl": "https://www.anderson.ucla.edu/faculty-and-research/information-systems-research-program",
-      "lastUpdated": "2026-06-03T03:03:26.765Z"
+      "lastUpdated": "2026-06-07T13:39:25.287Z"
     },
     {
       "id": "la-early-stage-investment-fund",
@@ -57,7 +56,7 @@
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/for-companies/early-stage-investment-fund",
-      "lastUpdated": "2026-06-03T03:03:29.125Z"
+      "lastUpdated": "2026-06-07T13:39:28.382Z"
     },
     {
       "id": "la-price-center-for-entrepreneurship-and-innovation-fellowships",
@@ -71,7 +70,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/centers/price/2020/price-center-fellowships.jpg?itok=xvB_LKBR",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-students/fellowships",
-      "lastUpdated": "2026-06-03T03:03:37.112Z"
+      "lastUpdated": "2026-06-07T13:39:34.385Z"
     },
     {
       "id": "la-student-investment-fund",
@@ -85,7 +84,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/clubs/STUDENT-anderson-banner.jpg?itok=j-jnQsJS",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-students/student-investment-fund",
-      "lastUpdated": "2026-06-03T03:03:38.945Z"
+      "lastUpdated": "2026-06-07T13:39:36.121Z"
     },
     {
       "id": "la-management-development-for-entrepreneurs",
@@ -99,24 +98,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/centers/price/2020/Professionals/PRICE-MDE-online-banner.jpg?itok=KMURY2Ij",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-professionals/management-development-for-entrepreneurs",
-      "lastUpdated": "2026-06-03T03:03:47.321Z"
-    },
-    {
-      "id": "la-news-and-events",
-      "slug": "news-and-events",
-      "name": "News and Events",
-      "campus": "la",
-      "type": "accelerator",
-      "desc": "Article featuring Venture Accelerator at UCLA Anderson company, Elims, a \"cleantech meets healthcare\"​ company with a north star mission to greatly reduce wastes in healthcare.",
-      "longDescription": "Article featuring Venture Accelerator at UCLA Anderson company, Elims, a \"cleantech meets healthcare\"​ company with a north star mission to greatly reduce wastes in healthcare. Congratulations to Venture Accelerator companies: Oya, Mitch Gilbert ('21) & Patrick Ayers ('21), Emerald Necklace Investments, Doug Hanly ('21), Emile Learning, Mike Vilardo ('21), and Sunga Life, Jeff Gum ('21) and Warren Lee ('21)! As Director of the Venture Accelerator at UCLA Anderson, I regularly see the ingenuity and energy that female entrepreneurs bring to startups. Yet funding for female-led ventures continues",
-      "industries": [
-        "Climate",
-        "Energy"
-      ],
-      "applicationLink": "https://www.anderson.ucla.edu/apply",
-      "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/centers/price/accelerator/hero-accelerator-0326-events.jpg?itok=zei1Ncno",
-      "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/anderson-venture-accelerator/news-and-events",
-      "lastUpdated": "2026-06-03T03:03:59.607Z"
+      "lastUpdated": "2026-06-07T13:39:45.767Z"
     }
   ],
   "errors": []

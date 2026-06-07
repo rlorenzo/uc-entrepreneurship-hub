@@ -3,8 +3,28 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-05-31T13:39:16.892Z",
+  "crawledAt": "2026-06-07T13:40:10.258Z",
   "items": [
+    {
+      "id": "berkeley-managed-ev-charging-good-work-if-anyone-would-take-it",
+      "campus": "berkeley",
+      "title": "Managed EV Charging: Good Work, If Anyone Would Take It",
+      "summary": "The post Managed EV Charging: Good Work, If Anyone Would Take It appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-06-01T20:38:00.000Z",
+      "sourceUrl": "https://energyathaas.wordpress.com/2026/06/01/managed-ev-charging-good-work-if-anyone-would-take-it/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/chatgpt-image-may-31-2026-at-09_32_42-pm-768x432.png",
+      "sourceHost": "energyathaas.wordpress.com"
+    },
+    {
+      "id": "berkeley-beyond-the-classroom-learning-from-research-on-esg-policies",
+      "campus": "berkeley",
+      "title": "Beyond the Classroom: Learning from research on ESG policies",
+      "summary": "The post Beyond the Classroom: Learning from research on ESG policies appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-05-28T20:05:00.000Z",
+      "sourceUrl": "https://haas.berkeley.edu/ibsi/about-the-institute/blog/posts/beyond-the-classroom-learning-from-research-on-esg-policies/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Figure-1-Panel-A-only.png",
+      "sourceHost": "haas.berkeley.edu"
+    },
     {
       "id": "berkeley-executive-mba-students-explore-japans-resurgent-economy-in-inaugural-immersion-trip",
       "campus": "berkeley",
@@ -56,6 +76,16 @@
       "sourceHost": "newsroom.haas.berkeley.edu"
     },
     {
+      "id": "berkeley-what-can-we-learn-from-a-nanosecond-behind-competitor",
+      "campus": "berkeley",
+      "title": "What Can We Learn from a ‘Nanosecond Behind’ Competitor?",
+      "summary": "The post What Can We Learn from a ‘Nanosecond Behind’ Competitor? appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-05-22T20:40:00.000Z",
+      "sourceUrl": "https://cmr.berkeley.edu/2026/05/what-can-we-learn-from-a-nanosecond-behind-competitor/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/2026-05-akter_as_629241903-768x512.jpeg",
+      "sourceHost": "cmr.berkeley.edu"
+    },
+    {
       "id": "berkeley-citris-and-uc-merced-commemorate-dual-anniversaries",
       "campus": "berkeley",
       "title": "CITRIS and UC Merced commemorate dual anniversaries",
@@ -74,36 +104,6 @@
       "sourceUrl": "https://newsroom.haas.berkeley.edu/jonathan-weigel-named-one-of-the-worlds-best-40-under-40-graduate-business-professors-by-poets-quants/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/Jonathan-Weigel_PQ-40-under-40-768x506.jpg",
       "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-pioneer-of-modern-financial-instruments-uc-berkeley-haas-professor-nils-hakansson-dies-at-88",
-      "campus": "berkeley",
-      "title": "Pioneer of modern financial instruments, UC Berkeley Haas Professor Nils Hakansson, dies at 88",
-      "summary": "Professor Emeritus Nils H. Hakansson, known for his personal warmth and pioneering vision for financial markets that helped give rise to some of the most consequential investment instruments of the…",
-      "publishedAt": "2026-05-19T15:12:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/pioneer-of-modern-financial-instruments-uc-berkeley-haas-professor-nils-hakansson-dies-at-88/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/Professor-Nils-Hakansson_Faculty-Photo-768x614.jpg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-senior-fellow-spotlight-sonia-navani-and-bridging-the-health-divide-with-digital-innovation",
-      "campus": "berkeley",
-      "title": "Senior Fellow Spotlight: Sonia Navani and Bridging the Health Divide with Digital Innovation",
-      "summary": "Areas around Lake Tanganyika in Uvira, DR Congo are prone to flooding (courtesy photo) In regions upended by conflict and climate threats, how do you devise health systems and strategies…",
-      "publishedAt": "2026-05-18T20:23:00.000Z",
-      "sourceUrl": "https://blumcenter.berkeley.edu/senior-fellow-spotlight-sonia-navani-and-bridging-the-health-divide-with-digital-innovation/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/Flooding_Uvira_SN-768x435.jpg",
-      "sourceHost": "blumcenter.berkeley.edu"
-    },
-    {
-      "id": "berkeley-now-is-it-time-for-a-price-stabilizing-gas-tax",
-      "campus": "berkeley",
-      "title": "Is It Time for a Price-Stabilizing Gas Tax?",
-      "summary": "The post Is It Time for a Price-Stabilizing Gas Tax? appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-05-18T19:22:00.000Z",
-      "sourceUrl": "https://energyathaas.wordpress.com/2026/05/18/now-is-it-time-for-a-price-stabilizing-gas-tax/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/painatthe-pump-2-768x432.png",
-      "sourceHost": "energyathaas.wordpress.com"
     }
   ],
   "errors": []

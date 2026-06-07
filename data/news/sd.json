@@ -3,8 +3,18 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-05-31T13:40:14.073Z",
+  "crawledAt": "2026-06-07T13:40:58.362Z",
   "items": [
+    {
+      "id": "sd-what-desert-locusts-reveal-about-disaster-monitoring",
+      "campus": "sd",
+      "title": "What Desert Locusts Reveal About Disaster Monitoring",
+      "summary": "A new working paper co-authored by Gordon McCord of the UC San Diego School of Global Policy and Strategy suggests that the greatest benefits of disaster monitoring may come from catastrophes the world never sees.",
+      "publishedAt": "2026-06-02T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/what-desert-locusts-reveal-about-disaster-monitoring",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Desert-Locust-Swarm-photo-by-Magnus_Ullman_CC_BY-SA_3.0_via_Wikimedia_Commons_.png",
+      "sourceHost": "today.ucsd.edu"
+    },
     {
       "id": "sd-in-the-worlds-economic-black-holes-data-still-leaks-out",
       "campus": "sd",
@@ -53,16 +63,6 @@
       "publishedAt": "2026-05-07T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/missing-information-can-misinform",
       "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Missing-Puzzle-Piece-photo-by-iStock_Seng_kui_Lim-1658897093.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-a-uc-san-diego-tool-teaching-code-to-25-million-is-even-more-critical-in-age-of-ai",
-      "campus": "sd",
-      "title": "A UC San Diego Tool Teaching Code to 25 Million is Even More Critical in Age of AI",
-      "summary": "When generative AI began writing code with uncanny fluency, it sparked a question: If a chatbot can build software, do people still need to learn to code? Professor of Cognitive Science Philip Guo says absolutely. Understanding code is now more important than ever because AI can get it wrong.",
-      "publishedAt": "2026-03-19T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/a-uc-san-diego-tool-teaching-code-to-25-million-is-even-more-critical-in-age-of-ai",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/iStock-2175838440%282%29%281%29.jpg",
       "sourceHost": "today.ucsd.edu"
     }
   ],
