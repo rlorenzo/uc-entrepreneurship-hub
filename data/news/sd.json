@@ -3,7 +3,7 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-06-07T13:40:58.362Z",
+  "crawledAt": "2026-06-14T13:41:12.495Z",
   "items": [
     {
       "id": "sd-what-desert-locusts-reveal-about-disaster-monitoring",

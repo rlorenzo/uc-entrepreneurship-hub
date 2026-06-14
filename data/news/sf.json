@@ -3,7 +3,7 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-06-07T13:41:11.767Z",
+  "crawledAt": "2026-06-14T13:41:22.880Z",
   "items": [
     {
       "id": "sf-how-impossible-idea-led-pancreatic-cancer-breakthrough",
