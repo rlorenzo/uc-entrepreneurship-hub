@@ -38,7 +38,7 @@
     "jsdom": "29.1.1",
     "pa11y-ci": "^4.1.0",
     "typescript": "^6.0.3",
-    "vite-plus": "^0.1.22"
+    "vite-plus": "^0.1.24"
   },
   "optionalDependencies": {
     "playwright": "^1.60.0"
