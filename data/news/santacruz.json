@@ -3,7 +3,17 @@
   "name": "UC Santa Cruz",
   "strategy": "rss",
   "source": "https://news.ucsc.edu/feed/",
-  "crawledAt": "2026-06-14T13:40:35.400Z",
-  "items": [],
+  "crawledAt": "2026-06-21T13:42:13.302Z",
+  "items": [
+    {
+      "id": "santacruz-best-particle-accelerator-detection-system",
+      "campus": "santacruz",
+      "title": "Team builds best-performing detection system for next-generation accelerators",
+      "summary": "At the high beam-repetition rates of advanced accelerators, eventually reaching beyond one billion times per second, existing detection systems that are critical for ensuring precise measurements fail",
+      "publishedAt": "2026-06-17T21:27:04.000Z",
+      "sourceUrl": "https://news.ucsc.edu/2026/06/best-particle-accelerator-detection-system/",
+      "sourceHost": "news.ucsc.edu"
+    }
+  ],
   "errors": []
 }

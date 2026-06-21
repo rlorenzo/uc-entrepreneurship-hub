@@ -2,7 +2,7 @@
   "campus": "sd",
   "name": "UC San Diego",
   "seedUrl": "https://innovation.ucsd.edu/",
-  "crawledAt": "2026-06-14T13:39:09.480Z",
+  "crawledAt": "2026-06-21T13:40:50.229Z",
   "candidates": [
     {
       "id": "sd-explore-our-startup-toolkit",
@@ -14,7 +14,7 @@
       "longDescription": "UC San Diego works with a number of service providers to help you with the building blocks of starting a new company- incorporation services, IP management, accounting services, grant writing and more. Find the service that is right for you. We have also provided a number of educational resources on these topics. Secure the backing you need to succeed. Our office is dedicated to providing budding companies with internal funding opportunities and access to external investors.",
       "industries": [],
       "sourceUrl": "https://innovation.ucsd.edu/startup/startup-toolkit/index.html",
-      "lastUpdated": "2026-06-14T13:39:18.671Z"
+      "lastUpdated": "2026-06-21T13:40:55.926Z"
     },
     {
       "id": "sd-explore-uc-san-diego-s-ecosystem",
@@ -26,7 +26,7 @@
       "longDescription": "UC San Diego offers a robust network of innovation centers, programs, and resources to support you at every stage of your startup journey. Whether you're just starting with an idea or ready to scale, you’ll find expert guidance, collaborative spaces, and funding opportunities to help turn your vision into impact. Tap into a world-class entrepreneurial community—built to launch your success. Check out the following to see all that UC San Diego has to offer! Don't see a relevant university resource or program in the list above? Suggest an Innovation Resource to have your program reviewed and add",
       "industries": [],
       "sourceUrl": "https://innovation.ucsd.edu/explore-centers/more-centers.html",
-      "lastUpdated": "2026-06-14T13:39:29.638Z"
+      "lastUpdated": "2026-06-21T13:41:03.636Z"
     }
   ],
   "errors": []

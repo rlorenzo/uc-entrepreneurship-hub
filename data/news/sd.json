@@ -3,8 +3,18 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-06-14T13:41:12.495Z",
+  "crawledAt": "2026-06-21T13:42:47.184Z",
   "items": [
+    {
+      "id": "sd-the-paramount-problem-with-hollywoods-next-big-merger",
+      "campus": "sd",
+      "title": "The Paramount Problem With Hollywood’s Next Big Merger",
+      "summary": "Should one family control such a vast share of media production and distribution? For UC San Diego associate professor of communication Shawna Kidman, the answer is clear: its consequences could reach far beyond Hollywood — affecting independent movies, news outlets, sports and many jobs. ",
+      "publishedAt": "2026-06-18T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/the-paramount-problem-with-hollywoods-next-big-merger",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/ChatGPT_Image_Jun_16%2C_2026%2C_07_40_28_AM%281%29%283%29_1.png",
+      "sourceHost": "today.ucsd.edu"
+    },
     {
       "id": "sd-what-desert-locusts-reveal-about-disaster-monitoring",
       "campus": "sd",
@@ -53,16 +63,6 @@
       "publishedAt": "2026-05-14T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/mba-students-take-on-real-consulting-work-at-the-rady-school",
       "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Rady-Action-Project-Sp2026-DSC09247-1200crop.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-missing-information-can-misinform",
-      "campus": "sd",
-      "title": "Missing Information Can Misinform",
-      "summary": "In the online attention economy, new research from the UC San Diego Rady School finds that making science more clickable or shareable can help some readers learn more – but leaves many others with an incomplete understanding.",
-      "publishedAt": "2026-05-07T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/missing-information-can-misinform",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Missing-Puzzle-Piece-photo-by-iStock_Seng_kui_Lim-1658897093.jpg",
       "sourceHost": "today.ucsd.edu"
     }
   ],

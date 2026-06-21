@@ -2,7 +2,7 @@
   "campus": "irvine",
   "name": "UC Irvine",
   "seedUrl": "https://innovation.uci.edu/",
-  "crawledAt": "2026-06-14T13:39:15.132Z",
+  "crawledAt": "2026-06-21T13:40:54.957Z",
   "candidates": [
     {
       "id": "irvine-pop-grants-uci-beall-applied-innovation",
@@ -16,7 +16,7 @@
         "AI / ML"
       ],
       "sourceUrl": "https://innovation.uci.edu/pop-grants/",
-      "lastUpdated": "2026-06-14T13:39:23.430Z"
+      "lastUpdated": "2026-06-21T13:41:01.702Z"
     },
     {
       "id": "irvine-funding-resources-uci-beall-applied-innovation",
@@ -29,7 +29,7 @@
       "industries": [],
       "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2022/01/Janelle-King-Student-Startup-Fund-UCI.png",
       "sourceUrl": "https://innovation.uci.edu/funding-resources",
-      "lastUpdated": "2026-06-14T13:39:33.331Z"
+      "lastUpdated": "2026-06-21T13:41:09.186Z"
     }
   ],
   "errors": []

@@ -3,8 +3,18 @@
   "name": "UCLA",
   "strategy": "playwright",
   "source": "https://www.anderson.ucla.edu/news-and-events",
-  "crawledAt": "2026-06-14T13:40:35.019Z",
+  "crawledAt": "2026-06-21T13:42:13.202Z",
   "items": [
+    {
+      "id": "la-ethics-case-competition-winners-walked-fine-line",
+      "campus": "la",
+      "title": "Ethics Case Competition Winners Walked a Fine Line",
+      "summary": "Anderson students resolved a biotech startup’s rehiring dilemma",
+      "publishedAt": "2026-06-10T19:00:00.000Z",
+      "sourceUrl": "https://www.anderson.ucla.edu/news-and-events/ethics-case-competition-winners-walked-fine-line",
+      "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/social_og/public/image/2026-06/2025-news-hero-ethics.jpg.jpeg?itok=kkpoLQXF",
+      "sourceHost": "www.anderson.ucla.edu"
+    },
     {
       "id": "la-ucla-anderson-school-management-launches-minors-real-estate-and-sports-leadership-and-management",
       "campus": "la",

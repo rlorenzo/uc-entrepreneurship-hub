@@ -2,7 +2,7 @@
   "campus": "la",
   "name": "UCLA",
   "seedUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation",
-  "crawledAt": "2026-06-14T13:39:09.204Z",
+  "crawledAt": "2026-06-21T13:40:49.925Z",
   "candidates": [
     {
       "id": "la-center-for-healthcare-innovation",
@@ -16,7 +16,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/image/2025-11/2025-healthcare-hero-home.jpg?itok=AsXoRokf",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/center-for-healthcare-innovation",
-      "lastUpdated": "2026-06-14T13:39:13.824Z"
+      "lastUpdated": "2026-06-21T13:40:54.778Z"
     },
     {
       "id": "la-ucla-anderson-venture-accelerator",
@@ -25,11 +25,11 @@
       "campus": "la",
       "type": "accelerator",
       "desc": "The Venture Accelerator at UCLA Anderson, housed within the Harold and Pauline Price Center for Entrepreneurship & Innovation, is a transformative cohort-based program for early-stage startups and their founders.",
-      "longDescription": "Confirmed registrants will receive detailed information on location and logistics.",
+      "longDescription": "Founders, investors, and leaders, applications for the 2026 UCLA Draper Innovation Showcase are open Our cohort-based programs are designed to help startups grow faster. Participants get direct access to industry leaders from companies like Google, Carta and Meta; build connections with founders who have raised funding from top investors such as Techstars, Y Combinator and Kleiner Perkins; receive guidance from UCLA faculty across campus; and gain mentorship from experienced investors and industry experts. Each year, we offer three distinct programs: Activate, a summer incubator for early-stag",
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/anderson-venture-accelerator",
-      "lastUpdated": "2026-06-14T13:39:21.732Z"
+      "lastUpdated": "2026-06-21T13:41:03.685Z"
     },
     {
       "id": "la-information-systems-research-program",
@@ -43,7 +43,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/programs/hero-h440-tpl.jpg?itok=XIKD0kkK",
       "sourceUrl": "https://www.anderson.ucla.edu/faculty-and-research/information-systems-research-program",
-      "lastUpdated": "2026-06-14T13:39:26.285Z"
+      "lastUpdated": "2026-06-21T13:41:08.808Z"
     },
     {
       "id": "la-early-stage-investment-fund",
@@ -56,7 +56,7 @@
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/for-companies/early-stage-investment-fund",
-      "lastUpdated": "2026-06-14T13:39:29.024Z"
+      "lastUpdated": "2026-06-21T13:41:11.651Z"
     },
     {
       "id": "la-price-center-for-entrepreneurship-and-innovation-fellowships",
@@ -70,7 +70,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/centers/price/2020/price-center-fellowships.jpg?itok=xvB_LKBR",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-students/fellowships",
-      "lastUpdated": "2026-06-14T13:39:35.500Z"
+      "lastUpdated": "2026-06-21T13:41:18.439Z"
     },
     {
       "id": "la-student-investment-fund",
@@ -84,7 +84,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/clubs/STUDENT-anderson-banner.jpg?itok=j-jnQsJS",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-students/student-investment-fund",
-      "lastUpdated": "2026-06-14T13:39:36.827Z"
+      "lastUpdated": "2026-06-21T13:41:20.176Z"
     },
     {
       "id": "la-management-development-for-entrepreneurs",
@@ -98,7 +98,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/centers/price/2020/Professionals/PRICE-MDE-online-banner.jpg?itok=KMURY2Ij",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-professionals/management-development-for-entrepreneurs",
-      "lastUpdated": "2026-06-14T13:39:45.968Z"
+      "lastUpdated": "2026-06-21T13:41:28.921Z"
     }
   ],
   "errors": []

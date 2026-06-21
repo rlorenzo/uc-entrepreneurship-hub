@@ -3,8 +3,18 @@
   "name": "UC Irvine",
   "strategy": "rss",
   "source": "https://innovation.uci.edu/news/feed/",
-  "crawledAt": "2026-06-14T13:40:15.703Z",
+  "crawledAt": "2026-06-21T13:41:48.997Z",
   "items": [
+    {
+      "id": "irvine-aquatex",
+      "campus": "irvine",
+      "title": "The Problem with Good Enough",
+      "summary": "UC Irvine startup Cytoseen detects new drug targets for cancer and neurodegeneration.",
+      "publishedAt": "2026-06-15T16:04:44.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/aquatex/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/06/AquaTex-1.png",
+      "sourceHost": "innovation.uci.edu"
+    },
     {
       "id": "irvine-cytoseen",
       "campus": "irvine",
@@ -93,16 +103,6 @@
       "publishedAt": "2026-01-22T16:00:01.000Z",
       "sourceUrl": "https://innovation.uci.edu/news/summit-tech/",
       "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2025/12/STL-image-1.png",
-      "sourceHost": "innovation.uci.edu"
-    },
-    {
-      "id": "irvine-zeppelin-floods",
-      "campus": "irvine",
-      "title": "When the Levee Breaks",
-      "summary": "What if everyone could plan infrastructure?",
-      "publishedAt": "2025-12-02T16:00:20.000Z",
-      "sourceUrl": "https://innovation.uci.edu/news/zeppelin-floods/",
-      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2025/11/Zeppelin-Floods.png",
       "sourceHost": "innovation.uci.edu"
     }
   ],

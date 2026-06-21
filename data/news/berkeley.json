@@ -3,8 +3,57 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-06-14T13:40:15.916Z",
+  "crawledAt": "2026-06-21T13:41:49.210Z",
   "items": [
+    {
+      "id": "berkeley-citris-foundry-alum-selected-for-stage-1-of-the-venturewell-program",
+      "campus": "berkeley",
+      "title": "CITRIS Foundry alum selected for Stage 1 of the VentureWell Program",
+      "summary": "CITRIS Foundry alum selected for Stage 1 of the VentureWell Program",
+      "publishedAt": "2026-06-18T16:01:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-foundry-alum-selected-for-stage-1-of-the-venturewell-program/?utm_source=rss&utm_medium=rss&utm_campaign=citris-foundry-alum-selected-for-stage-1-of-the-venturewell-program",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Postrue-for-VentureWell-June-2026-768x183.png",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-citris-aviation-prize-winners-simulate-flight-pathways-connecting-uc-campuses",
+      "campus": "berkeley",
+      "title": "CITRIS Aviation Prize winners simulate flight pathways connecting UC campuses",
+      "summary": "CITRIS Aviation Prize winners simulate flight pathways connecting UC campuses",
+      "publishedAt": "2026-06-17T17:00:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-aviation-prize-winners-simulate-flight-pathways-connecting-uc-campuses/?utm_source=rss&utm_medium=rss&utm_campaign=citris-aviation-prize-winners-simulate-flight-pathways-connecting-uc-campuses",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/banner-c2a2-aviation-consortium-credit-adobe-pro-1540x368px-scaled-768x184.jpg",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-where-no-b-school-has-gone-before-haas-launches-course-on-space-arctic-and-beyond",
+      "campus": "berkeley",
+      "title": "Where no B-School has gone before: Haas launches course on space, arctic, and beyond",
+      "summary": "“This course aligned not just with my past interests, but my future interests in a way that I haven’t seen with any other course do yet.” – Ryan Delaney, EWMBA…",
+      "publishedAt": "2026-06-16T16:15:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/where-no-b-school-has-gone-before-haas-launches-course-on-space-arctic-and-beyond/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/20260605_130457-1-scaled-768x496.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-visualizing-california-renewables-curtailments",
+      "campus": "berkeley",
+      "title": "Visualizing California Renewables Curtailments",
+      "summary": "The post Visualizing California Renewables Curtailments appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-06-15T19:43:00.000Z",
+      "sourceUrl": "https://energyathaas.wordpress.com/2026/06/15/visualizing-california-renewables-curtailments/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/solar-768x347.png",
+      "sourceHost": "energyathaas.wordpress.com"
+    },
+    {
+      "id": "berkeley-former-citris-at-uc-davis-director-leads-team-joining-regional-semiconductor-workforce-network",
+      "campus": "berkeley",
+      "title": "Former CITRIS at UC Davis director leads team joining Regional Semiconductor Workforce Network",
+      "summary": "Former CITRIS at UC Davis director leads team joining Regional Semiconductor Workforce Network",
+      "publishedAt": "2026-06-15T15:57:00.000Z",
+      "sourceUrl": "https://citris-uc.org/former-citris-at-uc-davis-director-leads-team-joining-regional-semiconductor-workforce-network/?utm_source=rss&utm_medium=rss&utm_campaign=former-citris-at-uc-davis-director-leads-team-joining-regional-semiconductor-workforce-network",
+      "sourceHost": "citris-uc.org"
+    },
     {
       "id": "berkeley-13-5-million-commitment-expands-support-for-citris-cdss-innovation-fellowships",
       "campus": "berkeley",
@@ -54,56 +103,6 @@
       "sourceUrl": "https://newsroom.haas.berkeley.edu/colton-hess-mba-26/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/colton-4-scaled-768x512.jpg",
       "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-earthquakes-hurricanes-and-floods-meet-the-newest-mdeveng-professor-whos-no-stranger-to-disasters",
-      "campus": "berkeley",
-      "title": "Earthquakes, Hurricanes, and Floods: Meet the newest MDevEng professor who’s no stranger to disasters",
-      "summary": "A new member of the Graduate Group in Development Engineering, Ceferino and his team move in after disasters, working on the ground to understand how and why infrastructure fails —…",
-      "publishedAt": "2026-06-08T21:18:00.000Z",
-      "sourceUrl": "https://blumcenter.berkeley.edu/earthquakes-hurricanes-and-floods-meet-the-newest-mdeveng-professor-whos-no-stranger-to-disasters/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Turkey.png",
-      "sourceHost": "blumcenter.berkeley.edu"
-    },
-    {
-      "id": "berkeley-how-gpp-graduate-yesenia-casillas-rios-molds-the-public-spaces-she-grew-up-with",
-      "campus": "berkeley",
-      "title": "How GPP Graduate Yesenia Casillas Rios Molds the Public Spaces She Grew Up With",
-      "summary": "Casillas Rios, a three-year student fellow at the Blum Center, graduated this May from the Global Poverty & Practice minor. Since high school, she’s been committed to enhancing the quality…",
-      "publishedAt": "2026-06-08T20:40:00.000Z",
-      "sourceUrl": "https://blumcenter.berkeley.edu/how-gpp-graduate-yesenia-casillas-rios-molds-the-public-spaces-she-grew-up-with/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Yesenia.png",
-      "sourceHost": "blumcenter.berkeley.edu"
-    },
-    {
-      "id": "berkeley-decarbonization-down-under",
-      "campus": "berkeley",
-      "title": "Decarbonization Down Under",
-      "summary": "The post Decarbonization Down Under appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-06-08T19:33:00.000Z",
-      "sourceUrl": "https://energyathaas.wordpress.com/2026/06/08/decarbonization-down-under/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/rooftop-solar-1-768x429.jpg",
-      "sourceHost": "energyathaas.wordpress.com"
-    },
-    {
-      "id": "berkeley-uc-santa-cruz-slugiculture-named-a-finalist-in-farm-robotics-challenge",
-      "campus": "berkeley",
-      "title": "UC Santa Cruz ‘Slugiculture’ named a finalist in Farm Robotics Challenge",
-      "summary": "UC Santa Cruz ‘Slugiculture’ named a finalist in Farm Robotics Challenge",
-      "publishedAt": "2026-06-08T16:02:00.000Z",
-      "sourceUrl": "https://citris-uc.org/uc-santa-cruz-slugiculture-named-a-finalist-in-farm-robotics-challenge/?utm_source=rss&utm_medium=rss&utm_campaign=uc-santa-cruz-slugiculture-named-a-finalist-in-farm-robotics-challenge",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/UC-Santa-Cruz-Farm-Robotics-Challenge-June-2026-768x184.png",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-lucas-chagas-vital-mba-18-finding-inclusion-and-community",
-      "campus": "berkeley",
-      "title": "Lucas Chagas Vital, MBA 18 – Finding Inclusion and Community",
-      "summary": "The post Lucas Chagas Vital, MBA 18 – Finding Inclusion and Community appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-06-04T19:34:00.000Z",
-      "sourceUrl": "https://haaspodcasts.org/podcast/lucas-chagas-vital-mba-18-finding-inclusion-and-community/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Lucas-Chagas-Vital-Episode-Artwork-768x768.png",
-      "sourceHost": "haaspodcasts.org"
     }
   ],
   "errors": []

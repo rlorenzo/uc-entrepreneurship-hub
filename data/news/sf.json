@@ -3,8 +3,18 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-06-14T13:41:22.880Z",
+  "crawledAt": "2026-06-21T13:43:00.403Z",
   "items": [
+    {
+      "id": "sf-ucsf-spinout-nets-91-m-test-virus-therapy-brain-cancer-china",
+      "campus": "sf",
+      "title": "UCSF spinout nets $9.1 M to test virus therapy for brain cancer in China",
+      "summary": "UCSF spinout nets $9.1 M to test virus therapy for brain cancer in China",
+      "publishedAt": "",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/ucsf-spinout-nets-91-m-test-virus-therapy-brain-cancer-china",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
     {
       "id": "sf-how-impossible-idea-led-pancreatic-cancer-breakthrough",
       "campus": "sf",
@@ -142,16 +152,6 @@
       "summary": "Montara Therapeutics Announces Development Candidate for First BrainOnly™-Enabled Program in TSC-Related Epilepsy and Appoints Chief Business Officer&nbsp;",
       "publishedAt": "2025-12-10T08:00:00.000Z",
       "sourceUrl": "https://innovation.ucsf.edu/media/news/montara-therapeutics-announces-development-candidate-first-brainonlytm-enabled-program",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-alice-tang-made-forbes-30-under-30-list-science",
-      "campus": "sf",
-      "title": "Alice Tang Made the Forbes 30 Under 30 List in Science",
-      "summary": "Alace Tang achieved the Forbes 30 Under 30 in Science",
-      "publishedAt": "2025-12-09T08:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/alice-tang-made-forbes-30-under-30-list-science",
       "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
       "sourceHost": "innovation.ucsf.edu"
     }
