@@ -3,16 +3,36 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-06-21T13:42:47.184Z",
+  "crawledAt": "2026-06-28T13:39:51.350Z",
   "items": [
+    {
+      "id": "sd-looking-for-work-dont-worry-about-seeming-too-eager",
+      "campus": "sd",
+      "title": "​​​​​​​Looking for Work? Don’t Worry About Seeming Too Eager",
+      "summary": "New research combining experiments with data from 11.6 million marketplace interactions suggests employers view fast replies as a positive signal — one that increases hiring likelihood.",
+      "publishedAt": "2026-06-25T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/looking-for-work-dont-worry-about-seeming-too-eager",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/About-to-Respond-photo-by-iStock_Farknot_Architect-1294562875.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
+    {
+      "id": "sd-impact-beyond-the-numbers-new-report-examines-the-life-sciences-in-california",
+      "campus": "sd",
+      "title": "Impact Beyond the Numbers: New Report Examines the Life Sciences in California",
+      "summary": "A newly released 2026 California Life Sciences Economic Impact Report, unveiled at the BIO 2026 International Convention in San Diego on June 22-23, finds that California's life sciences sector supported over 400,000 jobs and generated nearly $394 billion in economic activity statewide in 2025. \n",
+      "publishedAt": "2026-06-25T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/impact-beyond-the-numbers-new-report-examines-the-life-sciences-in-california",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/1200x628_Biocom-CRE-Report.jpeg",
+      "sourceHost": "today.ucsd.edu"
+    },
     {
       "id": "sd-the-paramount-problem-with-hollywoods-next-big-merger",
       "campus": "sd",
       "title": "The Paramount Problem With Hollywood’s Next Big Merger",
-      "summary": "Should one family control such a vast share of media production and distribution? For UC San Diego associate professor of communication Shawna Kidman, the answer is clear: its consequences could reach far beyond Hollywood — affecting independent movies, news outlets, sports and many jobs. ",
+      "summary": "UC San Diego communication professor Shawna Kidman explains how Hollywood’s next big media merger could have consequences for workers, audiences, news and sports",
       "publishedAt": "2026-06-18T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/the-paramount-problem-with-hollywoods-next-big-merger",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/ChatGPT_Image_Jun_16%2C_2026%2C_07_40_28_AM%281%29%283%29_1.png",
+      "imageUrl": "https://today.ucsd.edu/news_uploads/_social/ChatGPT_Image_Jun_16%2C_2026%2C_07_40_28_AM%281%29%283%29.png",
       "sourceHost": "today.ucsd.edu"
     },
     {
@@ -43,26 +63,6 @@
       "publishedAt": "2026-05-28T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/10-speakers-10-weeks-countless-career-lessons-from-fellow-tritons",
       "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/230607GPS-DSC_9581ErikJepsenUCSanDiego191%281%29%281%29.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-risk-or-reward-first-thing-people-want-to-know-when-decision-is-uncertain",
-      "campus": "sd",
-      "title": "Risk or Reward: What’s the First Thing People Want to Know When a Decision Is Uncertain?",
-      "summary": "In a new paper, Uma Karmarkar and colleagues ask a deceptively simple question: When people face an uncertain opportunity, what information do they want to see first – the potential reward, or the odds of getting it?",
-      "publishedAt": "2026-05-26T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/risk-or-reward-first-thing-people-want-to-know-when-decision-is-uncertain",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Hand-Throwing-Dice-photo-by-iStock_Tero-Vesalainen-1174418152.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-mba-students-take-on-real-consulting-work-at-the-rady-school",
-      "campus": "sd",
-      "title": "MBA Students Take On Real Consulting Work at the Rady School",
-      "summary": "At UC San Diego’s Rady School of Management, students in a required program work directly with companies across San Diego, delivering recommendations that shape business decisions.  ",
-      "publishedAt": "2026-05-14T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/mba-students-take-on-real-consulting-work-at-the-rady-school",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Rady-Action-Project-Sp2026-DSC09247-1200crop.jpg",
       "sourceHost": "today.ucsd.edu"
     }
   ],

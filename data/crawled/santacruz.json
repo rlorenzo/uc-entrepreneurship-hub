@@ -2,7 +2,7 @@
   "campus": "santacruz",
   "name": "UC Santa Cruz",
   "seedUrl": "https://innovation.ucsc.edu/",
-  "crawledAt": "2026-06-21T13:41:03.645Z",
+  "crawledAt": "2026-06-28T13:37:44.791Z",
   "candidates": [
     {
       "id": "santacruz-research-infrastructure-commons-ric-program",
@@ -14,7 +14,7 @@
       "longDescription": "The Research Infrastructure Commons (RIC) program consists of a group of research facilities and other resources that have made available routine services to industry users for commercial purposes under commercial rate structures and business-friendly terms. Core Manager Name: Beverley RabbittsCore Manager Email: brabbitt@ucsc.eduRRID Number: SCR_021114RIC Services: library formatting, cytological profiling, biochemical assays, imaging assays and high-content screening, and skill training. Core Manager Name: Vitor Hugo Balasco SerrãoCore Manager Email: vbalasco@ucsc.eduRRID number: SCR_021755R",
       "industries": [],
       "sourceUrl": "https://innovation.ucsc.edu/industry-corporate-partners/research-infrastructure-commons-ric-program/",
-      "lastUpdated": "2026-06-21T13:41:06.586Z"
+      "lastUpdated": "2026-06-28T13:37:48.662Z"
     },
     {
       "id": "santacruz-innovation-catalyst-proof-of-concept-program",
@@ -26,7 +26,7 @@
       "longDescription": "Innovation Catalyst is a proof-of-concept program managed by the Innovation & Business Engagement Hub, focused on providing targeted gap funding, training, mentorship, and support to UC Santa Cruz researchers in order to help de-risk and/or validate the implementation, adoption, and commercialization potential of early-stage technology innovations. The overall objective of the program is to better position innovations to move out of the University, (e.g., attract the interest of entrepreneurs, companies, and investors for licensing), and catalyze the process leading to transformative change an",
       "industries": [],
       "sourceUrl": "https://innovation.ucsc.edu/faculty-researchers/innovation-catalyst-grant/",
-      "lastUpdated": "2026-06-21T13:41:09.787Z"
+      "lastUpdated": "2026-06-28T13:37:52.879Z"
     },
     {
       "id": "santacruz-nsf-i-corps-program",
@@ -39,7 +39,7 @@
       "industries": [],
       "applicationLink": "https://airtable.com/appchtuZSEDR2xXod/pagM3WEdQVbm6uSlV/form?prefill_Cohort=recsiWzp1iPM2Xpdp",
       "sourceUrl": "https://innovation.ucsc.edu/entrepreneurs-innovators/lean-launchpad-workshop/",
-      "lastUpdated": "2026-06-21T13:41:15.816Z"
+      "lastUpdated": "2026-06-28T13:38:00.881Z"
     }
   ],
   "errors": []

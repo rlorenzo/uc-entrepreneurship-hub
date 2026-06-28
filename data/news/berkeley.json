@@ -3,8 +3,78 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-06-21T13:41:49.210Z",
+  "crawledAt": "2026-06-28T13:38:36.852Z",
   "items": [
+    {
+      "id": "berkeley-the-descent-of-machine-darwin-revisited",
+      "campus": "berkeley",
+      "title": "The Descent of Machine: Darwin Revisited",
+      "summary": "The post The Descent of Machine: Darwin Revisited appeared first on UC Berkeley Sutardja Center. Source link",
+      "publishedAt": "2026-06-25T08:46:00.000Z",
+      "sourceUrl": "https://exec-ed.berkeley.edu/2026/06/the-descent-of-machine-darwin-revisited/#new_tab",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Shomit_AI-Descent-of-Machine-768x403.png",
+      "sourceHost": "exec-ed.berkeley.edu"
+    },
+    {
+      "id": "berkeley-from-uc-berkeley-haas-to-the-pentagon-how-one-mba-is-reinventing-counter-drone-warfare",
+      "campus": "berkeley",
+      "title": "From UC Berkeley Haas to the Pentagon: How one MBA is reinventing counter-drone warfare",
+      "summary": "Volodymyr Silchenko, MBA 26, headed to Washington D.C. this month on a Defense Innovation Unit (DIU) Commercialization Fellowship with his autonomous counter-drone startup, OMNIA AI. This week, Silchenko flew to…",
+      "publishedAt": "2026-06-24T20:17:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/from-uc-berkeley-haas-to-the-pentagon-how-one-mba-is-reinventing-counter-drone-warfare/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/vlad-pentagon-1-768x769.jpeg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-professor-omri-even-tov-wins-american-accounting-association-best-paper-award",
+      "campus": "berkeley",
+      "title": "Professor Omri Even-Tov wins American Accounting Association Best Paper Award",
+      "summary": "Associate Professor Omri Even-Tov has been named a recipient of the American Accounting Association’s 2026 Accounting Horizons Best Paper Award. The paper, “Bridging the Gap between Academia and Practice in…",
+      "publishedAt": "2026-06-23T23:41:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/professor-omri-even-tov-wins-american-accounting-association-best-paper-award/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/biy_554a-768x512.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-2026-agentic-ai-summit-brings-top-minds-to-campus",
+      "campus": "berkeley",
+      "title": "2026 Agentic AI Summit brings top minds to campus",
+      "summary": "The world’s top minds in AI are coming to UC Berkeley this summer for the 2026 Agentic AI Summit. The summit will be held on the UC Berkeley campus August…",
+      "publishedAt": "2026-06-23T23:40:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/2026-agentic-ai-summit-brings-top-minds-to-campus/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Screenshot-2026-06-23-at-3.32.45-PM.png",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-why-hasnt-the-iran-war-driven-oil-prices-even-higher",
+      "campus": "berkeley",
+      "title": "Why Hasn’t the Iran War Driven Oil Prices Even Higher?",
+      "summary": "The post Why Hasn’t the Iran War Driven Oil Prices Even Higher? appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-06-22T20:47:00.000Z",
+      "sourceUrl": "https://energyathaas.wordpress.com/2026/06/22/why-hasnt-the-iran-war-driven-oil-prices-even-higher/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/iranwaroilpricefig2-768x329.png",
+      "sourceHost": "energyathaas.wordpress.com"
+    },
+    {
+      "id": "berkeley-people-prefer-negotiating-with-women-even-when-they-dont-know-it",
+      "campus": "berkeley",
+      "title": "People prefer negotiating with women—even when they don’t know it.",
+      "summary": "Women negotiators earn greater trust, satisfaction, and future opportunities—with no difference in economic outcomes—according to research published today from UC Berkeley Haas and Cornell. European Commission President Ursula von der…",
+      "publishedAt": "2026-06-22T20:05:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/research/people-prefer-negotiating-with-women-even-when-they-dont-know-it/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/26161568608169-scaled-768x512.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-citris-announces-2026-edge-in-tech-athena-award-recipients",
+      "campus": "berkeley",
+      "title": "CITRIS Announces 2026 EDGE in Tech Athena Award Recipients",
+      "summary": "CITRIS Announces 2026 EDGE in Tech Athena Award Recipients",
+      "publishedAt": "2026-06-22T17:45:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-announces-2026-edge-in-tech-athena-award-recipients/?utm_source=rss&utm_medium=rss&utm_campaign=citris-announces-2026-edge-in-tech-athena-award-recipients",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Athena-Banner-2026_WINNERS-768x184.jpg",
+      "sourceHost": "citris-uc.org"
+    },
     {
       "id": "berkeley-citris-foundry-alum-selected-for-stage-1-of-the-venturewell-program",
       "campus": "berkeley",
@@ -33,75 +103,6 @@
       "publishedAt": "2026-06-16T16:15:00.000Z",
       "sourceUrl": "https://newsroom.haas.berkeley.edu/where-no-b-school-has-gone-before-haas-launches-course-on-space-arctic-and-beyond/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/20260605_130457-1-scaled-768x496.jpg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-visualizing-california-renewables-curtailments",
-      "campus": "berkeley",
-      "title": "Visualizing California Renewables Curtailments",
-      "summary": "The post Visualizing California Renewables Curtailments appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-06-15T19:43:00.000Z",
-      "sourceUrl": "https://energyathaas.wordpress.com/2026/06/15/visualizing-california-renewables-curtailments/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/solar-768x347.png",
-      "sourceHost": "energyathaas.wordpress.com"
-    },
-    {
-      "id": "berkeley-former-citris-at-uc-davis-director-leads-team-joining-regional-semiconductor-workforce-network",
-      "campus": "berkeley",
-      "title": "Former CITRIS at UC Davis director leads team joining Regional Semiconductor Workforce Network",
-      "summary": "Former CITRIS at UC Davis director leads team joining Regional Semiconductor Workforce Network",
-      "publishedAt": "2026-06-15T15:57:00.000Z",
-      "sourceUrl": "https://citris-uc.org/former-citris-at-uc-davis-director-leads-team-joining-regional-semiconductor-workforce-network/?utm_source=rss&utm_medium=rss&utm_campaign=former-citris-at-uc-davis-director-leads-team-joining-regional-semiconductor-workforce-network",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-13-5-million-commitment-expands-support-for-citris-cdss-innovation-fellowships",
-      "campus": "berkeley",
-      "title": "$13.5 million commitment expands support for CITRIS-CDSS Innovation Fellowships",
-      "summary": "$13.5 million commitment expands support for CITRIS-CDSS Innovation Fellowships",
-      "publishedAt": "2026-06-11T21:54:00.000Z",
-      "sourceUrl": "https://citris-uc.org/13-5-million-commitment-expands-support-for-citris-cdss-innovation-fellowships/?utm_source=rss&utm_medium=rss&utm_campaign=13-5-million-commitment-expands-support-for-citris-cdss-innovation-fellowships",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2025/09/2025aic-banner-1540x368px-768x184.jpg",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-making-the-invisible-visible",
-      "campus": "berkeley",
-      "title": "Making the invisible visible",
-      "summary": "A landmark achievement in microscopy is poised to reveal the molecular machinery of life inside cells, at near-atomic detail. Inside every living cell, tens of thousands of different types of…",
-      "publishedAt": "2026-06-11T19:27:00.000Z",
-      "sourceUrl": "https://qb3.berkeley.edu/news/making-the-invisible-visible/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/apoferritin-cryo-em-xlpp-lasers-off-on-contrast-comparison-biohub-768x960.png",
-      "sourceHost": "qb3.berkeley.edu"
-    },
-    {
-      "id": "berkeley-uc-berkeley-haas-celebrates-emba-class-of-2026-at-commencement",
-      "campus": "berkeley",
-      "title": "UC Berkeley Haas celebrates EMBA Class of 2026 at commencement",
-      "summary": "The 2026 EMBA cohort breaks for a photo with EMBA staff. Photo: Noah Berger Berkeley Haas Executive MBA students in the tight-knit class of 2026 graduated last Saturday, celebrating months…",
-      "publishedAt": "2026-06-11T00:13:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/uc-berkeley-haas-celebrates-emba-class-of-2026-at-commencement/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/bkw_0282b-scaled-768x347.jpg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-citris-to-co-host-whats-next-longevity-venture-summit",
-      "campus": "berkeley",
-      "title": "CITRIS to co-host What’s Next Longevity Venture Summit",
-      "summary": "CITRIS to co-host What’s Next Longevity Venture Summit",
-      "publishedAt": "2026-06-10T16:04:00.000Z",
-      "sourceUrl": "https://citris-uc.org/citris-to-co-host-whats-next-longevity-venture-summit/?utm_source=rss&utm_medium=rss&utm_campaign=citris-to-co-host-whats-next-longevity-venture-summit",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Longevity-Summit-June-2026-768x183.png",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-colton-hess-mba-26",
-      "campus": "berkeley",
-      "title": "Colton Hess, MBA 26",
-      "summary": "In recent months, Colton Hess, MBA/MPH 26, has taught more than 50 students across Haas to use Claude Code through AI “activation sessions.” Their enthusiasm inspired led Hess to launch…",
-      "publishedAt": "2026-06-09T20:54:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/colton-hess-mba-26/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/colton-4-scaled-768x512.jpg",
       "sourceHost": "newsroom.haas.berkeley.edu"
     }
   ],

@@ -3,8 +3,38 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-06-21T13:43:00.403Z",
+  "crawledAt": "2026-06-28T13:40:02.859Z",
   "items": [
+    {
+      "id": "sf-ucsf-innovation-translates-discovery-life-saving-diagnostics",
+      "campus": "sf",
+      "title": "UCSF Innovation Translates Discovery into Life-Saving Diagnostics",
+      "summary": "UCSF Innovation Translates Discovery into Life-Saving Diagnostics",
+      "publishedAt": "2026-06-26T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/ucsf-innovation-translates-discovery-life-saving-diagnostics",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-inventor-crispr-skeptical-about-ai",
+      "campus": "sf",
+      "title": "Inventor of Crispr is skeptical about AI",
+      "summary": "The inventor of CRISPR is skeptical about AI’s impact on medical innovation",
+      "publishedAt": "",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/inventor-crispr-skeptical-about-ai",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-rare-disease-program-2026",
+      "campus": "sf",
+      "title": "Rare Disease Program 2026",
+      "summary": "Rare Disease Program 2026",
+      "publishedAt": "",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/rare-disease-program-2026",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
     {
       "id": "sf-ucsf-spinout-nets-91-m-test-virus-therapy-brain-cancer-china",
       "campus": "sf",
@@ -122,36 +152,6 @@
       "summary": "Tahoe Therapeutics, Arc Institute, and Biohub Partner to Generate the Largest Perturbation Dataset for Virtual Cell Models",
       "publishedAt": "",
       "sourceUrl": "https://innovation.ucsf.edu/media/news/tahoe-therapeutics-arc-institute-and-biohub-partner-generate-largest-perturbation",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-tahoe-therapeutics-and-alloy-therapeutics-form-joint-venture-and-develop-first-class",
-      "campus": "sf",
-      "title": "Tahoe Therapeutics and Alloy Therapeutics to Form Joint Venture and Develop First-in-Class Antibody-Drug Conjugates for Hard-to-Treat Cancers",
-      "summary": "Tahoe Therapeutics and Alloy Therapeutics to Form Joint Venture and Develop First-in-Class Antibody-Drug Conjugates for Hard-to-Treat Cancers",
-      "publishedAt": "2026-01-14T08:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/tahoe-therapeutics-and-alloy-therapeutics-form-joint-venture-and-develop-first-class",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-jj-google-venture-arms",
-      "campus": "sf",
-      "title": "J&J, Google venture arms line up to back protein degradation biotech EpiBiologics' $107M series B",
-      "summary": "Protein degradation biotech EpiBiologics has brought in $107 million in a&nbsp;star-studded series B round&nbsp;headed up by Johnson &amp; Johnson's and Google's respective venture arms.",
-      "publishedAt": "",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/jj-google-venture-arms",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-montara-therapeutics-announces-development-candidate-first-brainonlytm-enabled-program",
-      "campus": "sf",
-      "title": "Montara Therapeutics Announces Development Candidate for First BrainOnly™-Enabled Program in TSC-Related Epilepsy and Appoints Chief Business Officer",
-      "summary": "Montara Therapeutics Announces Development Candidate for First BrainOnly™-Enabled Program in TSC-Related Epilepsy and Appoints Chief Business Officer&nbsp;",
-      "publishedAt": "2025-12-10T08:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/montara-therapeutics-announces-development-candidate-first-brainonlytm-enabled-program",
       "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
       "sourceHost": "innovation.ucsf.edu"
     }

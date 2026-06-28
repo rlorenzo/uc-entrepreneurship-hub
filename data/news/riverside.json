@@ -3,8 +3,18 @@
   "name": "UC Riverside",
   "strategy": "playwright",
   "source": "https://news.ucr.edu/topic/business",
-  "crawledAt": "2026-06-21T13:42:38.571Z",
+  "crawledAt": "2026-06-28T13:39:25.244Z",
   "items": [
+    {
+      "id": "riverside-what-consumers-think-they-buy",
+      "campus": "riverside",
+      "title": "What consumers think before they buy",
+      "summary": "Manufacturers have traditionally relied on sales figures to understand where they stand with consumers, but by the time those numbers arrive, the consumers’ buying decisions have already been made.",
+      "publishedAt": "",
+      "sourceUrl": "https://news.ucr.edu/articles/2026/06/23/what-consumers-think-they-buy",
+      "imageUrl": "https://news.ucr.edu/sites/default/files/2026-06/header2.jpg",
+      "sourceHost": "news.ucr.edu"
+    },
     {
       "id": "riverside-uc-riverside-launches-online-mba-program",
       "campus": "riverside",
@@ -193,16 +203,6 @@
       "publishedAt": "",
       "sourceUrl": "https://news.ucr.edu/articles/2025/06/02/ucr-launches-study-ship-emissions-socal-coast",
       "imageUrl": "https://news.ucr.edu/sites/default/files/2025-06/960-gettyimages-1297687827.jpg",
-      "sourceHost": "news.ucr.edu"
-    },
-    {
-      "id": "riverside-it-good-know-how-much-your-co-workers-make",
-      "campus": "riverside",
-      "title": "Is it good to know how much your co-workers make?",
-      "summary": "Many companies keep employee pay shrouded in secrecy while other employers make such information known to their workers. So, what are the impacts of compensation transparency? ",
-      "publishedAt": "",
-      "sourceUrl": "https://news.ucr.edu/articles/2025/04/07/it-good-know-how-much-your-co-workers-make",
-      "imageUrl": "https://news.ucr.edu/sites/default/files/2025-04/960-gettyimages-1258125025-copy-2_1.jpg",
       "sourceHost": "news.ucr.edu"
     }
   ],

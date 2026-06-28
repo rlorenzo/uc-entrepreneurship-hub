@@ -3,8 +3,18 @@
   "name": "UC Santa Barbara",
   "strategy": "rss",
   "source": "https://innovation.ucsb.edu/rss.xml",
-  "crawledAt": "2026-06-21T13:41:58.272Z",
+  "crawledAt": "2026-06-28T13:38:45.148Z",
   "items": [
+    {
+      "id": "santabarbara-mentium-technologies-luna-r1-ai-chip-selected-et-01-constellation-mission-first-multi",
+      "campus": "santabarbara",
+      "title": "Mentium Technologies’ Luna-R1 AI Chip Selected for ET-01 Constellation Mission, First Multi-Satellite Deployment of Mentium Hardware",
+      "summary": "Mentium Technologies’ Luna-R1 AI Chip Selected for ET-01 Constellation Mission, First Multi-Satellite Deployment of Mentium Hardware abeal Tue, 06/23/2026 - 09:49 Launching on SpaceX Transporter-17 to Enable Autonomous Intelligence Across LEO Satellite Networks Mentium Technologies today announced that its next-generation AI processing chip, Luna-R1 , has been selected for deployment on the ET-01 ",
+      "publishedAt": "2026-06-23T16:49:12.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/mentium-technologies-luna-r1-ai-chip-selected-et-01-constellation-mission-first-multi",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-06/mentium.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
     {
       "id": "santabarbara-aelumas-ceo-jonathan-klamkin-receive-iprm-award",
       "campus": "santabarbara",
@@ -83,26 +93,6 @@
       "publishedAt": "2026-01-13T18:46:05.000Z",
       "sourceUrl": "https://innovation.ucsb.edu/blog/news/fda-clears-osteoprober-first-ever-device-indication-measuring-bone-material-strength",
       "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-01/Group-416.png",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-ucsb-professor-kevin-plaxco-elected-fellow-national-academy-inventors",
-      "campus": "santabarbara",
-      "title": "UCSB Professor Kevin Plaxco Elected Fellow of National Academy of Inventors",
-      "summary": "UCSB Professor Kevin Plaxco Elected Fellow of National Academy of Inventors gmundaden Tue, 01/13/2026 - 10:22 The Plaxco Lab developed a patch-like sensing technology, similar to a glucose monitor worn by many diabetics. It's designed to help prevent underdosing or overdosing through the use of electrochemical biosensors. The device is now in clinical trials being conducted by a company in Melbour",
-      "publishedAt": "2026-01-13T18:22:06.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-professor-kevin-plaxco-elected-fellow-national-academy-inventors",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-01/KevinPlaxco.jpg",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-aeluma-joins-midwest-microelectronics-consortium",
-      "campus": "santabarbara",
-      "title": "Aeluma Joins the Midwest Microelectronics Consortium",
-      "summary": "Aeluma Joins the Midwest Microelectronics Consortium gmundaden Tue, 12/02/2025 - 10:38 Aeluma, Inc. (NASDAQ: ALMU), a semiconductor company specializing in high-performance, scalable technologies for mobile, AI, defense and aerospace, robotics, automotive, AR/VR, and quantum computing, today announced that it has joined the Midwest Microelectronics Consortium (MMEC), a leading hub of microelectron",
-      "publishedAt": "2025-12-02T18:38:37.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/aeluma-joins-midwest-microelectronics-consortium",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2025-12/image%282%29.jpg",
       "sourceHost": "innovation.ucsb.edu"
     }
   ],

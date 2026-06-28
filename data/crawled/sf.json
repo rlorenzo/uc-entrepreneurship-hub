@@ -2,7 +2,7 @@
   "campus": "sf",
   "name": "UC San Francisco",
   "seedUrl": "https://innovation.ucsf.edu/",
-  "crawledAt": "2026-06-21T13:41:17.073Z",
+  "crawledAt": "2026-06-28T13:38:03.309Z",
   "candidates": [
     {
       "id": "sf-translational-funding",
@@ -17,7 +17,7 @@
       ],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/example-rotator-4_0.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/innovation-entrepreneurship/funding-translational",
-      "lastUpdated": "2026-06-21T13:41:22.063Z"
+      "lastUpdated": "2026-06-28T13:38:08.105Z"
     },
     {
       "id": "sf-engagement-opportunity-development",
@@ -30,7 +30,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/page-hero-10.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/healthtech-commercialization/engagement-and-opportunity-development",
-      "lastUpdated": "2026-06-21T13:41:23.407Z"
+      "lastUpdated": "2026-06-28T13:38:09.322Z"
     },
     {
       "id": "sf-strategic-alliances",
@@ -43,7 +43,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-09/Strategic%20Alliences%20Banner.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/healthtech-commercialization/strategic-alliances",
-      "lastUpdated": "2026-06-21T13:41:25.929Z"
+      "lastUpdated": "2026-06-28T13:38:11.490Z"
     },
     {
       "id": "sf-catalyst-program",
@@ -59,7 +59,7 @@
       ],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/page-hero-5.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/innovation-entrepreneurship/funding-translational/catalyst-program",
-      "lastUpdated": "2026-06-21T13:41:28.505Z"
+      "lastUpdated": "2026-06-28T13:38:13.691Z"
     },
     {
       "id": "sf-entrepreneurship-resources",
@@ -72,7 +72,35 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/Newsletter-Page.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/resources/startup-resources",
-      "lastUpdated": "2026-06-21T13:41:29.690Z"
+      "lastUpdated": "2026-06-28T13:38:14.870Z"
+    },
+    {
+      "id": "sf-2025-2026-catalyst-accelerator-awardees",
+      "slug": "2025-2026-catalyst-accelerator-awardees",
+      "name": "2025-2026 Catalyst Accelerator Awardees",
+      "campus": "sf",
+      "type": "accelerator",
+      "desc": "Congratulations to the 2025-2026 Catalyst Awardees",
+      "longDescription": "The 2025-2026 Catalyst Accelerator cycle has been a transformative period with exciting results! The caliber of applicants and awardees in this competitive Catalyst class is remarkable. We are pleased to announce the Awardees of this year’s Catalyst Final Awards and the Weill Institute-Catalyst Final Awards! Funding for the 2025-2026 Catalyst Final Awards is made possible by generous co-funding contributions from the Weill Institute for Neurosciences and the School of Pharmacy, to complement the Innovation Ventures Catalyst and InVent Funds. We extend our gratitude for this program-level commi",
+      "industries": [],
+      "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-11/UCSF_banner.jpg",
+      "sourceUrl": "https://innovation.ucsf.edu/services/innovation-entrepreneurship/funding-translational/catalyst-awards/2025-2026-catalyst-accelerator-awardees",
+      "lastUpdated": "2026-06-28T13:38:18.674Z"
+    },
+    {
+      "id": "sf-ucsf-innovation",
+      "slug": "ucsf-innovation",
+      "name": "UCSF Innovation",
+      "campus": "sf",
+      "type": "incubator",
+      "desc": "May 14 –&nbsp;15, 2026,&nbsp;University of California Livermore Collaboration CenterThe 3rd Annual University of California (UC) ALS Workshop 2026: Reinvigorating Innovation in ALS will take place fro",
+      "longDescription": "May 14 – 15, 2026, University of California Livermore Collaboration Center The 3rd Annual University of California (UC) ALS Workshop 2026: Reinvigorating Innovation in ALS will take place from May 14-15, 2026, at the University of California Livermore Collaboration Center (UCLCC) located in Livermore, CA. This will be a 1.5-day highly interactive, multi-disciplinary workshop that maximizes the UC system-wide ALS expertise, bringing together university physicians, biomedical researchers, engineers, and computational scientists, at all career levels, with Department of Energy (DOE) National Labo",
+      "industries": [
+        "Energy"
+      ],
+      "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2026-02/ALS-Page-Banner.jpg",
+      "sourceUrl": "https://innovation.ucsf.edu/services/healthtech-commercialization/strategic-alliances/reinvigorating-innovation-als",
+      "lastUpdated": "2026-06-28T13:38:19.813Z"
     },
     {
       "id": "sf-panther-program",
@@ -85,7 +113,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2025-01/page-hero-3.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/partnerships/panther-program",
-      "lastUpdated": "2026-06-21T13:41:37.629Z"
+      "lastUpdated": "2026-06-28T13:38:24.204Z"
     }
   ],
   "errors": []

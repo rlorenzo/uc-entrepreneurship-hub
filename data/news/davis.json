@@ -3,8 +3,148 @@
   "name": "UC Davis",
   "strategy": "playwright",
   "source": "https://iedo.ucdavis.edu/news",
-  "crawledAt": "2026-06-21T13:42:41.694Z",
+  "crawledAt": "2026-06-28T13:39:42.200Z",
   "items": [
+    {
+      "id": "davis-uc-davis-stair-health-program-invests-faculty-led-health-innovations",
+      "campus": "davis",
+      "title": "UC Davis STAIR HEALTH Program Invests in Faculty-led Health Innovations",
+      "summary": "UC Davis Health awarded more than $390,000 through its STAIR HEALTH proof-of-concept program to support three interdisciplinary research teams advancing promising innovations in cancer imaging, spinal cord injury treatment and breast cancer therapeutics toward commercial and clinical impact.",
+      "publishedAt": "2026-05-21T15:35:24.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-stair-health-program-invests-faculty-led-health-innovations",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/2025-07-01_48X29.jpg?h=36f8b718&itok=NM0BJTFI",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-uc-davis-born-amplifye-targets-new-frontier-protein-efficiency-amid-glp-1-era",
+      "campus": "davis",
+      "title": "UC Davis–born amplifye Targets a New Frontier in Protein Efficiency Amid GLP-1 Era",
+      "summary": "Born out of cross-disciplinary research at University of California, Davis, startup amplifye is developing enzyme-based technology designed to improve protein absorption and muscle health as growing use of GLP-1 therapies reshapes nutrition and metabolic health needs.",
+      "publishedAt": "2026-05-11T15:30:03.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-born-amplifye-targets-new-frontier-protein-efficiency-amid-glp-1-era",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/amplifye%20article%20image_1280x720.jpg?h=3e07f1d9&itok=rPIUdxsO",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-uc-davis-launches-aggie-venture-accelerator-advance-early-stage-life-science-innovation",
+      "campus": "davis",
+      "title": "UC Davis Launches Aggie Venture Accelerator to Advance Early Stage Life Science Innovation",
+      "summary": "The UC Davis Innovation and Economic Development Office has launched the Aggie Venture Accelerator, an initiative designed to support early stage startups developing solutions at the intersection of life science, food and health.",
+      "publishedAt": "2026-04-13T16:15:36.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-launches-aggie-venture-accelerator-advance-early-stage-life-science-innovation",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/MB20251001_AggieSq_IMG_1788_reduced.jpg?h=37bd9af6&itok=3XXTuw-j",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-aggie-square-partners-release-first-community-benefits-progress-report-highlighting-early",
+      "campus": "davis",
+      "title": "Aggie Square Partners Release First Community Benefits Progress Report Highlighting Early Impact",
+      "summary": "The first Aggie Square Community Benefits Partnership Agreement (CBPA) Annual Progress Report has been released by UC Davis, the City of Sacramento and Wexford Science & Technology, documenting significant progress towards meeting many of the goals outlined in the CBPA.",
+      "publishedAt": "2026-04-02T22:40:20.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/aggie-square-partners-release-first-community-benefits-progress-report-highlighting-early",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/MB20251001_AggieSq_IMG_6025.jpg?h=4997dc06&itok=8Y1gDdgI",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-uc-davis-highlights-translational-breakthroughs-and-startups-8th-annual-biotech-innovation",
+      "campus": "davis",
+      "title": "UC Davis Highlights Translational Breakthroughs and Startups at the 8th Annual Biotech Innovation Gallery",
+      "summary": "UC Davis showcased groundbreaking translational research and innovative biotech startups at the 8th Annual Biotech Innovation Gallery in San Francisco. Hosted by the UC Davis Innovation and Economic Development Office, the event brought in over 330 attendees to connect with and explore potential partnerships with researchers and startup founders, aligning with the J.P. Morgan Healthcare Conference",
+      "publishedAt": "2026-02-10T16:51:50.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-highlights-translational-breakthroughs-and-startups-8th-annual-biotech-innovation",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/David%20Segal_BIG.jpg?h=9c4c0580&itok=cZtQYKZp",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-uc-davis-announces-winners-autumn-2025-science-translation-and-innovative-research-grant",
+      "campus": "davis",
+      "title": "UC Davis Announces Winners of Autumn 2025 Science Translation and Innovative Research Grant Program",
+      "summary": "The University of California, Davis, has awarded $100,000 through the autumn 2025 cohort of the Science Translation and Innovative Research (STAIR) Grant Program to help scientists advance innovative research with strong commercial potential.",
+      "publishedAt": "2025-12-08T20:48:03.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-announces-winners-autumn-2025-science-translation-and-innovative-research-grant",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/Baar_Abhaya.jpg?h=52d3fcb6&itok=7en2k7q-",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-venture-catalyst-fuels-record-year-uc-davis-innovation-startups",
+      "campus": "davis",
+      "title": "Venture Catalyst Fuels Record Year for UC Davis Innovation Startups",
+      "summary": "At Venture Catalyst, part of the UC Davis Innovation and Economic Development Office, we're proud to support the translation of UC Davis research and technology into real-world applications by fostering the development of new ventures. Through strategic collaborations, training and mentorship programs, funding translational research, and proactive outreach, we foster the university’s entrepreneuri",
+      "publishedAt": "2025-10-30T15:49:44.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/venture-catalyst-fuels-record-year-uc-davis-innovation-startups",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/VC%20Stats.png?h=c673cd1c&itok=x8MxJRRm",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-uc-davis-healths-ifm-fund-backs-delix-therapeutics-first-investment",
+      "campus": "davis",
+      "title": "UC Davis Health’s IFM Fund Backs Delix Therapeutics in First Investment",
+      "summary": "UC Davis Health Ventures, part of the Innovation and Economic Development Office (IEDO) at the University of California, Davis, today announced the first investment from its Investing in the Future of Medicine (IFM) Fund, backing Delix Therapeutics.",
+      "publishedAt": "2025-10-02T16:10:43.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-healths-ifm-fund-backs-delix-therapeutics-first-investment",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/cameron_olson_lab_ccw.jpeg?h=c673cd1c&itok=akFyWePN",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-reflections-inaugural-triage-innovation-forum",
+      "campus": "davis",
+      "title": "Reflections on the Inaugural TRIage Innovation Forum",
+      "summary": "Andrew Brown of UC Davis Health Ventures shares his thoughts on the creation and launch of the TRIage Innovation Forum—an engaging, rapid-pitch platform that helps researchers present their work in three minutes and receive tailored guidance, resources and connections to accelerate the translation of their innovations into real-world health solutions.",
+      "publishedAt": "2025-09-02T16:23:28.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/reflections-inaugural-triage-innovation-forum",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/TRIage%20Pic%201.jpg?h=9c4c0580&itok=BsNJ9CMh",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-dough-data-how-graingeai-reimagining-ingredient-intelligence",
+      "campus": "davis",
+      "title": "From Dough to Data: How Grainge.ai is Reimagining Ingredient Intelligence",
+      "summary": "Grainge.ai, a UC Davis–born startup, is transforming food manufacturing by using AI-driven ingredient intelligence to predict how grains, starches and other ingredients behave in formulations, helping companies innovate more efficiently and sustainably.",
+      "publishedAt": "2025-08-18T21:19:43.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/dough-data-how-graingeai-reimagining-ingredient-intelligence",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/Screenshot%202025-08-18%20150316.png?h=1fdb4153&itok=kI5ywWph",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-uc-davis-sees-jump-records-invention-driven-health-innovation",
+      "campus": "davis",
+      "title": "UC Davis Sees Jump in Records of Invention, Driven by Health Innovation",
+      "summary": "UC Davis saw a 34% increase in records of invention in FY 2025, driven largely by health-related innovations and first-time contributors, reflecting a growing culture of commercialization and cross-campus collaboration led by the Innovation and Economic Development Office.",
+      "publishedAt": "2025-08-04T19:56:16.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-sees-jump-records-invention-driven-health-innovation",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/2025-05-22_Avantika%20Gokulnatha_resize.jpg?h=9855f42d&itok=2Wuomug3",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-first-students-move-aggie-square",
+      "campus": "davis",
+      "title": "First Students Move Into Aggie Square",
+      "summary": "UC Davis welcomed residents to Anova Aggie Square, the first student housing ever offered on the Sacramento campus. Anova Aggie Square is a smart residential complex that is now home to students from the UC Davis School of Medicine, the Betty Irene Moore School of Nursing at UC Davis and other graduate programs.",
+      "publishedAt": "2025-07-17T16:14:54.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/first-students-move-aggie-square",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/anova-aggie-square-move-in-2025-2000px.jpg?h=c673cd1c&itok=mw0g0UJG",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-18",
+      "campus": "davis",
+      "title": "Innovation and Economic Development Office",
+      "summary": "",
+      "publishedAt": "2026-05-21T15:35:24.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/18",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_thumbnail/public/media/images/2025-07-01_48X29.jpg?h=36f8b718&itok=x5Uo6WYd",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-22",
+      "campus": "davis",
+      "title": "Innovation and Economic Development Office",
+      "summary": "",
+      "publishedAt": "2026-03-19T16:15:08.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/22",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_thumbnail/public/media/images/real-food-pyramid-arrangement.jpg?h=5313cdcb&itok=tUuyjRzi",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
     {
       "id": "davis-91",
       "campus": "davis",
@@ -14,29 +154,49 @@
       "sourceUrl": "https://iedo.ucdavis.edu/news/91",
       "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_thumbnail/public/media/images/Baar_Abhaya.jpg?h=52d3fcb6&itok=HA49BX-w",
       "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-21",
+      "campus": "davis",
+      "title": "Innovation and Economic Development Office",
+      "summary": "At Venture Catalyst, part of the UC Davis Innovation and Economic Development Office, we're proud to support the translation of UC Davis research and technology into real-world applications by fostering the development of new ventures. Through strategic collaborations, training and mentorship programs, funding translational research, and proactive outreach, we foster the university’s entrepreneuri",
+      "publishedAt": "2026-04-13T16:15:36.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/21",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_thumbnail/public/media/images/MB20251001_AggieSq_IMG_1788_reduced.jpg?h=37bd9af6&itok=utc_OzIC",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-19",
+      "campus": "davis",
+      "title": "Innovation and Economic Development Office",
+      "summary": "",
+      "publishedAt": "2026-04-13T16:15:36.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/19",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_thumbnail/public/media/images/MB20251001_AggieSq_IMG_1788_reduced.jpg?h=37bd9af6&itok=utc_OzIC",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-17",
+      "campus": "davis",
+      "title": "Innovation and Economic Development Office",
+      "summary": "",
+      "publishedAt": "2026-05-11T15:30:03.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/17",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_thumbnail/public/media/images/amplifye%20article%20image_1280x720.jpg?h=3e07f1d9&itok=nN1LuEii",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-56",
+      "campus": "davis",
+      "title": "Innovation and Economic Development Office",
+      "summary": "",
+      "publishedAt": "2025-05-14T15:48:41.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/56",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_thumbnail/public/media/images/20250502-aggie-square-crowd-7519-reduced.jpg?h=f728280d&itok=kl98Wn_H",
+      "sourceHost": "iedo.ucdavis.edu"
     }
   ],
   "errors": [
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/uc-davis-stair-health-program-invests-faculty-led-health-innovations",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/uc-davis-born-amplifye-targets-new-frontier-protein-efficiency-amid-glp-1-era",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/uc-davis-launches-aggie-venture-accelerator-advance-early-stage-life-science-innovation",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/aggie-square-partners-release-first-community-benefits-progress-report-highlighting-early",
-      "message": "HTTP 403"
-    },
     {
       "stage": "article",
       "url": "https://iedo.ucdavis.edu/news/uc-davis-health-ventures-appoints-troels-adrian-strengthen-industry-partnerships-and-advance",
@@ -49,77 +209,7 @@
     },
     {
       "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/uc-davis-highlights-translational-breakthroughs-and-startups-8th-annual-biotech-innovation",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/uc-davis-announces-winners-autumn-2025-science-translation-and-innovative-research-grant",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/venture-catalyst-fuels-record-year-uc-davis-innovation-startups",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
       "url": "https://iedo.ucdavis.edu/news/discovery-forum-highlights-how-uc-davis-center-glp-1-and-metabolic-health-innovation",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/uc-davis-healths-ifm-fund-backs-delix-therapeutics-first-investment",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/reflections-inaugural-triage-innovation-forum",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/dough-data-how-graingeai-reimagining-ingredient-intelligence",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/uc-davis-sees-jump-records-invention-driven-health-innovation",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/first-students-move-aggie-square",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/18",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/22",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/21",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/19",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/17",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/56",
       "message": "HTTP 403"
     }
   ]
