@@ -129,11 +129,27 @@ function passesKeywordFilter(haystack: string, allowlist: string[] | undefined):
   return allowlist.some((k) => lower.includes(k.toLowerCase()));
 }
 
-// Identifies us honestly. Akamai-protected newsrooms (e.g. UC Merced) 403
-// requests that claim to be Chrome but don't have Chrome's TLS fingerprint
-// — counter-intuitively, a non-browser UA passes their filter cleanly.
-// A bare Chrome UA was the previous default; it failed on Merced.
+// Identifies us honestly. A bare Chrome UA was the previous default; it failed
+// on Akamai-protected newsrooms that fingerprint browser TLS.
 const FETCH_USER_AGENT = "uc-entrepreneurship-hub-crawler/1.0 (+github.com/rlorenzo)";
+
+// UC Merced's newsroom sits behind Akamai Bot Manager and 403s our default
+// identity. They allowlist a specific UA for our crawler; because this repo is
+// public, that string is a shared allowlist key (not a true secret), so it is
+// injected via the MERCED_USER_AGENT env var — a GitHub Actions secret in CI,
+// or a local .env — rather than hardcoded here. When unset we fall back to the
+// default UA: the fetch still runs, gets 403'd, and the outage guard in run.ts
+// preserves the previous merced.json rather than blanking it.
+//
+// NB: if Merced's rule also keys on source IP or TLS fingerprint, the UA alone
+// won't clear the 403 — that has to be verified from the crawler's real egress
+// (GitHub Actions), not a dev machine.
+const MERCED_FEED_URL = "https://news.ucmerced.edu/rss.xml";
+
+export function userAgentForFeed(feedUrl: string): string {
+  if (feedUrl === MERCED_FEED_URL) return process.env.MERCED_USER_AGENT || FETCH_USER_AGENT;
+  return FETCH_USER_AGENT;
+}
 
 // The exact set of RSS feeds this crawler is allowed to fetch, as in-code
 // string literals. The config file (news/sites.json) decides *which* campus
@@ -166,9 +182,10 @@ function resolveAllowedFeed(requested: string): string {
 }
 
 async function fetchFeedXml(feedUrl: string): Promise<string> {
-  const resp = await fetch(resolveAllowedFeed(feedUrl), {
+  const url = resolveAllowedFeed(feedUrl);
+  const resp = await fetch(url, {
     headers: {
-      "User-Agent": FETCH_USER_AGENT,
+      "User-Agent": userAgentForFeed(url),
       Accept: "application/rss+xml, application/xml, text/xml, */*",
     },
   });

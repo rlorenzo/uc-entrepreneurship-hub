@@ -54,6 +54,10 @@ jobs:
       - name: Refresh data
         env:
           CAMPUS_INPUT: ${{ github.event.inputs.campus }}
+          # UA UC Merced's WAF allowlists for us; kept out of the public repo
+          # (see scripts/crawl/news/rss.ts). Empty when the secret is unset,
+          # which harmlessly falls back to the default crawler UA.
+          MERCED_USER_AGENT: ${{ secrets.MERCED_USER_AGENT }}
         run: |
           if [ -n "${CAMPUS_INPUT}" ]; then
             # Validate the dispatch input before letting it reach a shell.

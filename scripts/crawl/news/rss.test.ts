@@ -1,5 +1,45 @@
 import { describe, it, expect } from "vite-plus/test";
-import { decodeEntities, stripHtml } from "./rss.ts";
+import { decodeEntities, stripHtml, userAgentForFeed } from "./rss.ts";
+
+describe("userAgentForFeed", () => {
+  const MERCED = "https://news.ucmerced.edu/rss.xml";
+  const DEFAULT_UA = "uc-entrepreneurship-hub-crawler/1.0 (+github.com/rlorenzo)";
+
+  it("uses the default UA for non-Merced feeds regardless of env", () => {
+    const prev = process.env.MERCED_USER_AGENT;
+    process.env.MERCED_USER_AGENT = "Some-Allowlisted-UA/1.0";
+    try {
+      expect(userAgentForFeed("https://news.ucsc.edu/feed/")).toBe(DEFAULT_UA);
+    } finally {
+      if (prev === undefined) delete process.env.MERCED_USER_AGENT;
+      else process.env.MERCED_USER_AGENT = prev;
+    }
+  });
+
+  it("uses the env-provided UA for the Merced feed when set", () => {
+    const prev = process.env.MERCED_USER_AGENT;
+    process.env.MERCED_USER_AGENT = "Some-Allowlisted-UA/1.0";
+    try {
+      expect(userAgentForFeed(MERCED)).toBe("Some-Allowlisted-UA/1.0");
+    } finally {
+      if (prev === undefined) delete process.env.MERCED_USER_AGENT;
+      else process.env.MERCED_USER_AGENT = prev;
+    }
+  });
+
+  it("falls back to the default UA for Merced when the env var is unset or empty", () => {
+    const prev = process.env.MERCED_USER_AGENT;
+    try {
+      delete process.env.MERCED_USER_AGENT;
+      expect(userAgentForFeed(MERCED)).toBe(DEFAULT_UA);
+      process.env.MERCED_USER_AGENT = "";
+      expect(userAgentForFeed(MERCED)).toBe(DEFAULT_UA);
+    } finally {
+      if (prev === undefined) delete process.env.MERCED_USER_AGENT;
+      else process.env.MERCED_USER_AGENT = prev;
+    }
+  });
+});
 
 describe("decodeEntities", () => {
   it("decodes decimal numeric entities", () => {
