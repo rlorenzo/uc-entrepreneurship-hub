@@ -3,7 +3,7 @@
   "name": "UC Riverside",
   "strategy": "playwright",
   "source": "https://news.ucr.edu/topic/business",
-  "crawledAt": "2026-06-28T13:39:25.244Z",
+  "crawledAt": "2026-07-01T18:35:02.606Z",
   "items": [
     {
       "id": "riverside-what-consumers-think-they-buy",

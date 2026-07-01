@@ -3,7 +3,7 @@
   "name": "UC Davis",
   "strategy": "playwright",
   "source": "https://iedo.ucdavis.edu/news",
-  "crawledAt": "2026-06-28T13:39:42.200Z",
+  "crawledAt": "2026-07-01T19:01:28.126Z",
   "items": [
     {
       "id": "davis-uc-davis-stair-health-program-invests-faculty-led-health-innovations",
@@ -46,6 +46,26 @@
       "sourceHost": "iedo.ucdavis.edu"
     },
     {
+      "id": "davis-uc-davis-health-ventures-appoints-troels-adrian-strengthen-industry-partnerships-and-advance",
+      "campus": "davis",
+      "title": "UC Davis Health Ventures Appoints Troels Adrian to Strengthen Industry Partnerships and Advance the UC Davis Health Clinical Test Bed",
+      "summary": "UC Davis Health Ventures, part of the Innovation and Economic Development Office at UC Davis, today announced the appointment of Troels Adrian as Director of Industry Engagement.",
+      "publishedAt": "2026-03-23T15:18:26.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-health-ventures-appoints-troels-adrian-strengthen-industry-partnerships-and-advance",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/Troels%20Adrian%20COLOR.jpg?h=d73b4fec&itok=cVMoxhzz",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-food-health-angels-network-launches-accelerate-science-driven-food-and-health-innovation",
+      "campus": "davis",
+      "title": "Food & Health Angels Network Launches to Accelerate Science-Driven Food and Health Innovation",
+      "summary": "Introducing the Food & Health Angels Network, a groundbreaking initiative launched to accelerate science-driven innovations in food and health, addressing the pressing issue of metabolic disease.",
+      "publishedAt": "2026-03-19T16:15:08.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/food-health-angels-network-launches-accelerate-science-driven-food-and-health-innovation",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/real-food-pyramid-arrangement.jpg?h=5313cdcb&itok=vL82Pgy9",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
       "id": "davis-uc-davis-highlights-translational-breakthroughs-and-startups-8th-annual-biotech-innovation",
       "campus": "davis",
       "title": "UC Davis Highlights Translational Breakthroughs and Startups at the 8th Annual Biotech Innovation Gallery",
@@ -73,6 +93,16 @@
       "publishedAt": "2025-10-30T15:49:44.000Z",
       "sourceUrl": "https://iedo.ucdavis.edu/news/venture-catalyst-fuels-record-year-uc-davis-innovation-startups",
       "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/VC%20Stats.png?h=c673cd1c&itok=x8MxJRRm",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-discovery-forum-highlights-how-uc-davis-center-glp-1-and-metabolic-health-innovation",
+      "campus": "davis",
+      "title": "Discovery Forum Highlights How UC Davis Is at the Center of GLP-1 and Metabolic Health Innovation",
+      "summary": "The Discovery Forum showcased UC Davis as a leader in GLP-1 and metabolic health innovation, bringing together researchers, industry experts, and investors to explore how metabolic hormones are reshaping health and nutrition. With cutting-edge research, world-class facilities, and a strong innovation ecosystem, the event was a reminder of UC Davis’ unique ability to translate metabolic science int",
+      "publishedAt": "2025-10-15T20:10:27.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/discovery-forum-highlights-how-uc-davis-center-glp-1-and-metabolic-health-innovation",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/IMG_5290.jpg?h=5dc9785f&itok=LuFfzZNo",
       "sourceHost": "iedo.ucdavis.edu"
     },
     {
@@ -124,93 +154,7 @@
       "sourceUrl": "https://iedo.ucdavis.edu/news/first-students-move-aggie-square",
       "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/anova-aggie-square-move-in-2025-2000px.jpg?h=c673cd1c&itok=mw0g0UJG",
       "sourceHost": "iedo.ucdavis.edu"
-    },
-    {
-      "id": "davis-18",
-      "campus": "davis",
-      "title": "Innovation and Economic Development Office",
-      "summary": "",
-      "publishedAt": "2026-05-21T15:35:24.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/18",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_thumbnail/public/media/images/2025-07-01_48X29.jpg?h=36f8b718&itok=x5Uo6WYd",
-      "sourceHost": "iedo.ucdavis.edu"
-    },
-    {
-      "id": "davis-22",
-      "campus": "davis",
-      "title": "Innovation and Economic Development Office",
-      "summary": "",
-      "publishedAt": "2026-03-19T16:15:08.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/22",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_thumbnail/public/media/images/real-food-pyramid-arrangement.jpg?h=5313cdcb&itok=tUuyjRzi",
-      "sourceHost": "iedo.ucdavis.edu"
-    },
-    {
-      "id": "davis-91",
-      "campus": "davis",
-      "title": "Innovation and Economic Development Office",
-      "summary": "",
-      "publishedAt": "2025-12-08T20:48:03.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/91",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_thumbnail/public/media/images/Baar_Abhaya.jpg?h=52d3fcb6&itok=HA49BX-w",
-      "sourceHost": "iedo.ucdavis.edu"
-    },
-    {
-      "id": "davis-21",
-      "campus": "davis",
-      "title": "Innovation and Economic Development Office",
-      "summary": "At Venture Catalyst, part of the UC Davis Innovation and Economic Development Office, we're proud to support the translation of UC Davis research and technology into real-world applications by fostering the development of new ventures. Through strategic collaborations, training and mentorship programs, funding translational research, and proactive outreach, we foster the university’s entrepreneuri",
-      "publishedAt": "2026-04-13T16:15:36.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/21",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_thumbnail/public/media/images/MB20251001_AggieSq_IMG_1788_reduced.jpg?h=37bd9af6&itok=utc_OzIC",
-      "sourceHost": "iedo.ucdavis.edu"
-    },
-    {
-      "id": "davis-19",
-      "campus": "davis",
-      "title": "Innovation and Economic Development Office",
-      "summary": "",
-      "publishedAt": "2026-04-13T16:15:36.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/19",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_thumbnail/public/media/images/MB20251001_AggieSq_IMG_1788_reduced.jpg?h=37bd9af6&itok=utc_OzIC",
-      "sourceHost": "iedo.ucdavis.edu"
-    },
-    {
-      "id": "davis-17",
-      "campus": "davis",
-      "title": "Innovation and Economic Development Office",
-      "summary": "",
-      "publishedAt": "2026-05-11T15:30:03.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/17",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_thumbnail/public/media/images/amplifye%20article%20image_1280x720.jpg?h=3e07f1d9&itok=nN1LuEii",
-      "sourceHost": "iedo.ucdavis.edu"
-    },
-    {
-      "id": "davis-56",
-      "campus": "davis",
-      "title": "Innovation and Economic Development Office",
-      "summary": "",
-      "publishedAt": "2025-05-14T15:48:41.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/56",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_thumbnail/public/media/images/20250502-aggie-square-crowd-7519-reduced.jpg?h=f728280d&itok=kl98Wn_H",
-      "sourceHost": "iedo.ucdavis.edu"
     }
   ],
-  "errors": [
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/uc-davis-health-ventures-appoints-troels-adrian-strengthen-industry-partnerships-and-advance",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/food-health-angels-network-launches-accelerate-science-driven-food-and-health-innovation",
-      "message": "HTTP 403"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/discovery-forum-highlights-how-uc-davis-center-glp-1-and-metabolic-health-innovation",
-      "message": "HTTP 403"
-    }
-  ]
+  "errors": []
 }
