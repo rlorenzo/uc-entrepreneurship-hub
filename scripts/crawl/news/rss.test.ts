@@ -1,5 +1,31 @@
 import { describe, it, expect } from "vite-plus/test";
-import { decodeEntities, stripHtml, userAgentForFeed } from "./rss.ts";
+import { decodeEntities, stripHtml, userAgentForFeed, firstImageSrc } from "./rss.ts";
+
+describe("firstImageSrc", () => {
+  it("extracts the src from a plain <img> (WordPress-style)", () => {
+    expect(firstImageSrc('<p>hi</p><img src="https://x.test/hero.jpg"> more')).toBe(
+      "https://x.test/hero.jpg",
+    );
+  });
+
+  it("finds the hero in entity-encoded feed markup (UC Merced Drupal)", () => {
+    // Drupal feeds encode their HTML, so the hero arrives as &lt;img …&gt; and
+    // a raw <img scan would miss it entirely.
+    const encoded =
+      "&lt;img src=&quot;https://news.ucmerced.edu/hero.jpg&quot; /&gt;&lt;p&gt;body&lt;/p&gt;";
+    expect(firstImageSrc(encoded)).toBe("https://news.ucmerced.edu/hero.jpg");
+  });
+
+  it("decodes &amp;-escaped query strings in the src", () => {
+    expect(firstImageSrc('<img src="https://x.test/i.jpg?a=1&amp;b=2">')).toBe(
+      "https://x.test/i.jpg?a=1&b=2",
+    );
+  });
+
+  it("returns empty when there is no image", () => {
+    expect(firstImageSrc("<p>no images here</p>")).toBe("");
+  });
+});
 
 describe("userAgentForFeed", () => {
   const MERCED = "https://news.ucmerced.edu/rss.xml";

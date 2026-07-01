@@ -96,8 +96,12 @@ export function stripHtml(s: string): string {
     .trim();
 }
 
-function firstImageSrc(html: string): string {
-  const m = html.match(/<img\b[^>]*\bsrc=["']([^"']+)["']/i);
+export function firstImageSrc(html: string): string {
+  // Decode first: Drupal feeds (e.g. UC Merced) entity-encode their markup, so
+  // the hero arrives as "&lt;img src=…&gt;" and would otherwise be invisible to
+  // this scan. Decoding is harmless for feeds that already ship real <img> tags
+  // (WordPress) and additionally repairs &amp;-escaped query strings in the src.
+  const m = decodeEntities(html).match(/<img\b[^>]*\bsrc=["']([^"']+)["']/i);
   return m ? m[1] : "";
 }
 

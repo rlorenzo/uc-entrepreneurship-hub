@@ -79,7 +79,6 @@
     "name": "UC Merced",
     "strategy": "rss",
     "feedUrl": "https://news.ucmerced.edu/rss.xml",
-    "keywordAllowlist": "default",
-    "enrichImages": true
+    "keywordAllowlist": "default"
   }
 ]
