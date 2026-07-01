@@ -7,10 +7,22 @@
 import type { Browser, Page, Response } from "playwright";
 
 import { resolveUserAgent } from "./user-agent.ts";
+import { RobotsGate, RobotsDisallowedError } from "./robots.ts";
 
 const NAV_TIMEOUT_MS = 30_000;
 
+// Shared across a crawl run so each host's robots.txt is fetched at most once.
+// Every third-party navigation funnels through gotoWithFallback, so gating here
+// means no call site (present or future) can bypass robots.txt.
+const robotsGate = new RobotsGate();
+
 export async function gotoWithFallback(page: Page, url: string): Promise<Response | null> {
+  // Refuse URLs the origin's robots.txt disallows for us before we ever open
+  // the page. Callers already treat a throw here as a per-item skip: the news
+  // scraper/program crawler record it as an error and move on, and the image
+  // enricher swallows it and ships the item without an image.
+  if (!(await robotsGate.allows(url))) throw new RobotsDisallowedError(url);
+
   // domcontentloaded is enough for our operations (link discovery on a
   // listing, og:meta + JSON-LD scraping on an article) and avoids the
   // networkidle traps on sites with persistent connections — IEDO at
