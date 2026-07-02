@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="UC Entrepreneurship Hub">
+  <!-- The Hub: one gold center, ten spokes — one per UC campus. -->
+  <rect width="64" height="64" rx="14" fill="#002033"/>
+  <g stroke="#FFB511" stroke-width="4.5" stroke-linecap="round">
+    <line x1="32" y1="17" x2="32" y2="9"/>
+    <line x1="40.8" y1="19.9" x2="45.5" y2="13.4"/>
+    <line x1="46.3" y1="27.4" x2="53.9" y2="24.9"/>
+    <line x1="46.3" y1="36.6" x2="53.9" y2="39.1"/>
+    <line x1="40.8" y1="44.1" x2="45.5" y2="50.6"/>
+    <line x1="32" y1="47" x2="32" y2="55"/>
+    <line x1="23.2" y1="44.1" x2="18.5" y2="50.6"/>
+    <line x1="17.7" y1="36.6" x2="10.1" y2="39.1"/>
+    <line x1="17.7" y1="27.4" x2="10.1" y2="24.9"/>
+    <line x1="23.2" y1="19.9" x2="18.5" y2="13.4"/>
+  </g>
+  <circle cx="32" cy="32" r="9.5" fill="#FFB511"/>
+</svg>
