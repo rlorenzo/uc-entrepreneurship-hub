@@ -273,7 +273,13 @@ export class RobotsGate {
       // honestly-identified crawl of public UC newsrooms, so a transient
       // robots.txt outage shouldn't sink the run. (Stricter crawlers treat a
       // persistent 5xx as a full disallow — we favor availability instead.)
-      if (status >= 200 && status < 300) return parseRobots(text);
+      // Select the group with the identity this host actually sees: the
+      // allowlisted UA on *.ucmerced.edu (the same one defaultFetcher sends
+      // there), our default UA everywhere else. Otherwise rules Merced
+      // writes for the UA they allowlisted would be silently ignored.
+      if (status >= 200 && status < 300) {
+        return parseRobots(text, mercedUserAgent(origin) ?? ROBOTS_USER_AGENT);
+      }
       return ALLOW_ALL;
     } catch {
       return ALLOW_ALL;

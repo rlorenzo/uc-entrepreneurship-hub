@@ -221,6 +221,29 @@ describe("RobotsGate", () => {
     expect(calls).toEqual(["https://example.com/robots.txt"]);
   });
 
+  it("selects the allowlisted-UA group on ucmerced.edu origins", async () => {
+    // Merced hosts are crawled under the MERCED_USER_AGENT identity, so a
+    // robots group naming that UA must govern us there — not fall through
+    // to the * group selected by our default token.
+    const prev = process.env.MERCED_USER_AGENT;
+    process.env.MERCED_USER_AGENT = "UC-Entrepreneurship-Hub-Scanner/1.0";
+    try {
+      const txt = [
+        "User-agent: *",
+        "Disallow:",
+        "",
+        "User-agent: uc-entrepreneurship-hub-scanner",
+        "Disallow: /private",
+      ].join("\n");
+      const { gate } = gateReturning({ status: 200, text: txt });
+      expect(await gate.allows("https://news.ucmerced.edu/private/x")).toBe(false);
+      expect(await gate.allows("https://news.ucmerced.edu/open")).toBe(true);
+    } finally {
+      if (prev === undefined) delete process.env.MERCED_USER_AGENT;
+      else process.env.MERCED_USER_AGENT = prev;
+    }
+  });
+
   it("caches per origin — one fetch even across concurrent calls", async () => {
     const { gate, calls } = gateReturning({ status: 200, text: "User-agent: *\nDisallow: /no" });
     const [a, b] = await Promise.all([
