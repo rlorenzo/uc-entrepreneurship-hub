@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Guidance for Claude Code (and other agents) working in this repo. For product and visual-design context, read `PRODUCT.md` (strategy, users, principles) and `DESIGN.md` (the UC visual system) at the repo root before design work.
+Guidance for Claude Code (and other agents) working in this repo. For product and visual-design context, read `PRODUCT.md` (strategy, users, principles) and `DESIGN.md` (the UC visual system) at the repo root before design work. For auditing or editing the program catalog (liveness checks, fact fixes, adding/excluding programs), follow the playbook in `docs/catalog-audit.md`.
 
 ## Request a code review after every major change
 
