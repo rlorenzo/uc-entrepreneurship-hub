@@ -470,12 +470,12 @@ export function coerceToProgram(c: ProgramCandidate): Program {
  * Match policy: a crawled program is paired with a curated one when
  * (a) they share a slug/id, (b) they share a campus and a normalized
  * name, or (c) they share a canonical URL (see `urlKey`). The
- * (campus, name) fallback is what lets a curated `id: "skydeck"` line
- * up with a crawled `slug: "berkeley-skydeck"` — the crawler
- * campus-prefixes its slugs for global uniqueness, so a direct slug
- * equality test would always miss curated entries. The URL fallback
- * catches the remaining case where the crawler also retitled the page,
- * so neither slug nor name match.
+ * (campus, name) fallback exists because crawled identifiers rarely
+ * line up with curated ones: the crawler campus-prefixes its ids for
+ * global uniqueness (`id: "berkeley-skydeck"`) and derives its slug
+ * from the page title, so neither reliably equals a curated
+ * `id: "skydeck"`. The URL fallback catches the remaining case where
+ * the crawler also retitled the page, so the names don't match either.
  */
 const programKey = (p: Program): string => p.slug ?? p.id;
 const nameKey = (p: Program): string =>
