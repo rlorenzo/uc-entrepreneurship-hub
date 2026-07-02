@@ -481,13 +481,17 @@ const nameKey = (p: Program): string =>
  * Canonical-URL match key. Catches crawled records whose page title differs
  * from the curated name ("UCLA Anderson Venture Accelerator" vs "Anderson
  * Venture Accelerator") but that point at the same page — without it the
- * catalog listed the same program twice. Case, hash fragments, and trailing
- * slashes are insignificant; a program with no URL simply never matches this
- * way. Query strings are kept: distinct pages can differ only by query.
+ * catalog listed the same program twice. Scheme/host case, hash fragments,
+ * and trailing slashes are insignificant; a program with no URL simply never
+ * matches this way. Path and query case is significant per RFC 3986 and is
+ * preserved — like query strings, distinct pages can differ only by it.
  */
 const urlKey = (p: Program): string | undefined => {
   const url = p.website ?? p.sourceUrl;
-  return url ? url.trim().toLowerCase().replace(/#.*$/, "").replace(/\/+$/, "") : undefined;
+  if (!url) return undefined;
+  const stripped = url.trim().replace(/#.*$/, "").replace(/\/+$/, "");
+  const origin = stripped.match(/^[a-z][a-z0-9+.-]*:\/\/[^/?]*/i);
+  return origin ? origin[0].toLowerCase() + stripped.slice(origin[0].length) : stripped;
 };
 
 /**

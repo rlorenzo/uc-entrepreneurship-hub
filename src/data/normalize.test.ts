@@ -604,12 +604,12 @@ describe("mergePrograms", () => {
     expect(merged.find((p) => p.slug === "hub-b")?.longDescription).toBeUndefined();
   });
 
-  it("ignores hash fragments when URL-pairing", () => {
+  it("ignores hash fragments and host case when URL-pairing", () => {
     const curated = prog({
       slug: "maker",
       name: "Maker Pass",
       campus: "berkeley",
-      website: "https://jacobs.berkeley.edu/pass#apply",
+      website: "HTTPS://Jacobs.Berkeley.EDU/pass#apply",
     });
     const crawled = prog({
       slug: "berkeley-jacobs-maker-pass",
@@ -624,5 +624,26 @@ describe("mergePrograms", () => {
     expect(merged).toHaveLength(1);
     expect(merged[0].slug).toBe("maker");
     expect(merged[0].longDescription).toBe("Crawled detail.");
+  });
+
+  it("treats path case as significant when URL-pairing (RFC 3986)", () => {
+    // Only scheme/host are case-insensitive; /Pass and /pass may be
+    // different pages, so they must not silently merge.
+    const curated = prog({
+      slug: "maker",
+      name: "Maker Pass",
+      campus: "berkeley",
+      website: "https://jacobs.berkeley.edu/Pass",
+    });
+    const crawled = prog({
+      slug: "berkeley-open-lab",
+      name: "Open Lab",
+      campus: "berkeley",
+      sourceUrl: "https://jacobs.berkeley.edu/pass",
+    });
+
+    const merged = mergePrograms([curated], [crawled]);
+
+    expect(merged).toHaveLength(2);
   });
 });
