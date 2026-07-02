@@ -30,6 +30,7 @@ import {
   type RawPageData,
 } from "./extract.ts";
 import { gotoWithFallback, withPage as sharedWithPage } from "./playwright.ts";
+import { mercedUserAgent } from "./user-agent.ts";
 import { filterSitesByCampus, parseCampusFlag } from "./cli.ts";
 import type { ProgramCandidate } from "../../src/data/normalize.ts";
 
@@ -122,8 +123,11 @@ const PROGRAM_CRAWL_HEADERS = {
   "sec-ch-ua-platform": '"macOS"',
 };
 
-function withPage<T>(fn: (page: Page) => Promise<T>): Promise<T> {
-  return sharedWithPage(browser, fn, { extraHTTPHeaders: PROGRAM_CRAWL_HEADERS });
+// `userAgent` overrides the default Chrome UA for this context — used to send
+// UC Merced's WAF-allowlisted UA (from the MERCED_USER_AGENT secret) on
+// research.ucmerced.edu, so the crawl clears once their exception is live.
+function withPage<T>(fn: (page: Page) => Promise<T>, userAgent?: string): Promise<T> {
+  return sharedWithPage(browser, fn, { extraHTTPHeaders: PROGRAM_CRAWL_HEADERS, userAgent });
 }
 
 // Discover internal program-candidate links from a seed URL.
@@ -171,7 +175,7 @@ async function fetchSeed(site: Site, overrides: CampusOverrides): Promise<SeedOu
       const resp = await gotoWithFallback(page, site.seedUrl);
       if (!resp?.ok()) throw new Error(`HTTP ${resp?.status() ?? "?"} on seed`);
       return await discoverLinks(page, site.seedUrl, overrides);
-    });
+    }, mercedUserAgent(site.seedUrl));
     return { links, error: null };
   } catch (err) {
     const message = (err as Error).message;
@@ -191,7 +195,7 @@ async function extractFromUrl(
     await page.waitForTimeout(800);
     const raw = (await page.evaluate(`(${inPageExtractor})()`)) as RawPageData;
     return buildCandidate({ raw, url, campus: site.campus, campusOverrides: overrides });
-  });
+  }, mercedUserAgent(url));
 }
 
 /** Walk the candidate sub-pages, accumulating extracted programs and errors. */

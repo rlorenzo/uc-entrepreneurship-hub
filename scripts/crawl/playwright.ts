@@ -39,6 +39,9 @@ export async function gotoWithFallback(page: Page, url: string): Promise<Respons
 
 interface WithPageOptions {
   extraHTTPHeaders?: Record<string, string>;
+  // Override the default (real-Chrome) UA for this context — e.g. UC Merced's
+  // WAF-allowlisted UA. Falls back to resolveUserAgent() when unset.
+  userAgent?: string;
 }
 
 export async function withPage<T>(
@@ -46,7 +49,7 @@ export async function withPage<T>(
   fn: (page: Page) => Promise<T>,
   options: WithPageOptions = {},
 ): Promise<T> {
-  const userAgent = await resolveUserAgent();
+  const userAgent = options.userAgent ?? (await resolveUserAgent());
   const context = await browser.newContext({
     userAgent,
     viewport: { width: 1440, height: 900 },

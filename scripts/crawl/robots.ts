@@ -15,6 +15,8 @@
 // RSS parser): our needs are the standard User-agent / Allow / Disallow subset
 // with `*` and `$` wildcards, which is small and well-covered by robots.test.ts.
 
+import { mercedUserAgent } from "./user-agent.ts";
+
 // The product token we identify as. A robots group whose User-agent is a
 // case-insensitive prefix of this (e.g. "uc-entrepreneurship-hub-crawler" or
 // just "uc-entrepreneurship") targets us specifically and wins over the
@@ -220,7 +222,9 @@ export async function readCapped(resp: Awaited<ReturnType<typeof fetch>>): Promi
 
 async function defaultFetcher(url: string): Promise<RobotsFetchResult> {
   const resp = await fetch(url, {
-    headers: { "User-Agent": ROBOTS_USER_AGENT, Accept: "text/plain, */*" },
+    // Present UC Merced's allowlisted UA on its own robots.txt so we read the
+    // real rules once the WAF exception is live, instead of 403 → fail-open.
+    headers: { "User-Agent": mercedUserAgent(url) ?? ROBOTS_USER_AGENT, Accept: "text/plain, */*" },
     signal: AbortSignal.timeout(ROBOTS_TIMEOUT_MS),
   });
   const ok = resp.status >= 200 && resp.status < 300;
