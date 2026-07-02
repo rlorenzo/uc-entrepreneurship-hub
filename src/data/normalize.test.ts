@@ -626,6 +626,28 @@ describe("mergePrograms", () => {
     expect(merged[0].longDescription).toBe("Crawled detail.");
   });
 
+  it("ignores a trailing slash before the query string when URL-pairing", () => {
+    const curated = prog({
+      slug: "hub-page",
+      name: "Hub Page",
+      campus: "davis",
+      website: "https://iedo.ucdavis.edu/programs/?tab=funding",
+    });
+    const crawled = prog({
+      slug: "davis-hub-page",
+      name: "Davis Hub Page",
+      campus: "davis",
+      sourceUrl: "https://iedo.ucdavis.edu/programs?tab=funding",
+      longDescription: "Crawled detail.",
+    });
+
+    const merged = mergePrograms([curated], [crawled]);
+
+    expect(merged).toHaveLength(1);
+    expect(merged[0].slug).toBe("hub-page");
+    expect(merged[0].longDescription).toBe("Crawled detail.");
+  });
+
   it("treats path case as significant when URL-pairing (RFC 3986)", () => {
     // Only scheme/host are case-insensitive; /Pass and /pass may be
     // different pages, so they must not silently merge.

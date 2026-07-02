@@ -489,7 +489,10 @@ const nameKey = (p: Program): string =>
 const urlKey = (p: Program): string | undefined => {
   const url = p.website ?? p.sourceUrl;
   if (!url) return undefined;
-  const stripped = url.trim().replace(/#.*$/, "").replace(/\/+$/, "");
+  const stripped = url
+    .trim()
+    .replace(/#.*$/, "")
+    .replace(/\/+(?=\?|$)/, "");
   const origin = stripped.match(/^[a-z][a-z0-9+.-]*:\/\/[^/?]*/i);
   return origin ? origin[0].toLowerCase() + stripped.slice(origin[0].length) : stripped;
 };

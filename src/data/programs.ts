@@ -515,7 +515,7 @@ const CURATED: Program[] = [
     funding: "Up to $200K non-dilutive (NOAA-backed)",
     selectivity: "Selective",
     cohortSize: null,
-    deadline: "Annual Sept–Dec cohort — 2026 apps closed Jun 21",
+    deadline: "Annual — apply in spring for the Sept–Dec cohort",
     associatedCenter: "Scripps Institution of Oceanography / Rady School of Management",
   },
 
