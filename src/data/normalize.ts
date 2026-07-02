@@ -468,15 +468,37 @@ export function coerceToProgram(c: ProgramCandidate): Program {
  * curated counterpart are appended.
  *
  * Match policy: a crawled program is paired with a curated one when
- * either (a) they share a slug/id, or (b) they share a campus and a
- * normalized name. The (campus, name) fallback is what lets a curated
- * `id: "skydeck"` line up with a crawled `slug: "berkeley-skydeck"` —
- * the crawler campus-prefixes its slugs for global uniqueness, so a
- * direct slug equality test would always miss curated entries.
+ * (a) they share a slug/id, (b) they share a campus and a normalized
+ * name, or (c) they share a canonical URL (see `urlKey`). The
+ * (campus, name) fallback exists because crawled identifiers rarely
+ * line up with curated ones: the crawler campus-prefixes its ids for
+ * global uniqueness (`id: "berkeley-skydeck"`) and derives its slug
+ * from the page title, so neither reliably equals a curated
+ * `id: "skydeck"`. The URL fallback catches the remaining case where
+ * the crawler also retitled the page, so the names don't match either.
  */
 const programKey = (p: Program): string => p.slug ?? p.id;
 const nameKey = (p: Program): string =>
   `${p.campus}::${p.name.normalize("NFKC").trim().toLowerCase()}`;
+/**
+ * Canonical-URL match key. Catches crawled records whose page title differs
+ * from the curated name ("UCLA Anderson Venture Accelerator" vs "Anderson
+ * Venture Accelerator") but that point at the same page — without it the
+ * catalog listed the same program twice. Scheme/host case, hash fragments,
+ * and trailing slashes are insignificant; a program with no URL simply never
+ * matches this way. Path and query case is significant per RFC 3986 and is
+ * preserved — like query strings, distinct pages can differ only by it.
+ */
+const urlKey = (p: Program): string | undefined => {
+  const url = p.website ?? p.sourceUrl;
+  if (!url) return undefined;
+  const stripped = url
+    .trim()
+    .replace(/#.*$/, "")
+    .replace(/\/+(?=\?|$)/, "");
+  const origin = stripped.match(/^[a-z][a-z0-9+.-]*:\/\/[^/?]*/i);
+  return origin ? origin[0].toLowerCase() + stripped.slice(origin[0].length) : stripped;
+};
 
 /**
  * Optional Program fields a crawled record can fill in on a curated one.
@@ -507,26 +529,64 @@ function enrichWithCrawl(existing: Program, crawled: Program): Program {
   return merged;
 }
 
-function indexProgram(p: Program, byKey: Map<string, Program>, byName: Map<string, Program>) {
-  byKey.set(programKey(p), p);
-  byName.set(nameKey(p), p);
+interface MergeIndex {
+  byKey: Map<string, Program>;
+  byName: Map<string, Program>;
+  /**
+   * Curated-only URL index: it exists so a crawled record whose page title
+   * drifted from the curated name still pairs with the curated entry for
+   * that page. Crawled records never join this index — two distinct crawled
+   * programs can legitimately be extracted from the same page, and
+   * URL-pairing them would silently collapse one into the other. A URL
+   * shared by two curated programs is ambiguous, so it pairs with neither
+   * (the slot is poisoned with null).
+   */
+  byUrl: Map<string, Program | null>;
 }
 
-function mergeOneCrawled(
-  c: Program,
-  byKey: Map<string, Program>,
-  byName: Map<string, Program>,
-): void {
-  const existing = byKey.get(programKey(c)) ?? byName.get(nameKey(c));
+function indexCurated(curated: Program[]): MergeIndex {
+  const idx: MergeIndex = { byKey: new Map(), byName: new Map(), byUrl: new Map() };
+  for (const p of curated) {
+    idx.byKey.set(programKey(p), p);
+    idx.byName.set(nameKey(p), p);
+    const url = urlKey(p);
+    if (url) idx.byUrl.set(url, idx.byUrl.has(url) ? null : p);
+  }
+  return idx;
+}
+
+function findCuratedMatch(c: Program, idx: MergeIndex): Program | undefined {
+  const url = urlKey(c);
+  return (
+    idx.byKey.get(programKey(c)) ??
+    idx.byName.get(nameKey(c)) ??
+    (url ? (idx.byUrl.get(url) ?? undefined) : undefined)
+  );
+}
+
+/**
+ * Point the URL slot at the enriched copy so a later crawled record for the
+ * same curated program enriches the merged version, not a stale pre-merge
+ * reference. Never un-poisons an ambiguous slot, and never hijacks a slot
+ * that belongs to a different curated program.
+ */
+function refreshUrlSlot(idx: MergeIndex, existing: Program, merged: Program): void {
+  const url = urlKey(merged);
+  if (!url) return;
+  const slot = idx.byUrl.get(url);
+  if (slot === undefined || slot === existing) idx.byUrl.set(url, merged);
+}
+
+function mergeOneCrawled(c: Program, idx: MergeIndex): void {
+  const existing = findCuratedMatch(c, idx);
   const merged = existing ? enrichWithCrawl(existing, c) : c;
-  indexProgram(merged, byKey, byName);
-  if (existing) byKey.set(programKey(existing), merged);
+  idx.byKey.set(programKey(merged), merged);
+  idx.byName.set(nameKey(merged), merged);
+  if (existing) refreshUrlSlot(idx, existing, merged);
 }
 
 export function mergePrograms(curated: Program[], crawled: Program[]): Program[] {
-  const byKey = new Map<string, Program>();
-  const byName = new Map<string, Program>();
-  for (const p of curated) indexProgram(p, byKey, byName);
-  for (const c of crawled) mergeOneCrawled(c, byKey, byName);
-  return [...byKey.values()];
+  const idx = indexCurated(curated);
+  for (const c of crawled) mergeOneCrawled(c, idx);
+  return [...idx.byKey.values()];
 }

@@ -39,7 +39,7 @@ const CAMPUS_META: CampusMeta[] = [
     color: "#002856",
     tagline: "Climate, water, the San Joaquin Valley",
     founded: 2005,
-    hubUrl: "https://research.ucmerced.edu/",
+    hubUrl: "https://entrepreneurship.ucmerced.edu/",
   },
   {
     id: "santacruz",

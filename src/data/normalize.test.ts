@@ -515,4 +515,157 @@ describe("mergePrograms", () => {
     expect(merged).toHaveLength(2);
     expect(merged.map((p) => p.slug).sort()).toEqual(["a", "b"]);
   });
+
+  it("pairs by canonical URL when slugs and names both differ", () => {
+    // Real regression: the crawler titled the Anderson Venture Accelerator
+    // page "UCLA Anderson Venture Accelerator", so neither the slug nor the
+    // (campus, name) key matched and the catalog listed the program twice.
+    const curated = prog({
+      slug: "andersonva",
+      name: "Anderson Venture Accelerator",
+      campus: "la",
+      website: "https://www.anderson.ucla.edu/accelerator",
+    });
+    const crawled = prog({
+      slug: "la-ucla-anderson-venture-accelerator",
+      name: "UCLA Anderson Venture Accelerator",
+      campus: "la",
+      sourceUrl: "https://www.anderson.ucla.edu/accelerator/", // trailing slash is insignificant
+      longDescription: "Crawled detail.",
+    });
+
+    const merged = mergePrograms([curated], [crawled]);
+
+    expect(merged).toHaveLength(1);
+    expect(merged[0].slug).toBe("andersonva");
+    expect(merged[0].longDescription).toBe("Crawled detail.");
+  });
+
+  it("does not URL-pair programs whose URLs differ only by path", () => {
+    const curated = prog({
+      slug: "hub",
+      name: "Hub",
+      campus: "irvine",
+      website: "https://innovation.uci.edu/",
+    });
+    const crawled = prog({
+      slug: "irvine-pop-grants",
+      name: "POP Grants",
+      campus: "irvine",
+      sourceUrl: "https://innovation.uci.edu/pop-grants/",
+    });
+
+    const merged = mergePrograms([curated], [crawled]);
+
+    expect(merged).toHaveLength(2);
+  });
+
+  it("does not URL-pair two crawled records that share a page", () => {
+    // Two distinct programs extracted from the same hub page must both
+    // survive — URL pairing is only for matching crawled records to curated
+    // ones, never for collapsing crawled records into each other.
+    const c1 = prog({
+      slug: "davis-program-a",
+      name: "Program A",
+      campus: "davis",
+      sourceUrl: "https://iedo.ucdavis.edu/",
+    });
+    const c2 = prog({
+      slug: "davis-program-b",
+      name: "Program B",
+      campus: "davis",
+      sourceUrl: "https://iedo.ucdavis.edu/",
+    });
+
+    const merged = mergePrograms([], [c1, c2]);
+
+    expect(merged).toHaveLength(2);
+    expect(merged.map((p) => p.name).sort()).toEqual(["Program A", "Program B"]);
+  });
+
+  it("pairs by URL with neither curated program when two curated entries share a URL", () => {
+    // An ambiguous URL slot is poisoned rather than last-writer-wins: the
+    // crawled record can't know which curated program it belongs to, so it
+    // appends instead of enriching the wrong one.
+    const cur1 = prog({ slug: "hub-a", name: "Hub A", campus: "merced", website: "https://x.edu" });
+    const cur2 = prog({ slug: "hub-b", name: "Hub B", campus: "merced", website: "https://x.edu" });
+    const crawled = prog({
+      slug: "merced-something",
+      name: "Something",
+      campus: "merced",
+      sourceUrl: "https://x.edu/",
+      longDescription: "Crawled detail.",
+    });
+
+    const merged = mergePrograms([cur1, cur2], [crawled]);
+
+    expect(merged).toHaveLength(3);
+    expect(merged.find((p) => p.slug === "hub-a")?.longDescription).toBeUndefined();
+    expect(merged.find((p) => p.slug === "hub-b")?.longDescription).toBeUndefined();
+  });
+
+  it("ignores hash fragments and host case when URL-pairing", () => {
+    const curated = prog({
+      slug: "maker",
+      name: "Maker Pass",
+      campus: "berkeley",
+      website: "HTTPS://Jacobs.Berkeley.EDU/pass#apply",
+    });
+    const crawled = prog({
+      slug: "berkeley-jacobs-maker-pass",
+      name: "Jacobs Maker Pass",
+      campus: "berkeley",
+      sourceUrl: "https://jacobs.berkeley.edu/pass",
+      longDescription: "Crawled detail.",
+    });
+
+    const merged = mergePrograms([curated], [crawled]);
+
+    expect(merged).toHaveLength(1);
+    expect(merged[0].slug).toBe("maker");
+    expect(merged[0].longDescription).toBe("Crawled detail.");
+  });
+
+  it("ignores a trailing slash before the query string when URL-pairing", () => {
+    const curated = prog({
+      slug: "hub-page",
+      name: "Hub Page",
+      campus: "davis",
+      website: "https://iedo.ucdavis.edu/programs/?tab=funding",
+    });
+    const crawled = prog({
+      slug: "davis-hub-page",
+      name: "Davis Hub Page",
+      campus: "davis",
+      sourceUrl: "https://iedo.ucdavis.edu/programs?tab=funding",
+      longDescription: "Crawled detail.",
+    });
+
+    const merged = mergePrograms([curated], [crawled]);
+
+    expect(merged).toHaveLength(1);
+    expect(merged[0].slug).toBe("hub-page");
+    expect(merged[0].longDescription).toBe("Crawled detail.");
+  });
+
+  it("treats path case as significant when URL-pairing (RFC 3986)", () => {
+    // Only scheme/host are case-insensitive; /Pass and /pass may be
+    // different pages, so they must not silently merge.
+    const curated = prog({
+      slug: "maker",
+      name: "Maker Pass",
+      campus: "berkeley",
+      website: "https://jacobs.berkeley.edu/Pass",
+    });
+    const crawled = prog({
+      slug: "berkeley-open-lab",
+      name: "Open Lab",
+      campus: "berkeley",
+      sourceUrl: "https://jacobs.berkeley.edu/pass",
+    });
+
+    const merged = mergePrograms([curated], [crawled]);
+
+    expect(merged).toHaveLength(2);
+  });
 });
