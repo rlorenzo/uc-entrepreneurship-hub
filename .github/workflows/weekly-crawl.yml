@@ -48,17 +48,29 @@ jobs:
       - name: Install deps
         run: vp install
 
-      - name: Install Playwright browser
-        run: vp exec playwright install --with-deps chromium
+      - name: Install Playwright browsers
+        # chromium is the headless baseline; real Chrome backs the bot-block
+        # fallback (scripts/crawl/playwright.ts) — its genuine fingerprint is
+        # what clears Akamai on ucmerced.edu while the UA exception is pending.
+        run: vp exec playwright install --with-deps chromium chrome
 
       - name: Refresh data
         env:
           CAMPUS_INPUT: ${{ github.event.inputs.campus }}
           # UA UC Merced's WAF allowlists for us; kept out of the public repo
           # (see scripts/crawl/news/rss.ts). Empty when the secret is unset,
-          # which harmlessly falls back to the default crawler UA.
+          # which falls back to the default crawler UA — Merced then 403s and
+          # recovers via the headed-Chrome retry.
           MERCED_USER_AGENT: ${{ secrets.MERCED_USER_AGENT }}
+        # xvfb-run gives the headed-Chrome bot-block fallback a display on the
+        # headless runner; sites that never trip the fallback stay fully
+        # headless. (xvfb itself ships with Playwright's --with-deps.) The
+        # explicit screen matters: xvfb's 640x480x8 default is smaller than
+        # our 1440x900 viewport and 8-bit color is a bot-scented fingerprint;
+        # 1920x1080x24 is the shape the sister a11y scan validated on a
+        # GitHub runner against ucmerced.edu.
         run: |
+          xrun() { xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" "$@"; }
           if [ -n "${CAMPUS_INPUT}" ]; then
             # Validate the dispatch input before letting it reach a shell.
             # Anything outside lowercase letters / commas is rejected so a
@@ -67,13 +79,13 @@ jobs:
               echo "Invalid --campus input: ${CAMPUS_INPUT}" >&2
               exit 1
             fi
-            vp run crawl -- --campus="${CAMPUS_INPUT}"
+            xrun vp run crawl -- --campus="${CAMPUS_INPUT}"
             vp run build-data
-            vp run crawl:news -- --campus="${CAMPUS_INPUT}"
+            xrun vp run crawl:news -- --campus="${CAMPUS_INPUT}"
             vp run build-news-data
           else
-            vp run refresh-data
-            vp run refresh-news
+            xrun vp run refresh-data
+            xrun vp run refresh-news
           fi
 
       - name: Commit refreshed catalog

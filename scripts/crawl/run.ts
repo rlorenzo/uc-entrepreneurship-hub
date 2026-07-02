@@ -29,7 +29,7 @@ import {
   type CampusOverrides,
   type RawPageData,
 } from "./extract.ts";
-import { gotoWithFallback, withPage as sharedWithPage } from "./playwright.ts";
+import { closeHeadedBrowser, gotoWithFallback, withPage as sharedWithPage } from "./playwright.ts";
 import { mercedUserAgent } from "./user-agent.ts";
 import { filterSitesByCampus, parseCampusFlag } from "./cli.ts";
 import type { ProgramCandidate } from "../../src/data/normalize.ts";
@@ -299,8 +299,14 @@ async function worker(): Promise<void> {
   }
 }
 
-await Promise.all(Array.from({ length: flags.concurrency }, () => worker()));
-await browser.close();
+try {
+  await Promise.all(Array.from({ length: flags.concurrency }, () => worker()));
+} finally {
+  await browser.close();
+  // Also shut down the shared headed-fallback Chrome, if any navigation
+  // tripped it — an open browser would keep this one-shot script alive.
+  await closeHeadedBrowser();
+}
 
 const totalCandidates = completed.reduce((n, r) => n + r.candidates.length, 0);
 const totalErrors = completed.reduce((n, r) => n + r.errors.length, 0);

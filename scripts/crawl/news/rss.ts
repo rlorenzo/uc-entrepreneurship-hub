@@ -11,6 +11,11 @@
 import { buildArticleId } from "./id.ts";
 import { toIsoDate } from "./dates.ts";
 import { mercedUserAgent } from "../user-agent.ts";
+import {
+  fetchBodyWithHeadedChrome,
+  headedFallbackEnabled,
+  isBotBlockedStatus,
+} from "../playwright.ts";
 import type { NewsCrawlError, NewsItem } from "./types.ts";
 
 export interface RssSite {
@@ -141,8 +146,10 @@ const FETCH_USER_AGENT = "uc-entrepreneurship-hub-crawler/1.0 (+github.com/rlore
 // UC Merced's newsroom 403s our default identity; when the MERCED_USER_AGENT
 // secret is set we present their allowlisted UA for *.ucmerced.edu instead. The
 // same helper backs the robots and Playwright fetches (see user-agent.ts), so
-// one allowlist exception clears every path. Unset → default UA, the feed 403s,
-// and the outage guard in run.ts preserves the previous merced.json.
+// one allowlist exception clears every path. Until that exception is live (or
+// with the secret unset) the feed 403s and fetchFeedXml retries through headed
+// Chrome; if that also fails, the outage guard in run.ts preserves the
+// previous merced.json.
 export function userAgentForFeed(feedUrl: string): string {
   return mercedUserAgent(feedUrl) ?? FETCH_USER_AGENT;
 }
@@ -185,8 +192,24 @@ async function fetchFeedXml(feedUrl: string): Promise<string> {
       Accept: "application/rss+xml, application/xml, text/xml, */*",
     },
   });
-  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-  return await resp.text();
+  if (resp.ok) return await resp.text();
+  // Bot-manager denial (news.ucmerced.edu until its UA exception is live):
+  // Node's fetch can't pass Akamai's TLS-fingerprint check under any UA, so
+  // retry the download through real headed Chrome. Other failures (404, 500)
+  // stay hard errors; either way the outage guard in run.ts keeps the
+  // previous data file if nothing is fetched.
+  if (isBotBlockedStatus(resp.status) && headedFallbackEnabled()) {
+    console.log(`  ⤷ feed HTTP ${resp.status} — retrying via headed Chrome`);
+    try {
+      return await fetchBodyWithHeadedChrome(url);
+    } catch (err) {
+      // Keep the recorded feed error meaningful: a Chrome launch failure (no
+      // installed Chrome, no display) shouldn't clobber the block status.
+      // Same policy as retryOnHeadedChrome in playwright.ts.
+      console.log(`  ⓘ headed retry failed: ${(err as Error).message}`);
+    }
+  }
+  throw new Error(`HTTP ${resp.status}`);
 }
 
 function hostOf(url: string): string | undefined {
