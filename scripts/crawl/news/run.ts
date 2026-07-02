@@ -17,6 +17,7 @@ import { dirname, join } from "node:path";
 import { fetchRssNews } from "./rss.ts";
 import { scrapeNewsListing } from "./scrape.ts";
 import { enrichWithImages } from "./enrich.ts";
+import { closeHeadedBrowser } from "../playwright.ts";
 import { filterSitesByCampus, parseCampusFlag } from "../cli.ts";
 import type { NewsCrawlResult, NewsItem } from "./types.ts";
 
@@ -161,10 +162,16 @@ async function persistResult(result: NewsCrawlResult): Promise<void> {
 }
 
 const completed: NewsCrawlResult[] = [];
-for (const site of sites) {
-  const result = await crawlSite(site);
-  completed.push(result);
-  await persistResult(result);
+try {
+  for (const site of sites) {
+    const result = await crawlSite(site);
+    completed.push(result);
+    await persistResult(result);
+  }
+} finally {
+  // Shut down the shared headed-fallback Chrome, if any fetch tripped it —
+  // an open browser would keep this one-shot script alive.
+  await closeHeadedBrowser();
 }
 
 const totalItems = completed.reduce((n, r) => n + r.items.length, 0);

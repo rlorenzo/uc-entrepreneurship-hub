@@ -38,7 +38,8 @@
     "name": "UC Santa Cruz",
     "strategy": "rss",
     "feedUrl": "https://news.ucsc.edu/feed/",
-    "keywordAllowlist": "default"
+    "keywordAllowlist": "default",
+    "enrichImages": true
   },
   {
     "campus": "riverside",
@@ -54,6 +55,7 @@
     "strategy": "playwright",
     "listingUrl": "https://iedo.ucdavis.edu/news",
     "articleLinkPattern": "^/news/[a-z0-9-]+$",
+    "linkDenylist": ["^/news/\\d+$"],
     "maxArticles": 25
   },
   {
@@ -77,7 +79,6 @@
     "name": "UC Merced",
     "strategy": "rss",
     "feedUrl": "https://news.ucmerced.edu/rss.xml",
-    "keywordAllowlist": "default",
-    "enrichImages": true
+    "keywordAllowlist": "default"
   }
 ]

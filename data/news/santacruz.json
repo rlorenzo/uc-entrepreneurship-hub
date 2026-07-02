@@ -3,15 +3,16 @@
   "name": "UC Santa Cruz",
   "strategy": "rss",
   "source": "https://news.ucsc.edu/feed/",
-  "crawledAt": "2026-06-28T13:39:02.270Z",
+  "crawledAt": "2026-07-01T18:34:46.675Z",
   "items": [
     {
-      "id": "santacruz-best-particle-accelerator-detection-system",
+      "id": "santacruz-alumna-maria-ramos-bracamontes-champions-indigenous-farmworker-health-and-justice",
       "campus": "santacruz",
-      "title": "Team builds best-performing detection system for next-generation accelerators",
-      "summary": "At the high beam-repetition rates of advanced accelerators, eventually reaching beyond one billion times per second, existing detection systems that are critical for ensuring precise measurements fail",
-      "publishedAt": "2026-06-17T21:27:04.000Z",
-      "sourceUrl": "https://news.ucsc.edu/2026/06/best-particle-accelerator-detection-system/",
+      "title": "Alumna María Ramos Bracamontes champions indigenous farmworker health and justice",
+      "summary": "María Ascención Ramos Bracamontes (Merrill ’02, language studies and Latino American and Latino studies) is a certified midwife, community activist, and founder of mutual aid organization Campesina Womb Justice, advocating and supporting farmworker women's health.",
+      "publishedAt": "2026-06-29T19:55:16.000Z",
+      "sourceUrl": "https://news.ucsc.edu/2026/06/alumna-maria-ramos-bracamontes-champions-indigenous-farmworker-health-and-justice/",
+      "imageUrl": "https://news.ucsc.edu/wp-content/uploads/2026/06/maria-ramos-1392x928-1.jpg",
       "sourceHost": "news.ucsc.edu"
     }
   ],

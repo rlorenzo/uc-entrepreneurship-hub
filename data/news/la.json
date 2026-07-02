@@ -3,7 +3,7 @@
   "name": "UCLA",
   "strategy": "playwright",
   "source": "https://www.anderson.ucla.edu/news-and-events",
-  "crawledAt": "2026-06-28T13:39:02.012Z",
+  "crawledAt": "2026-07-01T18:34:46.020Z",
   "items": [
     {
       "id": "la-ethics-case-competition-winners-walked-fine-line",

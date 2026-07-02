@@ -3,8 +3,18 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-06-28T13:39:51.350Z",
+  "crawledAt": "2026-07-01T18:35:27.723Z",
   "items": [
+    {
+      "id": "sd-margaret-roberts-named-director-of-uc-san-diegos-21st-century-china-center",
+      "campus": "sd",
+      "title": "Margaret Roberts Named Director of UC San Diego’s 21st Century China Center",
+      "summary": "An internationally recognized scholar whose work focuses on digital politics, information, China and U.S.-China relations has been appointed director of the 21st Century China Center at the UC San Diego School of Global Policy and Strategy. ",
+      "publishedAt": "2026-06-30T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/margaret-roberts-named-director-of-uc-san-diegos-21st-century-china-center",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Beijing-business-district-photo-by-iStock_Govan_Zhang-2255784529-1200.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
     {
       "id": "sd-looking-for-work-dont-worry-about-seeming-too-eager",
       "campus": "sd",
@@ -53,16 +63,6 @@
       "publishedAt": "2026-05-28T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/in-the-worlds-economic-black-holes-data-still-leaks-out",
       "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/North-Korea-Flag-Barbed-Wire-photo-by-iStock_Diy13-1200-CROP-2187644088.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-10-speakers-10-weeks-countless-career-lessons-from-fellow-tritons",
-      "campus": "sd",
-      "title": "10 Speakers, 10 Weeks, Countless Career Lessons from Fellow Tritons",
-      "summary": "Students often hear about the importance of networking for career success — but what does that actually look like? A new course launched by the Department of Economics in the School of Social Sciences gives students the chance to connect with accomplished professionals directly in the classroom.",
-      "publishedAt": "2026-05-28T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/10-speakers-10-weeks-countless-career-lessons-from-fellow-tritons",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/230607GPS-DSC_9581ErikJepsenUCSanDiego191%281%29%281%29.jpg",
       "sourceHost": "today.ucsd.edu"
     }
   ],

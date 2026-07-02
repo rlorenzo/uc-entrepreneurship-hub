@@ -3,8 +3,28 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-06-28T13:38:36.852Z",
+  "crawledAt": "2026-07-01T18:34:27.280Z",
   "items": [
+    {
+      "id": "berkeley-berkeley-founders-turn-a-skin-health-nightmare-into-a-yc-backed-startup",
+      "campus": "berkeley",
+      "title": "Protected: Berkeley Founders Turn a Skin Health Nightmare Into a YC-Backed Startup",
+      "summary": "This content is password-protected. To view it, please enter the password below. Password: The post Protected: Berkeley Founders Turn a Skin Health Nightmare Into a YC-Backed Startup appeared first on…",
+      "publishedAt": "2026-07-01T16:14:00.000Z",
+      "sourceUrl": "https://scet.berkeley.edu/berkeley-founders-turn-a-skin-health-nightmare-into-a-yc-backed-startup/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/1782089251379-150x150.jpg",
+      "sourceHost": "scet.berkeley.edu"
+    },
+    {
+      "id": "berkeley-citris-announces-recipients-of-the-2026-seed-funding-awards",
+      "campus": "berkeley",
+      "title": "CITRIS Announces Recipients of the 2026 Seed Funding Awards",
+      "summary": "CITRIS Announces Recipients of the 2026 Seed Funding Awards",
+      "publishedAt": "2026-06-30T17:00:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-announces-recipients-of-the-2026-seed-funding-awards/?utm_source=rss&utm_medium=rss&utm_campaign=citris-announces-recipients-of-the-2026-seed-funding-awards",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Seed-Funding-Web-Banner-2026-1540x368png-768x184.png",
+      "sourceHost": "citris-uc.org"
+    },
     {
       "id": "berkeley-the-descent-of-machine-darwin-revisited",
       "campus": "berkeley",
@@ -46,6 +66,15 @@
       "sourceHost": "newsroom.haas.berkeley.edu"
     },
     {
+      "id": "berkeley-celebrating-berkeley-pioneer-alberto-sangiovanni-vincentelli",
+      "campus": "berkeley",
+      "title": "Celebrating Berkeley Pioneer Alberto Sangiovanni-Vincentelli",
+      "summary": "Berkeley SkyDeck is proud to celebrate faculty leader and semiconductor pioneer Alberto Sangiovanni-Vincentelli on his nomination for the Distinguished Lifetime Achievement Award at the UC Regents Innovation Awards. Source link",
+      "publishedAt": "2026-06-22T22:46:00.000Z",
+      "sourceUrl": "https://skydeck.berkeley.edu/celebrating-berkeley-pioneer-alberto-sangiovanni-vincentelli/",
+      "sourceHost": "skydeck.berkeley.edu"
+    },
+    {
       "id": "berkeley-why-hasnt-the-iran-war-driven-oil-prices-even-higher",
       "campus": "berkeley",
       "title": "Why Hasn’t the Iran War Driven Oil Prices Even Higher?",
@@ -74,36 +103,6 @@
       "sourceUrl": "https://citris-uc.org/citris-announces-2026-edge-in-tech-athena-award-recipients/?utm_source=rss&utm_medium=rss&utm_campaign=citris-announces-2026-edge-in-tech-athena-award-recipients",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Athena-Banner-2026_WINNERS-768x184.jpg",
       "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-citris-foundry-alum-selected-for-stage-1-of-the-venturewell-program",
-      "campus": "berkeley",
-      "title": "CITRIS Foundry alum selected for Stage 1 of the VentureWell Program",
-      "summary": "CITRIS Foundry alum selected for Stage 1 of the VentureWell Program",
-      "publishedAt": "2026-06-18T16:01:00.000Z",
-      "sourceUrl": "https://citris-uc.org/citris-foundry-alum-selected-for-stage-1-of-the-venturewell-program/?utm_source=rss&utm_medium=rss&utm_campaign=citris-foundry-alum-selected-for-stage-1-of-the-venturewell-program",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Postrue-for-VentureWell-June-2026-768x183.png",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-citris-aviation-prize-winners-simulate-flight-pathways-connecting-uc-campuses",
-      "campus": "berkeley",
-      "title": "CITRIS Aviation Prize winners simulate flight pathways connecting UC campuses",
-      "summary": "CITRIS Aviation Prize winners simulate flight pathways connecting UC campuses",
-      "publishedAt": "2026-06-17T17:00:00.000Z",
-      "sourceUrl": "https://citris-uc.org/citris-aviation-prize-winners-simulate-flight-pathways-connecting-uc-campuses/?utm_source=rss&utm_medium=rss&utm_campaign=citris-aviation-prize-winners-simulate-flight-pathways-connecting-uc-campuses",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/banner-c2a2-aviation-consortium-credit-adobe-pro-1540x368px-scaled-768x184.jpg",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-where-no-b-school-has-gone-before-haas-launches-course-on-space-arctic-and-beyond",
-      "campus": "berkeley",
-      "title": "Where no B-School has gone before: Haas launches course on space, arctic, and beyond",
-      "summary": "“This course aligned not just with my past interests, but my future interests in a way that I haven’t seen with any other course do yet.” – Ryan Delaney, EWMBA…",
-      "publishedAt": "2026-06-16T16:15:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/where-no-b-school-has-gone-before-haas-launches-course-on-space-arctic-and-beyond/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/20260605_130457-1-scaled-768x496.jpg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
     }
   ],
   "errors": []
