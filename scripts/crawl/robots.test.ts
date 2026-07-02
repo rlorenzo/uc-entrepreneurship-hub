@@ -85,6 +85,21 @@ describe("user-agent group selection", () => {
     expect(allowed(txt, "/open")).toBe(true);
   });
 
+  it("matches a group naming our versioned UA, as sent on the wire", () => {
+    // An admin who copies the UA from their access logs writes the versioned
+    // form; the default token is the full UA string so it still matches by
+    // prefix instead of silently falling back to the * group.
+    const txt = [
+      "User-agent: *",
+      "Disallow:",
+      "",
+      "User-agent: uc-entrepreneurship-hub-crawler/1.0",
+      "Disallow: /private",
+    ].join("\n");
+    expect(allowed(txt, "/private/x")).toBe(false);
+    expect(allowed(txt, "/open")).toBe(true);
+  });
+
   it("stacks multiple User-agent lines onto one group", () => {
     const txt = "User-agent: googlebot\nUser-agent: *\nDisallow: /blocked";
     expect(allowed(txt, "/blocked/x")).toBe(false);

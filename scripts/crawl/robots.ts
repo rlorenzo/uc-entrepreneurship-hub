@@ -17,14 +17,13 @@
 
 import { mercedUserAgent } from "./user-agent.ts";
 
-// The product token we identify as. A robots group whose User-agent is a
-// case-insensitive prefix of this (e.g. "uc-entrepreneurship-hub-crawler" or
-// just "uc-entrepreneurship") targets us specifically and wins over the
-// wildcard `*` group.
-const OUR_TOKEN = "uc-entrepreneurship-hub-crawler";
-
-// Sent when fetching /robots.txt so a site that wants to address us by name
-// sees the same honest identity the RSS fetcher uses.
+// The identity we send when fetching /robots.txt (same honest string the RSS
+// fetcher uses) and the token we match User-agent groups against. Matching
+// uses "group agent is a case-insensitive prefix of this", so a site can name
+// us at any specificity — "uc-entrepreneurship", the bare product token, or
+// the exact versioned UA an admin copy-pastes from their access logs — and
+// still win over the wildcard `*` group. Matching the full UA (not just the
+// product token) is what lets the versioned forms match.
 const ROBOTS_USER_AGENT = "uc-entrepreneurship-hub-crawler/1.0 (+github.com/rlorenzo)";
 
 const ROBOTS_TIMEOUT_MS = 5_000;
@@ -132,7 +131,7 @@ function selectRules(groups: Group[], token: string): RobotsRules {
   };
 }
 
-export function parseRobots(txt: string, token: string = OUR_TOKEN): RobotsRules {
+export function parseRobots(txt: string, token: string = ROBOTS_USER_AGENT): RobotsRules {
   // Some servers prepend a UTF-8 BOM; left in place it would corrupt the first
   // directive's field name (e.g. "<BOM>user-agent").
   return selectRules(parseGroups(txt.replace(/^\uFEFF/, "")), token);
