@@ -477,6 +477,18 @@ export function coerceToProgram(c: ProgramCandidate): Program {
 const programKey = (p: Program): string => p.slug ?? p.id;
 const nameKey = (p: Program): string =>
   `${p.campus}::${p.name.normalize("NFKC").trim().toLowerCase()}`;
+/**
+ * Canonical-URL match key. Catches crawled records whose page title differs
+ * from the curated name ("UCLA Anderson Venture Accelerator" vs "Anderson
+ * Venture Accelerator") but that point at the same page — without it the
+ * catalog listed the same program twice. Case, hash fragments, and trailing
+ * slashes are insignificant; a program with no URL simply never matches this
+ * way. Query strings are kept: distinct pages can differ only by query.
+ */
+const urlKey = (p: Program): string | undefined => {
+  const url = p.website ?? p.sourceUrl;
+  return url ? url.trim().toLowerCase().replace(/#.*$/, "").replace(/\/+$/, "") : undefined;
+};
 
 /**
  * Optional Program fields a crawled record can fill in on a curated one.
@@ -507,26 +519,64 @@ function enrichWithCrawl(existing: Program, crawled: Program): Program {
   return merged;
 }
 
-function indexProgram(p: Program, byKey: Map<string, Program>, byName: Map<string, Program>) {
-  byKey.set(programKey(p), p);
-  byName.set(nameKey(p), p);
+interface MergeIndex {
+  byKey: Map<string, Program>;
+  byName: Map<string, Program>;
+  /**
+   * Curated-only URL index: it exists so a crawled record whose page title
+   * drifted from the curated name still pairs with the curated entry for
+   * that page. Crawled records never join this index — two distinct crawled
+   * programs can legitimately be extracted from the same page, and
+   * URL-pairing them would silently collapse one into the other. A URL
+   * shared by two curated programs is ambiguous, so it pairs with neither
+   * (the slot is poisoned with null).
+   */
+  byUrl: Map<string, Program | null>;
 }
 
-function mergeOneCrawled(
-  c: Program,
-  byKey: Map<string, Program>,
-  byName: Map<string, Program>,
-): void {
-  const existing = byKey.get(programKey(c)) ?? byName.get(nameKey(c));
+function indexCurated(curated: Program[]): MergeIndex {
+  const idx: MergeIndex = { byKey: new Map(), byName: new Map(), byUrl: new Map() };
+  for (const p of curated) {
+    idx.byKey.set(programKey(p), p);
+    idx.byName.set(nameKey(p), p);
+    const url = urlKey(p);
+    if (url) idx.byUrl.set(url, idx.byUrl.has(url) ? null : p);
+  }
+  return idx;
+}
+
+function findCuratedMatch(c: Program, idx: MergeIndex): Program | undefined {
+  const url = urlKey(c);
+  return (
+    idx.byKey.get(programKey(c)) ??
+    idx.byName.get(nameKey(c)) ??
+    (url ? (idx.byUrl.get(url) ?? undefined) : undefined)
+  );
+}
+
+/**
+ * Point the URL slot at the enriched copy so a later crawled record for the
+ * same curated program enriches the merged version, not a stale pre-merge
+ * reference. Never un-poisons an ambiguous slot, and never hijacks a slot
+ * that belongs to a different curated program.
+ */
+function refreshUrlSlot(idx: MergeIndex, existing: Program, merged: Program): void {
+  const url = urlKey(merged);
+  if (!url) return;
+  const slot = idx.byUrl.get(url);
+  if (slot === undefined || slot === existing) idx.byUrl.set(url, merged);
+}
+
+function mergeOneCrawled(c: Program, idx: MergeIndex): void {
+  const existing = findCuratedMatch(c, idx);
   const merged = existing ? enrichWithCrawl(existing, c) : c;
-  indexProgram(merged, byKey, byName);
-  if (existing) byKey.set(programKey(existing), merged);
+  idx.byKey.set(programKey(merged), merged);
+  idx.byName.set(nameKey(merged), merged);
+  if (existing) refreshUrlSlot(idx, existing, merged);
 }
 
 export function mergePrograms(curated: Program[], crawled: Program[]): Program[] {
-  const byKey = new Map<string, Program>();
-  const byName = new Map<string, Program>();
-  for (const p of curated) indexProgram(p, byKey, byName);
-  for (const c of crawled) mergeOneCrawled(c, byKey, byName);
-  return [...byKey.values()];
+  const idx = indexCurated(curated);
+  for (const c of crawled) mergeOneCrawled(c, idx);
+  return [...idx.byKey.values()];
 }

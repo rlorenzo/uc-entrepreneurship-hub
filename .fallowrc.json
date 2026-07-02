@@ -17,7 +17,14 @@
     // anything. 35 leaves a small buffer for that natural floor while
     // still catching cyclo 6 (CRAP 42) and above. Once tests exist,
     // coverage will mechanically lower CRAP and this can drop back to 30.
-    "maxCrap": 35
+    "maxCrap": 35,
+    // The refactoring-target heuristic flags compare.tsx as "split
+    // high-impact file" because 9 files import its context. Fan-in is the
+    // point of a React context module, and the suggested split has been
+    // done (persistence lives in compare-storage.ts; the provider is now
+    // ~47 LOC) — the score didn't move because the fan-in can't. Remove
+    // this exception if the module grows real logic again.
+    "ignore": ["src/lib/compare.tsx"]
   },
   "rules": {}
 }
