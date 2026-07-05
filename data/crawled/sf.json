@@ -2,7 +2,7 @@
   "campus": "sf",
   "name": "UC San Francisco",
   "seedUrl": "https://innovation.ucsf.edu/",
-  "crawledAt": "2026-06-28T13:38:03.309Z",
+  "crawledAt": "2026-07-05T13:36:49.513Z",
   "candidates": [
     {
       "id": "sf-translational-funding",
@@ -17,7 +17,7 @@
       ],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/example-rotator-4_0.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/innovation-entrepreneurship/funding-translational",
-      "lastUpdated": "2026-06-28T13:38:08.105Z"
+      "lastUpdated": "2026-07-05T13:36:54.632Z"
     },
     {
       "id": "sf-engagement-opportunity-development",
@@ -30,7 +30,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/page-hero-10.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/healthtech-commercialization/engagement-and-opportunity-development",
-      "lastUpdated": "2026-06-28T13:38:09.322Z"
+      "lastUpdated": "2026-07-05T13:36:55.849Z"
     },
     {
       "id": "sf-strategic-alliances",
@@ -43,7 +43,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-09/Strategic%20Alliences%20Banner.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/healthtech-commercialization/strategic-alliances",
-      "lastUpdated": "2026-06-28T13:38:11.490Z"
+      "lastUpdated": "2026-07-05T13:36:58.272Z"
     },
     {
       "id": "sf-catalyst-program",
@@ -59,7 +59,7 @@
       ],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/page-hero-5.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/innovation-entrepreneurship/funding-translational/catalyst-program",
-      "lastUpdated": "2026-06-28T13:38:13.691Z"
+      "lastUpdated": "2026-07-05T13:37:00.470Z"
     },
     {
       "id": "sf-entrepreneurship-resources",
@@ -72,7 +72,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/Newsletter-Page.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/resources/startup-resources",
-      "lastUpdated": "2026-06-28T13:38:14.870Z"
+      "lastUpdated": "2026-07-05T13:37:01.525Z"
     },
     {
       "id": "sf-2025-2026-catalyst-accelerator-awardees",
@@ -85,7 +85,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-11/UCSF_banner.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/innovation-entrepreneurship/funding-translational/catalyst-awards/2025-2026-catalyst-accelerator-awardees",
-      "lastUpdated": "2026-06-28T13:38:18.674Z"
+      "lastUpdated": "2026-07-05T13:37:04.905Z"
     },
     {
       "id": "sf-ucsf-innovation",
@@ -100,7 +100,7 @@
       ],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2026-02/ALS-Page-Banner.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/healthtech-commercialization/strategic-alliances/reinvigorating-innovation-als",
-      "lastUpdated": "2026-06-28T13:38:19.813Z"
+      "lastUpdated": "2026-07-05T13:37:05.979Z"
     },
     {
       "id": "sf-panther-program",
@@ -113,7 +113,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2025-01/page-hero-3.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/partnerships/panther-program",
-      "lastUpdated": "2026-06-28T13:38:24.204Z"
+      "lastUpdated": "2026-07-05T13:37:10.534Z"
     }
   ],
   "errors": []

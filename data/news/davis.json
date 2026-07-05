@@ -3,7 +3,7 @@
   "name": "UC Davis",
   "strategy": "playwright",
   "source": "https://iedo.ucdavis.edu/news",
-  "crawledAt": "2026-07-01T19:01:28.126Z",
+  "crawledAt": "2026-07-05T13:38:16.015Z",
   "items": [
     {
       "id": "davis-uc-davis-stair-health-program-invests-faculty-led-health-innovations",

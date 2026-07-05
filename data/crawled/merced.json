@@ -1,119 +1,34 @@
 {
   "campus": "merced",
   "name": "UC Merced",
-  "seedUrl": "https://research.ucmerced.edu/",
-  "crawledAt": "2026-06-07T13:39:39.045Z",
+  "seedUrl": "https://entrepreneurship.ucmerced.edu/",
+  "crawledAt": "2026-07-05T13:36:58.841Z",
   "candidates": [
     {
-      "id": "merced-contracts-and-grants-administration",
-      "slug": "contracts-and-grants-administration",
-      "name": "Contracts and Grants Administration",
+      "id": "merced-entrepreneurship-hub",
+      "slug": "entrepreneurship-hub",
+      "name": "Entrepreneurship Hub",
       "campus": "merced",
       "type": "incubator",
-      "desc": "Please direct questions or concerns to CGA@ucmerced.edu.",
+      "desc": "This website is the homesite of the Innovation and Entrepreneurship Lab (ieLab), a faculty-driven initiative assisting with the innovation and entrepreneurship teaching and service mission of the university, and a resource hub providing information about entrepreneurship at UC Merced — specifically, information and news about:",
       "industries": [],
-      "sourceUrl": "https://research.ucmerced.edu/departments/contracts-and-grants-administration-cga",
-      "lastUpdated": "2026-06-07T13:39:43.437Z"
+      "sourceUrl": "https://entrepreneurship.ucmerced.edu/",
+      "lastUpdated": "2026-07-05T13:37:03.110Z"
     },
     {
-      "id": "merced-regenerative-agriculture-initiatives-accelerators-incubators-entrepreneurship-centers-and-sbdcs",
-      "slug": "regenerative-agriculture-initiatives-accelerators-incubators-entrepreneurship-centers-and-sbdcs",
-      "name": "Regenerative Agriculture Initiatives - Accelerators, Incubators, Entrepreneurship Centers, and SBDCs",
+      "id": "merced-innovation-and-entrepreneurship-lab-ielab",
+      "slug": "innovation-and-entrepreneurship-lab-ielab",
+      "name": "Innovation and Entrepreneurship Lab (ieLab)",
       "campus": "merced",
       "type": "incubator",
-      "desc": "University of California Merced Office of Research and Economic Development Request for Expressions of Interest",
-      "longDescription": "University of California Merced Office of Research and Economic Development Request for Expressions of Interest in Accelerators, Incubators, Entrepreneurship Centers, and Small Business Development Centers for Regenerative Agriculture Initiatives I. Overview The University of California Merced Office of Research and Economic Development (UCM ORED) is seeking expressions of interest from accelerators, incubators, entrepreneurship centers, and small business development centers to partner on regenerative agriculture initiatives. This call aims to identify potential partners who can provide suppo",
-      "industries": [
-        "AgTech"
-      ],
-      "sourceUrl": "https://research.ucmerced.edu/form/regenerative-agriculture-initiatives-accelerators-incubators-entrepreneurship-centers-and-sbdcs",
-      "lastUpdated": "2026-06-07T13:39:48.019Z"
-    },
-    {
-      "id": "merced-state-climate-funds",
-      "slug": "state-climate-funds",
-      "name": "State Climate Funds",
-      "campus": "merced",
-      "type": "competition",
-      "desc": "The State of California designated $18 million to the University of California (UC) Merced, per AB 179, for climate action research and innovation to address critical needs of the state. The Office of Research, Innovation & Economic Development was designated to administer these funds. A total of $9M in Climate Action Research Seed Funds will be made available through two peer-reviewed rounds of competition. The focus for these funds is on applied research and development projects that will build capacity for climate resilience, adaptation, and mitigation across the State of California. In keeping with UC Merced’s commitment to community and to serving the state’s diverse population, awarded projects explicitly consider the disparate impact of climate change/action on vulnerable communities and incorporate the perspectives of partners/investigators from diverse disciplines, backgrounds, genders, race/ethnicities, and lived experiences.",
-      "longDescription": "The State of California designated $18 million to the University of California (UC) Merced, per AB 179, for climate action research and innovation to address critical needs of the state. The Office of Research, Innovation & Economic Development was designated to administer these funds. A total of $9M in Climate Action Research Seed Funds will be made available through two peer-reviewed rounds of competition. The focus for these funds is on applied research and development projects that will build capacity for climate resilience, adaptation, and mitigation across the State of California. In kee",
+      "desc": "The Innovation and Entrepreneurship Lab is a faculty-driven initiative assisting with the innovation and entrepreneurship teaching, service and extension mission of the university. The lab operates under the auspices of the Institute for Research in Innovation, Sustainability and Entrepreneurship (UCMiRISE), the mother institution facilitating the research component related to innovation and entrepreneurship.",
+      "longDescription": "The Innovation and Entrepreneurship Lab is a faculty-driven initiative assisting with the innovation and entrepreneurship teaching, service and extension mission of the university. The lab operates under the auspices of the Institute for Research in Innovation, Sustainability and Entrepreneurship (UCMiRISE), the mother institution facilitating the research component related to innovation and entrepreneurship. Click here for the members list. Actvities planned for this year include workshop presentations by affiliated faculty during Innovation and Entrepreneurship Symposium, an annual event org",
       "industries": [
         "Climate"
       ],
-      "sourceUrl": "https://research.ucmerced.edu/state-climate-funds",
-      "lastUpdated": "2026-06-07T13:39:52.222Z"
-    },
-    {
-      "id": "merced-spring-2023-climate-action-seed-funds",
-      "slug": "spring-2023-climate-action-seed-funds",
-      "name": "Spring 2023 Climate Action Seed Funds",
-      "campus": "merced",
-      "type": "incubator",
-      "desc": "The Spring 2023 Climate Action Seed Funds solicitation was issued in January 2023. Twenty-three proposals were received, requesting a total of $12,925,522. These were of high quality and underwent two rounds of comprehensive review. ORED awarded nine, three small (up to $50K) and six large (up to $1M), projects (listed below) for a total of $4,096,197. These projects are synergistic with the State of California’s climate action priorities outlined in the California Climate Adaptation Strategy.",
-      "longDescription": "The Spring 2023 Climate Action Seed Funds solicitation was issued in January 2023. Twenty-three proposals were received, requesting a total of $12,925,522. These were of high quality and underwent two rounds of comprehensive review. ORED awarded nine, three small (up to $50K) and six large (up to $1M), projects (listed below) for a total of $4,096,197. These projects are synergistic with the State of California’s climate action priorities outlined in the California Climate Adaptation Strategy. Electrochemical drinking water treatment for climate adaptation The research addresses the specific C",
-      "industries": [
-        "Climate"
-      ],
-      "sourceUrl": "https://research.ucmerced.edu/state-climate-funds/spring-2023-climate-action-seed-funds",
-      "lastUpdated": "2026-06-07T13:39:54.126Z"
-    },
-    {
-      "id": "merced-fall-2023-climate-action-seed-funds",
-      "slug": "fall-2023-climate-action-seed-funds",
-      "name": "Fall 2023 Climate Action Seed Funds",
-      "campus": "merced",
-      "type": "incubator",
-      "desc": "The Fall 2023 Climate Action Seed Funds solicitation was issued in June 2023. Twenty-five proposals were received, requesting a total of $11,785,877. These were of high quality and underwent two rounds of comprehensive review. ORED awarded eleven, two small (up to $100K) and nine large (up to $1M), projects (listed below) for a total of $4,889,426 These projects are synergistic with the State of California’s climate action priorities outlined in the California Climate Adaptation Strategy.",
-      "longDescription": "The Fall 2023 Climate Action Seed Funds solicitation was issued in June 2023. Twenty-five proposals were received, requesting a total of $11,785,877. These were of high quality and underwent two rounds of comprehensive review. ORED awarded eleven, two small (up to $100K) and nine large (up to $1M), projects (listed below) for a total of $4,889,426 These projects are synergistic with the State of California’s climate action priorities outlined in the California Climate Adaptation Strategy. Biotech for Biodiversity (B4B): Rapid Delivery of Community-Scale Diversity Data for Genomic Restoration D",
-      "industries": [
-        "Biotech",
-        "Climate"
-      ],
-      "sourceUrl": "https://research.ucmerced.edu/state-climate-funds/fall-2023-climate-action-seed-funds",
-      "lastUpdated": "2026-06-07T13:39:56.248Z"
-    },
-    {
-      "id": "merced-fall-2023-climate-action-innovation-and-entrepreneurship-proof-of-concept-funds",
-      "slug": "fall-2023-climate-action-innovation-and-entrepreneurship-proof-of-concept-funds",
-      "name": "Fall 2023 Climate Action Innovation and Entrepreneurship Proof of Concept Funds",
-      "campus": "merced",
-      "type": "funding",
-      "desc": "The UC Merced Fall 2023 Climate Action Innovation and Entrepreneurship Proof of Concept Funds solicitation opened in August 2023. Seven proposals were received, requesting a total of $349,169. These were of high quality and underwent two rounds of comprehensive review. ORED awarded five projects (listed below) for a total of $249,474. These projects are synergistic with the State of California’s climate action priorities outlined in the California Climate Adaptation Strategy.",
-      "longDescription": "The UC Merced Fall 2023 Climate Action Innovation and Entrepreneurship Proof of Concept Funds solicitation opened in August 2023. Seven proposals were received, requesting a total of $349,169. These were of high quality and underwent two rounds of comprehensive review. ORED awarded five projects (listed below) for a total of $249,474. These projects are synergistic with the State of California’s climate action priorities outlined in the California Climate Adaptation Strategy. Commercializing novel thermal storage systems for electrification of industrial steam systems Bench-Stable Nickel (0) C",
-      "industries": [
-        "Climate",
-        "Energy"
-      ],
-      "sourceUrl": "https://research.ucmerced.edu/state-climate-funds/fall-2023-climate-action-innovation-and-entrepreneurship-proof-concept-funds",
-      "lastUpdated": "2026-06-07T13:39:58.123Z"
-    },
-    {
-      "id": "merced-spring-2024-climate-action-innovation-and-entrepreneurship-proof-of-concept-funds",
-      "slug": "spring-2024-climate-action-innovation-and-entrepreneurship-proof-of-concept-funds",
-      "name": "Spring 2024 Climate Action Innovation and Entrepreneurship Proof of Concept Funds",
-      "campus": "merced",
-      "type": "funding",
-      "desc": "The Spring 2024 UC Merced Climate Action Innovation and Entrepreneurship Proof of Concept Funds solicitation opened in February 2024. Ten proposals were received, requesting ~$500,000. These were of high quality and underwent two rounds of comprehensive review. ORED awarded five projects (listed below) for a total of $249,765. These projects are synergistic with the State of California’s climate action priorities outlined in the California Climate Adaptation Strategy.",
-      "longDescription": "The Spring 2024 UC Merced Climate Action Innovation and Entrepreneurship Proof of Concept Funds solicitation opened in February 2024. Ten proposals were received, requesting ~$500,000. These were of high quality and underwent two rounds of comprehensive review. ORED awarded five projects (listed below) for a total of $249,765. These projects are synergistic with the State of California’s climate action priorities outlined in the California Climate Adaptation Strategy.",
-      "industries": [
-        "Climate"
-      ],
-      "sourceUrl": "https://research.ucmerced.edu/state-climate-funds/spring-2024-climate-action-innovation-and-entrepreneurship-proof-concept-funds",
-      "lastUpdated": "2026-06-07T13:40:00.052Z"
-    },
-    {
-      "id": "merced-research-sustainability-fund",
-      "slug": "research-sustainability-fund",
-      "name": "Research Sustainability Fund",
-      "campus": "merced",
-      "type": "funding",
-      "desc": "On June 5, 2025, Chancellor Muñoz committed $1.5 million in campus funds to support faculty researchers who have been impacted by a pause or stoppage in federal grant award funding. This fund is intended to be used over the coming 12-24 months to support faculty researchers as the federal funding landscape continues to be volatile. Unfortunately, depending on the magnitude of federal actions, it is possible that the fund will not meet all needs. The Research Sustainability Fund will address a researcher’s temporary, short-term operational needs to facilitate transition or ramp-down costs resulting from changes in federal funding.",
-      "longDescription": "On June 5, 2025, Chancellor Muñoz committed $1.5 million in campus funds to support faculty researchers who have been impacted by a pause or stoppage in federal grant award funding. This fund is intended to be used over the coming 12-24 months to support faculty researchers as the federal funding landscape continues to be volatile. Unfortunately, depending on the magnitude of federal actions, it is possible that the fund will not meet all needs. The Research Sustainability Fund will address a researcher’s temporary, short-term operational needs to facilitate transition or ramp-down costs resul",
-      "industries": [
-        "Climate"
-      ],
-      "sourceUrl": "https://research.ucmerced.edu/research-sustainability-fund",
-      "lastUpdated": "2026-06-07T13:40:01.979Z"
+      "imageUrl": "https://entrepreneurship.ucmerced.edu/sites/entrepreneurship.ucmerced.edu/files/documents/ielab.png",
+      "sourceUrl": "https://entrepreneurship.ucmerced.edu/lab",
+      "lastUpdated": "2026-07-05T13:37:08.561Z"
     }
   ],
   "errors": []

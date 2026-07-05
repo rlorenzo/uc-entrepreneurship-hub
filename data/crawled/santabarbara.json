@@ -2,7 +2,7 @@
   "campus": "santabarbara",
   "name": "UC Santa Barbara",
   "seedUrl": "https://innovation.ucsb.edu/",
-  "crawledAt": "2026-06-28T13:37:29.133Z",
+  "crawledAt": "2026-07-05T13:36:18.730Z",
   "candidates": [
     {
       "id": "santabarbara-prototyping-lab-space",
@@ -15,7 +15,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2020-08/Innovation_Workshop_Lab_004.jpg",
       "sourceUrl": "https://innovation.ucsb.edu/prototyping-lab-space",
-      "lastUpdated": "2026-06-28T13:37:31.540Z"
+      "lastUpdated": "2026-07-05T13:36:21.395Z"
     }
   ],
   "errors": []

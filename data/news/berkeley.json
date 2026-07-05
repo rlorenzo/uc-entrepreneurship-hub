@@ -3,8 +3,18 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-07-01T18:34:27.280Z",
+  "crawledAt": "2026-07-05T13:37:27.090Z",
   "items": [
+    {
+      "id": "berkeley-11-ideas-from-uc-berkeley-haas-that-changed-american-business",
+      "campus": "berkeley",
+      "title": "11 ideas from UC Berkeley Haas that changed American business",
+      "summary": "Happy 4th of July! As America celebrates its 250th birthday, we’re celebrating a few of the ideas born at UC Berkeley Haas that helped shape how American business actually works.…",
+      "publishedAt": "2026-07-03T17:53:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/11-ideas-from-uc-berkeley-haas-that-changed-american-business/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/28020940281_d0142621e1_b-768x499.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
     {
       "id": "berkeley-berkeley-founders-turn-a-skin-health-nightmare-into-a-yc-backed-startup",
       "campus": "berkeley",
@@ -13,6 +23,16 @@
       "publishedAt": "2026-07-01T16:14:00.000Z",
       "sourceUrl": "https://scet.berkeley.edu/berkeley-founders-turn-a-skin-health-nightmare-into-a-yc-backed-startup/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/1782089251379-150x150.jpg",
+      "sourceHost": "scet.berkeley.edu"
+    },
+    {
+      "id": "berkeley-from-berkeley-to-y-combinator-lumeria-founders-build-the-oura-ring-for-skin",
+      "campus": "berkeley",
+      "title": "From Berkeley to Y Combinator: Lumeria Founders Build the Oura Ring for Skin",
+      "summary": "When Anthea Guo was a sophomore at UC Berkeley, she developed eczema so severe that she could not sleep for months. Sweat triggered her skin. Rough surfaces could cause a…",
+      "publishedAt": "2026-07-01T16:14:00.000Z",
+      "sourceUrl": "https://scet.berkeley.edu/from-berkeley-to-y-combinator-lumeria-founders-build-the-oura-ring-for-skin/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/1782089251379-768x1024.jpg",
       "sourceHost": "scet.berkeley.edu"
     },
     {
@@ -83,26 +103,6 @@
       "sourceUrl": "https://energyathaas.wordpress.com/2026/06/22/why-hasnt-the-iran-war-driven-oil-prices-even-higher/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/iranwaroilpricefig2-768x329.png",
       "sourceHost": "energyathaas.wordpress.com"
-    },
-    {
-      "id": "berkeley-people-prefer-negotiating-with-women-even-when-they-dont-know-it",
-      "campus": "berkeley",
-      "title": "People prefer negotiating with women—even when they don’t know it.",
-      "summary": "Women negotiators earn greater trust, satisfaction, and future opportunities—with no difference in economic outcomes—according to research published today from UC Berkeley Haas and Cornell. European Commission President Ursula von der…",
-      "publishedAt": "2026-06-22T20:05:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/research/people-prefer-negotiating-with-women-even-when-they-dont-know-it/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/26161568608169-scaled-768x512.jpg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-citris-announces-2026-edge-in-tech-athena-award-recipients",
-      "campus": "berkeley",
-      "title": "CITRIS Announces 2026 EDGE in Tech Athena Award Recipients",
-      "summary": "CITRIS Announces 2026 EDGE in Tech Athena Award Recipients",
-      "publishedAt": "2026-06-22T17:45:00.000Z",
-      "sourceUrl": "https://citris-uc.org/citris-announces-2026-edge-in-tech-athena-award-recipients/?utm_source=rss&utm_medium=rss&utm_campaign=citris-announces-2026-edge-in-tech-athena-award-recipients",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Athena-Banner-2026_WINNERS-768x184.jpg",
-      "sourceHost": "citris-uc.org"
     }
   ],
   "errors": []

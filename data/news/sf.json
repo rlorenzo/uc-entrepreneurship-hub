@@ -3,7 +3,7 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-07-01T18:35:41.680Z",
+  "crawledAt": "2026-07-05T13:38:36.676Z",
   "items": [
     {
       "id": "sf-ucsf-innovation-translates-discovery-life-saving-diagnostics",
