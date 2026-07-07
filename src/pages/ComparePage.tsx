@@ -254,7 +254,7 @@ export function ComparePage() {
                             style={{
                               height: 6,
                               width: 32,
-                              background: TYPE_BY_ID[p.type].color,
+                              background: TYPE_BY_ID[p.type]?.color ?? "var(--uc-blue-deep)",
                               borderRadius: 3,
                               marginBottom: 10,
                             }}
@@ -276,7 +276,7 @@ export function ComparePage() {
                               {p.name}
                             </div>
                             <div style={{ marginTop: 6, fontSize: 13, color: "var(--uc-gray)" }}>
-                              {CAMPUS_BY_ID[p.campus].name}
+                              {CAMPUS_BY_ID[p.campus]?.name ?? p.campus}
                             </div>
                           </Link>
                         </div>

@@ -41,11 +41,11 @@ function CardMeta({ program }: { program: Program }) {
   );
 }
 
-function compareToggleStyle(inCompare: boolean) {
+function compareToggleStyle(inCompare: boolean, disabled = false) {
   return {
     border: `1px solid ${inCompare ? "var(--accent)" : "rgba(0,32,51,.15)"}`,
     background: inCompare ? "var(--accent)" : "var(--uc-white)",
-    color: inCompare ? "var(--uc-white)" : "var(--uc-dark-blue)",
+    color: inCompare ? "var(--uc-white)" : disabled ? "var(--uc-gray)" : "var(--uc-dark-blue)",
     borderRadius: 4,
     padding: "6px 10px",
     fontSize: 12,
@@ -53,7 +53,8 @@ function compareToggleStyle(inCompare: boolean) {
     display: "inline-flex",
     alignItems: "center",
     gap: 6,
-    cursor: "pointer",
+    cursor: disabled ? "not-allowed" : "pointer",
+    opacity: disabled ? 0.6 : 1,
   } as const;
 }
 
@@ -73,8 +74,11 @@ function CompareToggleLabel({ inCompare }: { inCompare: boolean }) {
 }
 
 function CompareToggle({ programId }: { programId: string }) {
-  const { has, add, remove } = useCompare();
+  const { has, add, remove, isFull } = useCompare();
   const inCompare = has(programId);
+  // add() is a no-op at the cap, so present the button as disabled instead of
+  // letting the click silently do nothing.
+  const atCap = isFull && !inCompare;
   const toggle = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (inCompare) remove(programId);
@@ -83,8 +87,15 @@ function CompareToggle({ programId }: { programId: string }) {
   return (
     <button
       onClick={toggle}
-      title={inCompare ? "Remove from compare" : "Add to compare"}
-      style={compareToggleStyle(inCompare)}
+      disabled={atCap}
+      title={
+        inCompare
+          ? "Remove from compare"
+          : atCap
+            ? "Comparison is full — remove a program to add another"
+            : "Add to compare"
+      }
+      style={compareToggleStyle(inCompare, atCap)}
     >
       <CompareToggleLabel inCompare={inCompare} />
     </button>

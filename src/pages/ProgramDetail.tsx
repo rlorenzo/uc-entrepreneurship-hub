@@ -8,7 +8,7 @@ import { TYPE_BY_ID } from "@/data/types-list";
 import { PROGRAMS } from "@/data/programs";
 import { isGenericAdmissionsLink } from "@/data/normalize";
 import type { Campus, Program, ProgramType } from "@/data/types.ts";
-import { useCompare } from "@/lib/compare";
+import { MAX_COMPARE, useCompare } from "@/lib/compare";
 import { useIsMobile } from "@/lib/useMediaQuery";
 import { programGradient } from "@/lib/programGradient";
 import { isValidWebUrl } from "@/lib/url";
@@ -38,9 +38,12 @@ interface DetailVM {
   related: Program[];
 }
 
-function buildVM(program: Program): DetailVM {
+function buildVM(program: Program): DetailVM | null {
   const campus = CAMPUS_BY_ID[program.campus];
   const type = TYPE_BY_ID[program.type];
+  // A crawled record can carry a campus/type id with no metadata entry (e.g. a
+  // bad sites.json seed); render not-found instead of crashing on .name below.
+  if (!campus || !type) return null;
   const applyHref =
     [program.applicationLink, program.website, program.sourceUrl].find(isValidWebUrl) ?? "#";
   const isExternal = applyHref !== "#";
@@ -154,7 +157,7 @@ function HeroChips({
         flexWrap: "wrap",
       }}
     >
-      <span style={{ ...chipBase, background: "var(--uc-white)", color: type.color }}>
+      <span style={{ ...chipBase, background: "var(--uc-white)", color: type.textColor }}>
         {type.label}
       </span>
       {featured && (
@@ -218,11 +221,15 @@ function HeroPrimaryCTA({ vm }: { vm: DetailVM }) {
 }
 
 function HeroCompareToggle({ programId }: { programId: string }) {
-  const { has, add, remove } = useCompare();
+  const { has, add, remove, isFull } = useCompare();
   const inCompare = has(programId);
+  // add() is a no-op at the cap — disable and say so rather than swallow the click.
+  const atCap = isFull && !inCompare;
   return (
     <button
       onClick={() => (inCompare ? remove(programId) : add(programId))}
+      disabled={atCap}
+      title={atCap ? "Comparison is full — remove a program to add another" : undefined}
       style={{
         background: "transparent",
         color: "var(--uc-white)",
@@ -230,7 +237,8 @@ function HeroCompareToggle({ programId }: { programId: string }) {
         borderRadius: 4,
         fontWeight: 600,
         border: "2px solid #fff",
-        cursor: "pointer",
+        cursor: atCap ? "not-allowed" : "pointer",
+        opacity: atCap ? 0.6 : 1,
         display: "inline-flex",
         alignItems: "center",
         gap: 8,
@@ -240,6 +248,8 @@ function HeroCompareToggle({ programId }: { programId: string }) {
         <>
           <I_Check size={16} /> Added to compare
         </>
+      ) : atCap ? (
+        <>Compare is full ({MAX_COMPARE})</>
       ) : (
         <>
           <I_Plus size={16} /> Add to compare
@@ -579,7 +589,7 @@ function DetailOverview({ vm }: { vm: DetailVM }) {
       <div style={{ marginTop: 48, display: "flex", flexDirection: "column", gap: 40 }}>
         <KeyDetailsGrid program={vm.program} />
         {vm.program.industries.length > 0 && (
-          <IndustryPills industries={vm.program.industries} color={vm.type.color} />
+          <IndustryPills industries={vm.program.industries} color={vm.type.textColor} />
         )}
       </div>
     </div>
@@ -887,8 +897,9 @@ export function ProgramDetail() {
   // first slug-less crawled program and bypass the not-found state.
   const program = id ? PROGRAMS.find((p) => p.id === id || p.slug === id) : undefined;
   const isMobile = useIsMobile();
+  const vm = program ? buildVM(program) : null;
 
-  if (!program) {
+  if (!vm) {
     return (
       <NotFound
         eyebrow="Program not found"
@@ -906,7 +917,6 @@ export function ProgramDetail() {
       />
     );
   }
-  const vm = buildVM(program);
 
   return (
     <Page>

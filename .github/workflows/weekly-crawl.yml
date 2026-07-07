@@ -88,6 +88,12 @@ jobs:
             xrun vp run refresh-news
           fi
 
+      # Gate the auto-commit on the data-integrity tests (dangling campus/type
+      # ids, duplicate routing keys, unsafe URLs). A crawl that produced a
+      # contract-violating catalog must fail here, not deploy unattended.
+      - name: Test refreshed catalog (unit + data integrity)
+        run: vp test
+
       - name: Commit refreshed catalog
         id: commit
         run: |
@@ -100,7 +106,19 @@ jobs:
             exit 0
           fi
           git commit -m "chore(data): weekly refresh ($(date -u +%Y-%m-%d))"
-          git push
+          # main may have moved during the (long) crawl; rebase and retry so a
+          # mid-crawl merge to main doesn't reject the push non-fast-forward
+          # and discard the whole week's refresh.
+          for attempt in 1 2 3; do
+            if git push; then
+              break
+            fi
+            if [ "$attempt" = 3 ]; then
+              echo "git push failed after 3 attempts" >&2
+              exit 1
+            fi
+            git pull --rebase origin main
+          done
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
       # Pushes made with the default GITHUB_TOKEN don't trigger other

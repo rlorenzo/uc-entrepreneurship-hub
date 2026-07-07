@@ -8,6 +8,7 @@ import { TYPE_BY_ID } from "@/data/types-list";
 import { PROGRAMS, PROGRAM_COUNT, PROGRAM_COUNT_BY_TYPE } from "@/data/programs";
 import { NEWS } from "@/data/news.generated";
 import { formatNewsDate } from "@/lib/dates";
+import { isValidWebUrl } from "@/lib/url";
 import { useIsMobile } from "@/lib/useMediaQuery";
 import { I_Arrow, I_Search } from "@/lib/icons";
 
@@ -654,10 +655,13 @@ function SpotlightStories() {
           {stories.map((n) => {
             const c = CAMPUS_BY_ID[n.campus];
             const date = formatNewsDate(n.publishedAt);
+            // sourceUrl comes from crawled feeds — validate like NewsCard does
+            // so a javascript:/data: link can never become a live anchor.
+            const safe = isValidWebUrl(n.sourceUrl);
             return (
               <a
                 key={n.id}
-                href={n.sourceUrl}
+                href={safe ? n.sourceUrl : undefined}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -693,8 +697,9 @@ function SpotlightStories() {
                       gap: 6,
                       padding: "4px 10px",
                       borderRadius: 999,
-                      background: "rgba(0,0,0,.55)",
-                      backdropFilter: "blur(4px)",
+                      // Solid navy chip (no decorative backdrop blur) — matches
+                      // NewsCard and the DESIGN.md ban on decorative blur.
+                      background: "rgba(0,32,51,.78)",
                     }}
                   >
                     <span

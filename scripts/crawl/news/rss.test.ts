@@ -1,5 +1,14 @@
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 import { describe, it, expect } from "vite-plus/test";
-import { decodeEntities, stripHtml, userAgentForFeed, firstImageSrc } from "./rss.ts";
+import {
+  ALLOWED_RSS_FEEDS,
+  decodeEntities,
+  stripHtml,
+  userAgentForFeed,
+  firstImageSrc,
+} from "./rss.ts";
 
 describe("firstImageSrc", () => {
   it("extracts the src from a plain <img> (WordPress-style)", () => {
@@ -133,5 +142,17 @@ describe("stripHtml", () => {
     expect(stripHtml("a‌‍﻿b")).toBe("ab");
     // An entity-encoded zero-width space (&#8203;) is removed after decoding too.
     expect(stripHtml("x&#8203;y")).toBe("xy");
+  });
+});
+
+describe("ALLOWED_RSS_FEEDS", () => {
+  it("covers every rss-strategy feed in sites.json (drift would fail at crawl runtime)", () => {
+    const sites = JSON.parse(
+      readFileSync(join(dirname(fileURLToPath(import.meta.url)), "sites.json"), "utf-8"),
+    ) as { strategy: string; feedUrl?: string; name: string }[];
+    const missing = sites
+      .filter((s) => s.strategy === "rss" && !ALLOWED_RSS_FEEDS.includes(s.feedUrl as never))
+      .map((s) => `${s.name}: ${s.feedUrl}`);
+    expect(missing).toEqual([]);
   });
 });

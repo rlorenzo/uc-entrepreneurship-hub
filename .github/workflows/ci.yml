@@ -45,6 +45,9 @@ jobs:
       - name: Validate (format + lint + type-check + duplication)
         run: vp run check
 
+      - name: Test (unit + data integrity)
+        run: vp test
+
       - name: Build
         run: vp build
         env:

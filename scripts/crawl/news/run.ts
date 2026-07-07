@@ -148,14 +148,14 @@ async function crawlSite(site: SiteConfig): Promise<NewsCrawlResult> {
 
 async function persistResult(result: NewsCrawlResult): Promise<void> {
   const path = join(OUT_DIR, `${result.campus}.json`);
-  // If the source fetch failed entirely (no items, errors at the index/feed
-  // stage) and we already have a file on disk, keep the previous run rather
-  // than overwriting with an empty list. Same pattern as the program crawler.
-  const fetchFailed =
-    result.items.length === 0 &&
-    result.errors.some((e) => e.stage === "feed" || e.stage === "listing");
-  if (fetchFailed && existsSync(path)) {
-    console.log(`  ⓘ preserving previous ${result.campus}.json — source fetch failed this run`);
+  // If this run came back empty and we already have a file on disk, keep the
+  // previous run rather than overwriting with an empty list. Not gated on
+  // error stage: a feed that migrated to Atom (zero <item> blocks, no error),
+  // an HTTP-200 maintenance page, or every article fetch failing would all
+  // otherwise blank the campus's published feed. Same pattern as the program
+  // crawler.
+  if (result.items.length === 0 && existsSync(path)) {
+    console.log(`  ⓘ preserving previous ${result.campus}.json — no items this run`);
     return;
   }
   await writeFile(path, JSON.stringify(result, null, 2));

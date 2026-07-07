@@ -270,18 +270,17 @@ async function crawlCampus(site: Site): Promise<CrawlResult> {
 // ── Worker pool over campuses ────────────────────────────────────────────
 
 /**
- * Persist a crawl result, preserving the previous file when the seed
- * fetch failed and a previous run exists. Without this, a transient
- * WAF/DNS outage would write an empty candidates list, the weekly
- * workflow would commit the deletion, and every program for that
- * campus would vanish from the published catalog. A recovered crawl
- * on the next run repopulates it cleanly.
+ * Persist a crawl result, preserving the previous file when this run came
+ * back empty and a previous run exists. A seed failure, a WAF 403ing every
+ * sub-page, or a redesign that zeroes link discovery all look the same on
+ * disk: an empty candidates list that the weekly workflow would commit,
+ * deleting every program for the campus from the published catalog. A
+ * recovered crawl on the next run repopulates it cleanly.
  */
 async function persistResult(result: CrawlResult): Promise<void> {
   const path = join(OUT_DIR, `${result.campus}.json`);
-  const seedFailed = result.errors.some((e) => e.stage === "seed");
-  if (seedFailed && existsSync(path)) {
-    console.log(`  ⓘ preserving previous ${result.campus}.json — seed failed this run`);
+  if (result.candidates.length === 0 && existsSync(path)) {
+    console.log(`  ⓘ preserving previous ${result.campus}.json — no candidates this run`);
     return;
   }
   await writeFile(path, JSON.stringify(result, null, 2));

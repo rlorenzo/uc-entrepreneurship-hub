@@ -78,7 +78,7 @@ interface Audience {
 const AUDIENCES: Audience[] = [
   {
     who: "Students",
-    what: "Have an idea and want the next concrete step — what's open now, what fits their stage, what won't collide with a courseload.",
+    what: "Have an idea and want the next concrete step: what's open now, what fits their stage, what won't collide with a courseload.",
   },
   {
     who: "Faculty & researchers",
@@ -139,14 +139,14 @@ function InitiativeSection() {
       <SectionHeading>The initiative</SectionHeading>
       <Para>
         The UC Entrepreneurship Hub is a unified, searchable catalog of entrepreneurship programs
-        across all {CAMPUSES.length} University of California campuses — incubators, accelerators,
+        across all {CAMPUSES.length} University of California campuses: incubators, accelerators,
         courses, funding, competitions, and maker spaces in one place. It collapses a
         campus-by-campus scavenger hunt into a single catalog where programs are described in
         standardized fields and compared side by side.
       </Para>
       <Para>
         It’s built for the people making a real decision about where to apply, and three audiences
-        share the catalog — each arriving with a different job and rarely much time:
+        share the catalog, each arriving with a different job and rarely much time:
       </Para>
       <AudienceGrid />
       <div style={{ marginTop: 22 }}>
@@ -179,23 +179,23 @@ function MethodologySection() {
         }}
       >
         <li style={{ marginBottom: 10 }}>
-          <strong>Curated programs</strong> — hand-shaped and vetted by the hub team.
+          <strong>Curated programs</strong>, hand-shaped and vetted by the hub team.
         </li>
         <li>
-          <strong>Crawled programs</strong> — automatically extracted from each campus’s innovation
+          <strong>Crawled programs</strong>, automatically extracted from each campus’s innovation
           hub, then normalized onto a shared vocabulary of program types, industries, and stages.
         </li>
       </ul>
       <Para>
         On conflict, the curated record wins; the crawl fills in optional fields the curated copy is
-        missing — website, application link, deadlines, and the source page. The crawl runs weekly,
+        missing: website, application link, deadlines, and the source page. The crawl runs weekly,
         and every crawled record links its source and shows when it was last refreshed, so you can
         always check the original.
       </Para>
       <Para>
         We don’t invent deadlines or inflate counts. The hub currently lists{" "}
         <strong>{PROGRAM_COUNT} programs</strong>, and that number is derived from the catalog
-        itself — never set by hand. Where a detail isn’t published, the hub says “not listed” rather
+        itself, never set by hand. Where a detail isn’t published, the hub says “not listed” rather
         than faking completeness.
       </Para>
       <CorrectionsCard />
@@ -235,7 +235,7 @@ function CorrectionsCard() {
         }}
       >
         Running a program that isn’t here, or spotted something out of date? Submitting it on GitHub
-        takes a structured form — no account-specific setup or code required.
+        takes a structured form (no account-specific setup or code required).
       </p>
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
         <ExternalCTA href={SUBMIT_PROGRAM_URL}>Submit a program</ExternalCTA>

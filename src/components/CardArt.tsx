@@ -78,7 +78,7 @@ function CardChips({ program }: { program: Program }) {
         alignItems: "center",
       }}
     >
-      <TypeChip label={t?.label} color={t?.color} />
+      <TypeChip label={t?.label} color={t?.textColor} />
       {program.featured && <FeaturedChip />}
     </div>
   );

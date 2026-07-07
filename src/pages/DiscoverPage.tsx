@@ -51,9 +51,48 @@ function passesFilters(p: Program, filters: Filters): boolean {
   return true;
 }
 
+// Deadlines are free-form text ("Sep 15, 2026", "Rolling", "Batch 23 apps open
+// July 2026"), so "soonest first" needs a real date pulled out of the string:
+// month + optional day + 4-digit year. Strings without one ("Rolling",
+// "Annual") sort after every dated deadline, alphabetically among themselves.
+const DEADLINE_DATE_RE =
+  /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*(\d{1,2})?,?\s*(\d{4})\b/i;
+const MONTH_KEYS = [
+  "jan",
+  "feb",
+  "mar",
+  "apr",
+  "may",
+  "jun",
+  "jul",
+  "aug",
+  "sep",
+  "oct",
+  "nov",
+  "dec",
+];
+const deadlineTimeCache = new Map<string, number | null>();
+
+function deadlineTime(deadline: string): number | null {
+  const cached = deadlineTimeCache.get(deadline);
+  if (cached !== undefined) return cached;
+  const m = DEADLINE_DATE_RE.exec(deadline);
+  const time = m
+    ? Date.UTC(Number(m[3]), MONTH_KEYS.indexOf(m[1].toLowerCase()), m[2] ? Number(m[2]) : 1)
+    : null;
+  deadlineTimeCache.set(deadline, time);
+  return time;
+}
+
 const SORTERS: Record<SortKey, (a: Program, b: Program) => number> = {
   featured: (a, b) => Number(b.featured ?? false) - Number(a.featured ?? false),
-  deadline: (a, b) => a.deadline.localeCompare(b.deadline),
+  deadline: (a, b) => {
+    const at = deadlineTime(a.deadline);
+    const bt = deadlineTime(b.deadline);
+    if (at !== null && bt !== null) return at - bt;
+    if (at !== null || bt !== null) return at !== null ? -1 : 1;
+    return a.deadline.localeCompare(b.deadline);
+  },
   campus: (a, b) => {
     const an = CAMPUS_BY_ID[a.campus]?.name ?? "";
     const bn = CAMPUS_BY_ID[b.campus]?.name ?? "";
@@ -637,8 +676,10 @@ function ListRowMeta({ program }: { program: Program }) {
 }
 
 function ListRowActions({ program, onOpen }: { program: Program; onOpen: (id: string) => void }) {
-  const { has, add, remove } = useCompare();
+  const { has, add, remove, isFull } = useCompare();
   const inCompare = has(program.id);
+  // add() is a no-op at the cap — disable instead of swallowing the click.
+  const atCap = isFull && !inCompare;
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10, alignItems: "flex-end" }}>
       <div
@@ -658,15 +699,18 @@ function ListRowActions({ program, onOpen }: { program: Program; onOpen: (id: st
       <div style={{ display: "flex", gap: 6, marginTop: 4 }}>
         <button
           onClick={() => (inCompare ? remove(program.id) : add(program.id))}
+          disabled={atCap}
+          title={atCap ? "Comparison is full — remove a program to add another" : undefined}
           style={{
             border: `1px solid ${inCompare ? "var(--accent)" : "rgba(0,32,51,.15)"}`,
             background: inCompare ? "var(--accent)" : "var(--uc-white)",
-            color: inCompare ? "var(--uc-white)" : "var(--uc-dark-blue)",
+            color: inCompare ? "var(--uc-white)" : atCap ? "var(--uc-gray)" : "var(--uc-dark-blue)",
             borderRadius: 4,
             padding: "8px 12px",
             fontSize: 12,
             fontWeight: 600,
-            cursor: "pointer",
+            cursor: atCap ? "not-allowed" : "pointer",
+            opacity: atCap ? 0.6 : 1,
             display: "inline-flex",
             alignItems: "center",
             gap: 6,
