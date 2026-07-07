@@ -18,6 +18,12 @@ export interface ProgramType {
   id: string;
   label: string;
   color: string;
+  /**
+   * AA-contrast-safe variant of `color` for text and tint-pill fills on white
+   * (DESIGN.md Contrast-First Rule). Same as `color` where the base hue
+   * already clears 4.5:1 on paper.
+   */
+  textColor: string;
 }
 
 export type Stage = "Idea" | "Prototype" | "Pre-seed" | "Scaling";

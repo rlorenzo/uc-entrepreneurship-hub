@@ -50,7 +50,9 @@ export function Pill({ children, color = "#005581", bg, onClick, style }: PillPr
 export function TypePill({ typeId }: { typeId: string }) {
   const t = TYPE_BY_ID[typeId];
   if (!t) return null;
-  return <Pill color={t.color}>{t.label}</Pill>;
+  // Tint pills sit on white surfaces, so use the AA-safe text variant of the
+  // type hue (Contrast-First Rule), not the raw brand color.
+  return <Pill color={t.textColor}>{t.label}</Pill>;
 }
 
 export function CampusBadge({ campusId, dark = false }: { campusId: string; dark?: boolean }) {

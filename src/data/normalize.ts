@@ -359,22 +359,6 @@ export function isRejectedProgramName(name: string | undefined | null): boolean 
 }
 
 /**
- * Specific crawled entries a human has confirmed are not programs (research-admin
- * offices, "explore our centers" overview pages) that the name/keyword
- * heuristics don't catch. Matched by candidate id. Add an id here when you spot
- * one in the catalog. Only affects generated entries — curated programs in
- * programs.ts are never run through the crawler pipeline.
- */
-const REJECTED_PROGRAM_IDS = new Set([
-  "merced-contracts-and-grants-administration", // research-admin office, not a program
-  "sd-explore-uc-san-diego-s-ecosystem", // a "more centers" overview/landing page
-]);
-
-export function isRejectedProgramId(id: string | undefined | null): boolean {
-  return !!id && REJECTED_PROGRAM_IDS.has(id);
-}
-
-/**
  * Cookie-consent / "enable JavaScript" boilerplate the crawler occasionally
  * scrapes as a description when a page's og:description or first paragraph is
  * the cookie banner (e.g. UCI Beall's "This website stores cookies…"). Detected
@@ -468,16 +452,20 @@ export function coerceToProgram(c: ProgramCandidate): Program {
  * curated counterpart are appended.
  *
  * Match policy: a crawled program is paired with a curated one when
- * (a) they share a slug/id, (b) they share a campus and a normalized
- * name, or (c) they share a canonical URL (see `urlKey`). The
+ * (a) they share a campus and a slug/id, (b) they share a campus and a
+ * normalized name, or (c) they share a canonical URL (see `urlKey`). The
  * (campus, name) fallback exists because crawled identifiers rarely
  * line up with curated ones: the crawler campus-prefixes its ids for
  * global uniqueness (`id: "berkeley-skydeck"`) and derives its slug
  * from the page title, so neither reliably equals a curated
  * `id: "skydeck"`. The URL fallback catches the remaining case where
  * the crawler also retitled the page, so the names don't match either.
+ * Every key is campus-scoped: slugs come from page titles, so two campuses
+ * publishing a same-titled page ("Venture Lab") must stay two programs, not
+ * silently collapse into one.
  */
 const programKey = (p: Program): string => p.slug ?? p.id;
+const mergeKey = (p: Program): string => `${p.campus}::${programKey(p)}`;
 const nameKey = (p: Program): string =>
   `${p.campus}::${p.name.normalize("NFKC").trim().toLowerCase()}`;
 /**
@@ -547,7 +535,7 @@ interface MergeIndex {
 function indexCurated(curated: Program[]): MergeIndex {
   const idx: MergeIndex = { byKey: new Map(), byName: new Map(), byUrl: new Map() };
   for (const p of curated) {
-    idx.byKey.set(programKey(p), p);
+    idx.byKey.set(mergeKey(p), p);
     idx.byName.set(nameKey(p), p);
     const url = urlKey(p);
     if (url) idx.byUrl.set(url, idx.byUrl.has(url) ? null : p);
@@ -558,7 +546,7 @@ function indexCurated(curated: Program[]): MergeIndex {
 function findCuratedMatch(c: Program, idx: MergeIndex): Program | undefined {
   const url = urlKey(c);
   return (
-    idx.byKey.get(programKey(c)) ??
+    idx.byKey.get(mergeKey(c)) ??
     idx.byName.get(nameKey(c)) ??
     (url ? (idx.byUrl.get(url) ?? undefined) : undefined)
   );
@@ -580,13 +568,31 @@ function refreshUrlSlot(idx: MergeIndex, existing: Program, merged: Program): vo
 function mergeOneCrawled(c: Program, idx: MergeIndex): void {
   const existing = findCuratedMatch(c, idx);
   const merged = existing ? enrichWithCrawl(existing, c) : c;
-  idx.byKey.set(programKey(merged), merged);
+  idx.byKey.set(mergeKey(merged), merged);
   idx.byName.set(nameKey(merged), merged);
   if (existing) refreshUrlSlot(idx, existing, merged);
+}
+
+/**
+ * Routing keys (`slug ?? id`) must be globally unique — `/program/:id`
+ * resolves by first match. The merge itself is campus-scoped, so two campuses
+ * can legitimately carry the same title-derived slug; the later one loses its
+ * slug and keeps routing by its globally-unique campus-prefixed id.
+ */
+function dedupeRoutingKeys(programs: Program[]): Program[] {
+  const seen = new Set<string>();
+  return programs.map((p) => {
+    const key = programKey(p);
+    if (!seen.has(key)) {
+      seen.add(key);
+      return p;
+    }
+    return { ...p, slug: undefined };
+  });
 }
 
 export function mergePrograms(curated: Program[], crawled: Program[]): Program[] {
   const idx = indexCurated(curated);
   for (const c of crawled) mergeOneCrawled(c, idx);
-  return [...idx.byKey.values()];
+  return dedupeRoutingKeys([...idx.byKey.values()]);
 }

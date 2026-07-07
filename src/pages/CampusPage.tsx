@@ -788,7 +788,9 @@ export function CampusPage() {
     <Page>
       <CampusHero campus={campus} programTypeCount={Object.keys(typeCounts).length} />
       <CampusEcosystem campus={campus} />
-      <CampusPrograms campus={campus} programs={programs} typeCounts={typeCounts} />
+      {/* Keyed by campus so the type-filter state resets when navigating
+          between campuses (the /campus/:id route re-renders in place). */}
+      <CampusPrograms key={campus.id} campus={campus} programs={programs} typeCounts={typeCounts} />
       <CampusNews campus={campus} items={news} />
       <CampusCrossLinks campus={campus} />
     </Page>

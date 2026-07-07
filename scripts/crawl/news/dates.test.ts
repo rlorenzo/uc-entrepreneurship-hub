@@ -34,4 +34,13 @@ describe("toIsoDate", () => {
   it("is independent of the process timezone (anchors to America/Los_Angeles)", () => {
     expect(toIsoDate("2026-04-15T12:00:00")).toBe("2026-04-15T19:00:00.000Z");
   });
+
+  it("rejects out-of-range date fields instead of rolling them over", () => {
+    // A day-first "15/04/2026" must not roll over to 2027-03-04 and pin the
+    // article to the top of the newest-first feed.
+    expect(toIsoDate("15/04/2026")).toBe("");
+    expect(toIsoDate("2026-00-10")).toBe("");
+    expect(toIsoDate("Feb 30, 2026")).toBe("");
+    expect(toIsoDate("04/31/2026")).toBe("");
+  });
 });

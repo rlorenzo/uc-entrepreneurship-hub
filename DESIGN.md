@@ -171,6 +171,7 @@ The palette is the University of California systemwide brand, hex-exact, with a 
 Seven fixed colors, one per program type. They appear on type chips, the industry/type pills, the category markers, and as the second stop of the card-art gradient. Each enters only to distinguish a kind of program.
 
 - **Incubator** UC Blue (#1295D8), **Accelerator** UC Blue Deep (#005581), **Certificate** UC Teal (#00778B), **Funding** UC Gold (#FFB511), **Competition** UC Pink (#E44C9A), **Maker space** UC Orange (#FF6E1B), **Mentorship** UC Gray-Mid (#5B5D5E).
+- Each type also carries an AA-safe `textColor` for text and tint pills on white (Contrast-First Rule): Incubator #005581, Funding #8A6400, Competition #B02A75, Maker space #B34700; the other three hues already clear AA and reuse the base color. The raw hues remain correct as gradient stops, markers, and fills on dark.
 - Extended data hues (charts, accents): **UC Teal-Light** (#00A3AD), **UC Pink-Light** (#FEB2E0), **UC Orange-Light** (#FF8F28).
 
 ### Neutral
@@ -248,10 +249,10 @@ The token scale (`--shadow-sm` → `--shadow-xl`) follows the same dark-blue tin
 ### Pills & Chips
 
 - **Industry Pill** (`Pill`, default tint mode): Fully rounded (999px), background = accent color at ~8% alpha, 1px border at ~20% alpha, text in the accent color (default UC Blue Deep), 12px / 600. Used for industry tags on cards. A solid `bg` variant flips to white text on a filled color.
-- **Type Chip** (on card art): Rounded pill on near-opaque paper (`rgba(255,255,255,0.95)`), the program-type color as text, uppercase 11px / 700, 0.06em tracking. Reads as a printed label over the gradient.
+- **Type Chip** (on card art): Rounded pill on near-opaque paper (`rgba(255,255,255,0.95)`), the program-type color's AA-safe `textColor` variant as text, uppercase 11px / 700, 0.06em tracking. Reads as a printed label over the gradient.
 - **Featured Chip:** Solid UC Gold, UC Dark Blue text, star icon, same pill shape.
 - **Rule:** Tags inform, chips/buttons act. Keep tint pills for classification; reserve solid fills for selected state.
-- **Note (Stitch frontmatter):** The frontmatter is hex-only and cannot express alpha tints or runtime-dynamic values, so the pill/chip color entries there are static stand-ins. The industry pill's real background is the accent at ~8% alpha (the frontmatter shows the composited default `#EBF1F5`), and the type chip's real text color is the runtime program-type color (the frontmatter shows the `#002033` fallback).
+- **Note (Stitch frontmatter):** The frontmatter is hex-only and cannot express alpha tints or runtime-dynamic values, so the pill/chip color entries there are static stand-ins. The industry pill's real background is the accent at ~8% alpha (the frontmatter shows the composited default `#EBF1F5`), and the type chip's real text color is the runtime program-type `textColor` (the AA-safe variant per the Contrast-First Rule; the frontmatter shows the `#002033` fallback).
 
 ### Compare Toggle (signature)
 

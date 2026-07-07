@@ -10,7 +10,6 @@ import {
   isGenericAdmissionsLink,
   pickProgramImage,
   isRejectedProgramName,
-  isRejectedProgramId,
   isBoilerplateDescription,
 } from "./normalize.ts";
 import type { Program } from "./types.ts";
@@ -342,18 +341,6 @@ describe("coerceToProgram description cleaning", () => {
   });
 });
 
-describe("isRejectedProgramId", () => {
-  it("rejects specific human-flagged non-program ids", () => {
-    expect(isRejectedProgramId("merced-contracts-and-grants-administration")).toBe(true);
-    expect(isRejectedProgramId("sd-explore-uc-san-diego-s-ecosystem")).toBe(true);
-  });
-
-  it("keeps real program ids", () => {
-    expect(isRejectedProgramId("berkeley-skydeck")).toBe(false);
-    expect(isRejectedProgramId(undefined)).toBe(false);
-  });
-});
-
 describe("isGenericAdmissionsLink", () => {
   it("flags admissions URLs, passes program application links", () => {
     expect(isGenericAdmissionsLink("https://admissions.ucmerced.edu/first-year/apply")).toBe(true);
@@ -428,6 +415,49 @@ describe("sanitizeImageUrl", () => {
 });
 
 describe("mergePrograms", () => {
+  it("keeps same-slug programs from different campuses as distinct entries", () => {
+    // Slugs derive from page titles, so two campuses publishing a
+    // "Venture Lab" page must not collapse into one catalog entry.
+    const a = prog({
+      id: "berkeley-venture-lab",
+      slug: "venture-lab",
+      name: "Venture Lab",
+      campus: "berkeley",
+    });
+    const b = prog({
+      id: "davis-venture-lab",
+      slug: "venture-lab",
+      name: "Venture Lab",
+      campus: "davis",
+    });
+
+    const merged = mergePrograms([], [a, b]);
+
+    expect(merged).toHaveLength(2);
+    expect(merged.map((p) => p.campus).toSorted()).toEqual(["berkeley", "davis"]);
+    // Routing keys (slug ?? id) stay unique: the later duplicate slug is
+    // dropped so that program routes by its campus-prefixed id instead.
+    const keys = merged.map((p) => p.slug ?? p.id);
+    expect(new Set(keys).size).toBe(2);
+  });
+
+  it("does not pair a crawled record with a same-slug curated program on another campus", () => {
+    const curated = prog({ id: "tmp", slug: "tmp", name: "TMP", campus: "santabarbara" });
+    const crawled = prog({
+      id: "davis-tmp",
+      slug: "tmp",
+      name: "TMP",
+      campus: "davis",
+      website: "https://tmp.ucdavis.edu",
+    });
+
+    const merged = mergePrograms([curated], [crawled]);
+
+    expect(merged).toHaveLength(2);
+    const sb = merged.find((p) => p.campus === "santabarbara");
+    expect(sb?.website).toBeUndefined(); // not enriched by the other campus's page
+  });
+
   it("pairs a crawled record to a curated one by (campus, name) and enriches missing fields", () => {
     // Crawler campus-prefixes its slugs, so slugs differ; the (campus, name)
     // fallback is what lines them up.

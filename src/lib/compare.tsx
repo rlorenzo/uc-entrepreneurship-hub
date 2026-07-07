@@ -5,6 +5,9 @@ export { MAX_COMPARE };
 
 interface CompareApi {
   ids: string[];
+  /** True at the MAX_COMPARE cap — add() is a silent no-op then, so buttons
+   * must disable or relabel instead of pretending the click worked. */
+  isFull: boolean;
   add: (id: string) => void;
   remove: (id: string) => void;
   clear: () => void;
@@ -13,6 +16,7 @@ interface CompareApi {
 
 const CompareCtx = createContext<CompareApi>({
   ids: [],
+  isFull: false,
   add: () => {},
   remove: () => {},
   clear: () => {},
@@ -29,6 +33,7 @@ export function CompareProvider({ children }: { children: ReactNode }) {
   const api = useMemo<CompareApi>(
     () => ({
       ids,
+      isFull: ids.length >= MAX_COMPARE,
       // Return the existing array reference on no-ops so we don't rerender the
       // whole app tree or write unchanged data to localStorage.
       add: (id) =>

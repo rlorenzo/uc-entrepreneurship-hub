@@ -28,6 +28,17 @@ interface WallClock {
 const num = (v: string | undefined, fallback = 0): number =>
   v === undefined ? fallback : Number(v);
 
+// Reject out-of-range fields instead of letting Date.UTC (or the Date.parse
+// fallback — V8 rolls "Feb 30, 2026" to Mar 2 as well) roll them over: a
+// day-first "15/04/2026" must not silently become a wrong future instant and
+// pin the article to the top of the newest-first feed.
+function isValidWallClock(w: WallClock): boolean {
+  if (w.mo < 1 || w.mo > 12 || w.d < 1 || w.h > 23 || w.mi > 59 || w.s > 59) return false;
+  // Round-trip through Date.UTC to catch day overflow per month (Feb 30, Apr 31).
+  const t = new Date(Date.UTC(w.y, w.mo - 1, w.d));
+  return t.getUTCMonth() === w.mo - 1 && t.getUTCDate() === w.d;
+}
+
 // Does the string carry an explicit timezone we should trust as-is?
 function hasExplicitZone(s: string): boolean {
   return (
@@ -99,6 +110,10 @@ export function toIsoDate(raw: string): string {
   if (!hasExplicitZone(cleaned)) {
     const wall = parseWallClock(cleaned);
     if (wall) {
+      // A recognized shape with impossible fields is garbage, not a date —
+      // return "" rather than fall through to Date.parse, which would roll
+      // it over into a wrong (often future) instant.
+      if (!isValidWallClock(wall)) return "";
       const t = pacificWallClockToUtc(wall);
       return Number.isFinite(t) ? new Date(t).toISOString() : "";
     }

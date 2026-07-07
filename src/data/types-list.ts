@@ -1,13 +1,16 @@
 import type { ProgramType } from "./types";
 
+// textColor: AA-safe on white per the Contrast-First Rule. Bright brand hues
+// get darkened derivatives (same pattern as the derived status tokens);
+// hues that already clear 4.5:1 on paper reuse the base color.
 export const TYPES: ProgramType[] = [
-  { id: "incubator", label: "Incubator", color: "#1295D8" },
-  { id: "accelerator", label: "Accelerator", color: "#005581" },
-  { id: "certificate", label: "Certificate", color: "#00778B" },
-  { id: "funding", label: "Funding", color: "#FFB511" },
-  { id: "competition", label: "Competition", color: "#E44C9A" },
-  { id: "maker", label: "Maker space", color: "#FF6E1B" },
-  { id: "mentorship", label: "Mentorship", color: "#5B5D5E" },
+  { id: "incubator", label: "Incubator", color: "#1295D8", textColor: "#005581" },
+  { id: "accelerator", label: "Accelerator", color: "#005581", textColor: "#005581" },
+  { id: "certificate", label: "Certificate", color: "#00778B", textColor: "#00778B" },
+  { id: "funding", label: "Funding", color: "#FFB511", textColor: "#8A6400" },
+  { id: "competition", label: "Competition", color: "#E44C9A", textColor: "#B02A75" },
+  { id: "maker", label: "Maker space", color: "#FF6E1B", textColor: "#B34700" },
+  { id: "mentorship", label: "Mentorship", color: "#5B5D5E", textColor: "#5B5D5E" },
 ];
 
 export const TYPE_BY_ID: Record<string, ProgramType> = Object.fromEntries(

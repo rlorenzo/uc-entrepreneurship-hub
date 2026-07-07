@@ -851,6 +851,10 @@ const CURATED: Program[] = [
 // retitles itself the id changes and the entry resurfaces for re-review,
 // which is intended.
 const EXCLUDED_CRAWLED_IDS = new Set<string>([
+  // UC Merced — research-admin office, not a program
+  "merced-contracts-and-grants-administration",
+  // UC San Diego — a "more centers" overview/landing page
+  "sd-explore-uc-san-diego-s-ecosystem",
   // UCSF — service/announcement pages around the real programs
   "sf-2025-2026-catalyst-accelerator-awardees", // awardee announcement, not a program
   "sf-engagement-opportunity-development", // internal healthtech-commercialization team page

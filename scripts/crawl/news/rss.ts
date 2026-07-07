@@ -162,8 +162,10 @@ export function userAgentForFeed(feedUrl: string): string {
 // file-data → outbound-request flow CodeQL flags broken (js/file-access-to-http).
 //
 // Adding a new RSS site means adding its feed URL here as well as in
-// sites.json; an unlisted URL is refused rather than fetched.
-const ALLOWED_RSS_FEEDS = [
+// sites.json; an unlisted URL is refused rather than fetched. Exported so
+// rss.test.ts can cross-validate the two lists — a sites.json entry missing
+// from here would otherwise only fail at crawl runtime.
+export const ALLOWED_RSS_FEEDS = [
   "https://innovation.uci.edu/news/feed/",
   "https://begin.berkeley.edu/feed/",
   "https://innovation.ucsb.edu/rss.xml",

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCompare } from "@/lib/compare";
 import { useIsMobile } from "@/lib/useMediaQuery";
@@ -201,6 +201,8 @@ interface MobileDrawerProps {
 }
 
 function MobileDrawer({ open, onClose, pathname }: MobileDrawerProps) {
+  const panelRef = useRef<HTMLDivElement>(null);
+
   // Close drawer on Escape — required for keyboard users since the backdrop
   // is non-focusable (clicking it closes via mouse only).
   useEffect(() => {
@@ -211,6 +213,34 @@ function MobileDrawer({ open, onClose, pathname }: MobileDrawerProps) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
+
+  // aria-modal promises focus stays inside the dialog: move focus in on open,
+  // wrap Tab/Shift+Tab at the panel edges, and return focus to the opener
+  // (the hamburger button) on close.
+  useEffect(() => {
+    if (!open) return;
+    const opener = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const panel = panelRef.current;
+    panel?.querySelector<HTMLElement>("button, a[href]")?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Tab" || !panel) return;
+      const focusables = panel.querySelectorAll<HTMLElement>("button, a[href]");
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+      const inside = active !== null && panel.contains(active);
+      if (e.shiftKey ? active === first || !inside : active === last || !inside) {
+        e.preventDefault();
+        (e.shiftKey ? last : first).focus();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      opener?.focus();
+    };
+  }, [open]);
 
   if (!open) return null;
   return (
@@ -242,6 +272,7 @@ function MobileDrawer({ open, onClose, pathname }: MobileDrawerProps) {
         }}
       />
       <div
+        ref={panelRef}
         style={{
           position: "relative",
           background: "var(--uc-white)",

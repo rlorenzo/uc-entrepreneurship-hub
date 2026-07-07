@@ -15,11 +15,21 @@ import { AboutPage } from "@/pages/AboutPage";
 // in which case scroll that section into view. Instant scroll, so it's
 // reduced-motion-safe. The DOM is committed before this effect runs, so the
 // target element is already present.
+function decodeHashId(hash: string): string {
+  // The hash comes straight from the address bar; a malformed percent-sequence
+  // must not throw and blank the whole app.
+  try {
+    return decodeURIComponent(hash.slice(1));
+  } catch {
+    return hash.slice(1);
+  }
+}
+
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
     if (hash) {
-      const el = document.getElementById(decodeURIComponent(hash.slice(1)));
+      const el = document.getElementById(decodeHashId(hash));
       if (el) {
         el.scrollIntoView();
         return;
