@@ -95,11 +95,10 @@ export function tryCanonicalType(raw: string | undefined | null): string | null 
 /**
  * Permissive classifier — back-compat wrapper that always returns a
  * canonical id, falling back to "incubator" when nothing matches.
- * Used by `coerceToProgram` below; not exported because no external
- * consumer needs it. Promote to `export` if/when the UI starts calling
- * it directly.
+ * Exported so the crawler's extractor shares the same fallback policy
+ * instead of re-encoding the "incubator" default.
  */
-function canonicalType(raw: string | undefined | null): string {
+export function canonicalType(raw: string | undefined | null): string {
   return tryCanonicalType(raw) ?? "incubator";
 }
 
@@ -195,11 +194,9 @@ export interface ProgramCandidate {
   selectivity?: string;
   cohortSize?: number | null;
   deadline?: string;
-  deadlines?: { label?: string; date?: string }[];
   website?: string;
   applicationLink?: string;
   associatedCenter?: string;
-  tags?: string[];
   sourceUrl?: string;
   imageUrl?: string;
   lastUpdated?: string;
@@ -429,13 +426,11 @@ export function coerceToProgram(c: ProgramCandidate): Program {
     selectivity: trimOr(c.selectivity, FIELD_FALLBACKS.selectivity),
     cohortSize: c.cohortSize ?? null,
     deadline: trimOr(c.deadline, FIELD_FALLBACKS.deadline),
-    deadlines: c.deadlines,
     website: c.website,
     // Drop generic admissions CTAs (undergrad admissions ≠ program application);
     // the apply CTA then falls back to website/sourceUrl (the program's page).
     applicationLink: isGenericAdmissionsLink(c.applicationLink) ? undefined : c.applicationLink,
     associatedCenter: c.associatedCenter,
-    tags: c.tags,
     lastUpdated: c.lastUpdated,
     sourceUrl: c.sourceUrl,
     imageUrl: programHeroImage(c.imageUrl, c.sourceUrl),
@@ -500,10 +495,8 @@ const ENRICHABLE_FIELDS = [
   "website",
   "applicationLink",
   "associatedCenter",
-  "tags",
   "sourceUrl",
   "imageUrl",
-  "deadlines",
 ] as const satisfies readonly (keyof Program)[];
 
 function enrichWithCrawl(existing: Program, crawled: Program): Program {

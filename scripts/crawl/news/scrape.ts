@@ -3,14 +3,16 @@
 // pattern, then visits each article page to pull title, summary, image,
 // and publish date.
 //
-// Self-contained — does not share the browser with scripts/crawl/run.ts
-// because that runner is a one-shot top-level await module. Spinning up
-// a separate Chromium for the news pass is a few seconds of overhead and
-// keeps the pipelines decoupled.
+// Uses the news pipeline's shared headless browser (see getHeadlessBrowser in
+// ../playwright.ts) so each configured site doesn't pay a multi-second
+// Chromium cold start; the news runner closes it at shutdown. Still decoupled
+// from scripts/crawl/run.ts, which is a separate one-shot process.
 
-import { chromium, type Browser, type Page } from "playwright";
+import type { Browser, Page } from "playwright";
 
-import { gotoWithFallback, withPage } from "../playwright.ts";
+import { getHeadlessBrowser, gotoWithFallback, withPage } from "../playwright.ts";
+import { IN_PAGE_HERO_IMAGE_FN } from "../page-snippets.ts";
+import { safeUrl, hostOf } from "../url.ts";
 import { buildArticleId } from "./id.ts";
 import { toIsoDate } from "./dates.ts";
 import type { NewsCrawlError, NewsItem } from "./types.ts";
@@ -64,23 +66,9 @@ const inPageNewsExtractor = `() => {
     meta("description") ||
     text(document.querySelector("article p, main p, .lead, p"));
 
-  let imageUrl = meta("og:image") || "";
-  if (!imageUrl) {
-    // UCSB / Drupal pages don't expose og:image but include a hero <img>
-    // inside the article body. Take the first non-icon image we find.
-    const imgs = Array.from(document.querySelectorAll("article img, main img, .blog-post img"));
-    for (const img of imgs) {
-      const src = img.getAttribute("src");
-      if (!src) continue;
-      if (/icon|logo|sprite|avatar/i.test(src)) continue;
-      try {
-        imageUrl = new URL(src, location.href).toString();
-        break;
-      } catch (e) {
-        // skip unparseable src
-      }
-    }
-  }
+  // UCSB / Drupal pages don't expose og:image but include a hero <img>
+  // inside the article body; the shared heuristic covers both shapes.
+  const imageUrl = (${IN_PAGE_HERO_IMAGE_FN})();
 
   let publishedAt = "";
   const ldNodes = Array.from(document.querySelectorAll('script[type="application/ld+json"]'));
@@ -139,14 +127,6 @@ interface RawArticle {
   publishedAt: string;
 }
 
-function safeUrl(href: string): URL | null {
-  try {
-    return new URL(href);
-  } catch {
-    return null;
-  }
-}
-
 async function discoverArticleLinks(
   page: Page,
   listingUrl: string,
@@ -174,10 +154,6 @@ function passesKeywordFilter(raw: RawArticle, allowlist: string[] | undefined): 
   if (!allowlist?.length) return true;
   const hay = `${raw.title} ${raw.summary}`.toLowerCase();
   return allowlist.some((k) => hay.includes(k.toLowerCase()));
-}
-
-function hostOf(url: string): string | undefined {
-  return safeUrl(url)?.hostname;
 }
 
 async function harvestPage(
@@ -296,23 +272,18 @@ async function extractItems(
 export async function scrapeNewsListing(
   site: PlaywrightSite,
 ): Promise<{ items: NewsItem[]; errors: NewsCrawlError[] }> {
-  const browser = await chromium.launch({
-    headless: true,
-    args: ["--disable-blink-features=AutomationControlled"],
-  });
-  try {
-    const pattern = new RegExp(site.articleLinkPattern);
-    const denylist = (site.linkDenylist ?? []).map((p) => new RegExp(p));
-    const listing = await harvestAllListings(browser, site, pattern, denylist);
-    if (listing.links.length === 0 && listing.errors.length > 0) {
-      return { items: [], errors: listing.errors };
-    }
-    const extracted = await extractItems(browser, site, listing.links);
-    return {
-      items: extracted.items,
-      errors: [...listing.errors, ...extracted.errors],
-    };
-  } finally {
-    await browser.close();
+  // Shared across sites and with the image enricher; the news runner closes
+  // it at shutdown via closeHeadlessBrowser().
+  const browser = await getHeadlessBrowser();
+  const pattern = new RegExp(site.articleLinkPattern);
+  const denylist = (site.linkDenylist ?? []).map((p) => new RegExp(p));
+  const listing = await harvestAllListings(browser, site, pattern, denylist);
+  if (listing.links.length === 0 && listing.errors.length > 0) {
+    return { items: [], errors: listing.errors };
   }
+  const extracted = await extractItems(browser, site, listing.links);
+  return {
+    items: extracted.items,
+    errors: [...listing.errors, ...extracted.errors],
+  };
 }

@@ -39,8 +39,13 @@ function programHaystack(p: Program): string {
   return `${p.name} ${p.desc} ${p.industries.join(" ")} ${campusName}`.toLowerCase();
 }
 
-function passesQuery(p: Program, q: string): boolean {
-  return !q || programHaystack(p).includes(q.toLowerCase());
+// PROGRAMS is a static module constant, so build each program's search
+// haystack once at module load instead of re-concatenating and re-lowercasing
+// four fields per program on every keystroke.
+const HAYSTACK_BY_PROGRAM = new Map<Program, string>(PROGRAMS.map((p) => [p, programHaystack(p)]));
+
+function passesQuery(p: Program, qLower: string): boolean {
+  return !qLower || (HAYSTACK_BY_PROGRAM.get(p) ?? programHaystack(p)).includes(qLower);
 }
 
 function passesFilters(p: Program, filters: Filters): boolean {
@@ -1125,7 +1130,8 @@ function SearchBox({ q, setQ }: { q: string; setQ: (v: string) => void }) {
 // ── page entry ────────────────────────────────────────────────────────
 
 function applyFiltersAndSort(q: string, filters: Filters, sort: SortKey): Program[] {
-  const list = PROGRAMS.filter((p) => passesQuery(p, q) && passesFilters(p, filters));
+  const qLower = q.toLowerCase(); // once per recompute, not once per program
+  const list = PROGRAMS.filter((p) => passesQuery(p, qLower) && passesFilters(p, filters));
   return [...list].toSorted(SORTERS[sort]);
 }
 

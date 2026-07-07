@@ -1,3 +1,10 @@
+/** A curated center/institute shown in a campus page's ecosystem section. */
+export interface EcosystemCenter {
+  name: string;
+  desc: string;
+  url?: string;
+}
+
 export interface Campus {
   id: string;
   name: string;
@@ -12,6 +19,8 @@ export interface Campus {
   founded: number;
   /** Innovation hub / entrepreneurship office home page (used as crawler seed). */
   hubUrl?: string;
+  /** Curated major centers driving entrepreneurship on this campus. */
+  ecosystem: EcosystemCenter[];
 }
 
 export interface ProgramType {
@@ -27,12 +36,6 @@ export interface ProgramType {
 }
 
 export type Stage = "Idea" | "Prototype" | "Pre-seed" | "Scaling";
-
-export interface ProgramDeadline {
-  label?: string;
-  /** ISO 8601 date string when known, otherwise free-form. */
-  date?: string;
-}
 
 export interface Program {
   id: string;
@@ -54,16 +57,12 @@ export interface Program {
   cohortSize: number | null;
   /** Free-form deadline label kept for back-compat with curated cards. */
   deadline: string;
-  /** Structured deadlines harvested from program pages. */
-  deadlines?: ProgramDeadline[];
   /** Canonical program homepage. */
   website?: string;
   /** Direct application link if separate from `website`. */
   applicationLink?: string;
   /** The center, lab, or office that runs the program. */
   associatedCenter?: string;
-  /** Free-form tags layered on top of `industries` for richer filtering. */
-  tags?: string[];
   /** ISO 8601 timestamp of the most recent successful crawl/refresh. */
   lastUpdated?: string;
   /** The page the program was extracted from, when crawled. */

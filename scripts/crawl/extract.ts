@@ -14,13 +14,15 @@
 // is an empty array, which the build step will silently drop.
 
 import {
+  canonicalType,
   detectIndustriesInText,
   isRejectedProgramName,
   pickProgramImage,
   slugify,
-  tryCanonicalType,
   type ProgramCandidate,
 } from "../../src/data/normalize.ts";
+import { IN_PAGE_BODY_IMAGE_FN } from "./page-snippets.ts";
+import { safeUrl } from "./url.ts";
 
 export interface CampusOverrides {
   allowName?: (name: string) => boolean;
@@ -99,15 +101,6 @@ const DENY_PATHS = [
 
 const DENY_EXT = /\.(pdf|jpg|jpeg|png|gif|svg|webp|mp4|zip|docx?|xlsx?|pptx?)(\?|$)/i;
 
-function parseHref(href: string): URL | null {
-  if (!href) return null;
-  try {
-    return new URL(href);
-  } catch {
-    return null;
-  }
-}
-
 function isDeniedPath(url: URL): boolean {
   if (DENY_EXT.test(url.pathname)) return true;
   const path = url.pathname.toLowerCase();
@@ -146,7 +139,7 @@ export function isProgramLink(
   seedOrigin: string,
   overrides: CampusOverrides = {},
 ): boolean {
-  const url = parseHref(href);
+  const url = safeUrl(href);
   if (!url || isDeniedPath(url)) return false;
 
   // When an allowlist is configured, it's the authoritative pass
@@ -227,22 +220,9 @@ export const inPageExtractor = `() => {
     ".section--hero, .hero--page, .page-hero, .hero-banner, .hero-section, .hero, header.hero",
   );
 
-  // A body <img src> can be path-relative, so resolve it against the page URL
-  // (origin-only resolution at build time would drop the path segment).
-  const bodyImgEl = Array.from(
-    document.querySelectorAll("article img, main img, .entry-content img, .post-content img"),
-  ).find((el) => {
-    const src = el.getAttribute("src");
-    return src && !/icon|logo|sprite|avatar/i.test(src);
-  });
-  let bodyImg = bodyImgEl?.getAttribute("src") || "";
-  if (bodyImg) {
-    try {
-      bodyImg = new URL(bodyImg, location.href).toString();
-    } catch {
-      bodyImg = "";
-    }
-  }
+  // Shared body-image heuristic (resolves path-relative srcs against the page
+  // URL — origin-only resolution at build time would drop the path segment).
+  const bodyImg = (${IN_PAGE_BODY_IMAGE_FN})();
 
   const images = [meta("og:image"), meta("twitter:image"), bgImage(heroEl), bodyImg].filter(Boolean);
 
@@ -327,7 +307,7 @@ function assembleCandidate(page: NormalizedPage, url: string, campus: string): P
     slug,
     name: page.name,
     campus,
-    type: tryCanonicalType(combined) ?? "incubator",
+    type: canonicalType(combined),
     desc: page.description.trim(),
     longDescription: blankToUndefined(page.longDescription.trim()),
     industries: detectIndustriesInText(`${page.name} ${page.longDescription}`),

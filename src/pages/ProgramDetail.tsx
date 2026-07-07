@@ -1,6 +1,7 @@
 import { type ReactNode } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Page } from "@/components/Page";
+import { DarkBreadcrumbs } from "@/components/Breadcrumbs";
 import { NotFound } from "@/components/NotFound";
 import { ProgramCard } from "@/components/ProgramCard";
 import { CAMPUS_BY_ID } from "@/data/campuses";
@@ -9,13 +10,13 @@ import { PROGRAMS } from "@/data/programs";
 import { isGenericAdmissionsLink } from "@/data/normalize";
 import type { Campus, Program, ProgramType } from "@/data/types.ts";
 import { MAX_COMPARE, useCompare } from "@/lib/compare";
+import { formatNewsDate } from "@/lib/dates";
 import { useIsMobile } from "@/lib/useMediaQuery";
 import { programGradient } from "@/lib/programGradient";
 import { isValidWebUrl } from "@/lib/url";
 import {
   I_Calendar,
   I_Check,
-  I_Chevron,
   I_Clock,
   I_External,
   I_Money,
@@ -32,8 +33,8 @@ interface DetailVM {
   program: Program;
   campus: Campus;
   type: ProgramType;
-  applyHref: string;
-  isExternal: boolean;
+  /** Validated http(s) apply/visit target; undefined when no URL is on record. */
+  applyHref: string | undefined;
   hasSeparateWebsite: boolean;
   related: Program[];
 }
@@ -44,14 +45,14 @@ function buildVM(program: Program): DetailVM | null {
   // A crawled record can carry a campus/type id with no metadata entry (e.g. a
   // bad sites.json seed); render not-found instead of crashing on .name below.
   if (!campus || !type) return null;
-  const applyHref =
-    [program.applicationLink, program.website, program.sourceUrl].find(isValidWebUrl) ?? "#";
-  const isExternal = applyHref !== "#";
+  const applyHref = [program.applicationLink, program.website, program.sourceUrl].find(
+    isValidWebUrl,
+  );
   const hasSeparateWebsite = Boolean(
     program.website && isValidWebUrl(program.website) && program.website !== applyHref,
   );
   const related = PROGRAMS.filter((p) => isRelated(p, program)).slice(0, 3);
-  return { program, campus, type, applyHref, isExternal, hasSeparateWebsite, related };
+  return { program, campus, type, applyHref, hasSeparateWebsite, related };
 }
 
 function isRelated(p: Program, target: Program): boolean {
@@ -62,9 +63,9 @@ function isRelated(p: Program, target: Program): boolean {
 
 // ── shared building blocks ─────────────────────────────────────────────
 
-function ExternalAnchorProps(href: string, isExternal: boolean) {
+function ExternalAnchorProps(href: string | undefined) {
   // Re-validate at render: never emit a live href for a non-http(s) URL.
-  const safe = isExternal && isValidWebUrl(href);
+  const safe = isValidWebUrl(href);
   return {
     href: safe ? href : "#",
     target: safe ? "_blank" : undefined,
@@ -96,37 +97,16 @@ function DetailBlock({ title, children }: { title: string; children: ReactNode }
 // ── hero section ───────────────────────────────────────────────────────
 
 function HeroBreadcrumbs({ campus, programName }: { campus: Campus; programName: string }) {
-  const linkStyle = {
-    color: "var(--uc-blue-xlight)",
-    textDecoration: "none",
-    fontWeight: 600,
-  } as const;
   return (
-    <div
-      style={{
-        fontSize: 13,
-        color: "var(--uc-blue-xlight)",
-        display: "flex",
-        gap: 8,
-        alignItems: "center",
-        flexWrap: "wrap",
-        marginBottom: 32,
-      }}
-    >
-      <Link to="/" style={linkStyle}>
-        Home
-      </Link>
-      <I_Chevron size={12} />
-      <Link to="/discover" style={linkStyle}>
-        Programs
-      </Link>
-      <I_Chevron size={12} />
-      <Link to={`/campus/${campus.id}`} style={linkStyle}>
-        {campus.name}
-      </Link>
-      <I_Chevron size={12} />
-      <span style={{ color: "var(--uc-white)", fontWeight: 600 }}>{programName}</span>
-    </div>
+    <DarkBreadcrumbs
+      trail={[
+        { label: "Home", to: "/" },
+        { label: "Programs", to: "/discover" },
+        { label: campus.name, to: `/campus/${campus.id}` },
+        { label: programName },
+      ]}
+      style={{ marginBottom: 32 }}
+    />
   );
 }
 
@@ -202,7 +182,7 @@ function HeroPrimaryCTA({ vm }: { vm: DetailVM }) {
   const label = applyCtaLabel(vm.program, "Visit program page");
   return (
     <a
-      {...ExternalAnchorProps(vm.applyHref, vm.isExternal)}
+      {...ExternalAnchorProps(vm.applyHref)}
       style={{
         background: "var(--uc-gold)",
         color: "var(--uc-dark-blue)",
@@ -290,7 +270,7 @@ function HeroLeft({ vm }: { vm: DetailVM }) {
         {vm.program.desc}
       </p>
       <div style={{ display: "flex", gap: 14, marginTop: 28, flexWrap: "wrap" }}>
-        {vm.isExternal && <HeroPrimaryCTA vm={vm} />}
+        {vm.applyHref && <HeroPrimaryCTA vm={vm} />}
         <HeroCompareToggle programId={vm.program.id} />
       </div>
     </div>
@@ -616,9 +596,9 @@ function ApplyCard({ vm }: { vm: DetailVM }) {
         Applications go directly to the program team at {vm.campus.name}. Deadline:{" "}
         <strong>{vm.program.deadline}</strong>.
       </p>
-      {vm.isExternal ? (
+      {vm.applyHref ? (
         <a
-          {...ExternalAnchorProps(vm.applyHref, vm.isExternal)}
+          {...ExternalAnchorProps(vm.applyHref)}
           style={{
             display: "block",
             textAlign: "center",
@@ -651,7 +631,7 @@ function ApplyCard({ vm }: { vm: DetailVM }) {
       )}
       {vm.hasSeparateWebsite && vm.program.website && (
         <a
-          {...ExternalAnchorProps(vm.program.website, true)}
+          {...ExternalAnchorProps(vm.program.website)}
           style={{
             display: "block",
             textAlign: "center",
@@ -737,8 +717,9 @@ function RunByCard({ campus }: { campus: Campus }) {
 // records say so plainly instead of showing nothing.
 function SourceFooter({ sourceUrl, lastUpdated }: { sourceUrl?: string; lastUpdated?: string }) {
   const hasSource = isValidWebUrl(sourceUrl);
-  const parsed = lastUpdated ? new Date(lastUpdated) : null;
-  const refreshed = parsed && !Number.isNaN(parsed.getTime()) ? parsed : null;
+  // Same Pacific-anchored formatter the news surfaces use ("" on invalid), so
+  // refresh dates render one consistent style site-wide.
+  const refreshed = lastUpdated ? formatNewsDate(lastUpdated) : "";
   return (
     <div
       style={{
@@ -766,14 +747,7 @@ function SourceFooter({ sourceUrl, lastUpdated }: { sourceUrl?: string; lastUpda
       ) : refreshed ? null : (
         <span style={{ fontWeight: 600 }}>Curated by the UC Entrepreneurship Hub</span>
       )}
-      {refreshed && (
-        <div style={{ marginTop: 4, opacity: 0.8 }}>
-          Refreshed{" "}
-          {refreshed.toLocaleDateString(undefined, {
-            timeZone: "America/Los_Angeles",
-          })}
-        </div>
-      )}
+      {refreshed && <div style={{ marginTop: 4, opacity: 0.8 }}>Refreshed {refreshed}</div>}
     </div>
   );
 }

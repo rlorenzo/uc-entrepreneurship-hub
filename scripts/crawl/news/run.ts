@@ -9,15 +9,15 @@
 // CLI flags:
 //   --campus=irvine,berkeley   Restrict to a subset.
 
-import { readFile, writeFile, mkdir } from "node:fs/promises";
-import { existsSync } from "node:fs";
+import { readFile, mkdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 import { fetchRssNews } from "./rss.ts";
 import { scrapeNewsListing } from "./scrape.ts";
 import { enrichWithImages } from "./enrich.ts";
-import { closeHeadedBrowser } from "../playwright.ts";
+import { closeHeadedBrowser, closeHeadlessBrowser } from "../playwright.ts";
+import { persistPreservingPrevious } from "../persist.ts";
 import { filterSitesByCampus, parseCampusFlag } from "../cli.ts";
 import type { NewsCrawlResult, NewsItem } from "./types.ts";
 
@@ -147,18 +147,13 @@ async function crawlSite(site: SiteConfig): Promise<NewsCrawlResult> {
 }
 
 async function persistResult(result: NewsCrawlResult): Promise<void> {
-  const path = join(OUT_DIR, `${result.campus}.json`);
-  // If this run came back empty and we already have a file on disk, keep the
-  // previous run rather than overwriting with an empty list. Not gated on
-  // error stage: a feed that migrated to Atom (zero <item> blocks, no error),
-  // an HTTP-200 maintenance page, or every article fetch failing would all
-  // otherwise blank the campus's published feed. Same pattern as the program
-  // crawler.
-  if (result.items.length === 0 && existsSync(path)) {
-    console.log(`  ⓘ preserving previous ${result.campus}.json — no items this run`);
-    return;
-  }
-  await writeFile(path, JSON.stringify(result, null, 2));
+  await persistPreservingPrevious({
+    path: join(OUT_DIR, `${result.campus}.json`),
+    label: `${result.campus}.json`,
+    isEmpty: result.items.length === 0,
+    emptyReason: "no items this run",
+    result,
+  });
 }
 
 const completed: NewsCrawlResult[] = [];
@@ -169,8 +164,10 @@ try {
     await persistResult(result);
   }
 } finally {
-  // Shut down the shared headed-fallback Chrome, if any fetch tripped it —
+  // Shut down the shared headless browser (listing scrapes + image
+  // enrichment) and the headed-fallback Chrome, if any fetch tripped it —
   // an open browser would keep this one-shot script alive.
+  await closeHeadlessBrowser();
   await closeHeadedBrowser();
 }
 

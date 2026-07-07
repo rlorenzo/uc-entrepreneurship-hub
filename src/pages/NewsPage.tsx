@@ -70,29 +70,33 @@ function isFilterActive(state: FilterState): boolean {
 }
 
 interface NewsFilters extends FilterState {
+  /**
+   * The whole filter state as one object with a stable identity per change —
+   * usable directly as a hook dependency, so adding a fourth filter can't
+   * silently miss a hand-maintained dep list.
+   */
+  state: FilterState;
   setQuery: (q: string) => void;
   toggleCampus: (id: string) => void;
   setWindow: (w: TimeWindow) => void;
   reset: () => void;
 }
 
+const INITIAL_FILTERS: FilterState = { query: "", selectedCampuses: new Set(), window: "all" };
+
 function useNewsFilters(): NewsFilters {
-  const [query, setQuery] = useState("");
-  const [selectedCampuses, setSelectedCampuses] = useState<Set<string>>(new Set());
-  const [window, setWindow] = useState<TimeWindow>("all");
+  const [state, setState] = useState<FilterState>(INITIAL_FILTERS);
+  const setQuery = (query: string) => setState((s) => ({ ...s, query }));
+  const setWindow = (window: TimeWindow) => setState((s) => ({ ...s, window }));
   const toggleCampus = (id: string) =>
-    setSelectedCampuses((prev) => {
-      const next = new Set(prev);
+    setState((s) => {
+      const next = new Set(s.selectedCampuses);
       if (next.has(id)) next.delete(id);
       else next.add(id);
-      return next;
+      return { ...s, selectedCampuses: next };
     });
-  const reset = () => {
-    setQuery("");
-    setSelectedCampuses(new Set());
-    setWindow("all");
-  };
-  return { query, selectedCampuses, window, setQuery, toggleCampus, setWindow, reset };
+  const reset = () => setState(INITIAL_FILTERS);
+  return { ...state, state, setQuery, toggleCampus, setWindow, reset };
 }
 
 function NewsHero() {
@@ -398,7 +402,7 @@ function NewsResults({ items, filters }: { items: NewsItem[]; filters: NewsFilte
   // pagination whenever the page re-renders for an unrelated reason).
   useEffect(() => {
     setVisible(PAGE_SIZE);
-  }, [filters.query, filters.selectedCampuses, filters.window]);
+  }, [filters.state]);
   return (
     <section style={{ padding: isMobile ? "24px 20px 64px" : "32px 32px 96px" }}>
       <div style={{ maxWidth: 1440, margin: "0 auto" }}>
@@ -423,13 +427,7 @@ function NewsResults({ items, filters }: { items: NewsItem[]; filters: NewsFilte
 export function NewsPage() {
   const filters = useNewsFilters();
   const campusOptions = useMemo(() => buildCampusOptions(NEWS), []);
-  // Depend on the primitive filter values: useNewsFilters returns a fresh
-  // object each render, so [filters] would never actually memoize.
-  const filtered = useMemo(
-    () => applyFilters(NEWS, filters),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [filters.query, filters.selectedCampuses, filters.window],
-  );
+  const filtered = useMemo(() => applyFilters(NEWS, filters.state), [filters.state]);
   return (
     <Page>
       <NewsHero />

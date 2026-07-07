@@ -588,5 +588,3 @@ export const CRAWLED_PROGRAMS: Program[] = [
     "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2026-02/ALS-Page-Banner.jpg"
   }
 ];
-
-export const CRAWLED_AT: string | null = "2026-07-05T13:37:11.884Z";

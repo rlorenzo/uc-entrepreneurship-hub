@@ -14,22 +14,35 @@ const FALLBACK_USER_AGENT =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " +
   "(KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36";
 
-// UC Merced's news + research sites sit behind Akamai Bot Manager. They
-// allowlist a specific UA for our crawler; because this repo is public, that
-// string lives in the MERCED_USER_AGENT secret (see .env.example and
-// weekly-crawl.yml), never hardcoded. Present it on every *.ucmerced.edu
-// request — RSS feed fetch, robots.txt, and Playwright page loads — so one
-// allowlist exception clears the whole crawl, on whichever ucmerced.edu host
-// they add it. Returns undefined when the secret is unset or the host isn't
-// Merced, so each caller keeps its own default UA. The `(^|\.)` anchor stops a
-// look-alike host like ucmerced.edu.evil.test from matching.
-export function mercedUserAgent(url: string): string | undefined {
-  const ua = process.env.MERCED_USER_AGENT;
-  if (!ua) return undefined;
+// Some campus WAFs (Akamai Bot Manager) allowlist a specific UA for our
+// crawler. Because this repo is public, those strings live in secrets (see
+// .env.example and weekly-crawl.yml), never hardcoded. Every fetch path —
+// RSS feed download, robots.txt, Playwright page loads — consults this table
+// via hostUserAgentOverride, so onboarding the next WAF'd campus is one row
+// here plus its secret; no new per-campus helper and no call-site edits.
+const HOST_UA_OVERRIDES: { hostSuffix: string; envVar: string }[] = [
+  // UC Merced's news + research sites. One allowlist exception clears the
+  // whole crawl, on whichever ucmerced.edu host they add it.
+  { hostSuffix: "ucmerced.edu", envVar: "MERCED_USER_AGENT" },
+];
+
+/**
+ * The allowlisted UA for a host, or undefined when no override matches (or
+ * its secret is unset) so each caller keeps its own default UA. The `(^|\.)`
+ * anchor stops a look-alike host like ucmerced.edu.evil.test from matching.
+ */
+export function hostUserAgentOverride(url: string): string | undefined {
+  let hostname: string;
   try {
-    if (/(^|\.)ucmerced\.edu$/i.test(new URL(url).hostname)) return ua;
+    hostname = new URL(url).hostname;
   } catch {
-    // unparseable URL — no override
+    return undefined; // unparseable URL — no override
+  }
+  for (const { hostSuffix, envVar } of HOST_UA_OVERRIDES) {
+    const ua = process.env[envVar];
+    if (ua && new RegExp(`(^|\\.)${hostSuffix.replaceAll(".", "\\.")}$`, "i").test(hostname)) {
+      return ua;
+    }
   }
   return undefined;
 }

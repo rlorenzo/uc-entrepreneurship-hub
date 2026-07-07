@@ -10,7 +10,8 @@
 
 import { buildArticleId } from "./id.ts";
 import { toIsoDate } from "./dates.ts";
-import { mercedUserAgent } from "../user-agent.ts";
+import { hostUserAgentOverride } from "../user-agent.ts";
+import { hostOf } from "../url.ts";
 import {
   fetchBodyWithHeadedChrome,
   headedFallbackEnabled,
@@ -151,7 +152,7 @@ const FETCH_USER_AGENT = "uc-entrepreneurship-hub-crawler/1.0 (+github.com/rlore
 // Chrome; if that also fails, the outage guard in run.ts preserves the
 // previous merced.json.
 export function userAgentForFeed(feedUrl: string): string {
-  return mercedUserAgent(feedUrl) ?? FETCH_USER_AGENT;
+  return hostUserAgentOverride(feedUrl) ?? FETCH_USER_AGENT;
 }
 
 // The exact set of RSS feeds this crawler is allowed to fetch, as in-code
@@ -212,14 +213,6 @@ async function fetchFeedXml(feedUrl: string): Promise<string> {
     }
   }
   throw new Error(`HTTP ${resp.status}`);
-}
-
-function hostOf(url: string): string | undefined {
-  try {
-    return new URL(url).hostname;
-  } catch {
-    return undefined;
-  }
 }
 
 function hasMinimalShape(r: RssItem): boolean {
