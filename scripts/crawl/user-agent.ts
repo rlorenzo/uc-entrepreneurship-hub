@@ -28,19 +28,22 @@ const HOST_UA_OVERRIDES: { hostSuffix: string; envVar: string }[] = [
 
 /**
  * The allowlisted UA for a host, or undefined when no override matches (or
- * its secret is unset) so each caller keeps its own default UA. The `(^|\.)`
- * anchor stops a look-alike host like ucmerced.edu.evil.test from matching.
+ * its secret is unset) so each caller keeps its own default UA. Matching is
+ * exact-host or dot-boundary suffix (plain string comparison, no dynamic
+ * RegExp — CodeQL js/regex/missing-regexp-anchor can't see anchors in a
+ * constructed pattern), so a look-alike host like ucmerced.edu.evil.test or
+ * notucmerced.edu never matches.
  */
 export function hostUserAgentOverride(url: string): string | undefined {
   let hostname: string;
   try {
-    hostname = new URL(url).hostname;
+    hostname = new URL(url).hostname.toLowerCase();
   } catch {
     return undefined; // unparseable URL — no override
   }
   for (const { hostSuffix, envVar } of HOST_UA_OVERRIDES) {
     const ua = process.env[envVar];
-    if (ua && new RegExp(`(^|\\.)${hostSuffix.replaceAll(".", "\\.")}$`, "i").test(hostname)) {
+    if (ua && (hostname === hostSuffix || hostname.endsWith(`.${hostSuffix}`))) {
       return ua;
     }
   }
