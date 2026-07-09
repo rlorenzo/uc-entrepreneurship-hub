@@ -6,38 +6,18 @@
 // silent — an item without an image is acceptable; we'd rather ship the
 // item than block on imagery.
 
-import { chromium, type Browser } from "playwright";
+import type { Browser } from "playwright";
 
-import { gotoWithFallback, withPage } from "../playwright.ts";
+import { getHeadlessBrowser, gotoWithFallback, withPage } from "../playwright.ts";
+import { IN_PAGE_HERO_IMAGE_FN } from "../page-snippets.ts";
 import type { NewsItem } from "./types.ts";
-
-const inPageImageExtractor = `() => {
-  const meta = (n) =>
-    document.querySelector('meta[property="' + n + '"], meta[name="' + n + '"]')?.content || "";
-  const og = meta("og:image");
-  if (og) return og;
-  const imgs = Array.from(
-    document.querySelectorAll("article img, main img, .entry-content img, .post-content img"),
-  );
-  for (const el of imgs) {
-    const src = el.getAttribute("src");
-    if (!src) continue;
-    if (/icon|logo|sprite|avatar/i.test(src)) continue;
-    try {
-      return new URL(src, location.href).toString();
-    } catch (e) {
-      // skip unparseable src
-    }
-  }
-  return "";
-}`;
 
 async function fetchImage(browser: Browser, url: string): Promise<string> {
   return await withPage(browser, async (page) => {
     const resp = await gotoWithFallback(page, url);
     if (!resp?.ok()) return "";
     await page.waitForTimeout(300);
-    return (await page.evaluate(`(${inPageImageExtractor})()`)) as string;
+    return (await page.evaluate(`(${IN_PAGE_HERO_IMAGE_FN})()`)) as string;
   });
 }
 
@@ -68,13 +48,8 @@ async function enrichLoop(
 export async function enrichWithImages(items: NewsItem[]): Promise<NewsItem[]> {
   const needs = items.filter((i) => !i.imageUrl);
   if (needs.length === 0) return items;
-  const browser = await chromium.launch({
-    headless: true,
-    args: ["--disable-blink-features=AutomationControlled"],
-  });
-  try {
-    return await enrichLoop(browser, items, needs);
-  } finally {
-    await browser.close();
-  }
+  // Shared with the listing scraper — the runner closes it at shutdown via
+  // closeHeadlessBrowser(), so each site doesn't pay a Chromium cold start.
+  const browser = await getHeadlessBrowser();
+  return await enrichLoop(browser, items, needs);
 }

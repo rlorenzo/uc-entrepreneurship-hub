@@ -16,8 +16,8 @@
 //   - networkidle → load fallback for sites that never go idle
 //   - per-site error capture so one failure can't sink the run
 
-import { chromium, type Browser, type Page } from "playwright";
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import type { Browser, Page } from "playwright";
+import { readFile, mkdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { existsSync } from "node:fs";
@@ -29,9 +29,15 @@ import {
   type CampusOverrides,
   type RawPageData,
 } from "./extract.ts";
-import { closeHeadedBrowser, gotoWithFallback, withPage as sharedWithPage } from "./playwright.ts";
-import { mercedUserAgent } from "./user-agent.ts";
+import {
+  closeHeadedBrowser,
+  gotoWithFallback,
+  launchHeadlessBrowser,
+  withPage as sharedWithPage,
+} from "./playwright.ts";
+import { hostUserAgentOverride } from "./user-agent.ts";
 import { filterSitesByCampus, parseCampusFlag } from "./cli.ts";
+import { persistPreservingPrevious } from "./persist.ts";
 import type { ProgramCandidate } from "../../src/data/normalize.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -108,10 +114,7 @@ async function loadOverrides(campusId: string): Promise<CampusOverrides> {
 }
 
 // ── Browser setup ────────────────────────────────────────────────────────
-const browser: Browser = await chromium.launch({
-  headless: true,
-  args: ["--disable-blink-features=AutomationControlled"],
-});
+const browser: Browser = await launchHeadlessBrowser();
 
 // Some UC sites (UCI, Merced) sit behind WAFs that 403 a vanilla Playwright
 // context even with a realistic UA. The extra client-hint headers below
@@ -175,7 +178,7 @@ async function fetchSeed(site: Site, overrides: CampusOverrides): Promise<SeedOu
       const resp = await gotoWithFallback(page, site.seedUrl);
       if (!resp?.ok()) throw new Error(`HTTP ${resp?.status() ?? "?"} on seed`);
       return await discoverLinks(page, site.seedUrl, overrides);
-    }, mercedUserAgent(site.seedUrl));
+    }, hostUserAgentOverride(site.seedUrl));
     return { links, error: null };
   } catch (err) {
     const message = (err as Error).message;
@@ -195,7 +198,7 @@ async function extractFromUrl(
     await page.waitForTimeout(800);
     const raw = (await page.evaluate(`(${inPageExtractor})()`)) as RawPageData;
     return buildCandidate({ raw, url, campus: site.campus, campusOverrides: overrides });
-  }, mercedUserAgent(url));
+  }, hostUserAgentOverride(url));
 }
 
 /** Walk the candidate sub-pages, accumulating extracted programs and errors. */
@@ -269,21 +272,14 @@ async function crawlCampus(site: Site): Promise<CrawlResult> {
 
 // ── Worker pool over campuses ────────────────────────────────────────────
 
-/**
- * Persist a crawl result, preserving the previous file when this run came
- * back empty and a previous run exists. A seed failure, a WAF 403ing every
- * sub-page, or a redesign that zeroes link discovery all look the same on
- * disk: an empty candidates list that the weekly workflow would commit,
- * deleting every program for the campus from the published catalog. A
- * recovered crawl on the next run repopulates it cleanly.
- */
 async function persistResult(result: CrawlResult): Promise<void> {
-  const path = join(OUT_DIR, `${result.campus}.json`);
-  if (result.candidates.length === 0 && existsSync(path)) {
-    console.log(`  ⓘ preserving previous ${result.campus}.json — no candidates this run`);
-    return;
-  }
-  await writeFile(path, JSON.stringify(result, null, 2));
+  await persistPreservingPrevious({
+    path: join(OUT_DIR, `${result.campus}.json`),
+    label: `${result.campus}.json`,
+    isEmpty: result.candidates.length === 0,
+    emptyReason: "no candidates this run",
+    result,
+  });
 }
 
 const queue: Site[] = [...sites];

@@ -1,6 +1,7 @@
-// Default per-campus overrides. Each campus module re-exports from this
-// and tightens what it needs. The scraper falls back to these when a
-// campus has no specific module.
+// Default per-campus overrides. A campus gets its own module only when it
+// needs real overrides (re-export from this and tighten — see berkeley.mjs);
+// the scraper (loadOverrides in ../run.ts) falls back to these defaults for
+// any campus without a module, so do-nothing stub files are never needed.
 //
 // Hooks (all optional):
 //   allowName(name): boolean

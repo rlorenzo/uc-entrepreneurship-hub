@@ -1,6 +1,7 @@
 import { useState, type CSSProperties } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Page } from "@/components/Page";
+import { DarkBreadcrumbs } from "@/components/Breadcrumbs";
 import { NotFound } from "@/components/NotFound";
 import { ProgramCard } from "@/components/ProgramCard";
 import { CaliforniaMap } from "@/components/CaliforniaMap";
@@ -9,10 +10,10 @@ import { CAMPUSES, CAMPUS_BY_ID } from "@/data/campuses";
 import { TYPES } from "@/data/types-list";
 import { PROGRAMS } from "@/data/programs";
 import { NEWS } from "@/data/news.generated";
-import type { Program } from "@/data/types.ts";
+import type { EcosystemCenter, Program } from "@/data/types.ts";
 import type { NewsItem } from "@/data/news";
 import { useIsMobile } from "@/lib/useMediaQuery";
-import { I_Chevron, I_External, I_Pin } from "@/lib/icons";
+import { I_External, I_Pin } from "@/lib/icons";
 
 function Stat({ n, l }: { n: string | number; l: string }) {
   return (
@@ -48,157 +49,19 @@ function tabPill(active: boolean, color: string): CSSProperties {
   };
 }
 
-function ecosystemFor(campusId: string) {
-  const lookups: Record<string, { name: string; desc: string; url?: string }[]> = {
-    berkeley: [
-      {
-        name: "Sutardja Center for Entrepreneurship & Technology",
-        desc: "The cross-disciplinary engine behind SkyDeck, the Foundry, and Berkeley’s entrepreneurship curriculum.",
-        url: "https://scet.berkeley.edu/",
-      },
-      {
-        name: "Berkeley SkyDeck",
-        desc: "A top-floor accelerator that has invested in 350+ companies across all 10 UC campuses.",
-        url: "https://skydeck.berkeley.edu/",
-      },
-      {
-        name: "Jacobs Institute for Design Innovation",
-        desc: "Open-access fabrication and design labs serving every major and skill level.",
-        url: "https://jacobsinstitute.berkeley.edu/",
-      },
-      {
-        name: "Haas School of Business — Lester Center",
-        desc: "Research, courses, and the Big Ideas Contest open to all UC students.",
-        url: "https://bigideascontest.org/",
-      },
-    ],
-    la: [
-      {
-        name: "Anderson Venture Accelerator",
-        desc: "Anderson’s flagship accelerator for UCLA-founded ventures across all schools.",
-      },
-      {
-        name: "StartUp UCLA",
-        desc: "Campus-wide entrepreneurship hub running summer accelerators and competitions.",
-      },
-      {
-        name: "Institute for Technology Advancement",
-        desc: "Translational research and licensing arm for UCLA-developed IP.",
-      },
-    ],
-    sd: [
-      {
-        name: "The Basement",
-        desc: "Undergraduate-first innovation hub with workshops, micro-grants, and 24/7 space.",
-      },
-      {
-        name: "Institute for the Global Entrepreneur",
-        desc: "Joint Rady-Jacobs program for engineering-led ventures.",
-      },
-      {
-        name: "Office of Innovation and Commercialization",
-        desc: "IP, licensing, and proof-of-concept funding across UCSD research labs.",
-      },
-    ],
-    irvine: [
-      {
-        name: "Beall Applied Innovation",
-        desc: "A campus-adjacent innovation district housing the Cove, Wayfinder accelerator, and POC funds.",
-      },
-      {
-        name: "New Venture Group",
-        desc: "The student-led venture community running speaker series and pitch nights.",
-      },
-    ],
-    sf: [
-      {
-        name: "UCSF Innovation Ventures",
-        desc: "The translational engine for UCSF research, from disclosure to spin-out.",
-        url: "https://innovation.ucsf.edu/",
-      },
-      {
-        name: "Rosenman Institute",
-        desc: "Health-tech fellowship and innovator pipeline at the QB3 Mission Bay campus.",
-        url: "https://www.linkedin.com/school/rosenman-institute",
-      },
-    ],
-    davis: [
-      {
-        name: "Mike & Renee Child Institute for Innovation & Entrepreneurship",
-        desc: "The Graduate School of Management’s entrepreneurship hub.",
-      },
-      {
-        name: "PLeAT Lab",
-        desc: "Plant Lab Accelerator focused on AgTech and food-system startups.",
-      },
-    ],
-    santabarbara: [
-      {
-        name: "Technology Management Program",
-        desc: "Year-long entrepreneurship certificate sitting between engineering and business.",
-      },
-      {
-        name: "NVCC New Venture Competition",
-        desc: "A 10-month deep-tech competition with 30+ years of alumni outcomes.",
-      },
-    ],
-    santacruz: [
-      {
-        name: "Center for Innovation & Entrepreneurial Development",
-        desc: "CIED runs Slug Tank, the IDEA Hub, and undergraduate-focused programs.",
-      },
-    ],
-    riverside: [
-      {
-        name: "Office of Technology Partnerships",
-        desc: "Manages EPIC proof-of-concept funding and licensing for UCR ventures.",
-      },
-    ],
-    merced: [
-      {
-        name: "Venture Lab @ Merced",
-        desc: "Founder-led incubator focused on water, climate, and the Central Valley.",
-      },
-    ],
-  };
-  return (
-    lookups[campusId] ?? [
-      { name: "Center for Innovation", desc: "The campus hub for entrepreneurship programming." },
-    ]
-  );
-}
-
 // ── hero ──────────────────────────────────────────────────────────────
 
 function HeroBreadcrumbs({ campusName }: { campusName: string }) {
-  const linkStyle = {
-    color: "var(--uc-blue-xlight)",
-    textDecoration: "none",
-    fontWeight: 600,
-  } as const;
   const isMobile = useIsMobile();
   return (
-    <div
-      style={{
-        fontSize: 13,
-        color: "var(--uc-blue-xlight)",
-        display: "flex",
-        gap: 8,
-        alignItems: "center",
-        flexWrap: "wrap",
-        marginBottom: isMobile ? 24 : 32,
-      }}
-    >
-      <Link to="/" style={linkStyle}>
-        Home
-      </Link>
-      <I_Chevron size={12} />
-      <Link to="/campuses" style={linkStyle}>
-        Campuses
-      </Link>
-      <I_Chevron size={12} />
-      <span style={{ color: "var(--uc-white)", fontWeight: 600 }}>{campusName}</span>
-    </div>
+    <DarkBreadcrumbs
+      trail={[
+        { label: "Home", to: "/" },
+        { label: "Campuses", to: "/campuses" },
+        { label: campusName },
+      ]}
+      style={{ marginBottom: isMobile ? 24 : 32 }}
+    />
   );
 }
 
@@ -338,7 +201,7 @@ function EcosystemRow({
   campusColor,
 }: {
   index: number;
-  entry: { name: string; desc: string; url?: string };
+  entry: EcosystemCenter;
   campusColor: string;
 }) {
   return (
@@ -403,6 +266,9 @@ function EcosystemRow({
 
 function CampusEcosystem({ campus }: { campus: (typeof CAMPUSES)[number] }) {
   const isMobile = useIsMobile();
+  // Ecosystem entries are curated data on the campus record; a campus without
+  // any simply has no section (never a fake placeholder center).
+  if (campus.ecosystem.length === 0) return null;
   return (
     <section
       style={{ padding: isMobile ? "40px 20px" : "72px 32px", background: "var(--uc-white)" }}
@@ -432,7 +298,7 @@ function CampusEcosystem({ campus }: { campus: (typeof CAMPUSES)[number] }) {
             </h2>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-            {ecosystemFor(campus.id).map((e, i) => (
+            {campus.ecosystem.map((e, i) => (
               <EcosystemRow key={e.name} index={i} entry={e} campusColor={campus.color} />
             ))}
           </div>

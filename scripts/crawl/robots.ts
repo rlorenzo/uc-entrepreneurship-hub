@@ -15,7 +15,7 @@
 // RSS parser): our needs are the standard User-agent / Allow / Disallow subset
 // with `*` and `$` wildcards, which is small and well-covered by robots.test.ts.
 
-import { mercedUserAgent } from "./user-agent.ts";
+import { hostUserAgentOverride } from "./user-agent.ts";
 
 // The identity we send when fetching /robots.txt (same honest string the RSS
 // fetcher uses) and the token we match User-agent groups against. Matching
@@ -156,13 +156,18 @@ function compile(pattern: string, allow: boolean): CompiledRule {
   return { allow, re: new RegExp(re), len: pattern.length };
 }
 
-// Standard precedence: the longest matching pattern wins; on an equal-length
-// tie, Allow beats Disallow; with no match at all, the path is allowed.
-export function isPathAllowed(rules: RobotsRules, path: string): boolean {
-  const compiled: CompiledRule[] = [
+// Compile once per rule set — RobotsGate caches the compiled form per origin
+// so the regexes aren't rebuilt on every navigation of a crawl run.
+function compileRules(rules: RobotsRules): CompiledRule[] {
+  return [
     ...rules.disallow.map((p) => compile(p, false)),
     ...rules.allow.map((p) => compile(p, true)),
   ];
+}
+
+// Standard precedence: the longest matching pattern wins; on an equal-length
+// tie, Allow beats Disallow; with no match at all, the path is allowed.
+function pathAllowed(compiled: CompiledRule[], path: string): boolean {
   let best: CompiledRule | null = null;
   for (const rule of compiled) {
     if (!rule.re.test(path)) continue;
@@ -171,6 +176,10 @@ export function isPathAllowed(rules: RobotsRules, path: string): boolean {
     }
   }
   return best ? best.allow : true;
+}
+
+export function isPathAllowed(rules: RobotsRules, path: string): boolean {
+  return pathAllowed(compileRules(rules), path);
 }
 
 export class RobotsDisallowedError extends Error {
@@ -223,7 +232,10 @@ async function defaultFetcher(url: string): Promise<RobotsFetchResult> {
   const resp = await fetch(url, {
     // Present UC Merced's allowlisted UA on its own robots.txt so we read the
     // real rules once the WAF exception is live, instead of 403 → fail-open.
-    headers: { "User-Agent": mercedUserAgent(url) ?? ROBOTS_USER_AGENT, Accept: "text/plain, */*" },
+    headers: {
+      "User-Agent": hostUserAgentOverride(url) ?? ROBOTS_USER_AGENT,
+      Accept: "text/plain, */*",
+    },
     signal: AbortSignal.timeout(ROBOTS_TIMEOUT_MS),
   });
   const ok = resp.status >= 200 && resp.status < 300;
@@ -233,7 +245,9 @@ async function defaultFetcher(url: string): Promise<RobotsFetchResult> {
 // Per-origin robots.txt cache + decision gate. One instance is shared across a
 // crawl run so each host's robots.txt is fetched at most once.
 export class RobotsGate {
-  private readonly cache = new Map<string, Promise<RobotsRules>>();
+  // Compiled per origin (not raw RobotsRules) so each pattern is turned into a
+  // RegExp once per run instead of on every navigation.
+  private readonly cache = new Map<string, Promise<CompiledRule[]>>();
   private readonly fetcher: RobotsFetcher;
 
   // Note: no TS parameter properties (`constructor(private fetcher…)`) — the
@@ -250,13 +264,13 @@ export class RobotsGate {
       return true; // unparseable target → nothing to check it against
     }
     if (url.protocol !== "http:" && url.protocol !== "https:") return true;
-    const rules = await this.rulesFor(url.origin);
-    return isPathAllowed(rules, url.pathname + url.search);
+    const compiled = await this.rulesFor(url.origin);
+    return pathAllowed(compiled, url.pathname + url.search);
   }
 
   // Cache the in-flight promise (not just the result) so concurrent workers
   // hitting the same origin share a single robots.txt fetch.
-  private rulesFor(origin: string): Promise<RobotsRules> {
+  private rulesFor(origin: string): Promise<CompiledRule[]> {
     let pending = this.cache.get(origin);
     if (!pending) {
       pending = this.load(origin);
@@ -265,7 +279,7 @@ export class RobotsGate {
     return pending;
   }
 
-  private async load(origin: string): Promise<RobotsRules> {
+  private async load(origin: string): Promise<CompiledRule[]> {
     try {
       const { status, text } = await this.fetcher(`${origin}/robots.txt`);
       // 2xx → honor it. 4xx (esp. 404 "no robots.txt") → full allow. 5xx or a
@@ -278,11 +292,11 @@ export class RobotsGate {
       // there), our default UA everywhere else. Otherwise rules Merced
       // writes for the UA they allowlisted would be silently ignored.
       if (status >= 200 && status < 300) {
-        return parseRobots(text, mercedUserAgent(origin) ?? ROBOTS_USER_AGENT);
+        return compileRules(parseRobots(text, hostUserAgentOverride(origin) ?? ROBOTS_USER_AGENT));
       }
-      return ALLOW_ALL;
+      return compileRules(ALLOW_ALL);
     } catch {
-      return ALLOW_ALL;
+      return compileRules(ALLOW_ALL);
     }
   }
 }

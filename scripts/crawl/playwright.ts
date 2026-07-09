@@ -57,6 +57,44 @@ export function headedFallbackEnabled(): boolean {
   return process.env.CRAWL_NO_HEADED_FALLBACK !== "1";
 }
 
+// Single source of the headless anti-fingerprint launch flags for every
+// crawler entry point — a new flag needed to clear a bot manager lands in one
+// place instead of drifting across per-pipeline copies.
+export function launchHeadlessBrowser(): Promise<Browser> {
+  return chromium.launch({
+    headless: true,
+    args: ["--disable-blink-features=AutomationControlled"],
+  });
+}
+
+let headlessBrowser: Promise<Browser> | null = null;
+
+// Lazily-launched headless browser shared across the news pipeline (listing
+// scrapes and image enrichment) so each site doesn't pay a multi-second
+// Chromium cold start. Same failure-un-caching shape as getHeadedBrowser.
+export function getHeadlessBrowser(): Promise<Browser> {
+  if (!headlessBrowser) {
+    const launch = launchHeadlessBrowser();
+    launch.catch(() => {
+      if (headlessBrowser === launch) headlessBrowser = null;
+    });
+    headlessBrowser = launch;
+  }
+  return headlessBrowser;
+}
+
+// Runners call this at shutdown, mirroring closeHeadedBrowser.
+export async function closeHeadlessBrowser(): Promise<void> {
+  const pending = headlessBrowser;
+  headlessBrowser = null;
+  if (!pending) return;
+  try {
+    await (await pending).close();
+  } catch {
+    // a launch that failed has nothing to close
+  }
+}
+
 let headedBrowser: Promise<Browser> | null = null;
 
 // Launched lazily on the first bot-blocked navigation and shared for the
