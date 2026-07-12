@@ -3,26 +3,16 @@
   "name": "UC Merced",
   "strategy": "rss",
   "source": "https://news.ucmerced.edu/rss.xml",
-  "crawledAt": "2026-07-05T13:38:37.212Z",
+  "crawledAt": "2026-07-12T13:36:43.091Z",
   "items": [
     {
-      "id": "merced-all-faculty-rock-band-cuts-album-uc-merced-recording-studio",
+      "id": "merced-news-ucmerced-edu-all-faculty-rock-band-cuts-album-uc-merced-recording-studio",
       "campus": "merced",
       "title": "All-faculty Rock Band Cuts Album at UC Merced Recording Studio",
       "summary": "By Jody Murray, UC Merced June 22, 2026 G Street Revolution performs at the Star Club in Merced. The faculty band's first album was recorded at UC Merced's studio. An all-faculty rock band formed in a professor’s garage a decade ago has released the first album produced at UC Merced’s digitally advanced recording studio. The album showcases the eight members of G Street Revolution. Their day jobs ",
       "publishedAt": "2026-06-22T16:18:55.000Z",
       "sourceUrl": "https://news.ucmerced.edu/news/2026/all-faculty-rock-band-cuts-album-uc-merced-recording-studio",
       "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/uc-merced-faculty-band-g-street-revolution-performs.jpg",
-      "sourceHost": "news.ucmerced.edu"
-    },
-    {
-      "id": "merced-pioneer-bobcat-blazes-path-through-law-and-technology",
-      "campus": "merced",
-      "title": "A Pioneer Bobcat Blazes a Path Through Law and Technology",
-      "summary": "By Jody Murray, UC Merced June 18, 2026 UC Merced alumna Temnee Wright built a groundbreaking student legacy and a thriving career guiding fast‑growing tech companies. Editor's note: This story is republished from the Spring/Summer 2026 issue of UC Merced Magazine. Temnee Wright, ’08 has realized a successful career as legal counsel at several Silicon Valley companies. Her interest in law was forg",
-      "publishedAt": "2026-06-18T15:33:47.000Z",
-      "sourceUrl": "https://news.ucmerced.edu/news/2026/pioneer-bobcat-blazes-path-through-law-and-technology",
-      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/uc-merced-alumni-temnee-wright-hero.png",
       "sourceHost": "news.ucmerced.edu"
     }
   ],

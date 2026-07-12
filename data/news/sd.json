@@ -3,10 +3,10 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-07-05T13:38:25.317Z",
+  "crawledAt": "2026-07-12T13:36:32.386Z",
   "items": [
     {
-      "id": "sd-margaret-roberts-named-director-of-uc-san-diegos-21st-century-china-center",
+      "id": "sd-today-ucsd-edu-margaret-roberts-named-director-of-uc-san-diegos-21st-century-china-center",
       "campus": "sd",
       "title": "Margaret Roberts Named Director of UC San Diego’s 21st Century China Center",
       "summary": "An internationally recognized scholar whose work focuses on digital politics, information, China and U.S.-China relations has been appointed director of the 21st Century China Center at the UC San Diego School of Global Policy and Strategy. ",
@@ -16,7 +16,7 @@
       "sourceHost": "today.ucsd.edu"
     },
     {
-      "id": "sd-looking-for-work-dont-worry-about-seeming-too-eager",
+      "id": "sd-today-ucsd-edu-looking-for-work-dont-worry-about-seeming-too-eager",
       "campus": "sd",
       "title": "​​​​​​​Looking for Work? Don’t Worry About Seeming Too Eager",
       "summary": "New research combining experiments with data from 11.6 million marketplace interactions suggests employers view fast replies as a positive signal — one that increases hiring likelihood.",
@@ -26,7 +26,7 @@
       "sourceHost": "today.ucsd.edu"
     },
     {
-      "id": "sd-impact-beyond-the-numbers-new-report-examines-the-life-sciences-in-california",
+      "id": "sd-today-ucsd-edu-impact-beyond-the-numbers-new-report-examines-the-life-sciences-in-california",
       "campus": "sd",
       "title": "Impact Beyond the Numbers: New Report Examines the Life Sciences in California",
       "summary": "A newly released 2026 California Life Sciences Economic Impact Report, unveiled at the BIO 2026 International Convention in San Diego on June 22-23, finds that California's life sciences sector supported over 400,000 jobs and generated nearly $394 billion in economic activity statewide in 2025. \n",
@@ -36,7 +36,7 @@
       "sourceHost": "today.ucsd.edu"
     },
     {
-      "id": "sd-the-paramount-problem-with-hollywoods-next-big-merger",
+      "id": "sd-today-ucsd-edu-the-paramount-problem-with-hollywoods-next-big-merger",
       "campus": "sd",
       "title": "The Paramount Problem With Hollywood’s Next Big Merger",
       "summary": "UC San Diego communication professor Shawna Kidman explains how Hollywood’s next big media merger could have consequences for workers, audiences, news and sports",
@@ -46,7 +46,7 @@
       "sourceHost": "today.ucsd.edu"
     },
     {
-      "id": "sd-what-desert-locusts-reveal-about-disaster-monitoring",
+      "id": "sd-today-ucsd-edu-what-desert-locusts-reveal-about-disaster-monitoring",
       "campus": "sd",
       "title": "What Desert Locusts Reveal About Disaster Monitoring",
       "summary": "A new working paper co-authored by Gordon McCord of the UC San Diego School of Global Policy and Strategy suggests that the greatest benefits of disaster monitoring may come from catastrophes the world never sees.",
@@ -56,7 +56,7 @@
       "sourceHost": "today.ucsd.edu"
     },
     {
-      "id": "sd-in-the-worlds-economic-black-holes-data-still-leaks-out",
+      "id": "sd-today-ucsd-edu-in-the-worlds-economic-black-holes-data-still-leaks-out",
       "campus": "sd",
       "title": "In the World’s Economic “Black Holes,” Data Still Leaks Out",
       "summary": "​​​​​​​From satellite imagery to clandestine price reports, a new study from the School of Global Policy and Strategy at UC San Diego draws on North Korea to explore economic activity in opaque regimes and information-scarce regions.",

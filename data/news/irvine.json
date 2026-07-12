@@ -3,10 +3,10 @@
   "name": "UC Irvine",
   "strategy": "rss",
   "source": "https://innovation.uci.edu/news/feed/",
-  "crawledAt": "2026-07-05T13:37:26.947Z",
+  "crawledAt": "2026-07-12T13:35:31.517Z",
   "items": [
     {
-      "id": "irvine-aquatex",
+      "id": "irvine-innovation-uci-edu-aquatex",
       "campus": "irvine",
       "title": "The Problem with Good Enough",
       "summary": "UC Irvine startup Cytoseen detects new drug targets for cancer and neurodegeneration.",
@@ -16,7 +16,7 @@
       "sourceHost": "innovation.uci.edu"
     },
     {
-      "id": "irvine-cytoseen",
+      "id": "irvine-innovation-uci-edu-cytoseen",
       "campus": "irvine",
       "title": "Seeing the Unseen in Disease",
       "summary": "UC Irvine startup Cytoseen detects new drug targets for cancer and neurodegeneration.",
@@ -26,7 +26,7 @@
       "sourceHost": "innovation.uci.edu"
     },
     {
-      "id": "irvine-born-in-california-2026",
+      "id": "irvine-innovation-uci-edu-born-in-california-2026",
       "campus": "irvine",
       "title": "The Pipeline",
       "summary": "What does it take to make a UC idea matter in the real world?",
@@ -36,7 +36,7 @@
       "sourceHost": "innovation.uci.edu"
     },
     {
-      "id": "irvine-ecotune",
+      "id": "irvine-innovation-uci-edu-ecotune",
       "campus": "irvine",
       "title": "The Material Question",
       "summary": "What if materials weren’t just made, but designed in tune with nature?",
@@ -46,7 +46,7 @@
       "sourceHost": "innovation.uci.edu"
     },
     {
-      "id": "irvine-sounddose",
+      "id": "irvine-innovation-uci-edu-sounddose",
       "campus": "irvine",
       "title": "The Blind Spot in Modern Radiation Therapy",
       "summary": "How UC Irvine startup SoundDose is tackling one of cancer care’s biggest unknowns",
@@ -56,7 +56,7 @@
       "sourceHost": "innovation.uci.edu"
     },
     {
-      "id": "irvine-mifti",
+      "id": "irvine-innovation-uci-edu-mifti",
       "campus": "irvine",
       "title": "The $40 Trillion Question",
       "summary": "Can MIFTI, a scrappy UC Irvine-based startup, outpace billion-dollar fusion giants?",
@@ -66,7 +66,7 @@
       "sourceHost": "innovation.uci.edu"
     },
     {
-      "id": "irvine-neuroqure",
+      "id": "irvine-innovation-uci-edu-neuroqure",
       "campus": "irvine",
       "title": "A New Signal for Autism",
       "summary": "How UC Irvine research and a father’s story are changing the timeline of care",
@@ -76,7 +76,7 @@
       "sourceHost": "innovation.uci.edu"
     },
     {
-      "id": "irvine-eira-bio",
+      "id": "irvine-innovation-uci-edu-eira-bio",
       "campus": "irvine",
       "title": "Is This the Breakthrough Drug Development We’ve Been Waiting For?",
       "summary": "Eira Bio is targeting membrane proteins long considered unreachable by antibody drugs.",
@@ -86,7 +86,7 @@
       "sourceHost": "innovation.uci.edu"
     },
     {
-      "id": "irvine-vena-vitals",
+      "id": "irvine-innovation-uci-edu-vena-vitals",
       "campus": "irvine",
       "title": "Can Wearable Tech Finally Get Blood Pressure Right?",
       "summary": "Forget the cuff. Vena Vitals’ sticker-like sensor aims to deliver ICU-level data without ever breaking the skin.",
@@ -96,7 +96,7 @@
       "sourceHost": "innovation.uci.edu"
     },
     {
-      "id": "irvine-summit-tech",
+      "id": "irvine-innovation-uci-edu-summit-tech",
       "campus": "irvine",
       "title": "When Reality is the Canvas",
       "summary": "How Aditi Majumder is Building the Ultimate 3D Experience",

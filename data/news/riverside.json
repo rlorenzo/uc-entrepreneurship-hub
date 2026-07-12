@@ -3,10 +3,10 @@
   "name": "UC Riverside",
   "strategy": "playwright",
   "source": "https://news.ucr.edu/topic/business",
-  "crawledAt": "2026-07-05T13:38:02.301Z",
+  "crawledAt": "2026-07-12T13:36:07.717Z",
   "items": [
     {
-      "id": "riverside-what-consumers-think-they-buy",
+      "id": "riverside-news-ucr-edu-what-consumers-think-they-buy",
       "campus": "riverside",
       "title": "What consumers think before they buy",
       "summary": "Manufacturers have traditionally relied on sales figures to understand where they stand with consumers, but by the time those numbers arrive, the consumers’ buying decisions have already been made.",
@@ -16,7 +16,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-uc-riverside-launches-online-mba-program",
+      "id": "riverside-news-ucr-edu-uc-riverside-launches-online-mba-program",
       "campus": "riverside",
       "title": "UC Riverside launches online MBA program",
       "summary": "UC Riverside is launching a fully online Master of Business Administration program this fall, opening the door for students across California, the nation, and around the world to earn a University of California MBA degree remotely while continuing their careers and personal responsibilities. ",
@@ -26,7 +26,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-reclaiming-context-creative-works",
+      "id": "riverside-news-ucr-edu-reclaiming-context-creative-works",
       "campus": "riverside",
       "title": "Reclaiming the context of creative works",
       "summary": "New research led by a UC Riverside professor has developed an AI tool that compensates for the shifting genre perceptions that impact how creative works are understood, evaluated, and even discovered. ",
@@ -36,27 +36,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-ucr-report-urges-broadband-be-state-utility",
-      "campus": "riverside",
-      "title": "UCR report urges broadband to be a state utility",
-      "summary": "California should regulate broadband internet providers like public utilities — imposing rate controls, universal access requirements, and reliability standards to ensure every resident has affordable, high-speed internet access, according to a new UC Riverside public policy report.",
-      "publishedAt": "",
-      "sourceUrl": "https://news.ucr.edu/articles/2026/02/12/ucr-report-urges-broadband-be-state-utility",
-      "imageUrl": "https://news.ucr.edu/sites/default/files/2026-02/960-gettyimages-2231090399.jpg",
-      "sourceHost": "news.ucr.edu"
-    },
-    {
-      "id": "riverside-tangos-sweet-legacy-lives",
-      "campus": "riverside",
-      "title": "Tango’s sweet legacy lives on",
-      "summary": "The UCR-developed Tango mandarin has established itself as a symbol of innovation and sustainability in the global citrus market, generating more than $70 million in cumulative economic value for the university.",
-      "publishedAt": "",
-      "sourceUrl": "https://news.ucr.edu/articles/2026/01/15/tangos-sweet-legacy-lives",
-      "imageUrl": "https://news.ucr.edu/sites/default/files/2026-01/960-2025-11-05_tango_004.jpg",
-      "sourceHost": "news.ucr.edu"
-    },
-    {
-      "id": "riverside-slower-company-acquisition-pace-can-boost-corporate-values",
+      "id": "riverside-news-ucr-edu-slower-company-acquisition-pace-can-boost-corporate-values",
       "campus": "riverside",
       "title": "Slower company acquisition pace can boost corporate values",
       "summary": "Expanding the time between company acquisitions improves the integration of the new assets and increases corporate values, study finds.",
@@ -66,7 +46,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-shopping-two-stressful",
+      "id": "riverside-news-ucr-edu-shopping-two-stressful",
       "campus": "riverside",
       "title": "Shopping for two is stressful",
       "summary": "A study co-authored by a UCR business professor finds that shopping for goods or services that you will share is significantly more stressful than shopping for yourself or for something to be given to another person.",
@@ -76,7 +56,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-study-finds-lower-emissions-higher-ethanol-gasoline",
+      "id": "riverside-news-ucr-edu-study-finds-lower-emissions-higher-ethanol-gasoline",
       "campus": "riverside",
       "title": "Study finds lower emissions from higher-ethanol gasoline",
       "summary": "Landmark UC Riverside vehicle emissions study allows California to move forward with less costly and less polluting gasoline blend.",
@@ -86,7 +66,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-mccollum-familys-march-toward-graduation-stage",
+      "id": "riverside-news-ucr-edu-mccollum-familys-march-toward-graduation-stage",
       "campus": "riverside",
       "title": "The McCollum family’s march toward the graduation stage",
       "summary": "",
@@ -96,7 +76,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-study-finds-moral-costs-over-pricing-essentials",
+      "id": "riverside-news-ucr-edu-study-finds-moral-costs-over-pricing-essentials",
       "campus": "riverside",
       "title": "Study finds moral costs in over-pricing for essentials",
       "summary": "A study led by UC Riverside School of Business professor Margaret C. Campbell found that when companies hike prices on essentials like food, medicine, or medical devices, the financial rewards may be immediate—but the reputational damage may linger and ultimately cost more in the long run.",
@@ -106,7 +86,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-private-equity-takes-airports-new-heights",
+      "id": "riverside-news-ucr-edu-private-equity-takes-airports-new-heights",
       "campus": "riverside",
       "title": "Private equity takes airports to new heights",
       "summary": "Equity investors improved airport operating and customer service, finds a global study that spanned two decades and four continents.",
@@ -116,7 +96,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-farm-conservation-economical-path-save-river-water",
+      "id": "riverside-news-ucr-edu-farm-conservation-economical-path-save-river-water",
       "campus": "riverside",
       "title": "Farm conservation is an economical path to save river water",
       "summary": "The most cost-effective way to conserve the dwindling waters of the Colorado River may not come from building new reservoirs, canals, or wells, but from changing how water is used on farms that consume most of it.",
@@ -126,7 +106,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-ucr-computer-scientists-boost-us-cybersecurity",
+      "id": "riverside-news-ucr-edu-ucr-computer-scientists-boost-us-cybersecurity",
       "campus": "riverside",
       "title": "UCR computer scientists boost US cybersecurity",
       "summary": "UCR computer scientists are developing tools to expose hidden cybersecurity vulnerabilities, protect private data, and strengthen the digital defenses that safeguard everything from personal communications to national infrastructure.",
@@ -136,7 +116,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-report-inland-empire-warehouse-workers-make-gains-through-collective-action",
+      "id": "riverside-news-ucr-edu-report-inland-empire-warehouse-workers-make-gains-through-collective-action",
       "campus": "riverside",
       "title": "Report: Inland Empire warehouse workers make gains through collective action",
       "summary": "In “State of the Unions: California Labor in 2024,” UCR researchers offer details on the growth, salaries, ethnicities, and ongoing struggles of warehouse workers in Riverside and San Bernardino counties",
@@ -146,7 +126,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-nostalgia-asset-company-acquisitions",
+      "id": "riverside-news-ucr-edu-nostalgia-asset-company-acquisitions",
       "campus": "riverside",
       "title": "Nostalgia is an asset in company acquisitions",
       "summary": "A study by UCR School of Business scholars found that nostalgia serves as a comforting and stabilizing force during company acquisition periods when employees feel vulnerable, fear losing their jobs, status, or advancement opportunities, and are thus inclined to send out résumés.",
@@ -156,7 +136,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-groundwater-depletion-sinks-home-prices-californias-central-valley",
+      "id": "riverside-news-ucr-edu-groundwater-depletion-sinks-home-prices-californias-central-valley",
       "campus": "riverside",
       "title": "Groundwater depletion sinks home prices in California's Central Valley",
       "summary": "UC Riverside study has found that subsidence from excessive groundwater pumping in California's Central Valley reduced home values between 2.4% and 5.8% or between $6,689 and $16,165 per home. These costs totaled $1.87 billion in aggregate housing value lost, the study estimated.",
@@ -166,7 +146,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-school-business-joins-council-global-business-schools",
+      "id": "riverside-news-ucr-edu-school-business-joins-council-global-business-schools",
       "campus": "riverside",
       "title": "School of Business joins council of global business schools",
       "summary": "UC Riverside’s School of Business has been accepted into the Graduate Management Admission Council, or GMAC, a prestigious global association of leading graduate business schools.",
@@ -176,7 +156,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-uc-riverside-scholar-reimagines-student-engagement",
+      "id": "riverside-news-ucr-edu-uc-riverside-scholar-reimagines-student-engagement",
       "campus": "riverside",
       "title": "UC Riverside scholar reimagines student engagement",
       "summary": "The \"Carry the Class\" teaching method helps college students master concepts while fostering a sense of ownership through more meaningful social interactions among students and faculty, which creates a sense of community and shared purpose.",
@@ -186,7 +166,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-state-workers-report-addresses-ev-transition",
+      "id": "riverside-news-ucr-edu-state-workers-report-addresses-ev-transition",
       "campus": "riverside",
       "title": "State of Workers report addresses EV transition",
       "summary": "Today at the State of Workers in the Inland Empire report release,  UC Riverside investigators presented recent statistics on labor market demographics, wages, cost of living, and worker training needs to adapt to changing conditions and emerging technologies such as electric vehicles, or EVs.",
@@ -196,7 +176,7 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-ucr-launches-study-ship-emissions-socal-coast",
+      "id": "riverside-news-ucr-edu-ucr-launches-study-ship-emissions-socal-coast",
       "campus": "riverside",
       "title": "UCR launches study of ship emissions off SoCal coast",
       "summary": "A team of UC Riverside environmental engineers are embarking on a $3.5 million study of air pollution from massive oceangoing vessels that frequent the ports of Los Angeles and Long Beach—one of the region’s largest sources of toxic air pollution.",

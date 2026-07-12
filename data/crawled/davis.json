@@ -2,7 +2,7 @@
   "campus": "davis",
   "name": "UC Davis",
   "seedUrl": "https://iedo.ucdavis.edu/",
-  "crawledAt": "2026-07-05T13:36:07.184Z",
+  "crawledAt": "2026-07-12T13:34:14.420Z",
   "candidates": [
     {
       "id": "davis-innovation-and-economic-development-office",
@@ -15,7 +15,7 @@
       "industries": [],
       "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_hero_banner/public/media/images/Post%20TCO%20Final%20Photos%204%20%282%29.jpg?h=b7e2cbf2&itok=ZFYRAVtp",
       "sourceUrl": "https://iedo.ucdavis.edu/",
-      "lastUpdated": "2026-07-05T13:36:10.010Z"
+      "lastUpdated": "2026-07-12T13:34:16.874Z"
     },
     {
       "id": "davis-aggie-venture-accelerator",
@@ -30,7 +30,7 @@
       ],
       "deadline": "June 20",
       "sourceUrl": "https://iedo.ucdavis.edu/aggie-venture-accelerator",
-      "lastUpdated": "2026-07-05T13:36:16.887Z"
+      "lastUpdated": "2026-07-12T13:34:23.137Z"
     }
   ],
   "errors": []

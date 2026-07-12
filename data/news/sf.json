@@ -3,10 +3,20 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-07-05T13:38:36.676Z",
+  "crawledAt": "2026-07-12T13:36:42.605Z",
   "items": [
     {
-      "id": "sf-ucsf-innovation-translates-discovery-life-saving-diagnostics",
+      "id": "sf-innovation-ucsf-edu-united-therapeutics-corporation-acquires-thymmune-therapeutics",
+      "campus": "sf",
+      "title": "United Therapeutics Corporation Acquires Thymmune Therapeutics",
+      "summary": "United Therapeutics Corporation Acquires Thymmune Therapeutics",
+      "publishedAt": "2026-07-06T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/united-therapeutics-corporation-acquires-thymmune-therapeutics",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-innovation-ucsf-edu-ucsf-innovation-translates-discovery-life-saving-diagnostics",
       "campus": "sf",
       "title": "UCSF Innovation Translates Discovery into Life-Saving Diagnostics",
       "summary": "UCSF Innovation Translates Discovery into Life-Saving Diagnostics",
@@ -16,7 +26,7 @@
       "sourceHost": "innovation.ucsf.edu"
     },
     {
-      "id": "sf-inventor-crispr-skeptical-about-ai",
+      "id": "sf-innovation-ucsf-edu-inventor-crispr-skeptical-about-ai",
       "campus": "sf",
       "title": "Inventor of Crispr is skeptical about AI",
       "summary": "The inventor of CRISPR is skeptical about AI’s impact on medical innovation",
@@ -26,7 +36,7 @@
       "sourceHost": "innovation.ucsf.edu"
     },
     {
-      "id": "sf-rare-disease-program-2026",
+      "id": "sf-innovation-ucsf-edu-rare-disease-program-2026",
       "campus": "sf",
       "title": "Rare Disease Program 2026",
       "summary": "Rare Disease Program 2026",
@@ -36,7 +46,7 @@
       "sourceHost": "innovation.ucsf.edu"
     },
     {
-      "id": "sf-ucsf-spinout-nets-91-m-test-virus-therapy-brain-cancer-china",
+      "id": "sf-innovation-ucsf-edu-ucsf-spinout-nets-91-m-test-virus-therapy-brain-cancer-china",
       "campus": "sf",
       "title": "UCSF spinout nets $9.1 M to test virus therapy for brain cancer in China",
       "summary": "UCSF spinout nets $9.1 M to test virus therapy for brain cancer in China",
@@ -46,7 +56,7 @@
       "sourceHost": "innovation.ucsf.edu"
     },
     {
-      "id": "sf-how-impossible-idea-led-pancreatic-cancer-breakthrough",
+      "id": "sf-innovation-ucsf-edu-how-impossible-idea-led-pancreatic-cancer-breakthrough",
       "campus": "sf",
       "title": "How an ‘Impossible’ Idea Led to a Pancreatic Cancer Breakthrough",
       "summary": "How an ‘Impossible’ Idea Led to a Pancreatic Cancer Breakthrough",
@@ -56,7 +66,7 @@
       "sourceHost": "innovation.ucsf.edu"
     },
     {
-      "id": "sf-qa-nicholas-hertz-president-ceo-montara-therapeutics",
+      "id": "sf-innovation-ucsf-edu-qa-nicholas-hertz-president-ceo-montara-therapeutics",
       "campus": "sf",
       "title": "Q&A with Nicholas Hertz, President & CEO of Montara Therapeutics",
       "summary": "Q&amp;A with Nicholas Hertz, President &amp; CEO of Montara Therapeutics",
@@ -66,7 +76,7 @@
       "sourceHost": "innovation.ucsf.edu"
     },
     {
-      "id": "sf-breakthrough-device-designation-aidabreastr-early-stage-invasive-breast-cancer-assay",
+      "id": "sf-innovation-ucsf-edu-breakthrough-device-designation-aidabreastr-early-stage-invasive-breast-cancer-assay",
       "campus": "sf",
       "title": "Breakthrough Device Designation for AidaBREAST® - Early-Stage Invasive Breast Cancer Assay",
       "summary": "Breakthrough Device Designation for AidaBREAST® - Early-Stage Invasive Breast Cancer Assay",
@@ -76,7 +86,7 @@
       "sourceHost": "innovation.ucsf.edu"
     },
     {
-      "id": "sf-ucb-acquire-neurona-therapeutics-advancing-its-innovative-leadership-epilepsy-through",
+      "id": "sf-innovation-ucsf-edu-ucb-acquire-neurona-therapeutics-advancing-its-innovative-leadership-epilepsy-through",
       "campus": "sf",
       "title": "UCB to acquire Neurona Therapeutics, advancing its innovative leadership in epilepsy through regenerative science",
       "summary": "UCB to acquire Neurona Therapeutics, advancing its innovative leadership in epilepsy through regenerative science",
@@ -86,7 +96,7 @@
       "sourceHost": "innovation.ucsf.edu"
     },
     {
-      "id": "sf-scientists-create-cancer-fighting-immune-cells-right-body",
+      "id": "sf-innovation-ucsf-edu-scientists-create-cancer-fighting-immune-cells-right-body",
       "campus": "sf",
       "title": "Scientists Create Cancer-Fighting Immune Cells Right in the Body",
       "summary": "Scientists Create Cancer-Fighting Immune Cells Right in the Body",
@@ -96,7 +106,7 @@
       "sourceHost": "innovation.ucsf.edu"
     },
     {
-      "id": "sf-ucsf-receives-824m-nih-funding-driving-medical-breakthroughs",
+      "id": "sf-innovation-ucsf-edu-ucsf-receives-824m-nih-funding-driving-medical-breakthroughs",
       "campus": "sf",
       "title": "UCSF Receives $824M in NIH Funding, Driving Medical Breakthroughs",
       "summary": "UCSF Receives $824M in NIH Funding, Driving Medical Breakthroughs -",
@@ -106,7 +116,7 @@
       "sourceHost": "innovation.ucsf.edu"
     },
     {
-      "id": "sf-molecular-garbage-tumors-makes-easy-target-antibody-drugs",
+      "id": "sf-innovation-ucsf-edu-molecular-garbage-tumors-makes-easy-target-antibody-drugs",
       "campus": "sf",
       "title": "Molecular Garbage on Tumors Makes Easy Target for Antibody Drugs",
       "summary": "Cancer cells can ‘barf’ proteins onto their cell surface. That may create new targets for immunotherapies",
@@ -116,7 +126,7 @@
       "sourceHost": "innovation.ucsf.edu"
     },
     {
-      "id": "sf-vs3-medical-announces-first-patients-enrolled-first-human-study-novel-neurovascular",
+      "id": "sf-innovation-ucsf-edu-vs3-medical-announces-first-patients-enrolled-first-human-study-novel-neurovascular",
       "campus": "sf",
       "title": "VS3 Medical Announces First Patients Enrolled in First-in-Human Study of Novel Neurovascular Implant to Address Symptomatic Venous Sinus Stenosis",
       "summary": "VS3 Medical Announces First Patients Enrolled in First-in-Human Study of Novel Neurovascular Implant to Address Symptomatic Venous Sinus Stenosis",
@@ -126,7 +136,7 @@
       "sourceHost": "innovation.ucsf.edu"
     },
     {
-      "id": "sf-ge-healthcare-ucsf-health-form-10-year-imaging-collaboration",
+      "id": "sf-innovation-ucsf-edu-ge-healthcare-ucsf-health-form-10-year-imaging-collaboration",
       "campus": "sf",
       "title": "GE HealthCare, UCSF Health form 10-year imaging collaboration",
       "summary": "GE HealthCare has entered a 10-year Care Alliance with UCSF Health aimed at expanding imaging capabilities and supporting clinical operations across the health system.",
@@ -136,22 +146,12 @@
       "sourceHost": "innovation.ucsf.edu"
     },
     {
-      "id": "sf-tissue-repair-slows-old-age-these-proteins-speed-it-back",
+      "id": "sf-innovation-ucsf-edu-tissue-repair-slows-old-age-these-proteins-speed-it-back",
       "campus": "sf",
       "title": "Tissue Repair Slows in Old Age. These Proteins Speed It Back Up",
       "summary": "Tissue Repair Slows in Old Age. These Proteins Speed It Back Up",
       "publishedAt": "",
       "sourceUrl": "https://innovation.ucsf.edu/media/news/tissue-repair-slows-old-age-these-proteins-speed-it-back",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-tahoe-therapeutics-arc-institute-and-biohub-partner-generate-largest-perturbation",
-      "campus": "sf",
-      "title": "Tahoe Therapeutics, Arc Institute, and Biohub Partner to Generate the Largest Perturbation Dataset for Virtual Cell Models",
-      "summary": "Tahoe Therapeutics, Arc Institute, and Biohub Partner to Generate the Largest Perturbation Dataset for Virtual Cell Models",
-      "publishedAt": "",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/tahoe-therapeutics-arc-institute-and-biohub-partner-generate-largest-perturbation",
       "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
       "sourceHost": "innovation.ucsf.edu"
     }

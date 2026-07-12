@@ -3,10 +3,30 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-07-05T13:37:27.090Z",
+  "crawledAt": "2026-07-12T13:35:31.662Z",
   "items": [
     {
-      "id": "berkeley-11-ideas-from-uc-berkeley-haas-that-changed-american-business",
+      "id": "berkeley-newsroom-haas-berkeley-edu-how-carbyn-ai-preserves-manufacturing-expertise-with-real-time-ai-guidance",
+      "campus": "berkeley",
+      "title": "How startup Carbyn AI preserves manufacturing expertise with real-time AI guidance",
+      "summary": "Startup: Carbyn AICo-founder & CEO Jungkeun Hong, MBA 26 To gather customer feedback, Hong drove more than 10,000 miles visiting roughly 150 manufacturing plants and job sites. When Jungkeun Hong…",
+      "publishedAt": "2026-07-08T23:11:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/how-carbyn-ai-preserves-manufacturing-expertise-with-real-time-ai-guidance/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/at-airport-768x563.png",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-how-mba-mcs-students-are-merging-business-and-climate",
+      "campus": "berkeley",
+      "title": "How MBA/MCS students are merging business and climate",
+      "summary": "Emily Kargl worked at Deloitte before starting the MBA/MCS program. UC Berkeley Haas and the Rausser College of Natural Resources teamed up in fall of 2024 to launch a concurrent…",
+      "publishedAt": "2026-07-06T17:45:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/how-mba-mcs-students-are-merging-business-and-climate/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/Emily-Kargl-768x512.jpeg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-11-ideas-from-uc-berkeley-haas-that-changed-american-business",
       "campus": "berkeley",
       "title": "11 ideas from UC Berkeley Haas that changed American business",
       "summary": "Happy 4th of July! As America celebrates its 250th birthday, we’re celebrating a few of the ideas born at UC Berkeley Haas that helped shape how American business actually works.…",
@@ -16,7 +36,7 @@
       "sourceHost": "newsroom.haas.berkeley.edu"
     },
     {
-      "id": "berkeley-berkeley-founders-turn-a-skin-health-nightmare-into-a-yc-backed-startup",
+      "id": "berkeley-scet-berkeley-edu-berkeley-founders-turn-a-skin-health-nightmare-into-a-yc-backed-startup",
       "campus": "berkeley",
       "title": "Protected: Berkeley Founders Turn a Skin Health Nightmare Into a YC-Backed Startup",
       "summary": "This content is password-protected. To view it, please enter the password below. Password: The post Protected: Berkeley Founders Turn a Skin Health Nightmare Into a YC-Backed Startup appeared first on…",
@@ -26,7 +46,7 @@
       "sourceHost": "scet.berkeley.edu"
     },
     {
-      "id": "berkeley-from-berkeley-to-y-combinator-lumeria-founders-build-the-oura-ring-for-skin",
+      "id": "berkeley-scet-berkeley-edu-from-berkeley-to-y-combinator-lumeria-founders-build-the-oura-ring-for-skin",
       "campus": "berkeley",
       "title": "From Berkeley to Y Combinator: Lumeria Founders Build the Oura Ring for Skin",
       "summary": "When Anthea Guo was a sophomore at UC Berkeley, she developed eczema so severe that she could not sleep for months. Sweat triggered her skin. Rough surfaces could cause a…",
@@ -36,7 +56,17 @@
       "sourceHost": "scet.berkeley.edu"
     },
     {
-      "id": "berkeley-citris-announces-recipients-of-the-2026-seed-funding-awards",
+      "id": "berkeley-qb3-berkeley-edu-molecular-imaging-pioneer-eva-nogales-awarded-the-2026-vanderbilt-prize-in-biomedical-science",
+      "campus": "berkeley",
+      "title": "Molecular imaging pioneer Eva Nogales awarded the 2026 Vanderbilt Prize in Biomedical Science",
+      "summary": "Established in 2006, the Vanderbilt Prize in Biomedical Science recognizes scientists of national reputation who have a stellar record of research accomplishments and are known for mentoring others in science.…",
+      "publishedAt": "2026-06-30T19:57:00.000Z",
+      "sourceUrl": "https://qb3.berkeley.edu/faculty-news/molecular-imaging-pioneer-eva-nogales-awarded-the-2026-vanderbilt-prize-in-biomedical-science/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/Eva-Nogales-2025-477192cChristopherMichel9122025-214x300.jpg",
+      "sourceHost": "qb3.berkeley.edu"
+    },
+    {
+      "id": "berkeley-citris-uc-org-citris-announces-recipients-of-the-2026-seed-funding-awards",
       "campus": "berkeley",
       "title": "CITRIS Announces Recipients of the 2026 Seed Funding Awards",
       "summary": "CITRIS Announces Recipients of the 2026 Seed Funding Awards",
@@ -46,7 +76,7 @@
       "sourceHost": "citris-uc.org"
     },
     {
-      "id": "berkeley-the-descent-of-machine-darwin-revisited",
+      "id": "berkeley-exec-ed-berkeley-edu-the-descent-of-machine-darwin-revisited",
       "campus": "berkeley",
       "title": "The Descent of Machine: Darwin Revisited",
       "summary": "The post The Descent of Machine: Darwin Revisited appeared first on UC Berkeley Sutardja Center. Source link",
@@ -56,7 +86,7 @@
       "sourceHost": "exec-ed.berkeley.edu"
     },
     {
-      "id": "berkeley-from-uc-berkeley-haas-to-the-pentagon-how-one-mba-is-reinventing-counter-drone-warfare",
+      "id": "berkeley-newsroom-haas-berkeley-edu-from-uc-berkeley-haas-to-the-pentagon-how-one-mba-is-reinventing-counter-drone-warfare",
       "campus": "berkeley",
       "title": "From UC Berkeley Haas to the Pentagon: How one MBA is reinventing counter-drone warfare",
       "summary": "Volodymyr Silchenko, MBA 26, headed to Washington D.C. this month on a Defense Innovation Unit (DIU) Commercialization Fellowship with his autonomous counter-drone startup, OMNIA AI. This week, Silchenko flew to…",
@@ -66,7 +96,7 @@
       "sourceHost": "newsroom.haas.berkeley.edu"
     },
     {
-      "id": "berkeley-professor-omri-even-tov-wins-american-accounting-association-best-paper-award",
+      "id": "berkeley-newsroom-haas-berkeley-edu-professor-omri-even-tov-wins-american-accounting-association-best-paper-award",
       "campus": "berkeley",
       "title": "Professor Omri Even-Tov wins American Accounting Association Best Paper Award",
       "summary": "Associate Professor Omri Even-Tov has been named a recipient of the American Accounting Association’s 2026 Accounting Horizons Best Paper Award. The paper, “Bridging the Gap between Academia and Practice in…",
@@ -74,35 +104,6 @@
       "sourceUrl": "https://newsroom.haas.berkeley.edu/professor-omri-even-tov-wins-american-accounting-association-best-paper-award/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/biy_554a-768x512.jpg",
       "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-2026-agentic-ai-summit-brings-top-minds-to-campus",
-      "campus": "berkeley",
-      "title": "2026 Agentic AI Summit brings top minds to campus",
-      "summary": "The world’s top minds in AI are coming to UC Berkeley this summer for the 2026 Agentic AI Summit. The summit will be held on the UC Berkeley campus August…",
-      "publishedAt": "2026-06-23T23:40:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/2026-agentic-ai-summit-brings-top-minds-to-campus/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Screenshot-2026-06-23-at-3.32.45-PM.png",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-celebrating-berkeley-pioneer-alberto-sangiovanni-vincentelli",
-      "campus": "berkeley",
-      "title": "Celebrating Berkeley Pioneer Alberto Sangiovanni-Vincentelli",
-      "summary": "Berkeley SkyDeck is proud to celebrate faculty leader and semiconductor pioneer Alberto Sangiovanni-Vincentelli on his nomination for the Distinguished Lifetime Achievement Award at the UC Regents Innovation Awards. Source link",
-      "publishedAt": "2026-06-22T22:46:00.000Z",
-      "sourceUrl": "https://skydeck.berkeley.edu/celebrating-berkeley-pioneer-alberto-sangiovanni-vincentelli/",
-      "sourceHost": "skydeck.berkeley.edu"
-    },
-    {
-      "id": "berkeley-why-hasnt-the-iran-war-driven-oil-prices-even-higher",
-      "campus": "berkeley",
-      "title": "Why Hasn’t the Iran War Driven Oil Prices Even Higher?",
-      "summary": "The post Why Hasn’t the Iran War Driven Oil Prices Even Higher? appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-06-22T20:47:00.000Z",
-      "sourceUrl": "https://energyathaas.wordpress.com/2026/06/22/why-hasnt-the-iran-war-driven-oil-prices-even-higher/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/iranwaroilpricefig2-768x329.png",
-      "sourceHost": "energyathaas.wordpress.com"
     }
   ],
   "errors": []

@@ -2,7 +2,7 @@
   "campus": "la",
   "name": "UCLA",
   "seedUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation",
-  "crawledAt": "2026-07-05T13:36:07.185Z",
+  "crawledAt": "2026-07-12T13:34:14.436Z",
   "candidates": [
     {
       "id": "la-center-for-healthcare-innovation",
@@ -16,7 +16,21 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/image/2025-11/2025-healthcare-hero-home.jpg?itok=AsXoRokf",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/center-for-healthcare-innovation",
-      "lastUpdated": "2026-07-05T13:36:12.243Z"
+      "lastUpdated": "2026-07-12T13:34:19.441Z"
+    },
+    {
+      "id": "la-undergraduate-minor-in-entrepreneurship",
+      "slug": "undergraduate-minor-in-entrepreneurship",
+      "name": "Undergraduate Minor in Entrepreneurship",
+      "campus": "la",
+      "type": "incubator",
+      "desc": "The Entrepreneurship minor introduces undergraduate students to the field of entrepreneurship. A key element of entrepreneurship is the concept of opportunity recognition where individuals or teams pursue business concepts without regard to immediate access to resources utilizing lean start-up principles. In support of the minor, faculty members from applied fields in the professional schools and industry collaborate with faculty from academic disciplines across the campus to provide a critical framework for questioning and connecting topics related to entrepreneurship. Through a carefully developed core curriculum, and an integrative capstone experience, students in the minor obtain both breadth and depth in their understanding of the concepts, frameworks and practical implications of entrepreneurship.",
+      "longDescription": "The Entrepreneurship minor introduces undergraduate students to the field of entrepreneurship. A key element of entrepreneurship is the concept of opportunity recognition where individuals or teams pursue business concepts without regard to immediate access to resources utilizing lean start-up principles. In support of the minor, faculty members from applied fields in the professional schools and industry collaborate with faculty from academic disciplines across the campus to provide a critical framework for questioning and connecting topics related to entrepreneurship. Through a carefully dev",
+      "industries": [],
+      "applicationLink": "https://www.anderson.ucla.edu/apply",
+      "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/centers/price/ume-6.jpg?itok=l7JbMWAn",
+      "sourceUrl": "https://www.anderson.ucla.edu/undergraduate-education/undergraduate-minor-in-entrepreneurship",
+      "lastUpdated": "2026-07-12T13:34:27.655Z"
     },
     {
       "id": "la-ucla-anderson-venture-accelerator",
@@ -29,7 +43,7 @@
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/anderson-venture-accelerator",
-      "lastUpdated": "2026-07-05T13:36:22.084Z"
+      "lastUpdated": "2026-07-12T13:34:29.258Z"
     },
     {
       "id": "la-information-systems-research-program",
@@ -43,7 +57,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/programs/hero-h440-tpl.jpg?itok=XIKD0kkK",
       "sourceUrl": "https://www.anderson.ucla.edu/faculty-and-research/information-systems-research-program",
-      "lastUpdated": "2026-07-05T13:36:26.618Z"
+      "lastUpdated": "2026-07-12T13:34:33.896Z"
     },
     {
       "id": "la-early-stage-investment-fund",
@@ -56,7 +70,7 @@
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/for-companies/early-stage-investment-fund",
-      "lastUpdated": "2026-07-05T13:36:29.504Z"
+      "lastUpdated": "2026-07-12T13:34:36.522Z"
     },
     {
       "id": "la-price-center-for-entrepreneurship-and-innovation-fellowships",
@@ -70,7 +84,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/centers/price/2020/price-center-fellowships.jpg?itok=xvB_LKBR",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-students/fellowships",
-      "lastUpdated": "2026-07-05T13:36:35.771Z"
+      "lastUpdated": "2026-07-12T13:34:42.562Z"
     },
     {
       "id": "la-student-investment-fund",
@@ -84,7 +98,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/clubs/STUDENT-anderson-banner.jpg?itok=j-jnQsJS",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-students/student-investment-fund",
-      "lastUpdated": "2026-07-05T13:36:37.339Z"
+      "lastUpdated": "2026-07-12T13:34:44.036Z"
     },
     {
       "id": "la-management-development-for-entrepreneurs",
@@ -98,7 +112,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/centers/price/2020/Professionals/PRICE-MDE-online-banner.jpg?itok=KMURY2Ij",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-professionals/management-development-for-entrepreneurs",
-      "lastUpdated": "2026-07-05T13:36:45.949Z"
+      "lastUpdated": "2026-07-12T13:34:53.451Z"
     }
   ],
   "errors": []
