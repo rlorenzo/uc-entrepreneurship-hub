@@ -6,7 +6,7 @@ A unified front door for entrepreneurship programs across all ten University of 
 
 Built on [**Vite+**](https://viteplus.dev) — the unified open-source toolchain that bundles Vite, Vitest, Oxlint, Oxfmt, Rolldown, and tsdown into a single `vp` CLI.
 
-- **React 18** + **TypeScript** (strict)
+- **React 19** + **TypeScript** (strict)
 - **React Router** (HashRouter, for static-host deep links)
 - **CSS variables** from the official UC design tokens (Source Serif 4 + Source Sans 3, UC Blue / Dark Blue / Gold, square corners, Dark Blue tinted shadows)
 
@@ -41,6 +41,15 @@ vp preview
 ```
 
 A Git **pre-commit hook** runs `vp run check` (format, lint, type-check, and fallow) before every commit, so issues are caught locally instead of in CI. It activates automatically on `vp install` / `pnpm install` — the `prepare` script points `core.hooksPath` at `.githooks/`. Bypass a single commit with `git commit --no-verify`.
+
+### Dependency security overrides
+
+Vulnerable **transitive** dependencies (Dependabot / `pnpm audit` findings) are patched via `pnpm.overrides` in `package.json` rather than waiting on upstream releases. Each selector targets only the vulnerable version range, so healthy future resolutions are never pinned down. Two entries have non-obvious shapes — keep these constraints in mind when touching them:
+
+- `undici@<7.28.0` maps to **exactly `7.28.0`**, not `>=7.28.0`: undici 8.x restricts its package `exports`, which breaks jsdom 29's deep imports (`undici/lib/handler/wrap-handler.js`) and with it the whole Vitest jsdom environment. 7.28.0 is the patched 7.x line that keeps those paths importable. When bumping past it, run `vp test` and confirm tests are actually **discovered and passing**, not silently skipped.
+- `js-yaml@>=4.0.0 <=4.1.1` maps to **`^4.2.0`**, not `>=4.2.0`: an uncapped range resolves to js-yaml 5.x inside `cosmiconfig` (used by pa11y-ci), which declares `^4` and isn't validated by our test suite.
+
+After editing an override: `pnpm install`, then `pnpm audit` (expect "No known vulnerabilities found"), `vp test`, and `vp build`.
 
 ## Project layout
 
