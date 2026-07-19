@@ -3,8 +3,57 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-07-12T13:35:31.662Z",
+  "crawledAt": "2026-07-19T13:35:37.272Z",
   "items": [
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-from-ultimate-cheating-machine-to-classroom-ally-edvisor-rethinks-ai-in-higher-ed",
+      "campus": "berkeley",
+      "title": "From “ultimate cheating machine” to classroom ally: Edvisor rethinks AI in higher ed",
+      "summary": "Co-founders Rameez Mahmood, MBA 26, (left) and Shariq Shah, a San Jose State computer science graduate As generative AI began reshaping the way people work, learn, and create, Rameez Mahmood,…",
+      "publishedAt": "2026-07-16T22:37:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/from-ultimate-cheating-machine-to-classroom-ally-edvisor-rethinks-ai-in-higher-ed/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/PXL_20260519_221628078-1-scaled-768x447.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-citris-uc-org-citris-pi-uses-sewage-to-track-central-valley-nicotine-use",
+      "campus": "berkeley",
+      "title": "CITRIS PI uses sewage to track Central Valley nicotine use",
+      "summary": "CITRIS PI uses sewage to track Central Valley nicotine use",
+      "publishedAt": "2026-07-16T16:00:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-pi-uses-sewage-to-track-central-valley-nicotine-use/?utm_source=rss&utm_medium=rss&utm_campaign=citris-pi-uses-sewage-to-track-central-valley-nicotine-use",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/Wastewater-nicotine-detection-July-2026-768x184.png",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-citris-uc-org-citris-researcher-redefines-robotics",
+      "campus": "berkeley",
+      "title": "CITRIS researcher redefines robotics",
+      "summary": "CITRIS researcher redefines robotics",
+      "publishedAt": "2026-07-15T16:00:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-researcher-redefines-robotics/?utm_source=rss&utm_medium=rss&utm_campaign=citris-researcher-redefines-robotics",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/Goldberg-June-2026-768x184.png",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-skydeck-berkeley-edu-newsletter-july-15-2026",
+      "campus": "berkeley",
+      "title": "Newsletter – July 15, 2026",
+      "summary": "Berkeley SkyDeck’s Batch 22 Demo Day is coming up on September 30th in Berkeley. With our alumni having collectively raised over $3B, the stage is set for our next cohort…",
+      "publishedAt": "2026-07-14T22:33:00.000Z",
+      "sourceUrl": "https://skydeck.berkeley.edu/newsletter-july-15-2026/",
+      "sourceHost": "skydeck.berkeley.edu"
+    },
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-professional-women-have-narrowed-the-gender-pay-gap-but-troubling-inequities-remain",
+      "campus": "berkeley",
+      "title": "Professional women have narrowed the gender pay gap, but troubling inequities remain",
+      "summary": "Women with advanced business degrees have reduced the gender pay gap by as much as half over the past two decades, in part by remaining in the workforce after having…",
+      "publishedAt": "2026-07-13T21:28:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/research/professional-women-have-narrowed-the-gender-pay-gap-but-troubling-inequities-remain/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/iStock-2202336006-scaled-768x405.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
     {
       "id": "berkeley-newsroom-haas-berkeley-edu-how-carbyn-ai-preserves-manufacturing-expertise-with-real-time-ai-guidance",
       "campus": "berkeley",
@@ -14,6 +63,16 @@
       "sourceUrl": "https://newsroom.haas.berkeley.edu/how-carbyn-ai-preserves-manufacturing-expertise-with-real-time-ai-guidance/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/at-airport-768x563.png",
       "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-cmr-berkeley-edu-ai-cuts-costs-until-it-doesn-t-why-accountability-still-belongs-to-senior-leadership",
+      "campus": "berkeley",
+      "title": "AI Cuts Costs, Until It Doesn’t: Why Accountability Still Belongs to Senior Leadership",
+      "summary": "The post AI Cuts Costs, Until It Doesn’t: Why Accountability Still Belongs to Senior Leadership appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-07-06T20:08:00.000Z",
+      "sourceUrl": "https://cmr.berkeley.edu/2026/07/ai-cuts-costs-until-it-doesn-t-why-accountability-still-belongs-to-senior-leadership/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/2026-06-chung_as_77323541-768x512.jpeg",
+      "sourceHost": "cmr.berkeley.edu"
     },
     {
       "id": "berkeley-newsroom-haas-berkeley-edu-how-mba-mcs-students-are-merging-business-and-climate",
@@ -36,74 +95,14 @@
       "sourceHost": "newsroom.haas.berkeley.edu"
     },
     {
-      "id": "berkeley-scet-berkeley-edu-berkeley-founders-turn-a-skin-health-nightmare-into-a-yc-backed-startup",
+      "id": "berkeley-blogs-haas-berkeley-edu-mfe-program-update",
       "campus": "berkeley",
-      "title": "Protected: Berkeley Founders Turn a Skin Health Nightmare Into a YC-Backed Startup",
-      "summary": "This content is password-protected. To view it, please enter the password below. Password: The post Protected: Berkeley Founders Turn a Skin Health Nightmare Into a YC-Backed Startup appeared first on…",
-      "publishedAt": "2026-07-01T16:14:00.000Z",
-      "sourceUrl": "https://scet.berkeley.edu/berkeley-founders-turn-a-skin-health-nightmare-into-a-yc-backed-startup/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/1782089251379-150x150.jpg",
-      "sourceHost": "scet.berkeley.edu"
-    },
-    {
-      "id": "berkeley-scet-berkeley-edu-from-berkeley-to-y-combinator-lumeria-founders-build-the-oura-ring-for-skin",
-      "campus": "berkeley",
-      "title": "From Berkeley to Y Combinator: Lumeria Founders Build the Oura Ring for Skin",
-      "summary": "When Anthea Guo was a sophomore at UC Berkeley, she developed eczema so severe that she could not sleep for months. Sweat triggered her skin. Rough surfaces could cause a…",
-      "publishedAt": "2026-07-01T16:14:00.000Z",
-      "sourceUrl": "https://scet.berkeley.edu/from-berkeley-to-y-combinator-lumeria-founders-build-the-oura-ring-for-skin/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/1782089251379-768x1024.jpg",
-      "sourceHost": "scet.berkeley.edu"
-    },
-    {
-      "id": "berkeley-qb3-berkeley-edu-molecular-imaging-pioneer-eva-nogales-awarded-the-2026-vanderbilt-prize-in-biomedical-science",
-      "campus": "berkeley",
-      "title": "Molecular imaging pioneer Eva Nogales awarded the 2026 Vanderbilt Prize in Biomedical Science",
-      "summary": "Established in 2006, the Vanderbilt Prize in Biomedical Science recognizes scientists of national reputation who have a stellar record of research accomplishments and are known for mentoring others in science.…",
-      "publishedAt": "2026-06-30T19:57:00.000Z",
-      "sourceUrl": "https://qb3.berkeley.edu/faculty-news/molecular-imaging-pioneer-eva-nogales-awarded-the-2026-vanderbilt-prize-in-biomedical-science/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/Eva-Nogales-2025-477192cChristopherMichel9122025-214x300.jpg",
-      "sourceHost": "qb3.berkeley.edu"
-    },
-    {
-      "id": "berkeley-citris-uc-org-citris-announces-recipients-of-the-2026-seed-funding-awards",
-      "campus": "berkeley",
-      "title": "CITRIS Announces Recipients of the 2026 Seed Funding Awards",
-      "summary": "CITRIS Announces Recipients of the 2026 Seed Funding Awards",
-      "publishedAt": "2026-06-30T17:00:00.000Z",
-      "sourceUrl": "https://citris-uc.org/citris-announces-recipients-of-the-2026-seed-funding-awards/?utm_source=rss&utm_medium=rss&utm_campaign=citris-announces-recipients-of-the-2026-seed-funding-awards",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Seed-Funding-Web-Banner-2026-1540x368png-768x184.png",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-exec-ed-berkeley-edu-the-descent-of-machine-darwin-revisited",
-      "campus": "berkeley",
-      "title": "The Descent of Machine: Darwin Revisited",
-      "summary": "The post The Descent of Machine: Darwin Revisited appeared first on UC Berkeley Sutardja Center. Source link",
-      "publishedAt": "2026-06-25T08:46:00.000Z",
-      "sourceUrl": "https://exec-ed.berkeley.edu/2026/06/the-descent-of-machine-darwin-revisited/#new_tab",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/Shomit_AI-Descent-of-Machine-768x403.png",
-      "sourceHost": "exec-ed.berkeley.edu"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-from-uc-berkeley-haas-to-the-pentagon-how-one-mba-is-reinventing-counter-drone-warfare",
-      "campus": "berkeley",
-      "title": "From UC Berkeley Haas to the Pentagon: How one MBA is reinventing counter-drone warfare",
-      "summary": "Volodymyr Silchenko, MBA 26, headed to Washington D.C. this month on a Defense Innovation Unit (DIU) Commercialization Fellowship with his autonomous counter-drone startup, OMNIA AI. This week, Silchenko flew to…",
-      "publishedAt": "2026-06-24T20:17:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/from-uc-berkeley-haas-to-the-pentagon-how-one-mba-is-reinventing-counter-drone-warfare/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/vlad-pentagon-1-768x769.jpeg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-professor-omri-even-tov-wins-american-accounting-association-best-paper-award",
-      "campus": "berkeley",
-      "title": "Professor Omri Even-Tov wins American Accounting Association Best Paper Award",
-      "summary": "Associate Professor Omri Even-Tov has been named a recipient of the American Accounting Association’s 2026 Accounting Horizons Best Paper Award. The paper, “Bridging the Gap between Academia and Practice in…",
-      "publishedAt": "2026-06-23T23:41:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/professor-omri-even-tov-wins-american-accounting-association-best-paper-award/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/06/biy_554a-768x512.jpg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
+      "title": "25 Years of Excellence: Top Ranked, Industry Connected, Future Focused",
+      "summary": "The post 25 Years of Excellence: Top Ranked, Industry Connected, Future Focused appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-07-01T19:45:00.000Z",
+      "sourceUrl": "https://blogs.haas.berkeley.edu/mfe/mfe-program-update",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/mfeblogpost-768x545.png",
+      "sourceHost": "blogs.haas.berkeley.edu"
     }
   ],
   "errors": []

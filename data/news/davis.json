@@ -3,8 +3,18 @@
   "name": "UC Davis",
   "strategy": "playwright",
   "source": "https://iedo.ucdavis.edu/news",
-  "crawledAt": "2026-07-12T13:36:23.174Z",
+  "crawledAt": "2026-07-19T13:36:14.547Z",
   "items": [
+    {
+      "id": "davis-iedo-ucdavis-edu-aggie-venture-accelerator-welcomes-inaugural-cohort-life-science-startups",
+      "campus": "davis",
+      "title": "Aggie Venture Accelerator Welcomes Inaugural Cohort of Life Science Startups",
+      "summary": "UC Davis launches Aggie Venture Accelerator, welcoming inaugural cohort of life science startups—SinewUS, Pharm to Food and ThriveSpan Labs—offering mentorship, industry connections and funding to fast-track commercialization.",
+      "publishedAt": "2026-07-13T22:31:28.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/aggie-venture-accelerator-welcomes-inaugural-cohort-life-science-startups",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/MB20251001_AggieSq_IMG_6025_0.jpg?h=4997dc06&itok=b5QpEIh2",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
     {
       "id": "davis-iedo-ucdavis-edu-uc-davis-stair-health-program-invests-faculty-led-health-innovations",
       "campus": "davis",
@@ -143,16 +153,6 @@
       "publishedAt": "2025-08-04T19:56:16.000Z",
       "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-sees-jump-records-invention-driven-health-innovation",
       "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/2025-05-22_Avantika%20Gokulnatha_resize.jpg?h=9855f42d&itok=2Wuomug3",
-      "sourceHost": "iedo.ucdavis.edu"
-    },
-    {
-      "id": "davis-iedo-ucdavis-edu-first-students-move-aggie-square",
-      "campus": "davis",
-      "title": "First Students Move Into Aggie Square",
-      "summary": "UC Davis welcomed residents to Anova Aggie Square, the first student housing ever offered on the Sacramento campus. Anova Aggie Square is a smart residential complex that is now home to students from the UC Davis School of Medicine, the Betty Irene Moore School of Nursing at UC Davis and other graduate programs.",
-      "publishedAt": "2025-07-17T16:14:54.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/first-students-move-aggie-square",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/anova-aggie-square-move-in-2025-2000px.jpg?h=c673cd1c&itok=mw0g0UJG",
       "sourceHost": "iedo.ucdavis.edu"
     }
   ],

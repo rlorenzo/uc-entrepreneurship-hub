@@ -2,7 +2,7 @@
   "campus": "la",
   "name": "UCLA",
   "seedUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation",
-  "crawledAt": "2026-07-12T13:34:14.436Z",
+  "crawledAt": "2026-07-19T13:34:16.969Z",
   "candidates": [
     {
       "id": "la-center-for-healthcare-innovation",
@@ -16,7 +16,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/image/2025-11/2025-healthcare-hero-home.jpg?itok=AsXoRokf",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/center-for-healthcare-innovation",
-      "lastUpdated": "2026-07-12T13:34:19.441Z"
+      "lastUpdated": "2026-07-19T13:34:21.445Z"
     },
     {
       "id": "la-undergraduate-minor-in-entrepreneurship",
@@ -30,7 +30,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/centers/price/ume-6.jpg?itok=l7JbMWAn",
       "sourceUrl": "https://www.anderson.ucla.edu/undergraduate-education/undergraduate-minor-in-entrepreneurship",
-      "lastUpdated": "2026-07-12T13:34:27.655Z"
+      "lastUpdated": "2026-07-19T13:34:28.105Z"
     },
     {
       "id": "la-ucla-anderson-venture-accelerator",
@@ -43,7 +43,7 @@
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/anderson-venture-accelerator",
-      "lastUpdated": "2026-07-12T13:34:29.258Z"
+      "lastUpdated": "2026-07-19T13:34:29.692Z"
     },
     {
       "id": "la-information-systems-research-program",
@@ -57,7 +57,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/programs/hero-h440-tpl.jpg?itok=XIKD0kkK",
       "sourceUrl": "https://www.anderson.ucla.edu/faculty-and-research/information-systems-research-program",
-      "lastUpdated": "2026-07-12T13:34:33.896Z"
+      "lastUpdated": "2026-07-19T13:34:34.430Z"
     },
     {
       "id": "la-early-stage-investment-fund",
@@ -70,7 +70,7 @@
       "industries": [],
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "sourceUrl": "https://www.anderson.ucla.edu/for-companies/early-stage-investment-fund",
-      "lastUpdated": "2026-07-12T13:34:36.522Z"
+      "lastUpdated": "2026-07-19T13:34:37.781Z"
     },
     {
       "id": "la-price-center-for-entrepreneurship-and-innovation-fellowships",
@@ -84,7 +84,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/centers/price/2020/price-center-fellowships.jpg?itok=xvB_LKBR",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-students/fellowships",
-      "lastUpdated": "2026-07-12T13:34:42.562Z"
+      "lastUpdated": "2026-07-19T13:34:44.078Z"
     },
     {
       "id": "la-student-investment-fund",
@@ -98,7 +98,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/clubs/STUDENT-anderson-banner.jpg?itok=j-jnQsJS",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-students/student-investment-fund",
-      "lastUpdated": "2026-07-12T13:34:44.036Z"
+      "lastUpdated": "2026-07-19T13:34:45.509Z"
     },
     {
       "id": "la-management-development-for-entrepreneurs",
@@ -112,7 +112,7 @@
       "applicationLink": "https://www.anderson.ucla.edu/apply",
       "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/banner_desktop/public/images/2017/sites/centers/price/2020/Professionals/PRICE-MDE-online-banner.jpg?itok=KMURY2Ij",
       "sourceUrl": "https://www.anderson.ucla.edu/about/centers/price-center-for-entrepreneurship-and-innovation/for-professionals/management-development-for-entrepreneurs",
-      "lastUpdated": "2026-07-12T13:34:53.451Z"
+      "lastUpdated": "2026-07-19T13:34:54.426Z"
     }
   ],
   "errors": []

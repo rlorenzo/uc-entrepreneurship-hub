@@ -3,7 +3,7 @@
   "name": "UCLA",
   "strategy": "playwright",
   "source": "https://www.anderson.ucla.edu/news-and-events",
-  "crawledAt": "2026-07-12T13:35:43.977Z",
+  "crawledAt": "2026-07-19T13:35:49.017Z",
   "items": [
     {
       "id": "la-anderson-ucla-edu-ucla-anderson-school-management-launches-minors-real-estate-and-sports-leadership-and-management",

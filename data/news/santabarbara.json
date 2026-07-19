@@ -3,8 +3,28 @@
   "name": "UC Santa Barbara",
   "strategy": "rss",
   "source": "https://innovation.ucsb.edu/rss.xml",
-  "crawledAt": "2026-07-12T13:35:31.749Z",
+  "crawledAt": "2026-07-19T13:35:37.863Z",
   "items": [
+    {
+      "id": "santabarbara-innovation-ucsb-edu-jonathan-klamkin-receives-international-semiconductor-award",
+      "campus": "santabarbara",
+      "title": "Jonathan Klamkin Receives International Semiconductor Award",
+      "summary": "Jonathan Klamkin Receives International Semiconductor Award gmundaden Wed, 07/15/2026 - 15:35 Compound Semiconductor Week is widely regarded as one of the premier international gatherings in the field, bringing together researchers and industry leaders who work on the science, technology, and applications of compound semiconductors. Jonathan Klamkin and other recipients were recognized during an a",
+      "publishedAt": "2026-07-15T22:35:07.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/jonathan-klamkin-receives-international-semiconductor-award",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-07/klamkin-csw-iprm-caption.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-innovation-ucsb-edu-ucsb-professor-earns-international-recognition-materials-research",
+      "campus": "santabarbara",
+      "title": "UCSB Professor Earns International Recognition for Materials Research",
+      "summary": "UCSB Professor Earns International Recognition for Materials Research gmundaden Wed, 07/15/2026 - 15:27 Some people seek perfection. UC Santa Barbara materials professor Daniel Gianola is focused on creating, finding and exploring imperfections, with an eye to developing new and better materials. “Our work is all about the imperfections — defects — because they control a material’s properties, so ",
+      "publishedAt": "2026-07-15T22:27:23.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-professor-earns-international-recognition-materials-research",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-07/gianola.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
     {
       "id": "santabarbara-innovation-ucsb-edu-mentium-technologies-luna-r1-ai-chip-selected-et-01-constellation-mission-first-multi",
       "campus": "santabarbara",
@@ -73,26 +93,6 @@
       "publishedAt": "2026-01-13T19:05:16.000Z",
       "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-associate-professor-chemistry-and-biochemistry-grace-han-named-moore-inventor-fellow",
       "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-01/Grace-Han_opt.jpg",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-innovation-ucsb-edu-ucsb-professor-blumenthals-lab-selected-nsfs-national-quantum-virtual-laboratory",
-      "campus": "santabarbara",
-      "title": "UCSB Professor Blumenthal’s Lab Selected for NSF's National Quantum Virtual Laboratory",
-      "summary": "UCSB Professor Blumenthal’s Lab Selected for NSF's National Quantum Virtual Laboratory gmundaden Tue, 01/13/2026 - 10:58 Aligning with colleagues at MIT, UCLA, Harvard and University of Maryland, Blumenthal’s lab joins federal agencies and partners from the private sector to design high-tech infrastructure across the country in an effort to accelerate the development of useful quantum technologies",
-      "publishedAt": "2026-01-13T18:58:18.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-professor-blumenthals-lab-selected-nsfs-national-quantum-virtual-laboratory",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-01/blumenthal.png",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-innovation-ucsb-edu-fda-clears-osteoprober-first-ever-device-indication-measuring-bone-material-strength",
-      "campus": "santabarbara",
-      "title": "FDA Clears OsteoProbe®: First-Ever Device Indication for Measuring Bone Material Strength",
-      "summary": "FDA Clears OsteoProbe®: First-Ever Device Indication for Measuring Bone Material Strength gmundaden Tue, 01/13/2026 - 10:46 Active Life Scientific, Inc. (ALSI), a leader in innovative medical devices for bone quality, today announced that the U.S. Food and Drug Administration (FDA) has granted a new 510(k) clearance (K250216) for OsteoProbe®, marking a historic milestone as the first device with a",
-      "publishedAt": "2026-01-13T18:46:05.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/fda-clears-osteoprober-first-ever-device-indication-measuring-bone-material-strength",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-01/Group-416.png",
       "sourceHost": "innovation.ucsb.edu"
     }
   ],
