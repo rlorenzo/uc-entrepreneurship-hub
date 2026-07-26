@@ -3,7 +3,7 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-07-19T13:36:33.394Z",
+  "crawledAt": "2026-07-26T13:36:54.534Z",
   "items": [
     {
       "id": "sf-innovation-ucsf-edu-united-therapeutics-corporation-acquires-thymmune-therapeutics",

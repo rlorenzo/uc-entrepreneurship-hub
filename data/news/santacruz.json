@@ -3,16 +3,16 @@
   "name": "UC Santa Cruz",
   "strategy": "rss",
   "source": "https://news.ucsc.edu/feed/",
-  "crawledAt": "2026-07-05T13:37:41.739Z",
+  "crawledAt": "2026-07-26T13:35:56.198Z",
   "items": [
     {
-      "id": "santacruz-alumna-maria-ramos-bracamontes-champions-indigenous-farmworker-health-and-justice",
+      "id": "santacruz-news-ucsc-edu-genomics-institute-seed-funding-2026",
       "campus": "santacruz",
-      "title": "Alumna María Ramos Bracamontes champions indigenous farmworker health and justice",
-      "summary": "María Ascención Ramos Bracamontes (Merrill ’02, language studies and Latino American and Latino studies) is a certified midwife, community activist, and founder of mutual aid organization Campesina Womb Justice, advocating and supporting farmworker women's health.",
-      "publishedAt": "2026-06-29T19:55:16.000Z",
-      "sourceUrl": "https://news.ucsc.edu/2026/06/alumna-maria-ramos-bracamontes-champions-indigenous-farmworker-health-and-justice/",
-      "imageUrl": "https://news.ucsc.edu/wp-content/uploads/2026/06/maria-ramos-1392x928-1.jpg",
+      "title": "Nine projects receive seed funding from the Genomics Institute",
+      "summary": "From listening to the electrical signals of fungal networks in fire-scarred forests to training AI models that can interpret the most complex regions of the human genome, this year's cohort is using genomics in bold new applications.",
+      "publishedAt": "2026-07-24T16:05:01.000Z",
+      "sourceUrl": "https://news.ucsc.edu/2026/07/genomics-institute-seed-funding-2026/",
+      "imageUrl": "https://news.ucsc.edu/wp-content/uploads/2026/07/Ella-Ferraz.png",
       "sourceHost": "news.ucsc.edu"
     }
   ],

@@ -3,16 +3,26 @@
   "name": "UC Merced",
   "strategy": "rss",
   "source": "https://news.ucmerced.edu/rss.xml",
-  "crawledAt": "2026-07-12T13:36:43.091Z",
+  "crawledAt": "2026-07-26T13:36:54.719Z",
   "items": [
     {
-      "id": "merced-news-ucmerced-edu-all-faculty-rock-band-cuts-album-uc-merced-recording-studio",
+      "id": "merced-news-ucmerced-edu-journeys-start-boarding-pass-and-change-everything-0",
       "campus": "merced",
-      "title": "All-faculty Rock Band Cuts Album at UC Merced Recording Studio",
-      "summary": "By Jody Murray, UC Merced June 22, 2026 G Street Revolution performs at the Star Club in Merced. The faculty band's first album was recorded at UC Merced's studio. An all-faculty rock band formed in a professor’s garage a decade ago has released the first album produced at UC Merced’s digitally advanced recording studio. The album showcases the eight members of G Street Revolution. Their day jobs ",
-      "publishedAt": "2026-06-22T16:18:55.000Z",
-      "sourceUrl": "https://news.ucmerced.edu/news/2026/all-faculty-rock-band-cuts-album-uc-merced-recording-studio",
-      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/uc-merced-faculty-band-g-street-revolution-performs.jpg",
+      "title": "Journeys That Start with a Boarding Pass and Change Everything",
+      "summary": "Sam Yniguez, UC Merced July 21, 2026 From Barcelona and Botswana to 12 ports at sea, Bobcats discover resilience, cultural fluency and life skills that stay with them long after they return home. Yaritza Mora clutched her boarding pass and took a deep breath. Alone at the airport, bound for Barcelona, she wasn't just crossing time zones - she was crossing into a new phase of life. She had traveled",
+      "publishedAt": "2026-07-21T18:11:39.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/journeys-start-boarding-pass-and-change-everything-0",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/study_abroad_uc_merced_yaritza_mora_0.png",
+      "sourceHost": "news.ucmerced.edu"
+    },
+    {
+      "id": "merced-news-ucmerced-edu-uc-merced-launches-communities-valley-series-dutch-american-history",
+      "campus": "merced",
+      "title": "UC Merced Launches Communities of the Valley Series with Dutch American History",
+      "summary": "By Francesca Dinglasan, UC Merced July 21, 2026 David Zwart presents \"The Dutch-American Story in the San Joaquin Valley\" as part of UC Merced's new Communities of the Valley series. David Zwart hadn't even finished introducing himself as the keynote speaker for \"The Dutch -American Story in the San Joaquin Valley\" at the UC Merced event on July 14 before he'd found a connection in the audience. \"",
+      "publishedAt": "2026-07-21T17:59:04.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/uc-merced-launches-communities-valley-series-dutch-american-history",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/hero_-_2026-07-21t105724.097.png",
       "sourceHost": "news.ucmerced.edu"
     }
   ],

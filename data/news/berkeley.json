@@ -3,8 +3,38 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-07-19T13:35:37.272Z",
+  "crawledAt": "2026-07-26T13:35:40.907Z",
   "items": [
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-like-father-like-daughter-the-vellankis-take-on-uc-berkeley-haas-together",
+      "campus": "berkeley",
+      "title": "Like father, like daughter: The Vellankis take on UC Berkeley Haas together",
+      "summary": "Sahasra Vellanki, BS 29, a second-year Spieker undergraduate student double majoring in business and data science, with her father, Ravi Vellanki, who just started the Executive MBA program. Sahasra Vellanki,…",
+      "publishedAt": "2026-07-22T17:06:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/like-father-like-daughter-the-vellankis-take-on-uc-berkeley-haas-together/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/IMG_4052-1-scaled-768x513.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-citris-uc-org-california-cio-chris-given-joins-citris-advisory-board",
+      "campus": "berkeley",
+      "title": "California CIO Chris Given Joins CITRIS Advisory Board",
+      "summary": "California CIO Chris Given Joins CITRIS Advisory Board",
+      "publishedAt": "2026-07-20T16:30:00.000Z",
+      "sourceUrl": "https://citris-uc.org/california-cio-chris-given-joins-citris-advisory-board/?utm_source=rss&utm_medium=rss&utm_campaign=california-cio-chris-given-joins-citris-advisory-board",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/Chris-Givens-1540x368-1-scaled-768x184.jpg",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-energyathaas-wordpress-com-why-are-we-sinking-billions-into-a-gas-system-we-plan-to-leave-behind",
+      "campus": "berkeley",
+      "title": "Why Are We Sinking Billions into a Gas System We Plan to Leave Behind?",
+      "summary": "The post Why Are We Sinking Billions into a Gas System We Plan to Leave Behind? appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-07-20T15:55:00.000Z",
+      "sourceUrl": "https://energyathaas.wordpress.com/2026/07/20/why-are-we-sinking-billions-into-a-gas-system-we-plan-to-leave-behind/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/dsc08966-1536x1026-1-768x513.jpeg",
+      "sourceHost": "energyathaas.wordpress.com"
+    },
     {
       "id": "berkeley-newsroom-haas-berkeley-edu-from-ultimate-cheating-machine-to-classroom-ally-edvisor-rethinks-ai-in-higher-ed",
       "campus": "berkeley",
@@ -55,6 +85,16 @@
       "sourceHost": "newsroom.haas.berkeley.edu"
     },
     {
+      "id": "berkeley-energyathaas-wordpress-com-will-u-s-households-still-buy-heat-pumps-without-a-tax-credit",
+      "campus": "berkeley",
+      "title": "Will U.S. Households Still Buy Heat Pumps Without a Tax Credit?",
+      "summary": "The post Will U.S. Households Still Buy Heat Pumps Without a Tax Credit? appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-07-13T15:53:00.000Z",
+      "sourceUrl": "https://energyathaas.wordpress.com/2026/07/13/will-u-s-households-still-buy-heat-pumps-without-a-tax-credit/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/screenshot-2026-07-13-at-7.03.02-am-768x403.png",
+      "sourceHost": "energyathaas.wordpress.com"
+    },
+    {
       "id": "berkeley-newsroom-haas-berkeley-edu-how-carbyn-ai-preserves-manufacturing-expertise-with-real-time-ai-guidance",
       "campus": "berkeley",
       "title": "How startup Carbyn AI preserves manufacturing expertise with real-time AI guidance",
@@ -63,46 +103,6 @@
       "sourceUrl": "https://newsroom.haas.berkeley.edu/how-carbyn-ai-preserves-manufacturing-expertise-with-real-time-ai-guidance/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/at-airport-768x563.png",
       "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-cmr-berkeley-edu-ai-cuts-costs-until-it-doesn-t-why-accountability-still-belongs-to-senior-leadership",
-      "campus": "berkeley",
-      "title": "AI Cuts Costs, Until It Doesn’t: Why Accountability Still Belongs to Senior Leadership",
-      "summary": "The post AI Cuts Costs, Until It Doesn’t: Why Accountability Still Belongs to Senior Leadership appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-07-06T20:08:00.000Z",
-      "sourceUrl": "https://cmr.berkeley.edu/2026/07/ai-cuts-costs-until-it-doesn-t-why-accountability-still-belongs-to-senior-leadership/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/2026-06-chung_as_77323541-768x512.jpeg",
-      "sourceHost": "cmr.berkeley.edu"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-how-mba-mcs-students-are-merging-business-and-climate",
-      "campus": "berkeley",
-      "title": "How MBA/MCS students are merging business and climate",
-      "summary": "Emily Kargl worked at Deloitte before starting the MBA/MCS program. UC Berkeley Haas and the Rausser College of Natural Resources teamed up in fall of 2024 to launch a concurrent…",
-      "publishedAt": "2026-07-06T17:45:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/how-mba-mcs-students-are-merging-business-and-climate/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/Emily-Kargl-768x512.jpeg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-11-ideas-from-uc-berkeley-haas-that-changed-american-business",
-      "campus": "berkeley",
-      "title": "11 ideas from UC Berkeley Haas that changed American business",
-      "summary": "Happy 4th of July! As America celebrates its 250th birthday, we’re celebrating a few of the ideas born at UC Berkeley Haas that helped shape how American business actually works.…",
-      "publishedAt": "2026-07-03T17:53:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/11-ideas-from-uc-berkeley-haas-that-changed-american-business/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/28020940281_d0142621e1_b-768x499.jpg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-blogs-haas-berkeley-edu-mfe-program-update",
-      "campus": "berkeley",
-      "title": "25 Years of Excellence: Top Ranked, Industry Connected, Future Focused",
-      "summary": "The post 25 Years of Excellence: Top Ranked, Industry Connected, Future Focused appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-07-01T19:45:00.000Z",
-      "sourceUrl": "https://blogs.haas.berkeley.edu/mfe/mfe-program-update",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/mfeblogpost-768x545.png",
-      "sourceHost": "blogs.haas.berkeley.edu"
     }
   ],
   "errors": []

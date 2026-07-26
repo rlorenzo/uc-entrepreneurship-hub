@@ -3,8 +3,18 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-07-19T13:36:23.317Z",
+  "crawledAt": "2026-07-26T13:36:41.258Z",
   "items": [
+    {
+      "id": "sd-today-ucsd-edu-what-explains-gender-pay-gaps-in-academia",
+      "campus": "sd",
+      "title": "What Explains Gender Pay Gaps in Academia?",
+      "summary": "A study of University of California social science faculty tested several common explanations and found that none told the full story.",
+      "publishedAt": "2026-07-20T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/what-explains-gender-pay-gaps-in-academia",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/coin-stacks-grad-cap_photo-by-iStock_bieshutterb-1200.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
     {
       "id": "sd-today-ucsd-edu-margaret-roberts-named-director-of-uc-san-diegos-21st-century-china-center",
       "campus": "sd",
@@ -53,16 +63,6 @@
       "publishedAt": "2026-06-02T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/what-desert-locusts-reveal-about-disaster-monitoring",
       "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Desert-Locust-Swarm-photo-by-Magnus_Ullman_CC_BY-SA_3.0_via_Wikimedia_Commons_.png",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-today-ucsd-edu-in-the-worlds-economic-black-holes-data-still-leaks-out",
-      "campus": "sd",
-      "title": "In the World’s Economic “Black Holes,” Data Still Leaks Out",
-      "summary": "​​​​​​​From satellite imagery to clandestine price reports, a new study from the School of Global Policy and Strategy at UC San Diego draws on North Korea to explore economic activity in opaque regimes and information-scarce regions.",
-      "publishedAt": "2026-05-28T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/in-the-worlds-economic-black-holes-data-still-leaks-out",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/North-Korea-Flag-Barbed-Wire-photo-by-iStock_Diy13-1200-CROP-2187644088.jpg",
       "sourceHost": "today.ucsd.edu"
     }
   ],
