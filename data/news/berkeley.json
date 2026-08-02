@@ -3,8 +3,28 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-07-26T13:35:40.907Z",
+  "crawledAt": "2026-08-02T14:40:22.936Z",
   "items": [
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-uc-berkeley-researchers-entrepreneurs-create-first-healthcare-ai-model-trained-to-understand-clinical-decisions",
+      "campus": "berkeley",
+      "title": "UC Berkeley researchers, entrepreneurs create first healthcare AI model trained to understand clinical decisions",
+      "summary": "Experts in healthcare economics, computational health, biostatistics, and behavioral design from across the Haas School of Business and UC Berkeley came together to build a new kind of healthcare AI—trained…",
+      "publishedAt": "2026-07-28T19:44:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/uc-berkeley-researchers-entrepreneurs-create-first-healthcare-ai-model-trained-to-understand-clinical-decisions/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/Knit-Health-2-768x402.png",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-energyathaas-wordpress-com-why-do-californians-pay-more-at-the-pump",
+      "campus": "berkeley",
+      "title": "Why Do Californians Pay More At the Pump?",
+      "summary": "The post Why Do Californians Pay More At the Pump? appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-07-27T17:27:00.000Z",
+      "sourceUrl": "https://energyathaas.wordpress.com/2026/07/27/why-do-californians-pay-more-at-the-pump/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/cagasolineprices260727-fig1-768x432.png",
+      "sourceHost": "energyathaas.wordpress.com"
+    },
     {
       "id": "berkeley-newsroom-haas-berkeley-edu-like-father-like-daughter-the-vellankis-take-on-uc-berkeley-haas-together",
       "campus": "berkeley",
@@ -14,6 +34,16 @@
       "sourceUrl": "https://newsroom.haas.berkeley.edu/like-father-like-daughter-the-vellankis-take-on-uc-berkeley-haas-together/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/IMG_4052-1-scaled-768x513.jpg",
       "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-cmr-berkeley-edu-who-gets-blamed-when-your-ai-agent-fails-the-moral-crumple-zone-problem-in-hybrid-companies",
+      "campus": "berkeley",
+      "title": "Who Gets Blamed When Your AI Agent Fails?",
+      "summary": "The post Who Gets Blamed When Your AI Agent Fails? appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-07-21T17:27:00.000Z",
+      "sourceUrl": "https://cmr.berkeley.edu/2026/07/who-gets-blamed-when-your-ai-agent-fails-the-moral-crumple-zone-problem-in-hybrid-companies/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/2026-07-doshi_as_2086943246-768x512.jpeg",
+      "sourceHost": "cmr.berkeley.edu"
     },
     {
       "id": "berkeley-citris-uc-org-california-cio-chris-given-joins-citris-advisory-board",
@@ -56,6 +86,16 @@
       "sourceHost": "citris-uc.org"
     },
     {
+      "id": "berkeley-unsiloedpodcast-com-jennifer-a-chatman-and-glenn-r-carroll",
+      "campus": "berkeley",
+      "title": "Episode 668: Jennifer A. Chatman and Glenn R. Carroll",
+      "summary": "The post Episode 668: Jennifer A. Chatman and Glenn R. Carroll appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-07-15T17:31:00.000Z",
+      "sourceUrl": "https://www.unsiloedpodcast.com/episodes/jennifer-a-chatman-and-glenn-r-carroll",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/JenniferA.ChatmanandGlennR.Carroll-EpisodeArtwork-768x768.png",
+      "sourceHost": "www.unsiloedpodcast.com"
+    },
+    {
       "id": "berkeley-citris-uc-org-citris-researcher-redefines-robotics",
       "campus": "berkeley",
       "title": "CITRIS researcher redefines robotics",
@@ -64,45 +104,6 @@
       "sourceUrl": "https://citris-uc.org/citris-researcher-redefines-robotics/?utm_source=rss&utm_medium=rss&utm_campaign=citris-researcher-redefines-robotics",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/Goldberg-June-2026-768x184.png",
       "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-skydeck-berkeley-edu-newsletter-july-15-2026",
-      "campus": "berkeley",
-      "title": "Newsletter – July 15, 2026",
-      "summary": "Berkeley SkyDeck’s Batch 22 Demo Day is coming up on September 30th in Berkeley. With our alumni having collectively raised over $3B, the stage is set for our next cohort…",
-      "publishedAt": "2026-07-14T22:33:00.000Z",
-      "sourceUrl": "https://skydeck.berkeley.edu/newsletter-july-15-2026/",
-      "sourceHost": "skydeck.berkeley.edu"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-professional-women-have-narrowed-the-gender-pay-gap-but-troubling-inequities-remain",
-      "campus": "berkeley",
-      "title": "Professional women have narrowed the gender pay gap, but troubling inequities remain",
-      "summary": "Women with advanced business degrees have reduced the gender pay gap by as much as half over the past two decades, in part by remaining in the workforce after having…",
-      "publishedAt": "2026-07-13T21:28:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/research/professional-women-have-narrowed-the-gender-pay-gap-but-troubling-inequities-remain/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/iStock-2202336006-scaled-768x405.jpg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-energyathaas-wordpress-com-will-u-s-households-still-buy-heat-pumps-without-a-tax-credit",
-      "campus": "berkeley",
-      "title": "Will U.S. Households Still Buy Heat Pumps Without a Tax Credit?",
-      "summary": "The post Will U.S. Households Still Buy Heat Pumps Without a Tax Credit? appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-07-13T15:53:00.000Z",
-      "sourceUrl": "https://energyathaas.wordpress.com/2026/07/13/will-u-s-households-still-buy-heat-pumps-without-a-tax-credit/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/screenshot-2026-07-13-at-7.03.02-am-768x403.png",
-      "sourceHost": "energyathaas.wordpress.com"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-how-carbyn-ai-preserves-manufacturing-expertise-with-real-time-ai-guidance",
-      "campus": "berkeley",
-      "title": "How startup Carbyn AI preserves manufacturing expertise with real-time AI guidance",
-      "summary": "Startup: Carbyn AICo-founder & CEO Jungkeun Hong, MBA 26 To gather customer feedback, Hong drove more than 10,000 miles visiting roughly 150 manufacturing plants and job sites. When Jungkeun Hong…",
-      "publishedAt": "2026-07-08T23:11:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/how-carbyn-ai-preserves-manufacturing-expertise-with-real-time-ai-guidance/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/at-airport-768x563.png",
-      "sourceHost": "newsroom.haas.berkeley.edu"
     }
   ],
   "errors": []

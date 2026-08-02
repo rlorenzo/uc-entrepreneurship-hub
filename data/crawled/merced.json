@@ -2,7 +2,7 @@
   "campus": "merced",
   "name": "UC Merced",
   "seedUrl": "https://entrepreneurship.ucmerced.edu/",
-  "crawledAt": "2026-07-26T13:35:14.594Z",
+  "crawledAt": "2026-08-02T14:39:56.296Z",
   "candidates": [
     {
       "id": "merced-entrepreneurship-hub",
@@ -13,7 +13,7 @@
       "desc": "This website is the homesite of the Innovation and Entrepreneurship Lab (ieLab), a faculty-driven initiative assisting with the innovation and entrepreneurship teaching and service mission of the university, and a resource hub providing information about entrepreneurship at UC Merced — specifically, information and news about:",
       "industries": [],
       "sourceUrl": "https://entrepreneurship.ucmerced.edu/",
-      "lastUpdated": "2026-07-26T13:35:17.825Z"
+      "lastUpdated": "2026-08-02T14:39:59.502Z"
     },
     {
       "id": "merced-innovation-and-entrepreneurship-lab-ielab",
@@ -28,7 +28,7 @@
       ],
       "imageUrl": "https://entrepreneurship.ucmerced.edu/sites/entrepreneurship.ucmerced.edu/files/documents/ielab.png",
       "sourceUrl": "https://entrepreneurship.ucmerced.edu/lab",
-      "lastUpdated": "2026-07-26T13:35:22.630Z"
+      "lastUpdated": "2026-08-02T14:40:05.392Z"
     }
   ],
   "errors": []

@@ -3,8 +3,18 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-07-26T13:36:41.258Z",
+  "crawledAt": "2026-08-02T14:41:34.852Z",
   "items": [
+    {
+      "id": "sd-today-ucsd-edu-why-is-the-toy-story-franchise-so-successful",
+      "campus": "sd",
+      "title": "Why Is the Toy Story Franchise so Successful?",
+      "summary": "The fifth Toy Story installment recently surpassed over $1 billion at the box office making it the highest-grossing film of 2026. So what is the secret behind the franchise’s enduring appeal? Shawna Kidman, associate professor of communication explains why in this Q&A. ",
+      "publishedAt": "2026-07-30T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/why-is-the-toy-story-franchise-so-successful",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/iStock-1799053376%281%29%281%29.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
     {
       "id": "sd-today-ucsd-edu-what-explains-gender-pay-gaps-in-academia",
       "campus": "sd",
@@ -53,16 +63,6 @@
       "publishedAt": "2026-06-18T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/the-paramount-problem-with-hollywoods-next-big-merger",
       "imageUrl": "https://today.ucsd.edu/news_uploads/_social/ChatGPT_Image_Jun_16%2C_2026%2C_07_40_28_AM%281%29%283%29.png",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-today-ucsd-edu-what-desert-locusts-reveal-about-disaster-monitoring",
-      "campus": "sd",
-      "title": "What Desert Locusts Reveal About Disaster Monitoring",
-      "summary": "A new working paper co-authored by Gordon McCord of the UC San Diego School of Global Policy and Strategy suggests that the greatest benefits of disaster monitoring may come from catastrophes the world never sees.",
-      "publishedAt": "2026-06-02T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/what-desert-locusts-reveal-about-disaster-monitoring",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Desert-Locust-Swarm-photo-by-Magnus_Ullman_CC_BY-SA_3.0_via_Wikimedia_Commons_.png",
       "sourceHost": "today.ucsd.edu"
     }
   ],

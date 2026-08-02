@@ -3,8 +3,28 @@
   "name": "UC Santa Barbara",
   "strategy": "rss",
   "source": "https://innovation.ucsb.edu/rss.xml",
-  "crawledAt": "2026-07-26T13:35:41.024Z",
+  "crawledAt": "2026-08-02T14:40:23.057Z",
   "items": [
+    {
+      "id": "santabarbara-innovation-ucsb-edu-ucsb-partnership-opens-doors-semiconductor-careers-high-school-students",
+      "campus": "santabarbara",
+      "title": "UCSB Partnership Opens Doors to Semiconductor Careers for High School Students",
+      "summary": "UCSB Partnership Opens Doors to Semiconductor Careers for High School Students gmundaden Tue, 07/28/2026 - 12:31 A new partnership between UC Santa Barbara’s Nanofabrication Facility and semiconductor startup PseudolithIC is giving Carpinteria High School (CHS) students a rare hands-on experience in semiconductor engineering while helping to build a future workforce for one of Santa Barbara County",
+      "publishedAt": "2026-07-28T19:31:32.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-partnership-opens-doors-semiconductor-careers-high-school-students",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-07/classroom-to-cleanroom.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
+    {
+      "id": "santabarbara-innovation-ucsb-edu-hurd-co-named-finalists-2026-thrive-global-impact-challenge",
+      "campus": "santabarbara",
+      "title": "The Hurd Co. named finalists in the 2026 THRIVE Global Impact Challenge",
+      "summary": "The Hurd Co. named finalists in the 2026 THRIVE Global Impact Challenge margalith Mon, 07/27/2026 - 12:44 The Hurd Co. has been named one of 18 finalists (out of more than 2,000 global applicants) in the 2026 THRIVE Global Impact Challenge by SVG Ventures! Finalists compete for up to $1M in investment while pitching on stage in Silicon Valley at the THRIVE Global Impact Summit in October 2026. Rep",
+      "publishedAt": "2026-07-27T19:44:57.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/hurd-co-named-finalists-2026-thrive-global-impact-challenge",
+      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-07/Hurd_Co_Logo.png.jpg",
+      "sourceHost": "innovation.ucsb.edu"
+    },
     {
       "id": "santabarbara-innovation-ucsb-edu-jonathan-klamkin-receives-international-semiconductor-award",
       "campus": "santabarbara",
@@ -73,26 +93,6 @@
       "publishedAt": "2026-04-22T18:09:38.000Z",
       "sourceUrl": "https://innovation.ucsb.edu/blog/news/techtopia-2026-showcases-ucsbs-expanding-innovation-ecosystem",
       "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-04/download.jpg",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-innovation-ucsb-edu-professor-phillip-christopher-and-stephen-wilson-named-among-worlds-most-influential",
-      "campus": "santabarbara",
-      "title": "Professor Phillip Christopher and Stephen Wilson Named Among the World’s Most Influential Researchers",
-      "summary": "Professor Phillip Christopher and Stephen Wilson Named Among the World’s Most Influential Researchers gmundaden Tue, 01/13/2026 - 11:24 Both Christopher and Wilson, who appear on the list for the first time, were recognized in the cross-field category, which honors researchers whose publications span multiple disciplines, reflecting the importance of interdisciplinary research. The annual list com",
-      "publishedAt": "2026-01-13T19:24:05.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/professor-phillip-christopher-and-stephen-wilson-named-among-worlds-most-influential",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-01/2025_highly_cited.png",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-innovation-ucsb-edu-ucsb-associate-professor-chemistry-and-biochemistry-grace-han-named-moore-inventor-fellow",
-      "campus": "santabarbara",
-      "title": "UCSB Associate Professor of Chemistry and Biochemistry Grace Han named Moore Inventor Fellow",
-      "summary": "UCSB Associate Professor of Chemistry and Biochemistry Grace Han named Moore Inventor Fellow gmundaden Tue, 01/13/2026 - 11:05 Han’s research centers on molecular solar thermal energy storage, developing fuels that can capture sunlight, store it in chemical bonds, and later release it as heat on demand. The approach offers a clean, emission-free alternative to fossil fuels for residential and indu",
-      "publishedAt": "2026-01-13T19:05:16.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/ucsb-associate-professor-chemistry-and-biochemistry-grace-han-named-moore-inventor-fellow",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-01/Grace-Han_opt.jpg",
       "sourceHost": "innovation.ucsb.edu"
     }
   ],

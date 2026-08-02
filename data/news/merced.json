@@ -3,26 +3,16 @@
   "name": "UC Merced",
   "strategy": "rss",
   "source": "https://news.ucmerced.edu/rss.xml",
-  "crawledAt": "2026-07-26T13:36:54.719Z",
+  "crawledAt": "2026-08-02T14:41:46.095Z",
   "items": [
     {
-      "id": "merced-news-ucmerced-edu-journeys-start-boarding-pass-and-change-everything-0",
+      "id": "merced-news-ucmerced-edu-solar-company-partners-uc-merced-test-new-panels",
       "campus": "merced",
-      "title": "Journeys That Start with a Boarding Pass and Change Everything",
-      "summary": "Sam Yniguez, UC Merced July 21, 2026 From Barcelona and Botswana to 12 ports at sea, Bobcats discover resilience, cultural fluency and life skills that stay with them long after they return home. Yaritza Mora clutched her boarding pass and took a deep breath. Alone at the airport, bound for Barcelona, she wasn't just crossing time zones - she was crossing into a new phase of life. She had traveled",
-      "publishedAt": "2026-07-21T18:11:39.000Z",
-      "sourceUrl": "https://news.ucmerced.edu/news/2026/journeys-start-boarding-pass-and-change-everything-0",
-      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/study_abroad_uc_merced_yaritza_mora_0.png",
-      "sourceHost": "news.ucmerced.edu"
-    },
-    {
-      "id": "merced-news-ucmerced-edu-uc-merced-launches-communities-valley-series-dutch-american-history",
-      "campus": "merced",
-      "title": "UC Merced Launches Communities of the Valley Series with Dutch American History",
-      "summary": "By Francesca Dinglasan, UC Merced July 21, 2026 David Zwart presents \"The Dutch-American Story in the San Joaquin Valley\" as part of UC Merced's new Communities of the Valley series. David Zwart hadn't even finished introducing himself as the keynote speaker for \"The Dutch -American Story in the San Joaquin Valley\" at the UC Merced event on July 14 before he'd found a connection in the audience. \"",
-      "publishedAt": "2026-07-21T17:59:04.000Z",
-      "sourceUrl": "https://news.ucmerced.edu/news/2026/uc-merced-launches-communities-valley-series-dutch-american-history",
-      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/hero_-_2026-07-21t105724.097.png",
+      "title": "Solar Company Partners with UC Merced to Test New Panels",
+      "summary": "By Patty Guerra, UC Merced July 29, 2026 A coating on the panel could boost its energy output significantly. UC Merced is no stranger to solar panels. The campus, built to be sustainable from the beginning, is home to thousands of them, and they provide a good chunk of the electricity that powers the university. But one very special panel was recently installed on the top of the Science and Engine",
+      "publishedAt": "2026-07-29T16:35:43.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/solar-company-partners-uc-merced-test-new-panels",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_solar_panel_hero.jpeg",
       "sourceHost": "news.ucmerced.edu"
     }
   ],
