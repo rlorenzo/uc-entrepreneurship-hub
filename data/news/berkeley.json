@@ -3,8 +3,58 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-08-02T14:40:22.936Z",
+  "crawledAt": "2026-08-09T13:54:05.047Z",
   "items": [
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-former-nvidia-exec-amulya-vishwanath-emba-25-launches-techable-ventures",
+      "campus": "berkeley",
+      "title": "Former NVIDIA exec Amulya Vishwanath, EMBA 25, launches Techable Ventures",
+      "summary": "Amulya Vishwanath, EMBA 25, left Nvidia after seven years to found Techable VC, an early-stage venture capital firm. When Amulya Vishwanath enrolled in the UC Berkeley Haas Executive MBA program…",
+      "publishedAt": "2026-08-04T22:32:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/former-nvidia-exec-amulya-vishwanath-emba-25-launches-techable-ventures/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/NVIDIA-ceo-768x561.png",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-energyathaas-wordpress-com-californias-electricity-imports-are-much-cleaner-how-much-of-it-is-real",
+      "campus": "berkeley",
+      "title": "California’s Electricity Imports Are Much Cleaner. How Much of it is Real?",
+      "summary": "The post California’s Electricity Imports Are Much Cleaner. How Much of it is Real? appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-08-03T17:40:00.000Z",
+      "sourceUrl": "https://energyathaas.wordpress.com/2026/08/03/californias-electricity-imports-are-much-cleaner-how-much-of-it-is-real/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/bushnell-768x768.png",
+      "sourceHost": "energyathaas.wordpress.com"
+    },
+    {
+      "id": "berkeley-citris-uc-org-research-internship-future-of-insurance-with-ai-agents",
+      "campus": "berkeley",
+      "title": "Research Internship: Future of Insurance with AI Agents",
+      "summary": "Research Internship: Future of Insurance with AI Agents",
+      "publishedAt": "2026-08-03T16:59:00.000Z",
+      "sourceUrl": "https://citris-uc.org/research-internship-future-of-insurance-with-ai-agents/?utm_source=rss&utm_medium=rss&utm_campaign=research-internship-future-of-insurance-with-ai-agents",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Ins-AI-Web-Banner-1540x368_v2-768x184.jpg",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-qb3-berkeley-edu-new-technique-pinpoints-human-dna-inherited-from-ghost-ancestors",
+      "campus": "berkeley",
+      "title": "New technique pinpoints human DNA inherited from ‘ghost’ ancestors",
+      "summary": "Using genealogical relationships in DNA, UC Berkeley researchers have uncovered hidden contributions from extinct human populations that left no sequenced genomes. Illustration: Meaghan Marohn Neanderthals and Denisovans interbred with modern…",
+      "publishedAt": "2026-07-30T20:23:00.000Z",
+      "sourceUrl": "https://qb3.berkeley.edu/news/new-technique-pinpoints-human-dna-inherited-from-ghost-ancestors/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Updated_Illustration_Marohn-scaled-768x439.jpg",
+      "sourceHost": "qb3.berkeley.edu"
+    },
+    {
+      "id": "berkeley-qb3-berkeley-edu-bringing-it-all-into-focus",
+      "campus": "berkeley",
+      "title": "Bringing it all into focus",
+      "summary": "Trajectories (color-coded by time) of a few dozen C. elegans freely moving across a field of view greater than 5 square centimeters. (Image courtesy of the researchers) When designing microscopes,…",
+      "publishedAt": "2026-07-28T20:14:00.000Z",
+      "sourceUrl": "https://qb3.berkeley.edu/news/bringing-it-all-into-focus/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/cover_image_diffusermcam_16x9-scaled-768x432.jpg",
+      "sourceHost": "qb3.berkeley.edu"
+    },
     {
       "id": "berkeley-newsroom-haas-berkeley-edu-uc-berkeley-researchers-entrepreneurs-create-first-healthcare-ai-model-trained-to-understand-clinical-decisions",
       "campus": "berkeley",
@@ -26,6 +76,26 @@
       "sourceHost": "energyathaas.wordpress.com"
     },
     {
+      "id": "berkeley-cmr-berkeley-edu-envisioning-the-future-of-business-schools",
+      "campus": "berkeley",
+      "title": "Envisioning the Future of Business Schools",
+      "summary": "The post Envisioning the Future of Business Schools appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-07-24T17:52:00.000Z",
+      "sourceUrl": "https://cmr.berkeley.edu/2026/07/envisioning-the-future-of-business-schools/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/2026-07-kim_as_37853733-768x511.jpeg",
+      "sourceHost": "cmr.berkeley.edu"
+    },
+    {
+      "id": "berkeley-blogs-haas-berkeley-edu-alumni-chandler",
+      "campus": "berkeley",
+      "title": "Where an MFE Can Take You: Chandler Fang MFE17 on Founding t54",
+      "summary": "The post Where an MFE Can Take You: Chandler Fang MFE17 on Founding t54 appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-07-22T18:04:00.000Z",
+      "sourceUrl": "https://blogs.haas.berkeley.edu/mfe/alumni-chandler",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/chandlerfangblog.png",
+      "sourceHost": "blogs.haas.berkeley.edu"
+    },
+    {
       "id": "berkeley-newsroom-haas-berkeley-edu-like-father-like-daughter-the-vellankis-take-on-uc-berkeley-haas-together",
       "campus": "berkeley",
       "title": "Like father, like daughter: The Vellankis take on UC Berkeley Haas together",
@@ -34,76 +104,6 @@
       "sourceUrl": "https://newsroom.haas.berkeley.edu/like-father-like-daughter-the-vellankis-take-on-uc-berkeley-haas-together/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/IMG_4052-1-scaled-768x513.jpg",
       "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-cmr-berkeley-edu-who-gets-blamed-when-your-ai-agent-fails-the-moral-crumple-zone-problem-in-hybrid-companies",
-      "campus": "berkeley",
-      "title": "Who Gets Blamed When Your AI Agent Fails?",
-      "summary": "The post Who Gets Blamed When Your AI Agent Fails? appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-07-21T17:27:00.000Z",
-      "sourceUrl": "https://cmr.berkeley.edu/2026/07/who-gets-blamed-when-your-ai-agent-fails-the-moral-crumple-zone-problem-in-hybrid-companies/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/2026-07-doshi_as_2086943246-768x512.jpeg",
-      "sourceHost": "cmr.berkeley.edu"
-    },
-    {
-      "id": "berkeley-citris-uc-org-california-cio-chris-given-joins-citris-advisory-board",
-      "campus": "berkeley",
-      "title": "California CIO Chris Given Joins CITRIS Advisory Board",
-      "summary": "California CIO Chris Given Joins CITRIS Advisory Board",
-      "publishedAt": "2026-07-20T16:30:00.000Z",
-      "sourceUrl": "https://citris-uc.org/california-cio-chris-given-joins-citris-advisory-board/?utm_source=rss&utm_medium=rss&utm_campaign=california-cio-chris-given-joins-citris-advisory-board",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/Chris-Givens-1540x368-1-scaled-768x184.jpg",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-energyathaas-wordpress-com-why-are-we-sinking-billions-into-a-gas-system-we-plan-to-leave-behind",
-      "campus": "berkeley",
-      "title": "Why Are We Sinking Billions into a Gas System We Plan to Leave Behind?",
-      "summary": "The post Why Are We Sinking Billions into a Gas System We Plan to Leave Behind? appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-07-20T15:55:00.000Z",
-      "sourceUrl": "https://energyathaas.wordpress.com/2026/07/20/why-are-we-sinking-billions-into-a-gas-system-we-plan-to-leave-behind/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/dsc08966-1536x1026-1-768x513.jpeg",
-      "sourceHost": "energyathaas.wordpress.com"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-from-ultimate-cheating-machine-to-classroom-ally-edvisor-rethinks-ai-in-higher-ed",
-      "campus": "berkeley",
-      "title": "From “ultimate cheating machine” to classroom ally: Edvisor rethinks AI in higher ed",
-      "summary": "Co-founders Rameez Mahmood, MBA 26, (left) and Shariq Shah, a San Jose State computer science graduate As generative AI began reshaping the way people work, learn, and create, Rameez Mahmood,…",
-      "publishedAt": "2026-07-16T22:37:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/from-ultimate-cheating-machine-to-classroom-ally-edvisor-rethinks-ai-in-higher-ed/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/PXL_20260519_221628078-1-scaled-768x447.jpg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-citris-uc-org-citris-pi-uses-sewage-to-track-central-valley-nicotine-use",
-      "campus": "berkeley",
-      "title": "CITRIS PI uses sewage to track Central Valley nicotine use",
-      "summary": "CITRIS PI uses sewage to track Central Valley nicotine use",
-      "publishedAt": "2026-07-16T16:00:00.000Z",
-      "sourceUrl": "https://citris-uc.org/citris-pi-uses-sewage-to-track-central-valley-nicotine-use/?utm_source=rss&utm_medium=rss&utm_campaign=citris-pi-uses-sewage-to-track-central-valley-nicotine-use",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/Wastewater-nicotine-detection-July-2026-768x184.png",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-unsiloedpodcast-com-jennifer-a-chatman-and-glenn-r-carroll",
-      "campus": "berkeley",
-      "title": "Episode 668: Jennifer A. Chatman and Glenn R. Carroll",
-      "summary": "The post Episode 668: Jennifer A. Chatman and Glenn R. Carroll appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-07-15T17:31:00.000Z",
-      "sourceUrl": "https://www.unsiloedpodcast.com/episodes/jennifer-a-chatman-and-glenn-r-carroll",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/JenniferA.ChatmanandGlennR.Carroll-EpisodeArtwork-768x768.png",
-      "sourceHost": "www.unsiloedpodcast.com"
-    },
-    {
-      "id": "berkeley-citris-uc-org-citris-researcher-redefines-robotics",
-      "campus": "berkeley",
-      "title": "CITRIS researcher redefines robotics",
-      "summary": "CITRIS researcher redefines robotics",
-      "publishedAt": "2026-07-15T16:00:00.000Z",
-      "sourceUrl": "https://citris-uc.org/citris-researcher-redefines-robotics/?utm_source=rss&utm_medium=rss&utm_campaign=citris-researcher-redefines-robotics",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/Goldberg-June-2026-768x184.png",
-      "sourceHost": "citris-uc.org"
     }
   ],
   "errors": []

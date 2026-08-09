@@ -3,7 +3,7 @@
   "name": "UCLA",
   "strategy": "playwright",
   "source": "https://www.anderson.ucla.edu/news-and-events",
-  "crawledAt": "2026-08-02T14:40:42.715Z",
+  "crawledAt": "2026-08-09T13:54:20.777Z",
   "items": [
     {
       "id": "la-anderson-ucla-edu-motivated-entrepreneurs-never-stop-learning-how-bolster-business",

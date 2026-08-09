@@ -3,8 +3,18 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-08-02T14:41:45.533Z",
+  "crawledAt": "2026-08-09T13:55:21.326Z",
   "items": [
+    {
+      "id": "sf-innovation-ucsf-edu-chugai-and-ucsf-establish-master-collaboration-agreement-drug-discovery-research",
+      "campus": "sf",
+      "title": "Chugai and UCSF Establish Master Collaboration Agreement for Drug Discovery Research",
+      "summary": "Chugai and UCSF Establish Master Collaboration Agreement for Drug Discovery Research. A Framework to Streamline Future Research Projects&nbsp;",
+      "publishedAt": "2026-08-06T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/chugai-and-ucsf-establish-master-collaboration-agreement-drug-discovery-research",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
     {
       "id": "sf-innovation-ucsf-edu-united-therapeutics-corporation-acquires-thymmune-therapeutics",
       "campus": "sf",
@@ -142,16 +152,6 @@
       "summary": "GE HealthCare has entered a 10-year Care Alliance with UCSF Health aimed at expanding imaging capabilities and supporting clinical operations across the health system.",
       "publishedAt": "",
       "sourceUrl": "https://innovation.ucsf.edu/media/news/ge-healthcare-ucsf-health-form-10-year-imaging-collaboration",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-innovation-ucsf-edu-tissue-repair-slows-old-age-these-proteins-speed-it-back",
-      "campus": "sf",
-      "title": "Tissue Repair Slows in Old Age. These Proteins Speed It Back Up",
-      "summary": "Tissue Repair Slows in Old Age. These Proteins Speed It Back Up",
-      "publishedAt": "",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/tissue-repair-slows-old-age-these-proteins-speed-it-back",
       "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
       "sourceHost": "innovation.ucsf.edu"
     }

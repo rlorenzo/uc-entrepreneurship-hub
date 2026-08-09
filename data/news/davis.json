@@ -3,7 +3,7 @@
   "name": "UC Davis",
   "strategy": "playwright",
   "source": "https://iedo.ucdavis.edu/news",
-  "crawledAt": "2026-08-02T14:41:25.673Z",
+  "crawledAt": "2026-08-09T13:55:01.682Z",
   "items": [
     {
       "id": "davis-iedo-ucdavis-edu-aggie-venture-accelerator-welcomes-inaugural-cohort-life-science-startups",
