@@ -3,7 +3,7 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-08-09T13:55:21.326Z",
+  "crawledAt": "2026-08-16T13:18:08.995Z",
   "items": [
     {
       "id": "sf-innovation-ucsf-edu-chugai-and-ucsf-establish-master-collaboration-agreement-drug-discovery-research",

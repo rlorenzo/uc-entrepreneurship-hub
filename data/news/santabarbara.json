@@ -3,8 +3,17 @@
   "name": "UC Santa Barbara",
   "strategy": "rss",
   "source": "https://innovation.ucsb.edu/rss.xml",
-  "crawledAt": "2026-08-09T13:54:05.767Z",
+  "crawledAt": "2026-08-16T13:16:59.536Z",
   "items": [
+    {
+      "id": "santabarbara-innovation-ucsb-edu-nexus-photonics-acquired-ionq",
+      "campus": "santabarbara",
+      "title": "Nexus Photonics Acquired by IonQ",
+      "summary": "Nexus Photonics Acquired by IonQ margalith Thu, 08/13/2026 - 07:59 UCSB spinoff Nexus Photonics has been acquired by IonQ. In their second quarter update, IonQ notes the acquisition as a highlight: \"The successful close of our SkyWater and Nexus acquisitions extends IonQ’s full-stack quantum platform and merchant supplier leadership to the U.S. and allied ecosystem\". Blog News Topics UCSB Startups",
+      "publishedAt": "2026-08-13T14:59:01.000Z",
+      "sourceUrl": "https://innovation.ucsb.edu/blog/news/nexus-photonics-acquired-ionq",
+      "sourceHost": "innovation.ucsb.edu"
+    },
     {
       "id": "santabarbara-innovation-ucsb-edu-ucsb-partnership-opens-doors-semiconductor-careers-high-school-students",
       "campus": "santabarbara",
@@ -83,16 +92,6 @@
       "publishedAt": "2026-04-29T18:41:35.000Z",
       "sourceUrl": "https://innovation.ucsb.edu/blog/news/new-venture-competition-finalists-2026",
       "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-04/Untitled%20design_0.png",
-      "sourceHost": "innovation.ucsb.edu"
-    },
-    {
-      "id": "santabarbara-innovation-ucsb-edu-techtopia-2026-showcases-ucsbs-expanding-innovation-ecosystem",
-      "campus": "santabarbara",
-      "title": "TechTopia 2026 Showcases UCSB’s Expanding Innovation Ecosystem",
-      "summary": "TechTopia 2026 Showcases UCSB’s Expanding Innovation Ecosystem gmundaden Wed, 04/22/2026 - 11:09 That desire for collaboration was the through-line of TechTopia 2026, a half-day summit featuring tours, demonstrations, and talks from leaders tied to UC Santa Barbara, Google Quantum AI, Agilent Technologies, AppFolio, and other firms with roots on the South Coast. It also doubled as something of a p",
-      "publishedAt": "2026-04-22T18:09:38.000Z",
-      "sourceUrl": "https://innovation.ucsb.edu/blog/news/techtopia-2026-showcases-ucsbs-expanding-innovation-ecosystem",
-      "imageUrl": "https://innovation.ucsb.edu/sites/default/files/images/blog/2026-04/download.jpg",
       "sourceHost": "innovation.ucsb.edu"
     }
   ],

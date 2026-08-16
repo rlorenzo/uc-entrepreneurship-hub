@@ -3,8 +3,18 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-08-09T13:55:11.255Z",
+  "crawledAt": "2026-08-16T13:17:58.928Z",
   "items": [
+    {
+      "id": "sd-today-ucsd-edu-why-a-doctor-saying-its-normal-can-backfire",
+      "campus": "sd",
+      "title": "Why a Doctor Saying ‘It’s Normal’ Can Backfire",
+      "summary": "Research shows that patients often interpret normalizing language to mean treatment isn’t necessary, but the misunderstanding can be prevented.",
+      "publishedAt": "2026-08-10T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/why-a-doctor-saying-its-normal-can-backfire",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Patient-describing-symptoms-photo-by-iStock_Matinee_Duangphet-2232809248.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
     {
       "id": "sd-today-ucsd-edu-mindfulness-based-therapy-for-opioid-misuse-offers-massive-return-on-investment",
       "campus": "sd",
@@ -53,16 +63,6 @@
       "publishedAt": "2026-06-30T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/margaret-roberts-named-director-of-uc-san-diegos-21st-century-china-center",
       "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Beijing-business-district-photo-by-iStock_Govan_Zhang-2255784529-1200.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-today-ucsd-edu-looking-for-work-dont-worry-about-seeming-too-eager",
-      "campus": "sd",
-      "title": "​​​​​​​Looking for Work? Don’t Worry About Seeming Too Eager",
-      "summary": "New research combining experiments with data from 11.6 million marketplace interactions suggests employers view fast replies as a positive signal — one that increases hiring likelihood.",
-      "publishedAt": "2026-06-25T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/looking-for-work-dont-worry-about-seeming-too-eager",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/About-to-Respond-photo-by-iStock_Farknot_Architect-1294562875.jpg",
       "sourceHost": "today.ucsd.edu"
     }
   ],

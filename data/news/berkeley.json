@@ -3,8 +3,38 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-08-09T13:54:05.047Z",
+  "crawledAt": "2026-08-16T13:16:58.512Z",
   "items": [
+    {
+      "id": "berkeley-citris-uc-org-genomics-institute-receives-funding-for-nine-projects",
+      "campus": "berkeley",
+      "title": "Genomics Institute receives funding for nine projects",
+      "summary": "Genomics Institute receives funding for nine projects",
+      "publishedAt": "2026-08-13T16:00:00.000Z",
+      "sourceUrl": "https://citris-uc.org/genomics-institute-receives-funding-for-nine-projects/?utm_source=rss&utm_medium=rss&utm_campaign=genomics-institute-receives-funding-for-nine-projects",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Genomics-Institute-receives-funding-for-nine-projects-Aug-2026-768x183.png",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-citris-uc-org-armando-fox-transforms-traditional-test-taking-with-computer-based-testing-facility",
+      "campus": "berkeley",
+      "title": "Flexibility, accessibility, ease: Armando Fox transforms traditional test–taking",
+      "summary": "Flexibility, accessibility, ease: Armando Fox transforms traditional test–taking",
+      "publishedAt": "2026-08-11T16:00:00.000Z",
+      "sourceUrl": "https://citris-uc.org/armando-fox-transforms-traditional-test-taking-with-computer-based-testing-facility/?utm_source=rss&utm_medium=rss&utm_campaign=armando-fox-transforms-traditional-test-taking-with-computer-based-testing-facility",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Flexibility-accessibility-ease-Armando-Fox-transforms-traditional-testE28093taking--768x183.png",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-energyathaas-wordpress-com-who-killed-offshore-wind",
+      "campus": "berkeley",
+      "title": "Who Killed Offshore Wind?",
+      "summary": "The post Who Killed Offshore Wind? appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-08-10T17:36:00.000Z",
+      "sourceUrl": "https://energyathaas.wordpress.com/2026/08/10/who-killed-offshore-wind/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/A-rendering-of-the-Charybdis-WTIV.Foto_.Dominion-Energy-768x521.png",
+      "sourceHost": "energyathaas.wordpress.com"
+    },
     {
       "id": "berkeley-newsroom-haas-berkeley-edu-former-nvidia-exec-amulya-vishwanath-emba-25-launches-techable-ventures",
       "campus": "berkeley",
@@ -14,6 +44,16 @@
       "sourceUrl": "https://newsroom.haas.berkeley.edu/former-nvidia-exec-amulya-vishwanath-emba-25-launches-techable-ventures/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/NVIDIA-ceo-768x561.png",
       "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-qb3-berkeley-edu-daniel-fletcher-among-fifteen-visionary-scientists-mamed-2026-ascb-fellows",
+      "campus": "berkeley",
+      "title": "Daniel Fletcher among fifteen visionary scientists named 2026 ASCB Fellows",
+      "summary": "The American Society for Cell Biology (ASCB) is proud to announce the election of 15 outstanding scientists as 2026 ASCB Fellows—a prestigious honor recognizing their exceptional contributions to cell biology…",
+      "publishedAt": "2026-08-03T19:17:00.000Z",
+      "sourceUrl": "https://qb3.berkeley.edu/news/daniel-fletcher-among-fifteen-visionary-scientists-mamed-2026-ascb-fellows/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/2026-ASCB-Fellows--768x461.png",
+      "sourceHost": "qb3.berkeley.edu"
     },
     {
       "id": "berkeley-energyathaas-wordpress-com-californias-electricity-imports-are-much-cleaner-how-much-of-it-is-real",
@@ -46,64 +86,24 @@
       "sourceHost": "qb3.berkeley.edu"
     },
     {
-      "id": "berkeley-qb3-berkeley-edu-bringing-it-all-into-focus",
+      "id": "berkeley-cmr-berkeley-edu-beyond-brand-equity-the-ego-saturation-index-as-a-prospective-diagnostic-for-premium-pricing-sustainability",
       "campus": "berkeley",
-      "title": "Bringing it all into focus",
-      "summary": "Trajectories (color-coded by time) of a few dozen C. elegans freely moving across a field of view greater than 5 square centimeters. (Image courtesy of the researchers) When designing microscopes,…",
-      "publishedAt": "2026-07-28T20:14:00.000Z",
-      "sourceUrl": "https://qb3.berkeley.edu/news/bringing-it-all-into-focus/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/cover_image_diffusermcam_16x9-scaled-768x432.jpg",
-      "sourceHost": "qb3.berkeley.edu"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-uc-berkeley-researchers-entrepreneurs-create-first-healthcare-ai-model-trained-to-understand-clinical-decisions",
-      "campus": "berkeley",
-      "title": "UC Berkeley researchers, entrepreneurs create first healthcare AI model trained to understand clinical decisions",
-      "summary": "Experts in healthcare economics, computational health, biostatistics, and behavioral design from across the Haas School of Business and UC Berkeley came together to build a new kind of healthcare AI—trained…",
-      "publishedAt": "2026-07-28T19:44:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/uc-berkeley-researchers-entrepreneurs-create-first-healthcare-ai-model-trained-to-understand-clinical-decisions/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/Knit-Health-2-768x402.png",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-energyathaas-wordpress-com-why-do-californians-pay-more-at-the-pump",
-      "campus": "berkeley",
-      "title": "Why Do Californians Pay More At the Pump?",
-      "summary": "The post Why Do Californians Pay More At the Pump? appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-07-27T17:27:00.000Z",
-      "sourceUrl": "https://energyathaas.wordpress.com/2026/07/27/why-do-californians-pay-more-at-the-pump/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/cagasolineprices260727-fig1-768x432.png",
-      "sourceHost": "energyathaas.wordpress.com"
-    },
-    {
-      "id": "berkeley-cmr-berkeley-edu-envisioning-the-future-of-business-schools",
-      "campus": "berkeley",
-      "title": "Envisioning the Future of Business Schools",
-      "summary": "The post Envisioning the Future of Business Schools appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-07-24T17:52:00.000Z",
-      "sourceUrl": "https://cmr.berkeley.edu/2026/07/envisioning-the-future-of-business-schools/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/2026-07-kim_as_37853733-768x511.jpeg",
+      "title": "Beyond Brand Equity: The Ego Saturation Index as a Prospective Diagnostic for Premium Pricing Sustainability",
+      "summary": "The post Beyond Brand Equity: The Ego Saturation Index as a Prospective Diagnostic for Premium Pricing Sustainability appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-07-30T17:31:00.000Z",
+      "sourceUrl": "https://cmr.berkeley.edu/2026/07/beyond-brand-equity-the-ego-saturation-index-as-a-prospective-diagnostic-for-premium-pricing-sustainability/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/2026-07-mastroberti_as_510974089-768x512.jpeg",
       "sourceHost": "cmr.berkeley.edu"
     },
     {
-      "id": "berkeley-blogs-haas-berkeley-edu-alumni-chandler",
+      "id": "berkeley-haaspodcasts-org-sri-josyula-mba-25-investing-in-yourself-to-invest-in-your-family",
       "campus": "berkeley",
-      "title": "Where an MFE Can Take You: Chandler Fang MFE17 on Founding t54",
-      "summary": "The post Where an MFE Can Take You: Chandler Fang MFE17 on Founding t54 appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-07-22T18:04:00.000Z",
-      "sourceUrl": "https://blogs.haas.berkeley.edu/mfe/alumni-chandler",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/chandlerfangblog.png",
-      "sourceHost": "blogs.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-like-father-like-daughter-the-vellankis-take-on-uc-berkeley-haas-together",
-      "campus": "berkeley",
-      "title": "Like father, like daughter: The Vellankis take on UC Berkeley Haas together",
-      "summary": "Sahasra Vellanki, BS 29, a second-year Spieker undergraduate student double majoring in business and data science, with her father, Ravi Vellanki, who just started the Executive MBA program. Sahasra Vellanki,…",
-      "publishedAt": "2026-07-22T17:06:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/like-father-like-daughter-the-vellankis-take-on-uc-berkeley-haas-together/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/07/IMG_4052-1-scaled-768x513.jpg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
+      "title": "Sri Josyula, MBA 25 – Investing in Yourself To Invest in Your Family",
+      "summary": "The post Sri Josyula, MBA 25 – Investing in Yourself To Invest in Your Family appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-07-30T17:27:00.000Z",
+      "sourceUrl": "https://www.haaspodcasts.org/episodes/onehaas/sri-josyula-mba-25-investing-in-yourself-to-invest-in-your-family",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/1fb0bc56-e25a-496b-bdda-981e7271992b___sri__josyula__-_episode_artwork_option_1-768x768.jpg",
+      "sourceHost": "www.haaspodcasts.org"
     }
   ],
   "errors": []

@@ -3,18 +3,8 @@
   "name": "UCLA",
   "strategy": "playwright",
   "source": "https://www.anderson.ucla.edu/news-and-events",
-  "crawledAt": "2026-08-09T13:54:20.777Z",
+  "crawledAt": "2026-08-16T13:17:13.860Z",
   "items": [
-    {
-      "id": "la-anderson-ucla-edu-motivated-entrepreneurs-never-stop-learning-how-bolster-business",
-      "campus": "la",
-      "title": "Motivated Entrepreneurs Never Stop Learning How to Bolster Business",
-      "summary": "27-year U.S. Air Force veteran is also a startup founder at an inflection point",
-      "publishedAt": "2026-07-20T19:00:00.000Z",
-      "sourceUrl": "https://www.anderson.ucla.edu/news-and-events/motivated-entrepreneurs-never-stop-learning-how-bolster-business",
-      "imageUrl": "https://www.anderson.ucla.edu/sites/default/files/styles/social_og/public/image/2026-07/2026-news-jennifer-hillberg-mountain-mat-card.jpg.jpeg?itok=LUV0LAFq",
-      "sourceHost": "www.anderson.ucla.edu"
-    },
     {
       "id": "la-anderson-ucla-edu-ucla-anderson-school-management-launches-minors-real-estate-and-sports-leadership-and-management",
       "campus": "la",
