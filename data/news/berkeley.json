@@ -3,8 +3,78 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-08-16T13:16:58.512Z",
+  "crawledAt": "2026-08-23T13:18:09.346Z",
   "items": [
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-patrick-oconnor-ewmba-28-an-aws-prototyping-engineer-is-building-whats-next",
+      "campus": "berkeley",
+      "title": "Patrick O’Connor, EWMBA 28, an AWS prototyping engineer, is building what’s next",
+      "summary": "In Brief Patrick O’Connor, EWMBA 28, spent his first 11 years in Ireland before he moved to Australia, where he lived until he was 23. An interest in pure innovation…",
+      "publishedAt": "2026-08-20T22:53:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/patrick-oconnor-ewmba-28-an-aws-prototyping-engineer-is-building-whats-next/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/patrick-oconnor.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-falling-wages-not-rising-prices-drove-the-2024-election",
+      "campus": "berkeley",
+      "title": "Falling wages, not rising prices, drove the 2024 election",
+      "summary": "In Brief People line up to vote outside Allegiant Stadium in Las Vegas on Nov. 5, 2024 (AP Photo/John Locher). Voters didn’t punish incumbent politicians for inflation in 2024. They…",
+      "publishedAt": "2026-08-20T14:20:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/falling-wages-not-rising-prices-drove-the-2024-election/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/24311011087197-1100x733-768x512.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-emergency-room-study-upends-traditional-thinking-about-doctors-versus-nurse-practitioners",
+      "campus": "berkeley",
+      "title": "Emergency room study upends traditional thinking about doctors versus nurse practitioners",
+      "summary": "In Brief In emergency departments, doctors outperform nurse practitioners (NPs) on average, but NPs beat doctors in about 38% of random head-to-head comparisons. The gap narrows for simpler cases and…",
+      "publishedAt": "2026-08-19T00:55:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/research/emergency-room-study-upends-traditional-thinking-about-doctors-versus-nurse-practitioners/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/AdobeStock_571455004-scaled-768x455.jpeg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-how-featurebox-ai-is-helping-brands-stop-losing-money-they-dont-know-theyre-losing",
+      "campus": "berkeley",
+      "title": "How FeatureBox AI is helping brands stop losing money they don’t know they’re losing",
+      "summary": "Kurapati founded FeatureBox, which helps CPG companies recover lost revenue. Throughout his career, Bharath Kurapati, EWMBA 26, watched consumer packaged goods companies post millions in sales through big box retailers,…",
+      "publishedAt": "2026-08-18T16:18:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/how-featurebox-ai-is-helping-brands-stop-losing-money-they-dont-know-theyre-losing/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/bharath.jpeg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-blumcenter-berkeley-edu-development-is-at-a-crossroads-heres-how-blum-center-students-are-charting-a-path-forward",
+      "campus": "berkeley",
+      "title": "Development is at a crossroads. Here’s how Blum Center students are charting a path forward.",
+      "summary": "The United States was and still remains the single largest donor of humanitarian aid in the world. In fiscal year 2023 alone, the country accounted for 43% of all government…",
+      "publishedAt": "2026-08-17T20:35:00.000Z",
+      "sourceUrl": "https://blumcenter.berkeley.edu/development-is-at-a-crossroads-heres-how-blum-center-students-are-charting-a-path-forward/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/DevEng210-scaled-768x474.jpg",
+      "sourceHost": "blumcenter.berkeley.edu"
+    },
+    {
+      "id": "berkeley-blumcenter-berkeley-edu-going-to-a-party-big-ideas-winner-yasha-zink-believes-you-have-a-right-to-know-whats-in-your-cup",
+      "campus": "berkeley",
+      "title": "Going to a Party? Big Ideas Winner Yasha Zink Believes ‘You Have a Right to Know What’s in Your Cup’",
+      "summary": "Before Yasha Zink became a UC Berkeley entrepreneur, she was a friend looking for answers. The summer before her freshman year, one of her closest friends had confided that she…",
+      "publishedAt": "2026-08-17T20:07:00.000Z",
+      "sourceUrl": "https://blumcenter.berkeley.edu/going-to-a-party-big-ideas-winner-yasha-zink-believes-you-have-a-right-to-know-whats-in-your-cup/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Zink-poster-scaled-768x512.jpg",
+      "sourceHost": "blumcenter.berkeley.edu"
+    },
+    {
+      "id": "berkeley-energyathaas-wordpress-com-how-to-prevent-biofuels-from-causing-deforestation",
+      "campus": "berkeley",
+      "title": "How to prevent Biofuels from causing deforestation",
+      "summary": "The post How to prevent Biofuels from causing deforestation appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-08-17T19:18:00.000Z",
+      "sourceUrl": "https://energyathaas.wordpress.com/2026/08/17/how-to-prevent-biofuels-from-causing-deforestation/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Photo-of-Deforestation-in-Indonesia.-CC-by-2.0-via-Wikimedia-Commons.png",
+      "sourceHost": "energyathaas.wordpress.com"
+    },
     {
       "id": "berkeley-citris-uc-org-genomics-institute-receives-funding-for-nine-projects",
       "campus": "berkeley",
@@ -16,6 +86,16 @@
       "sourceHost": "citris-uc.org"
     },
     {
+      "id": "berkeley-haas-berkeley-edu-making-waves-in-reykjavik",
+      "campus": "berkeley",
+      "title": "Making waves in Reykjavík!",
+      "summary": "The post Making waves in Reykjavík! appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-08-12T19:19:00.000Z",
+      "sourceUrl": "https://haas.berkeley.edu/international-business-development/blog/posts/making-waves-in-reykjavik/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/image2-5-768x576.png",
+      "sourceHost": "haas.berkeley.edu"
+    },
+    {
       "id": "berkeley-citris-uc-org-armando-fox-transforms-traditional-test-taking-with-computer-based-testing-facility",
       "campus": "berkeley",
       "title": "Flexibility, accessibility, ease: Armando Fox transforms traditional test–taking",
@@ -24,86 +104,6 @@
       "sourceUrl": "https://citris-uc.org/armando-fox-transforms-traditional-test-taking-with-computer-based-testing-facility/?utm_source=rss&utm_medium=rss&utm_campaign=armando-fox-transforms-traditional-test-taking-with-computer-based-testing-facility",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Flexibility-accessibility-ease-Armando-Fox-transforms-traditional-testE28093taking--768x183.png",
       "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-energyathaas-wordpress-com-who-killed-offshore-wind",
-      "campus": "berkeley",
-      "title": "Who Killed Offshore Wind?",
-      "summary": "The post Who Killed Offshore Wind? appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-08-10T17:36:00.000Z",
-      "sourceUrl": "https://energyathaas.wordpress.com/2026/08/10/who-killed-offshore-wind/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/A-rendering-of-the-Charybdis-WTIV.Foto_.Dominion-Energy-768x521.png",
-      "sourceHost": "energyathaas.wordpress.com"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-former-nvidia-exec-amulya-vishwanath-emba-25-launches-techable-ventures",
-      "campus": "berkeley",
-      "title": "Former NVIDIA exec Amulya Vishwanath, EMBA 25, launches Techable Ventures",
-      "summary": "Amulya Vishwanath, EMBA 25, left Nvidia after seven years to found Techable VC, an early-stage venture capital firm. When Amulya Vishwanath enrolled in the UC Berkeley Haas Executive MBA program…",
-      "publishedAt": "2026-08-04T22:32:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/former-nvidia-exec-amulya-vishwanath-emba-25-launches-techable-ventures/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/NVIDIA-ceo-768x561.png",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-qb3-berkeley-edu-daniel-fletcher-among-fifteen-visionary-scientists-mamed-2026-ascb-fellows",
-      "campus": "berkeley",
-      "title": "Daniel Fletcher among fifteen visionary scientists named 2026 ASCB Fellows",
-      "summary": "The American Society for Cell Biology (ASCB) is proud to announce the election of 15 outstanding scientists as 2026 ASCB Fellows—a prestigious honor recognizing their exceptional contributions to cell biology…",
-      "publishedAt": "2026-08-03T19:17:00.000Z",
-      "sourceUrl": "https://qb3.berkeley.edu/news/daniel-fletcher-among-fifteen-visionary-scientists-mamed-2026-ascb-fellows/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/2026-ASCB-Fellows--768x461.png",
-      "sourceHost": "qb3.berkeley.edu"
-    },
-    {
-      "id": "berkeley-energyathaas-wordpress-com-californias-electricity-imports-are-much-cleaner-how-much-of-it-is-real",
-      "campus": "berkeley",
-      "title": "California’s Electricity Imports Are Much Cleaner. How Much of it is Real?",
-      "summary": "The post California’s Electricity Imports Are Much Cleaner. How Much of it is Real? appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-08-03T17:40:00.000Z",
-      "sourceUrl": "https://energyathaas.wordpress.com/2026/08/03/californias-electricity-imports-are-much-cleaner-how-much-of-it-is-real/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/bushnell-768x768.png",
-      "sourceHost": "energyathaas.wordpress.com"
-    },
-    {
-      "id": "berkeley-citris-uc-org-research-internship-future-of-insurance-with-ai-agents",
-      "campus": "berkeley",
-      "title": "Research Internship: Future of Insurance with AI Agents",
-      "summary": "Research Internship: Future of Insurance with AI Agents",
-      "publishedAt": "2026-08-03T16:59:00.000Z",
-      "sourceUrl": "https://citris-uc.org/research-internship-future-of-insurance-with-ai-agents/?utm_source=rss&utm_medium=rss&utm_campaign=research-internship-future-of-insurance-with-ai-agents",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Ins-AI-Web-Banner-1540x368_v2-768x184.jpg",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-qb3-berkeley-edu-new-technique-pinpoints-human-dna-inherited-from-ghost-ancestors",
-      "campus": "berkeley",
-      "title": "New technique pinpoints human DNA inherited from ‘ghost’ ancestors",
-      "summary": "Using genealogical relationships in DNA, UC Berkeley researchers have uncovered hidden contributions from extinct human populations that left no sequenced genomes. Illustration: Meaghan Marohn Neanderthals and Denisovans interbred with modern…",
-      "publishedAt": "2026-07-30T20:23:00.000Z",
-      "sourceUrl": "https://qb3.berkeley.edu/news/new-technique-pinpoints-human-dna-inherited-from-ghost-ancestors/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Updated_Illustration_Marohn-scaled-768x439.jpg",
-      "sourceHost": "qb3.berkeley.edu"
-    },
-    {
-      "id": "berkeley-cmr-berkeley-edu-beyond-brand-equity-the-ego-saturation-index-as-a-prospective-diagnostic-for-premium-pricing-sustainability",
-      "campus": "berkeley",
-      "title": "Beyond Brand Equity: The Ego Saturation Index as a Prospective Diagnostic for Premium Pricing Sustainability",
-      "summary": "The post Beyond Brand Equity: The Ego Saturation Index as a Prospective Diagnostic for Premium Pricing Sustainability appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-07-30T17:31:00.000Z",
-      "sourceUrl": "https://cmr.berkeley.edu/2026/07/beyond-brand-equity-the-ego-saturation-index-as-a-prospective-diagnostic-for-premium-pricing-sustainability/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/2026-07-mastroberti_as_510974089-768x512.jpeg",
-      "sourceHost": "cmr.berkeley.edu"
-    },
-    {
-      "id": "berkeley-haaspodcasts-org-sri-josyula-mba-25-investing-in-yourself-to-invest-in-your-family",
-      "campus": "berkeley",
-      "title": "Sri Josyula, MBA 25 – Investing in Yourself To Invest in Your Family",
-      "summary": "The post Sri Josyula, MBA 25 – Investing in Yourself To Invest in Your Family appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-07-30T17:27:00.000Z",
-      "sourceUrl": "https://www.haaspodcasts.org/episodes/onehaas/sri-josyula-mba-25-investing-in-yourself-to-invest-in-your-family",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/1fb0bc56-e25a-496b-bdda-981e7271992b___sri__josyula__-_episode_artwork_option_1-768x768.jpg",
-      "sourceHost": "www.haaspodcasts.org"
     }
   ],
   "errors": []

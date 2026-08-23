@@ -2,7 +2,7 @@
   "campus": "sf",
   "name": "UC San Francisco",
   "seedUrl": "https://innovation.ucsf.edu/",
-  "crawledAt": "2026-08-16T13:16:20.583Z",
+  "crawledAt": "2026-08-23T13:17:35.622Z",
   "candidates": [
     {
       "id": "sf-translational-funding",
@@ -17,7 +17,7 @@
       ],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/example-rotator-4_0.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/innovation-entrepreneurship/funding-translational",
-      "lastUpdated": "2026-08-16T13:16:25.726Z"
+      "lastUpdated": "2026-08-23T13:17:40.337Z"
     },
     {
       "id": "sf-engagement-opportunity-development",
@@ -30,7 +30,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/page-hero-10.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/healthtech-commercialization/engagement-and-opportunity-development",
-      "lastUpdated": "2026-08-16T13:16:27.062Z"
+      "lastUpdated": "2026-08-23T13:17:41.544Z"
     },
     {
       "id": "sf-strategic-alliances",
@@ -43,20 +43,20 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-09/Strategic%20Alliences%20Banner.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/healthtech-commercialization/strategic-alliances",
-      "lastUpdated": "2026-08-16T13:16:29.347Z"
+      "lastUpdated": "2026-08-23T13:17:43.992Z"
     },
     {
-      "id": "sf-catalyst-program",
-      "slug": "catalyst-program",
-      "name": "Catalyst Program",
+      "id": "sf-catalyst-accelerator",
+      "slug": "catalyst-accelerator",
+      "name": "Catalyst Accelerator",
       "campus": "sf",
-      "type": "funding",
+      "type": "accelerator",
       "desc": "Catalyst Program accelerates UCSF innovations by providing expert guidance, industry connections, and funding to advance promising discoveries.",
-      "longDescription": "Translational science is essential to the future of medicine. By funding translational science, UCSF can help ensure that the next generation of medical breakthroughs is developed and that everyone has access to the care they need. The Catalyst Program is UCSF’s translational accelerator focused on advancing UCSF discoveries for patient benefit and commercialization. The Catalyst Program advances translational research and provides entrepreneurship education for UCSF Innovators (Faculty, Students, Trainees). Catalyst Awards provide UCSF researchers mentorship and seed funding to advance therap",
+      "longDescription": "Translational science is essential to the future of medicine. By funding translational science, UCSF can help ensure that the next generation of medical breakthroughs is developed and that everyone has access to the care they need. The Catalyst Accelerator Program is UCSF’s translational accelerator focused on advancing UCSF discoveries for patient benefit and commercialization. The Catalyst Program advances translational research and provides entrepreneurship education for UCSF Innovators (Faculty, Students, Trainees). Catalyst Awards provide UCSF researchers mentorship and seed funding to ad",
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/page-hero-5.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/innovation-entrepreneurship/funding-translational/catalyst-program",
-      "lastUpdated": "2026-08-16T13:16:31.555Z"
+      "lastUpdated": "2026-08-23T13:17:46.235Z"
     },
     {
       "id": "sf-entrepreneurship-resources",
@@ -69,7 +69,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/Newsletter-Page.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/resources/startup-resources",
-      "lastUpdated": "2026-08-16T13:16:32.672Z"
+      "lastUpdated": "2026-08-23T13:17:47.297Z"
     },
     {
       "id": "sf-2025-2026-catalyst-accelerator-awardees",
@@ -82,7 +82,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-11/UCSF_banner.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/innovation-entrepreneurship/funding-translational/catalyst-awards/2025-2026-catalyst-accelerator-awardees",
-      "lastUpdated": "2026-08-16T13:16:35.963Z"
+      "lastUpdated": "2026-08-23T13:17:50.825Z"
     },
     {
       "id": "sf-ucsf-innovation",
@@ -97,7 +97,7 @@
       ],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2026-07/ALS-2026-Hero-Banner.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/healthtech-commercialization/strategic-alliances/reinvigorating-innovation-als",
-      "lastUpdated": "2026-08-16T13:16:36.984Z"
+      "lastUpdated": "2026-08-23T13:17:51.862Z"
     },
     {
       "id": "sf-panther-program",
@@ -110,7 +110,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2025-01/page-hero-3.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/partnerships/panther-program",
-      "lastUpdated": "2026-08-16T13:16:41.319Z"
+      "lastUpdated": "2026-08-23T13:17:56.286Z"
     }
   ],
   "errors": []

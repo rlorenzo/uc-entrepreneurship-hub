@@ -3,8 +3,18 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-08-16T13:17:58.928Z",
+  "crawledAt": "2026-08-23T13:19:10.914Z",
   "items": [
+    {
+      "id": "sd-today-ucsd-edu-are-tariffs-making-prices-go-up",
+      "campus": "sd",
+      "title": "Are Tariffs Making Prices Go Up?",
+      "summary": "As Americans continue to worry about the cost of living, U.S. tariffs are back in the news. So we asked international trade economist and School of Global Policy and Strategy Dean Caroline Freund the question on many consumers' minds.",
+      "publishedAt": "2026-08-17T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/are-tariffs-making-prices-go-up",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Shopping-Receipt-photo-by-iStock_M_Stock-1468272596.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
     {
       "id": "sd-today-ucsd-edu-why-a-doctor-saying-its-normal-can-backfire",
       "campus": "sd",
@@ -53,16 +63,6 @@
       "publishedAt": "2026-07-20T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/what-explains-gender-pay-gaps-in-academia",
       "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/coin-stacks-grad-cap_photo-by-iStock_bieshutterb-1200.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-today-ucsd-edu-margaret-roberts-named-director-of-uc-san-diegos-21st-century-china-center",
-      "campus": "sd",
-      "title": "Margaret Roberts Named Director of UC San Diego’s 21st Century China Center",
-      "summary": "An internationally recognized scholar whose work focuses on digital politics, information, China and U.S.-China relations has been appointed director of the 21st Century China Center at the UC San Diego School of Global Policy and Strategy. ",
-      "publishedAt": "2026-06-30T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/margaret-roberts-named-director-of-uc-san-diegos-21st-century-china-center",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Beijing-business-district-photo-by-iStock_Govan_Zhang-2255784529-1200.jpg",
       "sourceHost": "today.ucsd.edu"
     }
   ],

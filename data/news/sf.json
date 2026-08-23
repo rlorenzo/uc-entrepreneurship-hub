@@ -3,8 +3,18 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-08-16T13:18:08.995Z",
+  "crawledAt": "2026-08-23T13:19:21.447Z",
   "items": [
+    {
+      "id": "sf-innovation-ucsf-edu-jocasta-signs-ucsf-licensing-agreement-advance-klotho-managing-cognitive-impairment",
+      "campus": "sf",
+      "title": "Jocasta Signs UCSF Licensing Agreement to Advance α-klotho for Managing Cognitive Impairment",
+      "summary": "Jocasta Signs UCSF Licensing Agreement to Advance α-klotho for Managing Cognitive Impairment",
+      "publishedAt": "2026-08-20T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/jocasta-signs-ucsf-licensing-agreement-advance-klotho-managing-cognitive-impairment",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
     {
       "id": "sf-innovation-ucsf-edu-chugai-and-ucsf-establish-master-collaboration-agreement-drug-discovery-research",
       "campus": "sf",
@@ -142,16 +152,6 @@
       "summary": "VS3 Medical Announces First Patients Enrolled in First-in-Human Study of Novel Neurovascular Implant to Address Symptomatic Venous Sinus Stenosis",
       "publishedAt": "2026-03-10T07:00:00.000Z",
       "sourceUrl": "https://innovation.ucsf.edu/media/news/vs3-medical-announces-first-patients-enrolled-first-human-study-novel-neurovascular",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-innovation-ucsf-edu-ge-healthcare-ucsf-health-form-10-year-imaging-collaboration",
-      "campus": "sf",
-      "title": "GE HealthCare, UCSF Health form 10-year imaging collaboration",
-      "summary": "GE HealthCare has entered a 10-year Care Alliance with UCSF Health aimed at expanding imaging capabilities and supporting clinical operations across the health system.",
-      "publishedAt": "",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/ge-healthcare-ucsf-health-form-10-year-imaging-collaboration",
       "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
       "sourceHost": "innovation.ucsf.edu"
     }

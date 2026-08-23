@@ -3,7 +3,7 @@
   "name": "UC Riverside",
   "strategy": "playwright",
   "source": "https://news.ucr.edu/topic/business",
-  "crawledAt": "2026-08-16T13:17:33.893Z",
+  "crawledAt": "2026-08-23T13:18:45.786Z",
   "items": [
     {
       "id": "riverside-news-ucr-edu-offering-islamic-bonds-expanded-corporate-financing-access",
@@ -43,6 +43,16 @@
       "publishedAt": "",
       "sourceUrl": "https://news.ucr.edu/articles/2026/04/22/reclaiming-context-creative-works",
       "imageUrl": "https://news.ucr.edu/sites/default/files/2026-04/960-gettyimages-2264305709-copy.jpg",
+      "sourceHost": "news.ucr.edu"
+    },
+    {
+      "id": "riverside-news-ucr-edu-ucr-report-urges-broadband-be-state-utility",
+      "campus": "riverside",
+      "title": "UCR report urges broadband to be a state utility",
+      "summary": "California should regulate broadband internet providers like public utilities — imposing rate controls, universal access requirements, and reliability standards to ensure every resident has affordable, high-speed internet access, according to a new UC Riverside public policy report.",
+      "publishedAt": "",
+      "sourceUrl": "https://news.ucr.edu/articles/2026/02/12/ucr-report-urges-broadband-be-state-utility",
+      "imageUrl": "https://news.ucr.edu/sites/default/files/2026-02/960-gettyimages-2231090399.jpg",
       "sourceHost": "news.ucr.edu"
     },
     {
@@ -123,6 +133,26 @@
       "publishedAt": "",
       "sourceUrl": "https://news.ucr.edu/articles/2025/09/29/farm-conservation-economical-path-save-river-water",
       "imageUrl": "https://news.ucr.edu/sites/default/files/2025-09/960-gettyimages-90285343.jpg",
+      "sourceHost": "news.ucr.edu"
+    },
+    {
+      "id": "riverside-news-ucr-edu-ucr-computer-scientists-boost-us-cybersecurity",
+      "campus": "riverside",
+      "title": "UCR computer scientists boost US cybersecurity",
+      "summary": "UCR computer scientists are developing tools to expose hidden cybersecurity vulnerabilities, protect private data, and strengthen the digital defenses that safeguard everything from personal communications to national infrastructure.",
+      "publishedAt": "",
+      "sourceUrl": "https://news.ucr.edu/articles/2025/09/18/ucr-computer-scientists-boost-us-cybersecurity",
+      "imageUrl": "https://news.ucr.edu/sites/default/files/2025-09/960-gettyimages-2174551157.jpg",
+      "sourceHost": "news.ucr.edu"
+    },
+    {
+      "id": "riverside-news-ucr-edu-report-inland-empire-warehouse-workers-make-gains-through-collective-action",
+      "campus": "riverside",
+      "title": "Report: Inland Empire warehouse workers make gains through collective action",
+      "summary": "In “State of the Unions: California Labor in 2024,” UCR researchers offer details on the growth, salaries, ethnicities, and ongoing struggles of warehouse workers in Riverside and San Bernardino counties",
+      "publishedAt": "",
+      "sourceUrl": "https://news.ucr.edu/articles/2025/09/08/report-inland-empire-warehouse-workers-make-gains-through-collective-action",
+      "imageUrl": "https://news.ucr.edu/sites/default/files/2018-09/warehouse.jpg",
       "sourceHost": "news.ucr.edu"
     },
     {

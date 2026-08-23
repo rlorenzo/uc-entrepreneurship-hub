@@ -3,7 +3,7 @@
   "name": "UC Merced",
   "strategy": "rss",
   "source": "https://news.ucmerced.edu/rss.xml",
-  "crawledAt": "2026-08-16T13:18:09.566Z",
+  "crawledAt": "2026-08-23T13:19:22.031Z",
   "items": [
     {
       "id": "merced-news-ucmerced-edu-chancellors-catalyst-awards-ignite-research-humanities-social-sciences",
@@ -13,16 +13,6 @@
       "publishedAt": "2026-08-12T14:55:44.000Z",
       "sourceUrl": "https://news.ucmerced.edu/news/2026/chancellors-catalyst-awards-ignite-research-humanities-social-sciences",
       "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/uc-merced-agua-fria-gold-rush-town-site-marker.jpg",
-      "sourceHost": "news.ucmerced.edu"
-    },
-    {
-      "id": "merced-news-ucmerced-edu-solar-company-partners-uc-merced-test-new-panels",
-      "campus": "merced",
-      "title": "Solar Company Partners with UC Merced to Test New Panels",
-      "summary": "By Patty Guerra, UC Merced August 10, 2026 A coating on the panel could boost its energy output significantly. UC Merced is no stranger to solar panels. The campus, built to be sustainable from the beginning, is home to thousands of them, and they provide a good chunk of the electricity that powers the university. But one very special panel was recently installed on the top of the Science and Engi",
-      "publishedAt": "2026-07-29T16:35:43.000Z",
-      "sourceUrl": "https://news.ucmerced.edu/news/2026/solar-company-partners-uc-merced-test-new-panels",
-      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_solar_panel_hero.jpeg",
       "sourceHost": "news.ucmerced.edu"
     }
   ],
