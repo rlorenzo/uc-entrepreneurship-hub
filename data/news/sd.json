@@ -3,7 +3,7 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-08-23T13:19:10.914Z",
+  "crawledAt": "2026-08-30T13:16:12.563Z",
   "items": [
     {
       "id": "sd-today-ucsd-edu-are-tariffs-making-prices-go-up",

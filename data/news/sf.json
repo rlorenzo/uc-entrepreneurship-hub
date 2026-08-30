@@ -3,8 +3,18 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-08-23T13:19:21.447Z",
+  "crawledAt": "2026-08-30T13:16:22.694Z",
   "items": [
+    {
+      "id": "sf-innovation-ucsf-edu-stumped-medical-mystery-try-metagenomics",
+      "campus": "sf",
+      "title": "Stumped by a Medical Mystery? Try Metagenomics",
+      "summary": "Stumped by a Medical Mystery? Try Metagenomics. When doctors can’t figure out what’s ailing us, they can search our bodies for snippets of genetic material from viruses, bacteria, and fungi.",
+      "publishedAt": "2026-08-25T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/stumped-medical-mystery-try-metagenomics",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
     {
       "id": "sf-innovation-ucsf-edu-jocasta-signs-ucsf-licensing-agreement-advance-klotho-managing-cognitive-impairment",
       "campus": "sf",
@@ -142,16 +152,6 @@
       "summary": "Cancer cells can ‘barf’ proteins onto their cell surface. That may create new targets for immunotherapies",
       "publishedAt": "",
       "sourceUrl": "https://innovation.ucsf.edu/media/news/molecular-garbage-tumors-makes-easy-target-antibody-drugs",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-innovation-ucsf-edu-vs3-medical-announces-first-patients-enrolled-first-human-study-novel-neurovascular",
-      "campus": "sf",
-      "title": "VS3 Medical Announces First Patients Enrolled in First-in-Human Study of Novel Neurovascular Implant to Address Symptomatic Venous Sinus Stenosis",
-      "summary": "VS3 Medical Announces First Patients Enrolled in First-in-Human Study of Novel Neurovascular Implant to Address Symptomatic Venous Sinus Stenosis",
-      "publishedAt": "2026-03-10T07:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/vs3-medical-announces-first-patients-enrolled-first-human-study-novel-neurovascular",
       "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
       "sourceHost": "innovation.ucsf.edu"
     }

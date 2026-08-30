@@ -3,8 +3,48 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-08-23T13:18:09.346Z",
+  "crawledAt": "2026-08-30T13:15:10.721Z",
   "items": [
+    {
+      "id": "berkeley-citris-uc-org-citris-researchers-monitor-yuba-county-flood-barriers",
+      "campus": "berkeley",
+      "title": "CITRIS researchers monitor Yuba County’s flood barriers",
+      "summary": "CITRIS researchers monitor Yuba County’s flood barriers",
+      "publishedAt": "2026-08-27T16:00:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-researchers-monitor-yuba-county-flood-barriers/?utm_source=rss&utm_medium=rss&utm_campaign=citris-researchers-monitor-yuba-county-flood-barriers",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Yuba-County-Aug-2026-768x184.png",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-citris-uc-org-were-hiring-program-manager-for-tech-policy-workforce-development",
+      "campus": "berkeley",
+      "title": "We’re hiring: Program Manager for Tech Policy & Workforce Development",
+      "summary": "We’re hiring: Program Manager for Tech Policy & Workforce Development",
+      "publishedAt": "2026-08-25T17:00:00.000Z",
+      "sourceUrl": "https://citris-uc.org/were-hiring-program-manager-for-tech-policy-workforce-development/?utm_source=rss&utm_medium=rss&utm_campaign=were-hiring-program-manager-for-tech-policy-workforce-development",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/banner-tech-policy-week-sacramento-capitol-credit-canva-pro-1540x368ox-768x184.jpg",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-energyathaas-wordpress-com-who-should-pay-for-utility-ignited-wildfires",
+      "campus": "berkeley",
+      "title": "Who should pay for utility-ignited wildfires?",
+      "summary": "The post Who should pay for utility-ignited wildfires? appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-08-24T18:38:00.000Z",
+      "sourceUrl": "https://energyathaas.wordpress.com/2026/08/24/who-should-pay-for-utility-ignited-wildfires/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Photo-of-fire-and-smoke.-Image-also-features-a-tree-and-car-768x520.png",
+      "sourceHost": "energyathaas.wordpress.com"
+    },
+    {
+      "id": "berkeley-citris-uc-org-california-legislature-honors-dado-banatao",
+      "campus": "berkeley",
+      "title": "California Legislature honors Dado Banatao",
+      "summary": "California Legislature honors Dado Banatao",
+      "publishedAt": "2026-08-24T16:00:00.000Z",
+      "sourceUrl": "https://citris-uc.org/california-legislature-honors-dado-banatao/?utm_source=rss&utm_medium=rss&utm_campaign=california-legislature-honors-dado-banatao",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Dado-Banatao-Honored-Aug-2026-768x184.png",
+      "sourceHost": "citris-uc.org"
+    },
     {
       "id": "berkeley-newsroom-haas-berkeley-edu-patrick-oconnor-ewmba-28-an-aws-prototyping-engineer-is-building-whats-next",
       "campus": "berkeley",
@@ -36,6 +76,16 @@
       "sourceHost": "newsroom.haas.berkeley.edu"
     },
     {
+      "id": "berkeley-haas-berkeley-edu-a-different-world-beneath-the-gobi",
+      "campus": "berkeley",
+      "title": "A different world beneath the Gobi",
+      "summary": "The post A different world beneath the Gobi appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-08-18T18:58:00.000Z",
+      "sourceUrl": "https://haas.berkeley.edu/international-business-development/blog/posts/a-different-world-beneath-the-gobi/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/image7-1-768x573.png",
+      "sourceHost": "haas.berkeley.edu"
+    },
+    {
       "id": "berkeley-newsroom-haas-berkeley-edu-how-featurebox-ai-is-helping-brands-stop-losing-money-they-dont-know-theyre-losing",
       "campus": "berkeley",
       "title": "How FeatureBox AI is helping brands stop losing money they don’t know they’re losing",
@@ -54,56 +104,6 @@
       "sourceUrl": "https://blumcenter.berkeley.edu/development-is-at-a-crossroads-heres-how-blum-center-students-are-charting-a-path-forward/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/DevEng210-scaled-768x474.jpg",
       "sourceHost": "blumcenter.berkeley.edu"
-    },
-    {
-      "id": "berkeley-blumcenter-berkeley-edu-going-to-a-party-big-ideas-winner-yasha-zink-believes-you-have-a-right-to-know-whats-in-your-cup",
-      "campus": "berkeley",
-      "title": "Going to a Party? Big Ideas Winner Yasha Zink Believes ‘You Have a Right to Know What’s in Your Cup’",
-      "summary": "Before Yasha Zink became a UC Berkeley entrepreneur, she was a friend looking for answers. The summer before her freshman year, one of her closest friends had confided that she…",
-      "publishedAt": "2026-08-17T20:07:00.000Z",
-      "sourceUrl": "https://blumcenter.berkeley.edu/going-to-a-party-big-ideas-winner-yasha-zink-believes-you-have-a-right-to-know-whats-in-your-cup/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Zink-poster-scaled-768x512.jpg",
-      "sourceHost": "blumcenter.berkeley.edu"
-    },
-    {
-      "id": "berkeley-energyathaas-wordpress-com-how-to-prevent-biofuels-from-causing-deforestation",
-      "campus": "berkeley",
-      "title": "How to prevent Biofuels from causing deforestation",
-      "summary": "The post How to prevent Biofuels from causing deforestation appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-08-17T19:18:00.000Z",
-      "sourceUrl": "https://energyathaas.wordpress.com/2026/08/17/how-to-prevent-biofuels-from-causing-deforestation/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Photo-of-Deforestation-in-Indonesia.-CC-by-2.0-via-Wikimedia-Commons.png",
-      "sourceHost": "energyathaas.wordpress.com"
-    },
-    {
-      "id": "berkeley-citris-uc-org-genomics-institute-receives-funding-for-nine-projects",
-      "campus": "berkeley",
-      "title": "Genomics Institute receives funding for nine projects",
-      "summary": "Genomics Institute receives funding for nine projects",
-      "publishedAt": "2026-08-13T16:00:00.000Z",
-      "sourceUrl": "https://citris-uc.org/genomics-institute-receives-funding-for-nine-projects/?utm_source=rss&utm_medium=rss&utm_campaign=genomics-institute-receives-funding-for-nine-projects",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Genomics-Institute-receives-funding-for-nine-projects-Aug-2026-768x183.png",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-haas-berkeley-edu-making-waves-in-reykjavik",
-      "campus": "berkeley",
-      "title": "Making waves in Reykjavík!",
-      "summary": "The post Making waves in Reykjavík! appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-08-12T19:19:00.000Z",
-      "sourceUrl": "https://haas.berkeley.edu/international-business-development/blog/posts/making-waves-in-reykjavik/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/image2-5-768x576.png",
-      "sourceHost": "haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-citris-uc-org-armando-fox-transforms-traditional-test-taking-with-computer-based-testing-facility",
-      "campus": "berkeley",
-      "title": "Flexibility, accessibility, ease: Armando Fox transforms traditional test–taking",
-      "summary": "Flexibility, accessibility, ease: Armando Fox transforms traditional test–taking",
-      "publishedAt": "2026-08-11T16:00:00.000Z",
-      "sourceUrl": "https://citris-uc.org/armando-fox-transforms-traditional-test-taking-with-computer-based-testing-facility/?utm_source=rss&utm_medium=rss&utm_campaign=armando-fox-transforms-traditional-test-taking-with-computer-based-testing-facility",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Flexibility-accessibility-ease-Armando-Fox-transforms-traditional-testE28093taking--768x183.png",
-      "sourceHost": "citris-uc.org"
     }
   ],
   "errors": []
