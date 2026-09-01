@@ -23,40 +23,25 @@
     "refresh-news": "vp run crawl:news && vp run build-news-data"
   },
   "dependencies": {
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
-    "react-router-dom": "^7.18.2"
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "7.18.2"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.11.3",
+    "@axe-core/playwright": "^4.13.0",
     "@testing-library/dom": "10.4.1",
     "@testing-library/react": "16.3.2",
-    "@types/react": "^19.2.15",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.2",
-    "fallow": "^2.79.0",
-    "jsdom": "29.1.1",
-    "pa11y-ci": "^4.1.0",
-    "typescript": "^6.0.3",
-    "vite-plus": "^0.1.24"
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "@vitejs/plugin-react": "6.1.0",
+    "fallow": "3.18.0",
+    "jsdom": "30.0.1",
+    "pa11y-ci": "^4.1.1",
+    "typescript": "^7.0.2",
+    "vite-plus": "^0.3.0"
   },
   "optionalDependencies": {
-    "playwright": "^1.60.0"
+    "playwright": "^1.62.1"
   },
-  "packageManager": "pnpm@10.33.3",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "fallow",
-      "puppeteer"
-    ],
-    "overrides": {
-      "ws@>=8.0.0 <8.20.1": ">=8.20.1",
-      "lodash@<4.18.0": ">=4.18.0",
-      "undici@<7.28.0": "7.28.0",
-      "vite@>=8.0.0 <=8.0.15": "8.0.16",
-      "js-yaml@>=4.0.0 <=4.1.1": "^4.2.0",
-      "brace-expansion@>=1.0.0 <1.1.16": "^1.1.17",
-      "postcss@>=8.0.0 <8.5.18": "^8.5.25"
-    }
-  }
+  "packageManager": "pnpm@10.33.3"
 }
