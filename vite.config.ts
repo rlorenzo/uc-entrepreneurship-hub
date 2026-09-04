@@ -28,11 +28,15 @@ function csp(): Plugin {
     // String insert right after <meta charset>, not injectTo: "head-prepend"
     // (would put it before charset, which must stay first) or "head" (appends
     // after Vite's injected module <script>, so the policy would miss it).
-    transformIndexHtml: (html) =>
-      html.replace(
-        /<meta charset="[^"]+" \/>/,
+    transformIndexHtml: (html) => {
+      const charset = /<meta\s+charset=["']?[\w-]+["']?\s*\/?>/i;
+      // A security control must never silently no-op: fail the build instead.
+      if (!charset.test(html)) throw new Error("csp-meta: <meta charset> not found in index.html");
+      return html.replace(
+        charset,
         (m) => `${m}\n    <meta http-equiv="Content-Security-Policy" content="${CSP}" />`,
-      ),
+      );
+    },
   };
 }
 
