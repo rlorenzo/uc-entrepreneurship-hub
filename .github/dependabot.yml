@@ -1,0 +1,15 @@
+# Dependabot's default security-updates only cover npm. Adding an explicit
+# config also keeps the SHA-pinned GitHub Actions in .github/workflows current.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    # Security-only for npm: routine version bumps stay out of the PR queue,
+    # and the overrides in pnpm-workspace.yaml handle transitive CVEs.
+    open-pull-requests-limit: 0

@@ -3,6 +3,7 @@ import { PROGRAMS, PROGRAM_COUNT, PROGRAM_COUNT_BY_TYPE } from "./programs.ts";
 import { CAMPUSES, CAMPUS_BY_ID } from "./campuses.ts";
 import { TYPE_BY_ID } from "./types-list.ts";
 import { isValidWebUrl } from "../lib/url.ts";
+import { isTrustedApplicationLink } from "./normalize.ts";
 
 // These guard the shipped catalog (curated + crawled, merged) against bad
 // data sneaking in from a crawl run: dangling type/campus ids, duplicate
@@ -42,6 +43,18 @@ describe("PROGRAMS catalog integrity", () => {
     const bad = PROGRAMS.filter((p) => p.imageUrl !== undefined && !isValidWebUrl(p.imageUrl)).map(
       (p) => `${p.id}:${p.imageUrl}`,
     );
+    expect(bad).toEqual([]);
+  });
+
+  // applicationLink becomes the primary "Start application" CTA. The crawler
+  // takes any Apply/Register anchor from a page, so the catalog must hold only
+  // hosts we trust (.edu or a known form platform) — coerceToProgram filters;
+  // this asserts the filter held across a real crawl, and catches curated
+  // entries that drift onto an unexpected host too.
+  it("every application link, when present, points at a trusted host", () => {
+    const bad = PROGRAMS.filter(
+      (p) => p.applicationLink !== undefined && !isTrustedApplicationLink(p.applicationLink),
+    ).map((p) => `${p.id}:${p.applicationLink}`);
     expect(bad).toEqual([]);
   });
 });

@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vite-plus/test";
 import { NEWS } from "./news.generated.ts";
+import { isValidWebUrl } from "../lib/url.ts";
 
 // Guards the shipped news feed against crawler artifacts sneaking back in on a
 // future weekly crawl. The build-step quality gate (scripts/crawl/news/
@@ -22,6 +23,17 @@ describe("NEWS feed integrity", () => {
       /Innovation and Economic Development Office/i.test(n.title),
     ).map((n) => n.id);
     expect(junk).toEqual([]);
+  });
+
+  // sourceUrl becomes a live <a href>, imageUrl a CSS url() background. Both
+  // are sanitized in scripts/crawl/news/build-data.ts; this asserts the shipped
+  // feed holds only http(s) URLs so a javascript:/data: value can never render.
+  it("every sourceUrl and imageUrl is a safe absolute http(s) URL", () => {
+    const bad = NEWS.filter(
+      (n) =>
+        !isValidWebUrl(n.sourceUrl) || (n.imageUrl !== undefined && !isValidWebUrl(n.imageUrl)),
+    ).map((n) => `${n.id}:${n.sourceUrl}:${n.imageUrl}`);
+    expect(bad).toEqual([]);
   });
 
   it("story ids are unique", () => {
