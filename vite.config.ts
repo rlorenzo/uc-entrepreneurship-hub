@@ -25,13 +25,14 @@ function csp(): Plugin {
   return {
     name: "csp-meta",
     apply: "build",
-    transformIndexHtml: () => [
-      {
-        tag: "meta",
-        attrs: { "http-equiv": "Content-Security-Policy", content: CSP },
-        injectTo: "head-prepend",
-      },
-    ],
+    // String insert right after <meta charset>, not injectTo: "head-prepend"
+    // (would put it before charset, which must stay first) or "head" (appends
+    // after Vite's injected module <script>, so the policy would miss it).
+    transformIndexHtml: (html) =>
+      html.replace(
+        /<meta charset="[^"]+" \/>/,
+        (m) => `${m}\n    <meta http-equiv="Content-Security-Policy" content="${CSP}" />`,
+      ),
   };
 }
 
