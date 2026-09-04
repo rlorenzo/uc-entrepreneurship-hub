@@ -14,14 +14,16 @@ overrides:
   # GHSA-4cwx-7wf7-3272 (high) + 4 medium — via jsdom (8.x) and cheerio (6.x)
   undici@<6.28.0: ^6.28.0
   undici@>=7.0.0 <7.29.0: ^7.29.0
-  # 8.10.1 is <7 days old and bugfix-only; hold at 8.10.0, already past the patch line.
-  undici@>=8.0.0 <8.10.0: 8.10.0
-  undici@>=8.10.1 <9.0.0: 8.10.0
-  # GHSA-rgw5-rvv9-x895 (high) — via minimatch/glob; 4.x is patched in 5.0.9
+  # Floor only. The lockfile pins the exact 8.x (8.10.0 while 8.10.1 clears the
+  # publish-age gate); a floor lets the next 8.x security release land on
+  # `pnpm update`, whereas an exact-version override would silently downgrade it.
+  undici@>=8.0.0 <8.10.0: ^8.10.0
+  # GHSA-rgw5-rvv9-x895 (high) — via minimatch/glob. 4.x has no patched release
+  # (the advisory's fix for 4.x is 5.0.9, a cross-major jump we don't force);
+  # nothing in the tree resolves 4.x today, so Dependabot will flag it if one appears.
   brace-expansion@<1.1.18: ^1.1.18
   brace-expansion@>=2.0.0 <2.1.4: ^2.1.4
   brace-expansion@>=3.0.0 <3.0.6: ^3.0.6
-  brace-expansion@>=4.0.0 <5.0.9: ^5.0.9
   # GHSA-jmr9-qjv8-65gv (high) — extract-zip has no patched release at all.
   # It is only reachable via pa11y-ci > pa11y > puppeteer 24 > @puppeteer/browsers 2.x.
   # pa11y 10 moves to puppeteer 25, whose @puppeteer/browsers 3.x replaced

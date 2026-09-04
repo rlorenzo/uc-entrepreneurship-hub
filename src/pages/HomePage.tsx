@@ -678,8 +678,12 @@ function SpotlightStories() {
                 <div
                   style={{
                     aspectRatio: "16/10",
-                    background: n.imageUrl
-                      ? `#001520 center/cover no-repeat url("${n.imageUrl}")`
+                    // Same render-time guard as the anchor above: a crawled
+                    // image URL lands in a CSS url() sink, so only http(s) may,
+                    // and the re-serialized href percent-encodes any quote that
+                    // could otherwise break out of the url("…") string.
+                    background: isValidWebUrl(n.imageUrl)
+                      ? `#001520 center/cover no-repeat url("${new URL(n.imageUrl).href}")`
                       : "linear-gradient(135deg,#1295D8,#005581)",
                     position: "relative",
                   }}

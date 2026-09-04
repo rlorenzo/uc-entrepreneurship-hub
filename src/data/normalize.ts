@@ -313,6 +313,39 @@ export function isGenericAdmissionsLink(url: string | undefined): boolean {
   return !!url && /admissions/i.test(url);
 }
 
+/**
+ * Hosts a crawled "Apply" CTA may point at. The crawler takes any anchor
+ * labelled Apply/Register/Submit on a program page, and the result ships as the
+ * primary "Start application" button in an auto-committed, auto-deployed
+ * catalog with no human review. Restricting hosts to `.edu` plus the form
+ * platforms UC programs actually use means a defaced page (or a CMS comment
+ * widget) can't publish an arbitrary phishing link; the CTA falls back to the
+ * program's own website/sourceUrl instead.
+ */
+const TRUSTED_APPLICATION_HOSTS = [
+  "qualtrics.com",
+  "airtable.com",
+  "docs.google.com",
+  "forms.gle",
+  "submittable.com",
+];
+
+export function isTrustedApplicationLink(url: string | undefined): boolean {
+  if (!url) return false;
+  let host: string;
+  try {
+    const u = new URL(url);
+    if (u.protocol !== "http:" && u.protocol !== "https:") return false;
+    host = u.hostname.toLowerCase();
+  } catch {
+    return false;
+  }
+  return (
+    host.endsWith(".edu") ||
+    TRUSTED_APPLICATION_HOSTS.some((h) => host === h || host.endsWith(`.${h}`))
+  );
+}
+
 const FIELD_FALLBACKS = {
   duration: "Not specified",
   funding: "Not disclosed",
@@ -427,9 +460,13 @@ export function coerceToProgram(c: ProgramCandidate): Program {
     cohortSize: c.cohortSize ?? null,
     deadline: trimOr(c.deadline, FIELD_FALLBACKS.deadline),
     website: c.website,
-    // Drop generic admissions CTAs (undergrad admissions ≠ program application);
-    // the apply CTA then falls back to website/sourceUrl (the program's page).
-    applicationLink: isGenericAdmissionsLink(c.applicationLink) ? undefined : c.applicationLink,
+    // Drop generic admissions CTAs (undergrad admissions ≠ program application)
+    // and links to untrusted hosts (see isTrustedApplicationLink); the apply
+    // CTA then falls back to website/sourceUrl (the program's page).
+    applicationLink:
+      isGenericAdmissionsLink(c.applicationLink) || !isTrustedApplicationLink(c.applicationLink)
+        ? undefined
+        : c.applicationLink,
     associatedCenter: c.associatedCenter,
     lastUpdated: c.lastUpdated,
     sourceUrl: c.sourceUrl,

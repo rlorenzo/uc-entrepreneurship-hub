@@ -8,6 +8,7 @@ import {
   sanitizeImageUrl,
   isGenericImage,
   isGenericAdmissionsLink,
+  isTrustedApplicationLink,
   pickProgramImage,
   isRejectedProgramName,
   isBoilerplateDescription,
@@ -232,6 +233,34 @@ describe("coerceToProgram", () => {
       applicationLink: "https://skydeck.berkeley.edu/apply",
     });
     expect(real.applicationLink).toBe("https://skydeck.berkeley.edu/apply");
+  });
+
+  it("drops an applicationLink on an untrusted host (crawled CTA could be a phishing link)", () => {
+    const p = coerceToProgram({
+      name: "Z",
+      campus: "davis",
+      applicationLink: "https://evil.example.com/apply",
+      sourceUrl: "https://mikemcc.ucdavis.edu/programs",
+    });
+    expect(p.applicationLink).toBeUndefined();
+  });
+});
+
+describe("isTrustedApplicationLink", () => {
+  it("accepts .edu hosts and known application platforms", () => {
+    expect(isTrustedApplicationLink("https://skydeck.berkeley.edu/apply")).toBe(true);
+    expect(isTrustedApplicationLink("https://ucdavis.co1.qualtrics.com/jfe/form/SV_x")).toBe(true);
+    expect(isTrustedApplicationLink("https://airtable.com/appX/shrY")).toBe(true);
+    expect(isTrustedApplicationLink("https://docs.google.com/forms/d/e/1/viewform")).toBe(true);
+  });
+
+  it("rejects other hosts, lookalikes, and non-http(s) schemes", () => {
+    expect(isTrustedApplicationLink("https://evil.example.com/apply")).toBe(false);
+    expect(isTrustedApplicationLink("https://berkeley.edu.evil.com/apply")).toBe(false);
+    expect(isTrustedApplicationLink("https://notairtable.com/x")).toBe(false);
+    expect(isTrustedApplicationLink("javascript:alert(1)")).toBe(false);
+    expect(isTrustedApplicationLink(undefined)).toBe(false);
+    expect(isTrustedApplicationLink("not a url")).toBe(false);
   });
 });
 

@@ -1,7 +1,44 @@
-import { defineConfig } from "vite-plus";
+import { defineConfig, type Plugin } from "vite-plus";
 import react from "@vitejs/plugin-react";
 
 declare const process: { env: Record<string, string | undefined> };
+
+// Content-Security-Policy as a <meta> tag, production build only. GitHub Pages
+// can't set response headers, so the meta tag is the one CSP that reaches every
+// deploy target (public/_headers adds frame-ancestors on Cloudflare). Build-only
+// because the dev server needs inline scripts (React refresh preamble) and a
+// websocket for HMR. The site renders crawled third-party image URLs, so the
+// policy is the backstop if a data-driven injection ever slips past validation.
+const CSP = [
+  "default-src 'self'",
+  "script-src 'self'",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "img-src 'self' https: data:",
+  "connect-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+].join("; ");
+
+function csp(): Plugin {
+  return {
+    name: "csp-meta",
+    apply: "build",
+    // String insert right after <meta charset>, not injectTo: "head-prepend"
+    // (would put it before charset, which must stay first) or "head" (appends
+    // after Vite's injected module <script>, so the policy would miss it).
+    transformIndexHtml: (html) => {
+      const charset = /<meta\s+charset=["']?[\w-]+["']?\s*\/?>/i;
+      // A security control must never silently no-op: fail the build instead.
+      if (!charset.test(html)) throw new Error("csp-meta: <meta charset> not found in index.html");
+      return html.replace(
+        charset,
+        (m) => `${m}\n    <meta http-equiv="Content-Security-Policy" content="${CSP}" />`,
+      );
+    },
+  };
+}
 
 // GitHub Pages serves at /<repo>/ — base must match for assets to resolve.
 // Set VITE_GH_PAGES=1 in CI to enable the /uc-entrepreneurship-hub/ prefix.
@@ -19,7 +56,7 @@ export default defineConfig({
       "src/data/news.generated.ts",
     ],
   },
-  plugins: [react()],
+  plugins: [react(), csp()],
   base: process.env.VITE_GH_PAGES === "1" ? "/uc-entrepreneurship-hub/" : "/",
   resolve: {
     alias: {
