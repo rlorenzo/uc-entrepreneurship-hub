@@ -2,7 +2,7 @@
   "campus": "sf",
   "name": "UC San Francisco",
   "seedUrl": "https://innovation.ucsf.edu/",
-  "crawledAt": "2026-08-30T13:14:34.877Z",
+  "crawledAt": "2026-09-06T13:14:50.667Z",
   "candidates": [
     {
       "id": "sf-translational-funding",
@@ -17,7 +17,7 @@
       ],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/example-rotator-4_0.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/innovation-entrepreneurship/funding-translational",
-      "lastUpdated": "2026-08-30T13:14:39.825Z"
+      "lastUpdated": "2026-09-06T13:14:56.185Z"
     },
     {
       "id": "sf-engagement-opportunity-development",
@@ -30,7 +30,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/page-hero-10.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/healthtech-commercialization/engagement-and-opportunity-development",
-      "lastUpdated": "2026-08-30T13:14:41.070Z"
+      "lastUpdated": "2026-09-06T13:14:57.570Z"
     },
     {
       "id": "sf-strategic-alliances",
@@ -39,11 +39,11 @@
       "campus": "sf",
       "type": "funding",
       "desc": "Strategic Alliances fosters collaboration, connecting researchers with partners for funding, commercialization, &amp; alliance management.",
-      "longDescription": "The Office of Strategic Alliances develops and manages UCSF's largest industry partnerships. It is our goal to identify mutually beneficial collaborations between UCSF and strategic partners, often with the objective of providing research funding for projects at UCSF. We leverage our extensive internal and external networks to connect collaborators to our researchers and clinicians, and once a partnership is established we provide alliance support to ensure a successful relationship. Discover how you can thrive through strategic alliances, joint ventures, & mutually beneficial collaborations.",
+      "longDescription": "The Office of Strategic Alliances develops and manages UCSF's largest industry partnerships. Our goal is to build partnerships that benefit UCSF and our strategic partners, often by securing funding for UCSF research. We connect collaborators with our researchers and clinicians through our extensive network, then provide ongoing support to help partnerships succeed. Discover how you can thrive through strategic alliances, joint ventures, & mutually beneficial collaborations. Explore FAQs on partnering with industry to transform research into real-world impact.",
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-09/Strategic%20Alliences%20Banner.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/healthtech-commercialization/strategic-alliances",
-      "lastUpdated": "2026-08-30T13:14:43.497Z"
+      "lastUpdated": "2026-09-06T13:15:00.377Z"
     },
     {
       "id": "sf-catalyst-accelerator",
@@ -56,7 +56,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/page-hero-5.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/innovation-entrepreneurship/funding-translational/catalyst-program",
-      "lastUpdated": "2026-08-30T13:14:45.933Z"
+      "lastUpdated": "2026-09-06T13:15:03.183Z"
     },
     {
       "id": "sf-entrepreneurship-resources",
@@ -69,7 +69,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-12/Newsletter-Page.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/resources/startup-resources",
-      "lastUpdated": "2026-08-30T13:14:47.155Z"
+      "lastUpdated": "2026-09-06T13:15:04.388Z"
     },
     {
       "id": "sf-2025-2026-catalyst-accelerator-awardees",
@@ -82,7 +82,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2024-11/UCSF_banner.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/innovation-entrepreneurship/funding-translational/catalyst-awards/2025-2026-catalyst-accelerator-awardees",
-      "lastUpdated": "2026-08-30T13:14:50.438Z"
+      "lastUpdated": "2026-09-06T13:15:08.767Z"
     },
     {
       "id": "sf-ucsf-innovation",
@@ -97,7 +97,7 @@
       ],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2026-07/ALS-2026-Hero-Banner.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/services/healthtech-commercialization/strategic-alliances/reinvigorating-innovation-als",
-      "lastUpdated": "2026-08-30T13:14:51.473Z"
+      "lastUpdated": "2026-09-06T13:15:09.967Z"
     },
     {
       "id": "sf-panther-program",
@@ -110,7 +110,7 @@
       "industries": [],
       "imageUrl": "https://innovation.ucsf.edu/sites/innovation.ucsf.edu/files/2025-01/page-hero-3.jpg",
       "sourceUrl": "https://innovation.ucsf.edu/partnerships/panther-program",
-      "lastUpdated": "2026-08-30T13:14:55.767Z"
+      "lastUpdated": "2026-09-06T13:15:15.309Z"
     }
   ],
   "errors": []

@@ -3,16 +3,16 @@
   "name": "UC Santa Cruz",
   "strategy": "rss",
   "source": "https://news.ucsc.edu/feed/",
-  "crawledAt": "2026-08-02T14:40:44.415Z",
+  "crawledAt": "2026-09-06T13:15:40.044Z",
   "items": [
     {
-      "id": "santacruz-news-ucsc-edu-genomics-institute-seed-funding-2026",
+      "id": "santacruz-news-ucsc-edu-five-uc-santa-cruz-innovators-nominated-for-inaugural-uc-regents-innovation-awards",
       "campus": "santacruz",
-      "title": "Nine projects receive seed funding from the Genomics Institute",
-      "summary": "From listening to the electrical signals of fungal networks in fire-scarred forests to training AI models that can interpret the most complex regions of the human genome, this year's cohort is using genomics in bold new applications.",
-      "publishedAt": "2026-07-24T16:05:01.000Z",
-      "sourceUrl": "https://news.ucsc.edu/2026/07/genomics-institute-seed-funding-2026/",
-      "imageUrl": "https://news.ucsc.edu/wp-content/uploads/2026/07/Ella-Ferraz.png",
+      "title": "Five UC Santa Cruz innovators nominated for inaugural UC Regents Innovation Awards",
+      "summary": "The campus’s nominees span innovations in climate adaptation, disease treatment, health and community development.",
+      "publishedAt": "2026-09-01T22:17:28.000Z",
+      "sourceUrl": "https://news.ucsc.edu/2026/09/five-uc-santa-cruz-innovators-nominated-for-inaugural-uc-regents-innovation-awards/",
+      "imageUrl": "https://news.ucsc.edu/wp-content/uploads/2026/09/uc-innovation-e1788300945246.jpg",
       "sourceHost": "news.ucsc.edu"
     }
   ],

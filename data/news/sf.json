@@ -3,7 +3,7 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-08-30T13:16:22.694Z",
+  "crawledAt": "2026-09-06T13:16:34.259Z",
   "items": [
     {
       "id": "sf-innovation-ucsf-edu-stumped-medical-mystery-try-metagenomics",

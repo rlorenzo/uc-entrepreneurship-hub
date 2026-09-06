@@ -3,8 +3,18 @@
   "name": "UC Irvine",
   "strategy": "rss",
   "source": "https://innovation.uci.edu/news/feed/",
-  "crawledAt": "2026-08-30T13:15:10.576Z",
+  "crawledAt": "2026-09-06T13:15:23.707Z",
   "items": [
+    {
+      "id": "irvine-innovation-uci-edu-glytr",
+      "campus": "irvine",
+      "title": "GlyTR",
+      "summary": "The Sweet Spot in Cancer Immunotherapy",
+      "publishedAt": "2026-08-28T19:26:33.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/glytr/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/08/GlyTR-wide-scaled.jpg",
+      "sourceHost": "innovation.uci.edu"
+    },
     {
       "id": "irvine-innovation-uci-edu-aquatex",
       "campus": "irvine",
@@ -93,16 +103,6 @@
       "publishedAt": "2026-02-17T17:42:05.000Z",
       "sourceUrl": "https://innovation.uci.edu/news/vena-vitals/",
       "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/02/Vena-Vitals-1.jpg",
-      "sourceHost": "innovation.uci.edu"
-    },
-    {
-      "id": "irvine-innovation-uci-edu-summit-tech",
-      "campus": "irvine",
-      "title": "When Reality is the Canvas",
-      "summary": "How Aditi Majumder is Building the Ultimate 3D Experience",
-      "publishedAt": "2026-01-22T16:00:01.000Z",
-      "sourceUrl": "https://innovation.uci.edu/news/summit-tech/",
-      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2025/12/STL-image-1.png",
       "sourceHost": "innovation.uci.edu"
     }
   ],

@@ -3,8 +3,58 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-08-30T13:15:10.721Z",
+  "crawledAt": "2026-09-06T13:15:23.916Z",
   "items": [
+    {
+      "id": "berkeley-citris-uc-org-citris-berkeley-discovery-partner-with-tech-europe-foundation",
+      "campus": "berkeley",
+      "title": "CITRIS, Berkeley Discovery partner with Tech Europe Foundation",
+      "summary": "CITRIS, Berkeley Discovery partner with Tech Europe Foundation",
+      "publishedAt": "2026-09-02T17:07:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-berkeley-discovery-partner-with-tech-europe-foundation/?utm_source=rss&utm_medium=rss&utm_campaign=citris-berkeley-discovery-partner-with-tech-europe-foundation",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/TEF-Banner-1540x368-1-768x184.jpg",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-qb3-berkeley-edu-robert-thorne-pir",
+      "campus": "berkeley",
+      "title": "From butterfly chasing to team science: Professional in Residence Robert Thorne on science in biotech",
+      "summary": "Robert Thorne, PhD, has spent more than three decades studying one of the central challenges in neuroscience: how to deliver therapeutics to the brain. After years in academia, including eight…",
+      "publishedAt": "2026-09-01T17:59:00.000Z",
+      "sourceUrl": "https://qb3.berkeley.edu/news/science-writing-for-the-public/robert-thorne-pir/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/robert_g._thorne-208x300.jpg",
+      "sourceHost": "qb3.berkeley.edu"
+    },
+    {
+      "id": "berkeley-citris-uc-org-citris-cdss-and-aic-invite-proposals-for-faculty-innovation-fellowships-2",
+      "campus": "berkeley",
+      "title": "CITRIS, CDSS and AIC invite proposals for faculty innovation fellowships",
+      "summary": "CITRIS, CDSS and AIC invite proposals for faculty innovation fellowships",
+      "publishedAt": "2026-09-01T16:00:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-cdss-and-aic-invite-proposals-for-faculty-innovation-fellowships-2/?utm_source=rss&utm_medium=rss&utm_campaign=citris-cdss-and-aic-invite-proposals-for-faculty-innovation-fellowships-2",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/AIC-Web-Banner-2026-768x184.jpg",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-haas-berkeley-edu-from-berkeley-to-paris-toppan-superapps-and-a-truly-heroic-amount-of-bread",
+      "campus": "berkeley",
+      "title": "From Berkeley to Paris: TOPPAN, superapps, and a truly heroic amount of bread",
+      "summary": "The post From Berkeley to Paris: TOPPAN, superapps, and a truly heroic amount of bread appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-08-31T18:11:00.000Z",
+      "sourceUrl": "https://haas.berkeley.edu/international-business-development/blog/posts/from-berkeley-to-paris-toppan-superapps-and-a-truly-heroic-amount-of-bread/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Toppan_France_1.png",
+      "sourceHost": "haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-energyathaas-wordpress-com-did-the-china-shock-increase-air-conditioning-adoption",
+      "campus": "berkeley",
+      "title": "Did the China shock increase air conditioning adoption?",
+      "summary": "The post Did the China shock increase air conditioning adoption? appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-08-31T18:06:00.000Z",
+      "sourceUrl": "https://energyathaas.wordpress.com/2026/08/31/did-the-china-shock-increase-air-conditioning-adoption/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Photo-of-a-large-brick-building-showing-windows-with-AC-units-in-them.png",
+      "sourceHost": "energyathaas.wordpress.com"
+    },
     {
       "id": "berkeley-citris-uc-org-citris-researchers-monitor-yuba-county-flood-barriers",
       "campus": "berkeley",
@@ -36,6 +86,16 @@
       "sourceHost": "energyathaas.wordpress.com"
     },
     {
+      "id": "berkeley-cmr-berkeley-edu-when-ai-thinks-with-you-governing-the-strategic-reasoning-of-the-firm",
+      "campus": "berkeley",
+      "title": "When AI thinks with you: Governing the strategic reasoning of the firm",
+      "summary": "The post When AI thinks with you: Governing the strategic reasoning of the firm appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-08-24T18:20:00.000Z",
+      "sourceUrl": "https://cmr.berkeley.edu/2026/08/when-ai-thinks-with-you-governing-the-strategic-reasoning-of-the-firm/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/2026-08-li_as_498529467-768x512.jpeg",
+      "sourceHost": "cmr.berkeley.edu"
+    },
+    {
       "id": "berkeley-citris-uc-org-california-legislature-honors-dado-banatao",
       "campus": "berkeley",
       "title": "California Legislature honors Dado Banatao",
@@ -44,66 +104,6 @@
       "sourceUrl": "https://citris-uc.org/california-legislature-honors-dado-banatao/?utm_source=rss&utm_medium=rss&utm_campaign=california-legislature-honors-dado-banatao",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Dado-Banatao-Honored-Aug-2026-768x184.png",
       "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-patrick-oconnor-ewmba-28-an-aws-prototyping-engineer-is-building-whats-next",
-      "campus": "berkeley",
-      "title": "Patrick O’Connor, EWMBA 28, an AWS prototyping engineer, is building what’s next",
-      "summary": "In Brief Patrick O’Connor, EWMBA 28, spent his first 11 years in Ireland before he moved to Australia, where he lived until he was 23. An interest in pure innovation…",
-      "publishedAt": "2026-08-20T22:53:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/patrick-oconnor-ewmba-28-an-aws-prototyping-engineer-is-building-whats-next/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/patrick-oconnor.jpg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-falling-wages-not-rising-prices-drove-the-2024-election",
-      "campus": "berkeley",
-      "title": "Falling wages, not rising prices, drove the 2024 election",
-      "summary": "In Brief People line up to vote outside Allegiant Stadium in Las Vegas on Nov. 5, 2024 (AP Photo/John Locher). Voters didn’t punish incumbent politicians for inflation in 2024. They…",
-      "publishedAt": "2026-08-20T14:20:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/falling-wages-not-rising-prices-drove-the-2024-election/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/24311011087197-1100x733-768x512.jpg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-emergency-room-study-upends-traditional-thinking-about-doctors-versus-nurse-practitioners",
-      "campus": "berkeley",
-      "title": "Emergency room study upends traditional thinking about doctors versus nurse practitioners",
-      "summary": "In Brief In emergency departments, doctors outperform nurse practitioners (NPs) on average, but NPs beat doctors in about 38% of random head-to-head comparisons. The gap narrows for simpler cases and…",
-      "publishedAt": "2026-08-19T00:55:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/research/emergency-room-study-upends-traditional-thinking-about-doctors-versus-nurse-practitioners/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/AdobeStock_571455004-scaled-768x455.jpeg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-haas-berkeley-edu-a-different-world-beneath-the-gobi",
-      "campus": "berkeley",
-      "title": "A different world beneath the Gobi",
-      "summary": "The post A different world beneath the Gobi appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-08-18T18:58:00.000Z",
-      "sourceUrl": "https://haas.berkeley.edu/international-business-development/blog/posts/a-different-world-beneath-the-gobi/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/image7-1-768x573.png",
-      "sourceHost": "haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-how-featurebox-ai-is-helping-brands-stop-losing-money-they-dont-know-theyre-losing",
-      "campus": "berkeley",
-      "title": "How FeatureBox AI is helping brands stop losing money they don’t know they’re losing",
-      "summary": "Kurapati founded FeatureBox, which helps CPG companies recover lost revenue. Throughout his career, Bharath Kurapati, EWMBA 26, watched consumer packaged goods companies post millions in sales through big box retailers,…",
-      "publishedAt": "2026-08-18T16:18:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/how-featurebox-ai-is-helping-brands-stop-losing-money-they-dont-know-theyre-losing/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/bharath.jpeg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-blumcenter-berkeley-edu-development-is-at-a-crossroads-heres-how-blum-center-students-are-charting-a-path-forward",
-      "campus": "berkeley",
-      "title": "Development is at a crossroads. Here’s how Blum Center students are charting a path forward.",
-      "summary": "The United States was and still remains the single largest donor of humanitarian aid in the world. In fiscal year 2023 alone, the country accounted for 43% of all government…",
-      "publishedAt": "2026-08-17T20:35:00.000Z",
-      "sourceUrl": "https://blumcenter.berkeley.edu/development-is-at-a-crossroads-heres-how-blum-center-students-are-charting-a-path-forward/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/DevEng210-scaled-768x474.jpg",
-      "sourceHost": "blumcenter.berkeley.edu"
     }
   ],
   "errors": []

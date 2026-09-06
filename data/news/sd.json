@@ -3,8 +3,18 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-08-30T13:16:12.563Z",
+  "crawledAt": "2026-09-06T13:16:21.201Z",
   "items": [
+    {
+      "id": "sd-today-ucsd-edu-wildfire-losses-have-lasting-economic-consequences-for-homeowners",
+      "campus": "sd",
+      "title": "Wildfire Losses Have Lasting Economic Consequences for Homeowners",
+      "summary": "A new National Bureau of Economic Research from the University of California San Diego shows that wildfire damage can have long-term economic consequences for households, resulting in income losses, relocation of residents as well as slow rebuilding for several years after a fire.",
+      "publishedAt": "2026-08-31T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/wildfire-losses-have-lasting-economic-consequences-for-homeowners",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/iStock-1008290204%282%29%281%29.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
     {
       "id": "sd-today-ucsd-edu-are-tariffs-making-prices-go-up",
       "campus": "sd",
@@ -43,26 +53,6 @@
       "publishedAt": "2026-08-03T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/uc-san-diego-launches-new-business-data-science-major",
       "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Business-Data-photo-by-iStock_Artem_Peretiatko-1276832767.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-today-ucsd-edu-why-is-the-toy-story-franchise-so-successful",
-      "campus": "sd",
-      "title": "Why Is the Toy Story Franchise so Successful?",
-      "summary": "The fifth Toy Story installment recently surpassed over $1 billion at the box office making it the highest-grossing film of 2026. So what is the secret behind the franchise’s enduring appeal? Shawna Kidman, associate professor of communication explains why in this Q&A. ",
-      "publishedAt": "2026-07-30T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/why-is-the-toy-story-franchise-so-successful",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/iStock-1799053376%281%29%281%29.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-today-ucsd-edu-what-explains-gender-pay-gaps-in-academia",
-      "campus": "sd",
-      "title": "What Explains Gender Pay Gaps in Academia?",
-      "summary": "A study of University of California social science faculty tested several common explanations and found that none told the full story.",
-      "publishedAt": "2026-07-20T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/what-explains-gender-pay-gaps-in-academia",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/coin-stacks-grad-cap_photo-by-iStock_bieshutterb-1200.jpg",
       "sourceHost": "today.ucsd.edu"
     }
   ],
