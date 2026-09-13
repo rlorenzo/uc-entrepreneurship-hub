@@ -3,7 +3,7 @@
   "name": "UC Riverside",
   "strategy": "playwright",
   "source": "https://news.ucr.edu/topic/business",
-  "crawledAt": "2026-09-06T13:16:04.779Z",
+  "crawledAt": "2026-09-13T13:15:58.133Z",
   "items": [
     {
       "id": "riverside-news-ucr-edu-tax-break-megadeals-spurred-innovation-communities",

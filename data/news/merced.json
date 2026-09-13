@@ -3,16 +3,26 @@
   "name": "UC Merced",
   "strategy": "rss",
   "source": "https://news.ucmerced.edu/rss.xml",
-  "crawledAt": "2026-08-23T13:19:22.031Z",
+  "crawledAt": "2026-09-13T13:16:30.741Z",
   "items": [
     {
-      "id": "merced-news-ucmerced-edu-chancellors-catalyst-awards-ignite-research-humanities-social-sciences",
+      "id": "merced-news-ucmerced-edu-nasa-administrator-offers-uc-merced-students-glimpse-their-future",
       "campus": "merced",
-      "title": "Chancellor's Catalyst Awards Ignite Research in Humanities, Social Sciences",
-      "summary": "By Jody Murray, UC Merced August 12, 2026 The site of Mariposa County Gold Rush town Agua Fria will be the subject of an archeological study by UC Merced faculty and students. Digging for stories in a Gold Rush town that vanished in flames 170 years ago. Pinging brainwaves for reactions from sentences that slide between Spanish and English. Fortifying students’ skills and confidence with a practic",
-      "publishedAt": "2026-08-12T14:55:44.000Z",
-      "sourceUrl": "https://news.ucmerced.edu/news/2026/chancellors-catalyst-awards-ignite-research-humanities-social-sciences",
-      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/uc-merced-agua-fria-gold-rush-town-site-marker.jpg",
+      "title": "NASA Administrator Offers UC Merced Students a Glimpse of Their Future",
+      "summary": "By Patty Guerra, UC Merced September 9, 2026 Students Rayan Dua and Samir Ahmed were among those who talked with Jared Isaacman. It might seem that an airfield filled with old planes is a strange place to talk about the future of space flight. But Jared Isaacman, the administrator of NASA, said the Castle Air Museum was the perfect setting to talk about what's ahead. Isaacman visited the former Ai",
+      "publishedAt": "2026-09-10T00:49:07.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/nasa-administrator-offers-uc-merced-students-glimpse-their-future",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_nasa_visit_hero.jpeg",
+      "sourceHost": "news.ucmerced.edu"
+    },
+    {
+      "id": "merced-news-ucmerced-edu-technology-revolution-agriculture-needs-investment-humans-well-machines",
+      "campus": "merced",
+      "title": "Technology Revolution in Agriculture Needs Investment in Humans as Well as Machines",
+      "summary": "University Communications September 10, 2026 Tractor driving classes are part of necessary training. Key Findings: Interest in agricultural technology is here. Among 10,856 respondents from Central Valley agricultural communities, 16.5% expressed interest in agtech training, more than three times those interested in general agriculture programs. The challenge is not motivation; it is access. The s",
+      "publishedAt": "2026-09-10T17:47:36.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/technology-revolution-agriculture-needs-investment-humans-well-machines",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_agtech_workforce_hero.jpeg",
       "sourceHost": "news.ucmerced.edu"
     }
   ],
