@@ -43,5 +43,12 @@
   "optionalDependencies": {
     "playwright": "^1.62.1"
   },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "24",
+      "onFail": "download"
+    }
+  },
   "packageManager": "pnpm@10.33.3"
 }
