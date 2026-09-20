@@ -3,18 +3,8 @@
   "name": "UC Merced",
   "strategy": "rss",
   "source": "https://news.ucmerced.edu/rss.xml",
-  "crawledAt": "2026-09-13T13:16:30.741Z",
+  "crawledAt": "2026-09-20T13:16:30.357Z",
   "items": [
-    {
-      "id": "merced-news-ucmerced-edu-nasa-administrator-offers-uc-merced-students-glimpse-their-future",
-      "campus": "merced",
-      "title": "NASA Administrator Offers UC Merced Students a Glimpse of Their Future",
-      "summary": "By Patty Guerra, UC Merced September 9, 2026 Students Rayan Dua and Samir Ahmed were among those who talked with Jared Isaacman. It might seem that an airfield filled with old planes is a strange place to talk about the future of space flight. But Jared Isaacman, the administrator of NASA, said the Castle Air Museum was the perfect setting to talk about what's ahead. Isaacman visited the former Ai",
-      "publishedAt": "2026-09-10T00:49:07.000Z",
-      "sourceUrl": "https://news.ucmerced.edu/news/2026/nasa-administrator-offers-uc-merced-students-glimpse-their-future",
-      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_nasa_visit_hero.jpeg",
-      "sourceHost": "news.ucmerced.edu"
-    },
     {
       "id": "merced-news-ucmerced-edu-technology-revolution-agriculture-needs-investment-humans-well-machines",
       "campus": "merced",
@@ -23,6 +13,16 @@
       "publishedAt": "2026-09-10T17:47:36.000Z",
       "sourceUrl": "https://news.ucmerced.edu/news/2026/technology-revolution-agriculture-needs-investment-humans-well-machines",
       "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_agtech_workforce_hero.jpeg",
+      "sourceHost": "news.ucmerced.edu"
+    },
+    {
+      "id": "merced-news-ucmerced-edu-nasa-administrator-offers-uc-merced-students-glimpse-their-future",
+      "campus": "merced",
+      "title": "NASA Administrator Offers UC Merced Students a Glimpse of Their Future",
+      "summary": "By Patty Guerra, UC Merced September 9, 2026 Students Rayan Dua and Samir Ahmed were among those who talked with Jared Isaacman. It might seem that an airfield filled with old planes is a strange place to talk about the future of space flight. But Jared Isaacman, the administrator of NASA, said the Castle Air Museum was the perfect setting to talk about what's ahead. Isaacman visited the former Ai",
+      "publishedAt": "2026-09-10T00:49:07.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/nasa-administrator-offers-uc-merced-students-glimpse-their-future",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_nasa_visit_hero.jpeg",
       "sourceHost": "news.ucmerced.edu"
     }
   ],

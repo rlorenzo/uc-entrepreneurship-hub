@@ -3,8 +3,58 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-09-13T13:15:21.374Z",
+  "crawledAt": "2026-09-20T13:15:23.817Z",
   "items": [
+    {
+      "id": "berkeley-qb3-berkeley-edu-guiding-ai-toward-better-protein-design",
+      "campus": "berkeley",
+      "title": "Guiding AI toward better protein design",
+      "summary": "UC Berkeley researchers developed ProteinGuide, a method that uses experimental data to guide existing protein generative models toward desired properties without retraining them. Perhaps you have tried recreating a pasta…",
+      "publishedAt": "2026-09-17T15:34:00.000Z",
+      "sourceUrl": "https://qb3.berkeley.edu/news/guiding-ai-toward-better-protein-design/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Xiong-1-300x294.jpg",
+      "sourceHost": "qb3.berkeley.edu"
+    },
+    {
+      "id": "berkeley-citris-uc-org-solar-powered-solutions-sarah-kurtz-uses-agrivoltaics-to-cool-down-crops",
+      "campus": "berkeley",
+      "title": "Solar-powered solutions: Sarah Kurtz uses agrivoltaics to cool down crops",
+      "summary": "Solar-powered solutions: Sarah Kurtz uses agrivoltaics to cool down crops",
+      "publishedAt": "2026-09-16T16:02:00.000Z",
+      "sourceUrl": "https://citris-uc.org/solar-powered-solutions-sarah-kurtz-uses-agrivoltaics-to-cool-down-crops/?utm_source=rss&utm_medium=rss&utm_campaign=solar-powered-solutions-sarah-kurtz-uses-agrivoltaics-to-cool-down-crops",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Solar-powered-solutions-Sarah-Kurtz-uses-agrivoltaics-to-cool-down-crops-1024x245-768x184.png",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-citris-uc-org-citris-executive-director-supports-ai-safeguards",
+      "campus": "berkeley",
+      "title": "CITRIS executive director supports AI safeguards",
+      "summary": "CITRIS executive director supports AI safeguards",
+      "publishedAt": "2026-09-15T15:47:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-executive-director-supports-ai-safeguards/?utm_source=rss&utm_medium=rss&utm_campaign=citris-executive-director-supports-ai-safeguards",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/AI-Safeguards-Sept-2026-768x184.png",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-citris-uc-org-citris-researcher-spearheads-study-to-inform-levee-construction-project",
+      "campus": "berkeley",
+      "title": "CITRIS researcher spearheads study to inform levee construction project",
+      "summary": "CITRIS researcher spearheads study to inform levee construction project",
+      "publishedAt": "2026-09-14T15:57:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-researcher-spearheads-study-to-inform-levee-construction-project/?utm_source=rss&utm_medium=rss&utm_campaign=citris-researcher-spearheads-study-to-inform-levee-construction-project",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Levee-Sept-2026-768x184.png",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-qb3-berkeley-edu-rasmus-nielsen-to-receive-balzan-prize-for-research-on-molecular-evolution",
+      "campus": "berkeley",
+      "title": "Rasmus Nielsen to receive Balzan Prize for research on molecular evolution",
+      "summary": "The International Balzan Foundation recognized Rasmus Nielsen, a professor of statistics and integrative biology at UC Berkeley, with its 2026 Balzan Prize for Molecular Evolution. Nielsen shared the award with University…",
+      "publishedAt": "2026-09-10T21:36:00.000Z",
+      "sourceUrl": "https://qb3.berkeley.edu/news/rasmus-nielsen-to-receive-balzan-prize-for-research-on-molecular-evolution/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/25pxspacer.png",
+      "sourceHost": "qb3.berkeley.edu"
+    },
     {
       "id": "berkeley-newsroom-haas-berkeley-edu-haas-doctoral-student-wins-ai-dissertation-award-for-research-on-the-erosion-of-professional-judgment",
       "campus": "berkeley",
@@ -14,6 +64,16 @@
       "sourceUrl": "https://newsroom.haas.berkeley.edu/haas-doctoral-student-wins-ai-dissertation-award-for-research-on-the-erosion-of-professional-judgment/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Farnam-Mohebi-2-768x614.jpg",
       "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-qb3-berkeley-edu-new-ai-model-for-dna-learns-from-evolution-to-unlock-secrets-of-the-human-genome",
+      "campus": "berkeley",
+      "title": "New AI model for DNA learns from evolution to unlock secrets of the human genome",
+      "summary": "UC Berkeley researchers have created a new genomic language model, called GPN-Star, that excels at spotting genetic variants that impact human health. Like chatbots for DNA, genomic language models are…",
+      "publishedAt": "2026-09-09T21:21:00.000Z",
+      "sourceUrl": "https://qb3.berkeley.edu/news/new-ai-model-for-dna-learns-from-evolution-to-unlock-secrets-of-the-human-genome/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/warren-umoh-KxwkcAe5Cpc-unsplash-scaled-768x444.jpeg",
+      "sourceHost": "qb3.berkeley.edu"
     },
     {
       "id": "berkeley-newsroom-haas-berkeley-edu-startup-teragen-energy-bets-on-fuel-cells-for-data-centers",
@@ -44,66 +104,6 @@
       "sourceUrl": "https://newsroom.haas.berkeley.edu/a-triple-bear-gives-back-haas-renames-mfe-program-for-gifford-fong/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/KT1_3496.jpg",
       "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-citris-uc-org-citris-berkeley-discovery-partner-with-tech-europe-foundation",
-      "campus": "berkeley",
-      "title": "CITRIS, Berkeley Discovery partner with Tech Europe Foundation",
-      "summary": "CITRIS, Berkeley Discovery partner with Tech Europe Foundation",
-      "publishedAt": "2026-09-02T17:07:00.000Z",
-      "sourceUrl": "https://citris-uc.org/citris-berkeley-discovery-partner-with-tech-europe-foundation/?utm_source=rss&utm_medium=rss&utm_campaign=citris-berkeley-discovery-partner-with-tech-europe-foundation",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/TEF-Banner-1540x368-1-768x184.jpg",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-qb3-berkeley-edu-robert-thorne-pir",
-      "campus": "berkeley",
-      "title": "From butterfly chasing to team science: Professional in Residence Robert Thorne on science in biotech",
-      "summary": "Robert Thorne, PhD, has spent more than three decades studying one of the central challenges in neuroscience: how to deliver therapeutics to the brain. After years in academia, including eight…",
-      "publishedAt": "2026-09-01T17:59:00.000Z",
-      "sourceUrl": "https://qb3.berkeley.edu/news/science-writing-for-the-public/robert-thorne-pir/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/robert_g._thorne-208x300.jpg",
-      "sourceHost": "qb3.berkeley.edu"
-    },
-    {
-      "id": "berkeley-citris-uc-org-citris-cdss-and-aic-invite-proposals-for-faculty-innovation-fellowships-2",
-      "campus": "berkeley",
-      "title": "CITRIS, CDSS and AIC invite proposals for faculty innovation fellowships",
-      "summary": "CITRIS, CDSS and AIC invite proposals for faculty innovation fellowships",
-      "publishedAt": "2026-09-01T16:00:00.000Z",
-      "sourceUrl": "https://citris-uc.org/citris-cdss-and-aic-invite-proposals-for-faculty-innovation-fellowships-2/?utm_source=rss&utm_medium=rss&utm_campaign=citris-cdss-and-aic-invite-proposals-for-faculty-innovation-fellowships-2",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/AIC-Web-Banner-2026-768x184.jpg",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-haas-berkeley-edu-from-berkeley-to-paris-toppan-superapps-and-a-truly-heroic-amount-of-bread",
-      "campus": "berkeley",
-      "title": "From Berkeley to Paris: TOPPAN, superapps, and a truly heroic amount of bread",
-      "summary": "The post From Berkeley to Paris: TOPPAN, superapps, and a truly heroic amount of bread appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-08-31T18:11:00.000Z",
-      "sourceUrl": "https://haas.berkeley.edu/international-business-development/blog/posts/from-berkeley-to-paris-toppan-superapps-and-a-truly-heroic-amount-of-bread/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Toppan_France_1.png",
-      "sourceHost": "haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-energyathaas-wordpress-com-did-the-china-shock-increase-air-conditioning-adoption",
-      "campus": "berkeley",
-      "title": "Did the China shock increase air conditioning adoption?",
-      "summary": "The post Did the China shock increase air conditioning adoption? appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-08-31T18:06:00.000Z",
-      "sourceUrl": "https://energyathaas.wordpress.com/2026/08/31/did-the-china-shock-increase-air-conditioning-adoption/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Photo-of-a-large-brick-building-showing-windows-with-AC-units-in-them.png",
-      "sourceHost": "energyathaas.wordpress.com"
-    },
-    {
-      "id": "berkeley-citris-uc-org-citris-researchers-monitor-yuba-county-flood-barriers",
-      "campus": "berkeley",
-      "title": "CITRIS researchers monitor Yuba County’s flood barriers",
-      "summary": "CITRIS researchers monitor Yuba County’s flood barriers",
-      "publishedAt": "2026-08-27T16:00:00.000Z",
-      "sourceUrl": "https://citris-uc.org/citris-researchers-monitor-yuba-county-flood-barriers/?utm_source=rss&utm_medium=rss&utm_campaign=citris-researchers-monitor-yuba-county-flood-barriers",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/08/Yuba-County-Aug-2026-768x184.png",
-      "sourceHost": "citris-uc.org"
     }
   ],
   "errors": []

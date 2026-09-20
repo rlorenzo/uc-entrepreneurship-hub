@@ -3,8 +3,18 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-09-13T13:16:16.208Z",
+  "crawledAt": "2026-09-20T13:16:16.882Z",
   "items": [
+    {
+      "id": "sd-today-ucsd-edu-report-proposes-selective-openness-to-chinese-investment",
+      "campus": "sd",
+      "title": "UC San Diego Report Proposes ‘Selective Openness’ to Chinese Investment in U.S.",
+      "summary": "New framework from the 21st Century China Center calls for weighing the economic benefits of Chinese investment alongside national security risks.",
+      "publishedAt": "2026-09-16T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/report-proposes-selective-openness-to-chinese-investment",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/China-US-investment-concept-photo-by-iStock_Narongrit-Doungmanee-1329914861.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
     {
       "id": "sd-today-ucsd-edu-report-identifies-path-to-stronger-state-flood-resilience-and-insurance-protections",
       "campus": "sd",
@@ -43,16 +53,6 @@
       "publishedAt": "2026-08-17T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/are-tariffs-making-prices-go-up",
       "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Shopping-Receipt-photo-by-iStock_M_Stock-1468272596.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-today-ucsd-edu-why-a-doctor-saying-its-normal-can-backfire",
-      "campus": "sd",
-      "title": "Why a Doctor Saying ‘It’s Normal’ Can Backfire",
-      "summary": "Research shows that patients often interpret normalizing language to mean treatment isn’t necessary, but the misunderstanding can be prevented.",
-      "publishedAt": "2026-08-10T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/why-a-doctor-saying-its-normal-can-backfire",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Patient-describing-symptoms-photo-by-iStock_Matinee_Duangphet-2232809248.jpg",
       "sourceHost": "today.ucsd.edu"
     }
   ],

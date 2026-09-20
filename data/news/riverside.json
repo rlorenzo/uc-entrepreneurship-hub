@@ -3,7 +3,7 @@
   "name": "UC Riverside",
   "strategy": "playwright",
   "source": "https://news.ucr.edu/topic/business",
-  "crawledAt": "2026-09-13T13:15:58.133Z",
+  "crawledAt": "2026-09-20T13:16:00.114Z",
   "items": [
     {
       "id": "riverside-news-ucr-edu-tax-break-megadeals-spurred-innovation-communities",
@@ -56,16 +56,6 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-news-ucr-edu-ucr-report-urges-broadband-be-state-utility",
-      "campus": "riverside",
-      "title": "UCR report urges broadband to be a state utility",
-      "summary": "California should regulate broadband internet providers like public utilities — imposing rate controls, universal access requirements, and reliability standards to ensure every resident has affordable, high-speed internet access, according to a new UC Riverside public policy report.",
-      "publishedAt": "",
-      "sourceUrl": "https://news.ucr.edu/articles/2026/02/12/ucr-report-urges-broadband-be-state-utility",
-      "imageUrl": "https://news.ucr.edu/sites/default/files/2026-02/960-gettyimages-2231090399.jpg",
-      "sourceHost": "news.ucr.edu"
-    },
-    {
       "id": "riverside-news-ucr-edu-tangos-sweet-legacy-lives",
       "campus": "riverside",
       "title": "Tango’s sweet legacy lives on",
@@ -103,16 +93,6 @@
       "publishedAt": "",
       "sourceUrl": "https://news.ucr.edu/articles/2025/11/25/study-finds-lower-emissions-higher-ethanol-gasoline",
       "imageUrl": "https://news.ucr.edu/sites/default/files/2025-11/960-gettyimages-188115695-1_0.jpg",
-      "sourceHost": "news.ucr.edu"
-    },
-    {
-      "id": "riverside-news-ucr-edu-mccollum-familys-march-toward-graduation-stage",
-      "campus": "riverside",
-      "title": "The McCollum family’s march toward the graduation stage",
-      "summary": "",
-      "publishedAt": "",
-      "sourceUrl": "https://news.ucr.edu/articles/2025/11/09/mccollum-familys-march-toward-graduation-stage",
-      "imageUrl": "https://news.ucr.edu/sites/default/files/2025-11/veteran_business_mccollum_2025.jpg",
       "sourceHost": "news.ucr.edu"
     },
     {
