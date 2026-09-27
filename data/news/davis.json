@@ -3,16 +3,16 @@
   "name": "UC Davis",
   "strategy": "playwright",
   "source": "https://iedo.ucdavis.edu/news",
-  "crawledAt": "2026-09-20T13:16:12.297Z",
+  "crawledAt": "2026-09-27T13:17:00.579Z",
   "items": [
     {
-      "id": "davis-iedo-ucdavis-edu-aggie-venture-accelerator-welcomes-inaugural-cohort-life-science-startups",
+      "id": "davis-iedo-ucdavis-edu-lab-livestock-how-customer-discovery-helped-2c-bioscience-find-its-focus",
       "campus": "davis",
-      "title": "Aggie Venture Accelerator Welcomes Inaugural Cohort of Life Science Startups",
-      "summary": "UC Davis launches Aggie Venture Accelerator, welcoming inaugural cohort of life science startups—SinewUS, Pharm to Food and ThriveSpan Labs—offering mentorship, industry connections and funding to fast-track commercialization.",
-      "publishedAt": "2026-07-13T22:31:28.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/aggie-venture-accelerator-welcomes-inaugural-cohort-life-science-startups",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/MB20251001_AggieSq_IMG_6025_0.jpg?h=4997dc06&itok=b5QpEIh2",
+      "title": "From Lab to Livestock: How Customer Discovery Helped 2C Bioscience Find Its Focus",
+      "summary": "Through the NSF I-Corps customer discovery program, 2C Bioscience found its beachhead market and a path towards faster commercialization—demonstrating how industry engagement can help turn lab innovations into viable business opportunities.",
+      "publishedAt": "2026-09-24T15:14:51.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/lab-livestock-how-customer-discovery-helped-2c-bioscience-find-its-focus",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/2C%20Bioscience%20Hero%20Image.jpg?h=3e07f1d9&itok=BRuHm-_l",
       "sourceHost": "iedo.ucdavis.edu"
     },
     {
@@ -126,16 +126,6 @@
       "sourceHost": "iedo.ucdavis.edu"
     },
     {
-      "id": "davis-iedo-ucdavis-edu-reflections-inaugural-triage-innovation-forum",
-      "campus": "davis",
-      "title": "Reflections on the Inaugural TRIage Innovation Forum",
-      "summary": "Andrew Brown of UC Davis Health Ventures shares his thoughts on the creation and launch of the TRIage Innovation Forum—an engaging, rapid-pitch platform that helps researchers present their work in three minutes and receive tailored guidance, resources and connections to accelerate the translation of their innovations into real-world health solutions.",
-      "publishedAt": "2025-09-02T16:23:28.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/reflections-inaugural-triage-innovation-forum",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/TRIage%20Pic%201.jpg?h=9c4c0580&itok=BsNJ9CMh",
-      "sourceHost": "iedo.ucdavis.edu"
-    },
-    {
       "id": "davis-iedo-ucdavis-edu-dough-data-how-graingeai-reimagining-ingredient-intelligence",
       "campus": "davis",
       "title": "From Dough to Data: How Grainge.ai is Reimagining Ingredient Intelligence",
@@ -144,17 +134,18 @@
       "sourceUrl": "https://iedo.ucdavis.edu/news/dough-data-how-graingeai-reimagining-ingredient-intelligence",
       "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/Screenshot%202025-08-18%20150316.png?h=1fdb4153&itok=kI5ywWph",
       "sourceHost": "iedo.ucdavis.edu"
-    },
-    {
-      "id": "davis-iedo-ucdavis-edu-uc-davis-sees-jump-records-invention-driven-health-innovation",
-      "campus": "davis",
-      "title": "UC Davis Sees Jump in Records of Invention, Driven by Health Innovation",
-      "summary": "UC Davis saw a 34% increase in records of invention in FY 2025, driven largely by health-related innovations and first-time contributors, reflecting a growing culture of commercialization and cross-campus collaboration led by the Innovation and Economic Development Office.",
-      "publishedAt": "2025-08-04T19:56:16.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-sees-jump-records-invention-driven-health-innovation",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/2025-05-22_Avantika%20Gokulnatha_resize.jpg?h=9855f42d&itok=2Wuomug3",
-      "sourceHost": "iedo.ucdavis.edu"
     }
   ],
-  "errors": []
+  "errors": [
+    {
+      "stage": "article",
+      "url": "https://iedo.ucdavis.edu/news/aggie-venture-accelerator-welcomes-inaugural-cohort-life-science-startups",
+      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/aggie-venture-accelerator-welcomes-inaugural-cohort-life-science-startups"
+    },
+    {
+      "stage": "article",
+      "url": "https://iedo.ucdavis.edu/news/reflections-inaugural-triage-innovation-forum",
+      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/reflections-inaugural-triage-innovation-forum"
+    }
+  ]
 }

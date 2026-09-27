@@ -3,16 +3,16 @@
   "name": "UC Santa Cruz",
   "strategy": "rss",
   "source": "https://news.ucsc.edu/feed/",
-  "crawledAt": "2026-09-06T13:15:40.044Z",
+  "crawledAt": "2026-09-27T13:16:25.296Z",
   "items": [
     {
-      "id": "santacruz-news-ucsc-edu-five-uc-santa-cruz-innovators-nominated-for-inaugural-uc-regents-innovation-awards",
+      "id": "santacruz-news-ucsc-edu-uc-santa-cruz-community-members-honored-with-uc-regents-innovation-awards",
       "campus": "santacruz",
-      "title": "Five UC Santa Cruz innovators nominated for inaugural UC Regents Innovation Awards",
-      "summary": "The campus’s nominees span innovations in climate adaptation, disease treatment, health and community development.",
-      "publishedAt": "2026-09-01T22:17:28.000Z",
-      "sourceUrl": "https://news.ucsc.edu/2026/09/five-uc-santa-cruz-innovators-nominated-for-inaugural-uc-regents-innovation-awards/",
-      "imageUrl": "https://news.ucsc.edu/wp-content/uploads/2026/09/uc-innovation-e1788300945246.jpg",
+      "title": "UC Santa Cruz community members honored with UC Regents Innovation Awards",
+      "summary": "The UC Regents awards, announced Sept. 16, honored 23 people in five categories.",
+      "publishedAt": "2026-09-22T21:25:50.000Z",
+      "sourceUrl": "https://news.ucsc.edu/2026/09/uc-santa-cruz-community-members-honored-with-uc-regents-innovation-awards/",
+      "imageUrl": "https://news.ucsc.edu/wp-content/uploads/2026/09/innovation-awards.jpg",
       "sourceHost": "news.ucsc.edu"
     }
   ],
