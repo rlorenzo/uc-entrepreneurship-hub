@@ -12,12 +12,12 @@ onlyBuiltDependencies:
 # Drop an entry once the parent resolves the patched version on its own.
 overrides:
   # GHSA-4cwx-7wf7-3272 (high) + 4 medium — via jsdom (8.x) and cheerio (6.x)
-  undici@<6.28.0: ^6.28.0
-  undici@>=7.0.0 <7.29.0: ^7.29.0
-  # Floor only. The lockfile pins the exact 8.x (8.10.0 while 8.10.1 clears the
+  undici@<6.28.1: ^6.28.1
+  undici@>=7.0.0 <7.29.1: ^7.29.1
+  # Floor only. The lockfile pins the exact 8.x (8.10.2; the next 8.x must clear the
   # publish-age gate); a floor lets the next 8.x security release land on
   # `pnpm update`, whereas an exact-version override would silently downgrade it.
-  undici@>=8.0.0 <8.10.0: ^8.10.0
+  undici@>=8.0.0 <8.10.2: ^8.10.2
   # GHSA-rgw5-rvv9-x895 (high) — via minimatch/glob. 4.x has no patched release
   # (the advisory's fix for 4.x is 5.0.9, a cross-major jump we don't force);
   # nothing in the tree resolves 4.x today, so Dependabot will flag it if one appears.
