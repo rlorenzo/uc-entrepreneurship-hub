@@ -23,3 +23,4 @@ dist
 agent-code-review.md
 agent-review-summary.md
 cache/
+.vitest/

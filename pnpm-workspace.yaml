@@ -37,5 +37,13 @@ overrides:
   nanoid@>=4.0.0 <5.1.6: ^5.1.6
   ws@>=8.0.0 <8.20.1: ^8.20.1
   lodash@<4.18.0: ^4.18.0
-  vite@>=8.0.0 <=8.0.15: ^8.0.16
   postcss@>=8.0.0 <8.5.18: ^8.5.25
+  vite@*: "catalog:"
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@1.0.0
+  vite-plus: 1.0.0
+peerDependencyRules:
+  allowAny:
+    - vite
+  allowedVersions:
+    vite: "*"
