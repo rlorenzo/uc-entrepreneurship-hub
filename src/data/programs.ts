@@ -21,7 +21,7 @@ const CURATED: Program[] = [
     funding: "$200,000",
     selectivity: "~3% acceptance",
     cohortSize: 20,
-    deadline: "Batch 23 apps open July 2026",
+    deadline: "Two batches a year — see program site",
     featured: true,
     eyebrow: "Flagship accelerator",
   },
@@ -38,7 +38,7 @@ const CURATED: Program[] = [
     funding: "Up to $50K",
     selectivity: "Selective",
     cohortSize: 12,
-    deadline: "Sep 15, 2026",
+    deadline: "Rolling",
     website: "https://citrisfoundry.org",
   },
   {
@@ -272,15 +272,15 @@ const CURATED: Program[] = [
     id: "newventure",
     website:
       "https://merage.uci.edu/research-faculty/centers/innovation-entrepreneurship/new-venture-competiton.html",
-    name: "New Venture Competition",
+    name: "Stella Zhang New Venture Competition",
     campus: "irvine",
     type: "competition",
-    desc: "UCI Beall’s flagship competition with a $50K grand prize and ten months of structured mentorship.",
+    desc: "UC Irvine’s flagship student startup competition, run through the Beall Center across five industry tracks, awarding a share of a $100K+ prize pool in an annual build-and-pitch program.",
     industries: ["Consumer", "Health", "AI / ML"],
     stage: "Prototype",
     eligibility: ["Undergrad", "Graduate", "Alumni"],
     duration: "Academic year",
-    funding: "$50K grand prize",
+    funding: "$100K+ total prizes",
     selectivity: "Open",
     cohortSize: null,
     deadline: "Annual — concept papers due Mar 1",
@@ -300,7 +300,7 @@ const CURATED: Program[] = [
     funding: "Course credit",
     selectivity: "Open",
     cohortSize: 60,
-    deadline: "Sep 1, 2026",
+    deadline: "Rolling — quarterly enrollment",
     website: "https://tmp.ucsb.edu/",
     associatedCenter: "UCSB College of Engineering",
   },
@@ -842,6 +842,71 @@ const CURATED: Program[] = [
     cohortSize: null,
     deadline: "See program site",
   },
+
+  // ——— Added by the 2026-10 catalog audit ———
+  // Facts search-verified only (this run's environment blocks direct page
+  // fetches); see the PR's evidence notes for the weak-evidence items.
+
+  // Irvine — curated override for the crawled "POP Grants" record (same URL,
+  // so mergePrograms pairs them): the crawl mistyped it as an incubator and
+  // scraped awardee headlines into the desc. POP Grants is Beall's concrete
+  // proof-of-product funding program, distinct from the Beall umbrella entry.
+  {
+    id: "uci-pop-grants",
+    website: "https://innovation.uci.edu/pop-grants/",
+    name: "Proof of Product (POP) Grants",
+    campus: "irvine",
+    type: "funding",
+    desc: "UCI Beall Applied Innovation's proof-of-product grants, awarding non-dilutive funding to UC Irvine faculty researchers to move commercially promising technologies toward market.",
+    industries: [],
+    stage: "Prototype",
+    eligibility: ["Faculty", "Postdoc"],
+    duration: "Short-term (<1 mo)",
+    funding: "Up to $100K",
+    selectivity: "Selective",
+    cohortSize: null,
+    deadline: "See program site",
+    associatedCenter: "UCI Beall Applied Innovation",
+  },
+
+  // Berkeley — biotech/deep-tech incubator gap (search-verified)
+  {
+    id: "bakar-labs",
+    website: "https://bakarlabs.berkeley.edu/",
+    name: "Bakar Labs",
+    campus: "berkeley",
+    type: "incubator",
+    desc: "Life-sciences and deep-tech incubator at UC Berkeley's Bakar BioEnginuity Hub (Woo Hon Fai Hall), operated by QB3, offering lab space and university facilities to up to ~80 early-stage startups a year.",
+    industries: ["Biotech", "Health"],
+    stage: "Prototype",
+    eligibility: ["Graduate", "Postdoc", "Faculty", "Alumni", "Open to public"],
+    duration: "Ongoing / rolling",
+    funding: "Not disclosed",
+    selectivity: "Selective",
+    cohortSize: null,
+    deadline: "See program site",
+    associatedCenter: "Bakar BioEnginuity Hub / QB3",
+  },
+
+  // Santa Barbara — wet-lab incubator gap, distinct from the CNSI Innovation
+  // Workshop makerspace (crawled "Prototyping + Lab Space") already listed
+  {
+    id: "cnsi-tech-incubator",
+    website: "https://innovation.ucsb.edu/cnsi-technology-incubator",
+    name: "CNSI Technology Incubator",
+    campus: "santabarbara",
+    type: "incubator",
+    desc: "Wet-lab and office incubator in Elings Hall at UCSB's California NanoSystems Institute — one of the Central Coast's few wet-lab incubators — leasing space to local technology startups; 40+ ventures have spun out since 2015.",
+    industries: ["Biotech", "Hardware", "Health"],
+    stage: "Prototype",
+    eligibility: ["Open to public"],
+    duration: "Ongoing / rolling",
+    funding: "Not disclosed",
+    selectivity: "Selective",
+    cohortSize: null,
+    deadline: "See program site",
+    associatedCenter: "California NanoSystems Institute (CNSI)",
+  },
 ];
 
 // Crawled pages rejected by the 2026-07-02 catalog audit: awardee
@@ -878,6 +943,21 @@ const EXCLUDED_CRAWLED_IDS = new Set<string>([
   "irvine-funding-resources-uci-beall-applied-innovation",
   // UC Santa Cruz — industry access to shared lab facilities
   "santacruz-research-infrastructure-commons-ric-program",
+  // ——— Added by the 2026-10 catalog audit ———
+  // UC Davis — IEDO office landing/overview page (the crawl seed itself), not
+  // a concrete program; its longDescription is Aggie Square tour/lease copy
+  "davis-innovation-and-economic-development-office",
+  // UCLA — Anderson pages that aren't founder-facing entrepreneurship programs
+  "la-price-center-for-entrepreneurship-and-innovation-fellowships", // Deutschman Venture Fellows — MBA VC-internship placement, not a founder program
+  "la-undergraduate-minor-in-entrepreneurship", // academic minor (degree program), out of schema scope
+  "la-early-stage-investment-fund", // MBA-run experiential fund (1–2 deals/yr) — a fund-management training vehicle like the already-excluded Student Investment Fund, not a founder program
+  "la-management-development-for-entrepreneurs", // Anderson executive-education course for established business owners; crawled desc is stale ("pandemic economy")
+  // UC Santa Cruz — CruzX portal signup/overview page, not a concrete program
+  "santacruz-programs-ecosystem-resources-innovation-business-engagement-hub",
+  // UC San Diego — "Startup Toolkit": directory of third-party service providers, not a program
+  "sd-explore-our-startup-toolkit",
+  // UCSF — one-off UC ALS research workshop (May 2026) mis-titled "UCSF Innovation", under the already-excluded Strategic Alliances team
+  "sf-ucsf-innovation",
 ]);
 
 export const PROGRAMS: Program[] = mergePrograms(
