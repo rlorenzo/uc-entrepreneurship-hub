@@ -3,8 +3,98 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-09-27T13:16:10.618Z",
+  "crawledAt": "2026-10-04T14:54:04.438Z",
   "items": [
+    {
+      "id": "berkeley-citris-uc-org-kathy-kim-named-managing-director-of-citris-health",
+      "campus": "berkeley",
+      "title": "Kathy Kim named managing director of CITRIS Health",
+      "summary": "Kathy Kim named managing director of CITRIS Health",
+      "publishedAt": "2026-10-02T16:00:00.000Z",
+      "sourceUrl": "https://citris-uc.org/kathy-kim-named-managing-director-of-citris-health/?utm_source=rss&utm_medium=rss&utm_campaign=kathy-kim-named-managing-director-of-citris-health",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/Kathy-Kim-1540x368-1-768x184.jpg",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-citris-uc-org-navigating-federal-and-state-engagement-a-practical-guide-for-the-uc-berkeley-community",
+      "campus": "berkeley",
+      "title": "Navigating Federal and State Engagement: A Practical Guide for the UC Berkeley Community",
+      "summary": "Navigating Federal and State Engagement: A Practical Guide for the UC Berkeley Community",
+      "publishedAt": "2026-10-01T18:18:00.000Z",
+      "sourceUrl": "https://citris-uc.org/navigating-federal-and-state-engagement-a-practical-guide-for-the-uc-berkeley-community/?utm_source=rss&utm_medium=rss&utm_campaign=navigating-federal-and-state-engagement-a-practical-guide-for-the-uc-berkeley-community",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/Web-Banner-1540x368_Tech-Fellows-Showcase-scaled-768x184.jpg",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-qb3-berkeley-edu-journey-to-the-fountain-of-youth-new-method-unravels-the-mysteries-of-rejuvenation",
+      "campus": "berkeley",
+      "title": "Journey to the fountain of youth: New method unravels the mysteries of rejuvenation",
+      "summary": "Silvan Spiri preparing an experiment on “Buddy” the microscope, which is used in the Brar-Ünal lab to study gametogenic rejuvenation. Photo credit: Maia Reyes. The legend of the fountain of…",
+      "publishedAt": "2026-10-01T15:48:00.000Z",
+      "sourceUrl": "https://qb3.berkeley.edu/news/journey-to-the-fountain-of-youth-new-method-unravels-the-mysteries-of-rejuvenation/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/image1-1024x768-768x576.png",
+      "sourceHost": "qb3.berkeley.edu"
+    },
+    {
+      "id": "berkeley-blumcenter-berkeley-edu-technology-rooted-in-values-how-navajo-tech-and-mdeveng-students-are-reimagining-ai-for-native-communities",
+      "campus": "berkeley",
+      "title": "Technology Rooted in Values: How Navajo Tech and MDevEng Students Are Reimagining AI for Native Communities",
+      "summary": "fter Conrad Begay finished his master’s degree in electrical engineering in December, the Navajo Technical University graduate went straight into teaching at his alma mater, with plans to pursue his…",
+      "publishedAt": "2026-09-30T18:40:00.000Z",
+      "sourceUrl": "https://blumcenter.berkeley.edu/technology-rooted-in-values-how-navajo-tech-and-mdeveng-students-are-reimagining-ai-for-native-communities/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/1218844495993711.izCHuD2lk1ECR8M6hNtV_height640.png",
+      "sourceHost": "blumcenter.berkeley.edu"
+    },
+    {
+      "id": "berkeley-scet-berkeley-edu-sunway-university-and-scet-renew-global-partnership-through-2029",
+      "campus": "berkeley",
+      "title": "Sunway University and SCET Renew Global Partnership Through 2029",
+      "summary": "Sunway University has renewed its strategic partnership with the Sutardja Center forEntrepreneurship & Technology (SCET) at the University of California, Berkeley, extending thecollaboration through 2029 and creating further opportunities for…",
+      "publishedAt": "2026-09-29T21:04:00.000Z",
+      "sourceUrl": "https://scet.berkeley.edu/sunway-university-and-scet-renew-global-partnership-through-2029/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/SCET-og-image-768x401.jpg",
+      "sourceHost": "scet.berkeley.edu"
+    },
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-will-rosenzweigs-food-systems-legacy-lives-on-through-new-haas-collaborative",
+      "campus": "berkeley",
+      "title": "Will Rosenzweig’s food systems legacy will continue through new Haas collaborative",
+      "summary": "The new Collaborative for Food Systems Innovation will equip the next generation of leaders who will reimagine and transform the food system. In Brief Will Rosenzweig is cementing his legacy…",
+      "publishedAt": "2026-09-28T23:25:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/will-rosenzweigs-food-systems-legacy-lives-on-through-new-haas-collaborative/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Will-Rosenzweig.jpeg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-how-startup-tash-is-building-infrastructure-to-invest-in-trading-cards",
+      "campus": "berkeley",
+      "title": "Haas students launch tash, an investment platform for trading cards",
+      "summary": "Tash is building portfolios of investment-grade trading cards—indexes that people can invest in. L-R: Tash founders Nicolas Sharma, Victor Shammas, John Ohannesian, and Nathan Borshell pitching at Y Combinator Summer…",
+      "publishedAt": "2026-09-28T20:51:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/how-startup-tash-is-building-infrastructure-to-invest-in-trading-cards/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/tash-demo-day-768x489.jpeg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-blumcenter-berkeley-edu-master-of-development-engineering-program-welcomes-the-class-of-2027",
+      "campus": "berkeley",
+      "title": "Master of Development Engineering Program Welcomes the Class of 2027",
+      "summary": "Amir Kelifa witnessed societal inequality in his home country of Ethiopia. He saw how workers in the informal sector, like waste collectors, faced exploitation, unsafe working conditions, and low pay.…",
+      "publishedAt": "2026-09-28T17:14:00.000Z",
+      "sourceUrl": "https://blumcenter.berkeley.edu/master-of-development-engineering-program-welcomes-the-class-of-2027/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Best-one-to-use-scaled-768x512.jpg",
+      "sourceHost": "blumcenter.berkeley.edu"
+    },
+    {
+      "id": "berkeley-citris-uc-org-citris-at-uc-merced-students-meet-nasa-administrator",
+      "campus": "berkeley",
+      "title": "CITRIS at UC Merced students meet NASA administrator",
+      "summary": "CITRIS at UC Merced students meet NASA administrator",
+      "publishedAt": "2026-09-28T15:58:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-at-uc-merced-students-meet-nasa-administrator/?utm_source=rss&utm_medium=rss&utm_campaign=citris-at-uc-merced-students-meet-nasa-administrator",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/NASA-Visit-Sept-2026-768x184.png",
+      "sourceHost": "citris-uc.org"
+    },
     {
       "id": "berkeley-newsroom-haas-berkeley-edu-how-haas-is-rewiring-the-mba-for-ai-and-a-new-era-of-work",
       "campus": "berkeley",
@@ -14,95 +104,6 @@
       "sourceUrl": "https://newsroom.haas.berkeley.edu/how-haas-is-rewiring-the-mba-for-ai-and-a-new-era-of-work/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/20260915_AIClass_bhs_025-768x512.jpg",
       "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-u-s-news-ranks-haas-undergraduate-program-3",
-      "campus": "berkeley",
-      "title": "U.S. News ranks Haas Undergraduate Program #3",
-      "summary": "The UC Berkeley Haas Spieker Undergraduate Program has been ranked #3 overall in U.S. News & World Report’s 2027 Best Undergraduate Business Programs. Among business programs, Wharton ranked #1, followed…",
-      "publishedAt": "2026-09-25T00:01:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/u-s-news-ranks-haas-undergraduate-program-3/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/bkp_097a-768x512.jpg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-spr-ly-6001bgwqrh",
-      "campus": "berkeley",
-      "title": "Join 10K tech leaders at #TechCrunchDisrupt2026, Oct. 13–15 in SF. Get 25% off for high-impact networking through matchmaking & 200+ insightful sessions",
-      "summary": "The post Join 10K tech leaders at #TechCrunchDisrupt2026, Oct. 13–15 in SF. Get 25% off for high-impact networking through matchmaking & 200+ insightful sessions appeared first on UC Berkeley Sutardja…",
-      "publishedAt": "2026-09-24T17:52:00.000Z",
-      "sourceUrl": "http://spr.ly/6001BGwQRH",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/TC26_Disrupt_General_Article_Headers_1920x1080-768x432.png",
-      "sourceHost": "spr.ly"
-    },
-    {
-      "id": "berkeley-citris-uc-org-2026-innovation-for-impact-award-winners-announced",
-      "campus": "berkeley",
-      "title": "2026 Innovation for Impact award winners announced",
-      "summary": "2026 Innovation for Impact award winners announced",
-      "publishedAt": "2026-09-24T16:00:00.000Z",
-      "sourceUrl": "https://citris-uc.org/2026-innovation-for-impact-award-winners-announced/?utm_source=rss&utm_medium=rss&utm_campaign=2026-innovation-for-impact-award-winners-announced",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Innovation-for-Impact-1--768x174.png",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-qb3-berkeley-edu-faculty-focus-on-margaux-pinney",
-      "campus": "berkeley",
-      "title": "Faculty focus on Margaux Pinney",
-      "summary": "Margaux Pinney is a biochemist whose lab utilizes advanced microfluidic technologies to analyze thousands of protein variants simultaneously — measuring catalytic rates, substrate affinities, and inhibitor sensitivities with unprecedented scale…",
-      "publishedAt": "2026-09-24T15:32:00.000Z",
-      "sourceUrl": "https://qb3.berkeley.edu/news/faculty-focus-on-margaux-pinney/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/DSC04422-scaled-768x512.jpg",
-      "sourceHost": "qb3.berkeley.edu"
-    },
-    {
-      "id": "berkeley-exec-ed-berkeley-edu-skynet-has-left-the-building",
-      "campus": "berkeley",
-      "title": "Skynet Has Left the Building: Token Taxes, Kill Switches, and the Move to Ban Artificial Superintelligence",
-      "summary": "The post Skynet Has Left the Building: Token Taxes, Kill Switches, and the Move to Ban Artificial Superintelligence appeared first on UC Berkeley Sutardja Center. Source link",
-      "publishedAt": "2026-09-22T18:27:00.000Z",
-      "sourceUrl": "https://exec-ed.berkeley.edu/insights/skynet-has-left-the-building#new_tab",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Shomit_Skynet-Has-Left-the-Building-thumbnail-1-150x150.jpg",
-      "sourceHost": "exec-ed.berkeley.edu"
-    },
-    {
-      "id": "berkeley-citris-uc-org-citris-aviation-prize-seeks-proposals-for-evtol-mission-guidance-system",
-      "campus": "berkeley",
-      "title": "CITRIS Aviation Prize seeks proposals for eVTOL mission-guidance system",
-      "summary": "CITRIS Aviation Prize seeks proposals for eVTOL mission-guidance system",
-      "publishedAt": "2026-09-22T15:00:00.000Z",
-      "sourceUrl": "https://citris-uc.org/citris-aviation-prize-seeks-proposals-for-evtol-mission-guidance-system/?utm_source=rss&utm_medium=rss&utm_campaign=citris-aviation-prize-seeks-proposals-for-evtol-mission-guidance-system",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Aviation-Prize-2026-Web-Banner-768x184.jpg",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-skydeck-berkeley-edu-newsletter-august-20-2026",
-      "campus": "berkeley",
-      "title": "Newsletter – August 20, 2026",
-      "summary": "When Berkeley SkyDeck advisor Nathan Trueblood first joined SkyDeck to mentor founders, he didn’t expect to end up on the front lines of a major acquisition. In his latest blog…",
-      "publishedAt": "2026-09-22T03:14:00.000Z",
-      "sourceUrl": "https://skydeck.berkeley.edu/newsletter-august-20-2026/",
-      "sourceHost": "skydeck.berkeley.edu"
-    },
-    {
-      "id": "berkeley-energyathaas-wordpress-com-fuel-price-spikes-and-the-clean-transportation-revolution",
-      "campus": "berkeley",
-      "title": "Fuel price spikes and the clean transportation revolution",
-      "summary": "The post Fuel price spikes and the clean transportation revolution appeared first on Haas News | UC Berkeley Haas. Source link",
-      "publishedAt": "2026-09-21T20:48:00.000Z",
-      "sourceUrl": "https://energyathaas.wordpress.com/2026/09/21/fuel-price-spikes-and-the-clean-transportation-revolution/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Screenshot-2026-09-21-at-1.31.31-PM-768x436.png",
-      "sourceHost": "energyathaas.wordpress.com"
-    },
-    {
-      "id": "berkeley-qb3-berkeley-edu-guiding-ai-toward-better-protein-design",
-      "campus": "berkeley",
-      "title": "Guiding AI toward better protein design",
-      "summary": "UC Berkeley researchers developed ProteinGuide, a method that uses experimental data to guide existing protein generative models toward desired properties without retraining them. Perhaps you have tried recreating a pasta…",
-      "publishedAt": "2026-09-17T15:34:00.000Z",
-      "sourceUrl": "https://qb3.berkeley.edu/news/guiding-ai-toward-better-protein-design/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Xiong-1-300x294.jpg",
-      "sourceHost": "qb3.berkeley.edu"
     }
   ],
   "errors": []

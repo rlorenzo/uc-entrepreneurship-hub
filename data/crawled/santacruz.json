@@ -2,7 +2,7 @@
   "campus": "santacruz",
   "name": "UC Santa Cruz",
   "seedUrl": "https://innovation.ucsc.edu/",
-  "crawledAt": "2026-09-27T13:15:11.101Z",
+  "crawledAt": "2026-10-04T14:53:13.081Z",
   "candidates": [
     {
       "id": "santacruz-research-infrastructure-commons-ric-program",
@@ -14,7 +14,7 @@
       "longDescription": "The Research Infrastructure Commons (RIC) program consists of a group of research facilities and other resources that have made available routine services to industry users for commercial purposes under commercial rate structures and business-friendly terms. Core Manager Name: Beverley RabbittsCore Manager Email: brabbitt@ucsc.eduRRID Number: SCR_021114RIC Services: library formatting, cytological profiling, biochemical assays, imaging assays and high-content screening, and skill training. Core Manager Name: Vitor Hugo Balasco SerrãoCore Manager Email: vbalasco@ucsc.eduRRID number: SCR_021755R",
       "industries": [],
       "sourceUrl": "https://innovation.ucsc.edu/industry-corporate-partners/research-infrastructure-commons-ric-program/",
-      "lastUpdated": "2026-09-27T13:15:15.364Z"
+      "lastUpdated": "2026-10-04T14:53:15.938Z"
     },
     {
       "id": "santacruz-innovation-catalyst-proof-of-concept-program",
@@ -27,7 +27,7 @@
       "industries": [],
       "applicationLink": "https://ucsc.infoready4.com/",
       "sourceUrl": "https://innovation.ucsc.edu/faculty-researchers/innovation-catalyst-grant/",
-      "lastUpdated": "2026-09-27T13:15:19.485Z"
+      "lastUpdated": "2026-10-04T14:53:18.861Z"
     },
     {
       "id": "santacruz-programs-ecosystem-resources-innovation-business-engagement-hub",
@@ -35,12 +35,12 @@
       "name": "Programs & Ecosystem Resources – Innovation & Business Engagement Hub",
       "campus": "santacruz",
       "type": "funding",
-      "desc": "Sign up for the CruzX innovation and entrepreneurship portal to learn about events, funding opportunities, and more.",
-      "longDescription": "Sign up for the CruzX innovation and entrepreneurship portal to learn about events, funding opportunities, and more.",
+      "desc": "Follow our Instagram to learn about events, funding opportunities, and more.",
+      "longDescription": "Follow our Instagram to learn about events, funding opportunities, and more.",
       "industries": [],
       "imageUrl": "https://innovation.ucsc.edu/files/2025/10/4-10-25-Cyro-EM-Vitor-Belasco-CL-002-1-1024x683.jpg",
       "sourceUrl": "https://innovation.ucsc.edu/entrepreneurs-innovators/programs-ecosystem-resources/",
-      "lastUpdated": "2026-09-27T13:15:23.791Z"
+      "lastUpdated": "2026-10-04T14:53:22.329Z"
     },
     {
       "id": "santacruz-nsf-i-corps-program",
@@ -51,10 +51,10 @@
       "desc": "The Innovation & Business Engagement Hub organizes immersive lean launchpad workshops series focused on training teams advancing university innovations or working on translational and use-inspired research projects. These series provide valuable training on identifying pathways for adoption and implementation and finding a scalable business model through the customer discovery process.",
       "longDescription": "The Innovation & Business Engagement Hub organizes immersive lean launchpad workshops series focused on training teams advancing university innovations or working on translational and use-inspired research projects. These series provide valuable training on identifying pathways for adoption and implementation and finding a scalable business model through the customer discovery process. UC Santa Cruz is a partner institution in the (I-Corps) Hub for the Northwest Region and will be providing these series on the Central Coast. These evening sessions teach you to identify your top customer segmen",
       "industries": [],
-      "deadline": "September 28, 2026",
+      "deadline": "October 4, 2026",
       "applicationLink": "https://airtable.com/appchtuZSEDR2xXod/pagM3WEdQVbm6uSlV/form?prefill_Cohort=recLwe6TDHZnUMUtF",
       "sourceUrl": "https://innovation.ucsc.edu/entrepreneurs-innovators/lean-launchpad-workshop/",
-      "lastUpdated": "2026-09-27T13:15:30.217Z"
+      "lastUpdated": "2026-10-04T14:53:27.025Z"
     }
   ],
   "errors": []

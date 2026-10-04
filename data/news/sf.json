@@ -3,8 +3,28 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-09-27T13:17:18.710Z",
+  "crawledAt": "2026-10-04T14:54:55.805Z",
   "items": [
+    {
+      "id": "sf-innovation-ucsf-edu-vs3-medical-receives-fda-breakthrough-device-designation-vs3-system-treat-debilitating",
+      "campus": "sf",
+      "title": "VS3 Medical Receives FDA Breakthrough Device Designation for VS3 System to Treat Debilitating Pulsatile Tinnitus",
+      "summary": "VS3 Medical Receives FDA Breakthrough Device Designation for VS3 System to Treat Debilitating Pulsatile Tinnitus",
+      "publishedAt": "2026-09-29T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/vs3-medical-receives-fda-breakthrough-device-designation-vs3-system-treat-debilitating",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
+    {
+      "id": "sf-innovation-ucsf-edu-ucsf-wins-big-gamechangers-startups-life-achievement",
+      "campus": "sf",
+      "title": "UCSF Wins Big, From Gamechangers to Startups to Life Achievement",
+      "summary": "UCSF Wins Big, From Gamechangers to Startups to Life Achievement",
+      "publishedAt": "2026-09-15T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/ucsf-wins-big-gamechangers-startups-life-achievement",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
     {
       "id": "sf-innovation-ucsf-edu-stumped-medical-mystery-try-metagenomics",
       "campus": "sf",
@@ -132,26 +152,6 @@
       "summary": "Scientists Create Cancer-Fighting Immune Cells Right in the Body",
       "publishedAt": "",
       "sourceUrl": "https://innovation.ucsf.edu/media/news/scientists-create-cancer-fighting-immune-cells-right-body",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-innovation-ucsf-edu-ucsf-receives-824m-nih-funding-driving-medical-breakthroughs",
-      "campus": "sf",
-      "title": "UCSF Receives $824M in NIH Funding, Driving Medical Breakthroughs",
-      "summary": "UCSF Receives $824M in NIH Funding, Driving Medical Breakthroughs -",
-      "publishedAt": "2026-03-13T07:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/ucsf-receives-824m-nih-funding-driving-medical-breakthroughs",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-innovation-ucsf-edu-molecular-garbage-tumors-makes-easy-target-antibody-drugs",
-      "campus": "sf",
-      "title": "Molecular Garbage on Tumors Makes Easy Target for Antibody Drugs",
-      "summary": "Cancer cells can ‘barf’ proteins onto their cell surface. That may create new targets for immunotherapies",
-      "publishedAt": "",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/molecular-garbage-tumors-makes-easy-target-antibody-drugs",
       "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
       "sourceHost": "innovation.ucsf.edu"
     }
