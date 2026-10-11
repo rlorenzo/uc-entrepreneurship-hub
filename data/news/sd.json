@@ -3,7 +3,7 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-10-04T14:54:42.101Z",
+  "crawledAt": "2026-10-11T13:18:39.924Z",
   "items": [
     {
       "id": "sd-today-ucsd-edu-report-proposes-selective-openness-to-chinese-investment",

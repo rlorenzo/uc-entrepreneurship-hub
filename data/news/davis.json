@@ -3,8 +3,18 @@
   "name": "UC Davis",
   "strategy": "playwright",
   "source": "https://iedo.ucdavis.edu/news",
-  "crawledAt": "2026-09-27T13:17:00.579Z",
+  "crawledAt": "2026-10-11T13:18:34.037Z",
   "items": [
+    {
+      "id": "davis-iedo-ucdavis-edu-uc-davis-partners-launch-scale-program-help-south-korean-startups-enter-us-market",
+      "campus": "davis",
+      "title": "UC Davis, Partners Launch Scale-Up Program to Help South Korean Startups Enter U.S. Market",
+      "summary": "UC Davis, FLANN and partners launched the nine-month Scale-Up Program to help South Korean life-sciences startups enter the U.S. market via Aggie Square, offering clinical collaboration, U.S. market validation, commercialization support, investor access and strategic partnerships.",
+      "publishedAt": "2026-10-05T19:27:17.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-partners-launch-scale-program-help-south-korean-startups-enter-us-market",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/AS--107-rt-web%20%281%29.png?h=2e976bc2&itok=GHRav1uM",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
     {
       "id": "davis-iedo-ucdavis-edu-lab-livestock-how-customer-discovery-helped-2c-bioscience-find-its-focus",
       "campus": "davis",
@@ -13,6 +23,16 @@
       "publishedAt": "2026-09-24T15:14:51.000Z",
       "sourceUrl": "https://iedo.ucdavis.edu/news/lab-livestock-how-customer-discovery-helped-2c-bioscience-find-its-focus",
       "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/2C%20Bioscience%20Hero%20Image.jpg?h=3e07f1d9&itok=BRuHm-_l",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-iedo-ucdavis-edu-aggie-venture-accelerator-welcomes-inaugural-cohort-life-science-startups",
+      "campus": "davis",
+      "title": "Aggie Venture Accelerator Welcomes Inaugural Cohort of Life Science Startups",
+      "summary": "UC Davis launches Aggie Venture Accelerator, welcoming inaugural cohort of life science startups—SinewUS, Pharm to Food and ThriveSpan Labs—offering mentorship, industry connections and funding to fast-track commercialization.",
+      "publishedAt": "2026-07-13T22:31:28.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/aggie-venture-accelerator-welcomes-inaugural-cohort-life-science-startups",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/MB20251001_AggieSq_IMG_6025_0.jpg?h=4997dc06&itok=b5QpEIh2",
       "sourceHost": "iedo.ucdavis.edu"
     },
     {
@@ -124,28 +144,13 @@
       "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-healths-ifm-fund-backs-delix-therapeutics-first-investment",
       "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/cameron_olson_lab_ccw.jpeg?h=c673cd1c&itok=akFyWePN",
       "sourceHost": "iedo.ucdavis.edu"
-    },
-    {
-      "id": "davis-iedo-ucdavis-edu-dough-data-how-graingeai-reimagining-ingredient-intelligence",
-      "campus": "davis",
-      "title": "From Dough to Data: How Grainge.ai is Reimagining Ingredient Intelligence",
-      "summary": "Grainge.ai, a UC Davis–born startup, is transforming food manufacturing by using AI-driven ingredient intelligence to predict how grains, starches and other ingredients behave in formulations, helping companies innovate more efficiently and sustainably.",
-      "publishedAt": "2025-08-18T21:19:43.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/dough-data-how-graingeai-reimagining-ingredient-intelligence",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/Screenshot%202025-08-18%20150316.png?h=1fdb4153&itok=kI5ywWph",
-      "sourceHost": "iedo.ucdavis.edu"
     }
   ],
   "errors": [
     {
       "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/aggie-venture-accelerator-welcomes-inaugural-cohort-life-science-startups",
-      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/aggie-venture-accelerator-welcomes-inaugural-cohort-life-science-startups"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/reflections-inaugural-triage-innovation-forum",
-      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/reflections-inaugural-triage-innovation-forum"
+      "url": "https://iedo.ucdavis.edu/news/uc-davis-health-strengthens-taiwan-partnerships-advance-biomedical-innovation",
+      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/uc-davis-health-strengthens-taiwan-partnerships-advance-biomedical-innovation"
     }
   ]
 }

@@ -3,8 +3,98 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-10-04T14:54:04.438Z",
+  "crawledAt": "2026-10-11T13:17:48.049Z",
   "items": [
+    {
+      "id": "berkeley-citris-uc-org-citris-i2p-funds-two-projects-at-ucsc",
+      "campus": "berkeley",
+      "title": "CITRIS I2P funds two projects at UCSC",
+      "summary": "CITRIS I2P funds two projects at UCSC",
+      "publishedAt": "2026-10-09T16:02:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-i2p-funds-two-projects-at-ucsc/?utm_source=rss&utm_medium=rss&utm_campaign=citris-i2p-funds-two-projects-at-ucsc",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/I2P-Sept-2026-768x184.png",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-researchers-launch-new-tool-measuring-ais-impact-on-human-wellbeing",
+      "campus": "berkeley",
+      "title": "Researchers launch new tool measuring AI’s impact on human wellbeing",
+      "summary": "Screenshot of the interactive ImpactBench tool A team of researchers led by the MIT Media Lab’s Advancing Humans with AI (AHA) program, in collaboration with UC Berkeley Haas, the USC…",
+      "publishedAt": "2026-10-07T18:43:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/research/researchers-launch-new-tool-measuring-ais-impact-on-human-wellbeing/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/AI-Nutrition-Labels_MIT-Media-Lab-AHA-768x447.png",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-citris-uc-org-citris-champion-gray-davis-releases-oral-history-archive-at-bancroft-library",
+      "campus": "berkeley",
+      "title": "CITRIS champion Gray Davis releases oral history archive at Bancroft Library",
+      "summary": "CITRIS champion Gray Davis releases oral history archive at Bancroft Library",
+      "publishedAt": "2026-10-07T17:15:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-champion-gray-davis-releases-oral-history-archive-at-bancroft-library/?utm_source=rss&utm_medium=rss&utm_campaign=citris-champion-gray-davis-releases-oral-history-archive-at-bancroft-library",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/Gray-Davis-OHC-Sept-2026-768x184.png",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-scet-berkeley-edu-the-anthony-diprinzio-professional-development-workshop",
+      "campus": "berkeley",
+      "title": "The Anthony DiPrinzio Professional Development Workshop",
+      "summary": "A recap for the DiPrinzio family | September 29, 2026 | UC Berkeley SCET On September 29, 2026 SCET welcomed career strategist and author Gorick Ng for a professional development…",
+      "publishedAt": "2026-10-06T23:30:00.000Z",
+      "sourceUrl": "https://scet.berkeley.edu/the-anthony-diprinzio-professional-development-workshop/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/image-5-768x576.jpeg",
+      "sourceHost": "scet.berkeley.edu"
+    },
+    {
+      "id": "berkeley-citris-uc-org-citris-uc-santa-cruz-seeks-executive-director",
+      "campus": "berkeley",
+      "title": "CITRIS UC Santa Cruz seeks executive director",
+      "summary": "CITRIS UC Santa Cruz seeks executive director",
+      "publishedAt": "2026-10-06T20:28:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-uc-santa-cruz-seeks-executive-director/?utm_source=rss&utm_medium=rss&utm_campaign=citris-uc-santa-cruz-seeks-executive-director",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/UCSC-ED-1540x368-2-768x184.jpg",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-ai-chatbots-are-overconfident-like-humans",
+      "campus": "berkeley",
+      "title": "AI chatbots are overconfident—like humans",
+      "summary": "Image: Marcela Barsse for iStock In Brief New UC Berkeley Haas research testing 11 leading large language models—including models from OpenAI, Google, Anthropic, and Meta—found they were overconfident on average:…",
+      "publishedAt": "2026-10-05T21:52:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/research/ai-chatbots-are-overconfident-like-humans/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/iStock-2231387516-768x582.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-citris-uc-org-call-for-nominations-faculty-director-citris-tech-policy-initiative",
+      "campus": "berkeley",
+      "title": "Call for Nominations: Faculty Director, CITRIS Tech Policy Initiative",
+      "summary": "Call for Nominations: Faculty Director, CITRIS Tech Policy Initiative",
+      "publishedAt": "2026-10-05T21:05:00.000Z",
+      "sourceUrl": "https://citris-uc.org/call-for-nominations-faculty-director-citris-tech-policy-initiative/?utm_source=rss&utm_medium=rss&utm_campaign=call-for-nominations-faculty-director-citris-tech-policy-initiative",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/Tech-Policy-Leader-1540x368-1-768x184.jpg",
+      "sourceHost": "citris-uc.org"
+    },
+    {
+      "id": "berkeley-energyathaas-wordpress-com-buying-time-burning-gas",
+      "campus": "berkeley",
+      "title": "Buying time, burning gas",
+      "summary": "The post Buying time, burning gas appeared first on Haas News | UC Berkeley Haas. Source link",
+      "publishedAt": "2026-10-05T19:49:00.000Z",
+      "sourceUrl": "https://energyathaas.wordpress.com/2026/10/05/buying-time-burning-gas/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/dataone-768x288.jpg",
+      "sourceHost": "energyathaas.wordpress.com"
+    },
+    {
+      "id": "berkeley-citris-uc-org-ie-university-and-uc-berkeley-students-join-forces-to-build-ai-enabled-systems",
+      "campus": "berkeley",
+      "title": "IE University and UC Berkeley Students Join Forces to Build AI-Enabled Systems",
+      "summary": "IE University and UC Berkeley Students Join Forces to Build AI-Enabled Systems",
+      "publishedAt": "2026-10-05T16:00:00.000Z",
+      "sourceUrl": "https://citris-uc.org/ie-university-and-uc-berkeley-students-join-forces-to-build-ai-enabled-systems/?utm_source=rss&utm_medium=rss&utm_campaign=ie-university-and-uc-berkeley-students-join-forces-to-build-ai-enabled-systems",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/IEX-1540x368-1-768x184.jpg",
+      "sourceHost": "citris-uc.org"
+    },
     {
       "id": "berkeley-citris-uc-org-kathy-kim-named-managing-director-of-citris-health",
       "campus": "berkeley",
@@ -14,96 +104,6 @@
       "sourceUrl": "https://citris-uc.org/kathy-kim-named-managing-director-of-citris-health/?utm_source=rss&utm_medium=rss&utm_campaign=kathy-kim-named-managing-director-of-citris-health",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/Kathy-Kim-1540x368-1-768x184.jpg",
       "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-citris-uc-org-navigating-federal-and-state-engagement-a-practical-guide-for-the-uc-berkeley-community",
-      "campus": "berkeley",
-      "title": "Navigating Federal and State Engagement: A Practical Guide for the UC Berkeley Community",
-      "summary": "Navigating Federal and State Engagement: A Practical Guide for the UC Berkeley Community",
-      "publishedAt": "2026-10-01T18:18:00.000Z",
-      "sourceUrl": "https://citris-uc.org/navigating-federal-and-state-engagement-a-practical-guide-for-the-uc-berkeley-community/?utm_source=rss&utm_medium=rss&utm_campaign=navigating-federal-and-state-engagement-a-practical-guide-for-the-uc-berkeley-community",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/Web-Banner-1540x368_Tech-Fellows-Showcase-scaled-768x184.jpg",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-qb3-berkeley-edu-journey-to-the-fountain-of-youth-new-method-unravels-the-mysteries-of-rejuvenation",
-      "campus": "berkeley",
-      "title": "Journey to the fountain of youth: New method unravels the mysteries of rejuvenation",
-      "summary": "Silvan Spiri preparing an experiment on “Buddy” the microscope, which is used in the Brar-Ünal lab to study gametogenic rejuvenation. Photo credit: Maia Reyes. The legend of the fountain of…",
-      "publishedAt": "2026-10-01T15:48:00.000Z",
-      "sourceUrl": "https://qb3.berkeley.edu/news/journey-to-the-fountain-of-youth-new-method-unravels-the-mysteries-of-rejuvenation/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/image1-1024x768-768x576.png",
-      "sourceHost": "qb3.berkeley.edu"
-    },
-    {
-      "id": "berkeley-blumcenter-berkeley-edu-technology-rooted-in-values-how-navajo-tech-and-mdeveng-students-are-reimagining-ai-for-native-communities",
-      "campus": "berkeley",
-      "title": "Technology Rooted in Values: How Navajo Tech and MDevEng Students Are Reimagining AI for Native Communities",
-      "summary": "fter Conrad Begay finished his master’s degree in electrical engineering in December, the Navajo Technical University graduate went straight into teaching at his alma mater, with plans to pursue his…",
-      "publishedAt": "2026-09-30T18:40:00.000Z",
-      "sourceUrl": "https://blumcenter.berkeley.edu/technology-rooted-in-values-how-navajo-tech-and-mdeveng-students-are-reimagining-ai-for-native-communities/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/1218844495993711.izCHuD2lk1ECR8M6hNtV_height640.png",
-      "sourceHost": "blumcenter.berkeley.edu"
-    },
-    {
-      "id": "berkeley-scet-berkeley-edu-sunway-university-and-scet-renew-global-partnership-through-2029",
-      "campus": "berkeley",
-      "title": "Sunway University and SCET Renew Global Partnership Through 2029",
-      "summary": "Sunway University has renewed its strategic partnership with the Sutardja Center forEntrepreneurship & Technology (SCET) at the University of California, Berkeley, extending thecollaboration through 2029 and creating further opportunities for…",
-      "publishedAt": "2026-09-29T21:04:00.000Z",
-      "sourceUrl": "https://scet.berkeley.edu/sunway-university-and-scet-renew-global-partnership-through-2029/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/SCET-og-image-768x401.jpg",
-      "sourceHost": "scet.berkeley.edu"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-will-rosenzweigs-food-systems-legacy-lives-on-through-new-haas-collaborative",
-      "campus": "berkeley",
-      "title": "Will Rosenzweig’s food systems legacy will continue through new Haas collaborative",
-      "summary": "The new Collaborative for Food Systems Innovation will equip the next generation of leaders who will reimagine and transform the food system. In Brief Will Rosenzweig is cementing his legacy…",
-      "publishedAt": "2026-09-28T23:25:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/will-rosenzweigs-food-systems-legacy-lives-on-through-new-haas-collaborative/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Will-Rosenzweig.jpeg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-how-startup-tash-is-building-infrastructure-to-invest-in-trading-cards",
-      "campus": "berkeley",
-      "title": "Haas students launch tash, an investment platform for trading cards",
-      "summary": "Tash is building portfolios of investment-grade trading cards—indexes that people can invest in. L-R: Tash founders Nicolas Sharma, Victor Shammas, John Ohannesian, and Nathan Borshell pitching at Y Combinator Summer…",
-      "publishedAt": "2026-09-28T20:51:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/how-startup-tash-is-building-infrastructure-to-invest-in-trading-cards/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/tash-demo-day-768x489.jpeg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
-    },
-    {
-      "id": "berkeley-blumcenter-berkeley-edu-master-of-development-engineering-program-welcomes-the-class-of-2027",
-      "campus": "berkeley",
-      "title": "Master of Development Engineering Program Welcomes the Class of 2027",
-      "summary": "Amir Kelifa witnessed societal inequality in his home country of Ethiopia. He saw how workers in the informal sector, like waste collectors, faced exploitation, unsafe working conditions, and low pay.…",
-      "publishedAt": "2026-09-28T17:14:00.000Z",
-      "sourceUrl": "https://blumcenter.berkeley.edu/master-of-development-engineering-program-welcomes-the-class-of-2027/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/Best-one-to-use-scaled-768x512.jpg",
-      "sourceHost": "blumcenter.berkeley.edu"
-    },
-    {
-      "id": "berkeley-citris-uc-org-citris-at-uc-merced-students-meet-nasa-administrator",
-      "campus": "berkeley",
-      "title": "CITRIS at UC Merced students meet NASA administrator",
-      "summary": "CITRIS at UC Merced students meet NASA administrator",
-      "publishedAt": "2026-09-28T15:58:00.000Z",
-      "sourceUrl": "https://citris-uc.org/citris-at-uc-merced-students-meet-nasa-administrator/?utm_source=rss&utm_medium=rss&utm_campaign=citris-at-uc-merced-students-meet-nasa-administrator",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/NASA-Visit-Sept-2026-768x184.png",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-newsroom-haas-berkeley-edu-how-haas-is-rewiring-the-mba-for-ai-and-a-new-era-of-work",
-      "campus": "berkeley",
-      "title": "How Haas is rewiring the MBA for AI and a new era of work",
-      "summary": "L-R: Professor Alex Maas and Pepe Alonso, MBA 27, who co-teach Fundamentals of Agentic AI, with Claudia Esi Dentu, MBA 27. Photo: Brittany Hosea-Small In Brief Haas has made AI…",
-      "publishedAt": "2026-09-25T00:57:00.000Z",
-      "sourceUrl": "https://newsroom.haas.berkeley.edu/how-haas-is-rewiring-the-mba-for-ai-and-a-new-era-of-work/",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/09/20260915_AIClass_bhs_025-768x512.jpg",
-      "sourceHost": "newsroom.haas.berkeley.edu"
     }
   ],
   "errors": []
