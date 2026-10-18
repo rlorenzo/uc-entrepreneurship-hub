@@ -3,16 +3,15 @@
   "name": "UC Santa Cruz",
   "strategy": "rss",
   "source": "https://news.ucsc.edu/feed/",
-  "crawledAt": "2026-09-27T13:16:25.296Z",
+  "crawledAt": "2026-10-18T13:15:01.894Z",
   "items": [
     {
-      "id": "santacruz-news-ucsc-edu-uc-santa-cruz-community-members-honored-with-uc-regents-innovation-awards",
+      "id": "santacruz-news-ucsc-edu-uc-santa-cruz-2026-sf-tech-week",
       "campus": "santacruz",
-      "title": "UC Santa Cruz community members honored with UC Regents Innovation Awards",
-      "summary": "The UC Regents awards, announced Sept. 16, honored 23 people in five categories.",
-      "publishedAt": "2026-09-22T21:25:50.000Z",
-      "sourceUrl": "https://news.ucsc.edu/2026/09/uc-santa-cruz-community-members-honored-with-uc-regents-innovation-awards/",
-      "imageUrl": "https://news.ucsc.edu/wp-content/uploads/2026/09/innovation-awards.jpg",
+      "title": "UC Santa Cruz hosts AI summit and hackathon events for SF Tech Week",
+      "summary": "The two events brought together industry leaders, founders, builders, and students.",
+      "publishedAt": "2026-10-16T21:51:23.000Z",
+      "sourceUrl": "https://news.ucsc.edu/2026/10/uc-santa-cruz-2026-sf-tech-week/",
       "sourceHost": "news.ucsc.edu"
     }
   ],

@@ -3,8 +3,28 @@
   "name": "UC Berkeley",
   "strategy": "rss",
   "source": "https://begin.berkeley.edu/feed/",
-  "crawledAt": "2026-10-11T13:17:48.049Z",
+  "crawledAt": "2026-10-18T13:14:51.078Z",
   "items": [
+    {
+      "id": "berkeley-newsroom-haas-berkeley-edu-berkeley-haas-unveils-strategic-plan-with-new-initiatives-in-ai-entrepreneurship-healthcare-and-sustainability-social-impact",
+      "campus": "berkeley",
+      "title": "Berkeley Haas unveils strategic plan with new initiatives in AI, entrepreneurship, healthcare, and sustainability & social impact",
+      "summary": "UC Berkeley Haas today unveiled a new strategic plan designed to strengthen its standing as a global business education leader, a school where analytical rigor, human judgment, and innovation work…",
+      "publishedAt": "2026-10-15T22:15:00.000Z",
+      "sourceUrl": "https://newsroom.haas.berkeley.edu/berkeley-haas-unveils-strategic-plan-with-new-initiatives-in-ai-entrepreneurship-healthcare-and-sustainability-social-impact/",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/Strategic-Initiatives-Launch_featured-photo-768x432.jpg",
+      "sourceHost": "newsroom.haas.berkeley.edu"
+    },
+    {
+      "id": "berkeley-citris-uc-org-citris-tech-policy-conversation-a-year-in-review-with-asm-rebecca-bauer-kahan",
+      "campus": "berkeley",
+      "title": "CITRIS Tech Policy Conversation: A Year in Review with Asm. Rebecca Bauer-Kahan",
+      "summary": "CITRIS Tech Policy Conversation: A Year in Review with Asm. Rebecca Bauer-Kahan",
+      "publishedAt": "2026-10-15T17:22:00.000Z",
+      "sourceUrl": "https://citris-uc.org/citris-tech-policy-conversation-a-year-in-review-with-asm-rebecca-bauer-kahan/?utm_source=rss&utm_medium=rss&utm_campaign=citris-tech-policy-conversation-a-year-in-review-with-asm-rebecca-bauer-kahan",
+      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/05/Web-Banner-1540x368_Tech-Fellows-Showcase-scaled-768x184.jpg",
+      "sourceHost": "citris-uc.org"
+    },
     {
       "id": "berkeley-citris-uc-org-citris-i2p-funds-two-projects-at-ucsc",
       "campus": "berkeley",
@@ -84,26 +104,6 @@
       "sourceUrl": "https://energyathaas.wordpress.com/2026/10/05/buying-time-burning-gas/",
       "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/dataone-768x288.jpg",
       "sourceHost": "energyathaas.wordpress.com"
-    },
-    {
-      "id": "berkeley-citris-uc-org-ie-university-and-uc-berkeley-students-join-forces-to-build-ai-enabled-systems",
-      "campus": "berkeley",
-      "title": "IE University and UC Berkeley Students Join Forces to Build AI-Enabled Systems",
-      "summary": "IE University and UC Berkeley Students Join Forces to Build AI-Enabled Systems",
-      "publishedAt": "2026-10-05T16:00:00.000Z",
-      "sourceUrl": "https://citris-uc.org/ie-university-and-uc-berkeley-students-join-forces-to-build-ai-enabled-systems/?utm_source=rss&utm_medium=rss&utm_campaign=ie-university-and-uc-berkeley-students-join-forces-to-build-ai-enabled-systems",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/IEX-1540x368-1-768x184.jpg",
-      "sourceHost": "citris-uc.org"
-    },
-    {
-      "id": "berkeley-citris-uc-org-kathy-kim-named-managing-director-of-citris-health",
-      "campus": "berkeley",
-      "title": "Kathy Kim named managing director of CITRIS Health",
-      "summary": "Kathy Kim named managing director of CITRIS Health",
-      "publishedAt": "2026-10-02T16:00:00.000Z",
-      "sourceUrl": "https://citris-uc.org/kathy-kim-named-managing-director-of-citris-health/?utm_source=rss&utm_medium=rss&utm_campaign=kathy-kim-named-managing-director-of-citris-health",
-      "imageUrl": "https://begin.berkeley.edu/wp-content/uploads/2026/10/Kathy-Kim-1540x368-1-768x184.jpg",
-      "sourceHost": "citris-uc.org"
     }
   ],
   "errors": []

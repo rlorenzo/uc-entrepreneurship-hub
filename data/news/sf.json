@@ -3,8 +3,18 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-10-11T13:18:50.607Z",
+  "crawledAt": "2026-10-18T13:15:51.041Z",
   "items": [
+    {
+      "id": "sf-innovation-ucsf-edu-colgate-palmolive-funded-ucsf-study-launches-examine-whether-improving-oral-health-can",
+      "campus": "sf",
+      "title": "Colgate-Palmolive Funded UCSF Study Launches to Examine Whether Improving Oral Health Can Help Reduce Preterm Birth Risk",
+      "summary": "Colgate-Palmolive Funded UCSF Study Launches to Examine Whether Improving Oral Health Can Help Reduce Preterm Birth Risk",
+      "publishedAt": "2026-10-13T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/colgate-palmolive-funded-ucsf-study-launches-examine-whether-improving-oral-health-can",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
     {
       "id": "sf-innovation-ucsf-edu-vs3-medical-receives-fda-breakthrough-device-designation-vs3-system-treat-debilitating",
       "campus": "sf",
@@ -142,16 +152,6 @@
       "summary": "UCB to acquire Neurona Therapeutics, advancing its innovative leadership in epilepsy through regenerative science",
       "publishedAt": "2026-04-17T07:00:00.000Z",
       "sourceUrl": "https://innovation.ucsf.edu/media/news/ucb-acquire-neurona-therapeutics-advancing-its-innovative-leadership-epilepsy-through",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-innovation-ucsf-edu-scientists-create-cancer-fighting-immune-cells-right-body",
-      "campus": "sf",
-      "title": "Scientists Create Cancer-Fighting Immune Cells Right in the Body",
-      "summary": "Scientists Create Cancer-Fighting Immune Cells Right in the Body",
-      "publishedAt": "",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/scientists-create-cancer-fighting-immune-cells-right-body",
       "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
       "sourceHost": "innovation.ucsf.edu"
     }
