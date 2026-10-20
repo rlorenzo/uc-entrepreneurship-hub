@@ -12,7 +12,8 @@
     "strategy": "rss",
     "feedUrl": "https://begin.berkeley.edu/feed/",
     "linkDenylist": ["/magazine/"],
-    "titleDenylist": ["^In Memoriam"]
+    "titleDenylist": ["^In Memoriam"],
+    "enrichImages": "all"
   },
   {
     "campus": "santabarbara",
