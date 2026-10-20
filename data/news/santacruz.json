@@ -3,7 +3,7 @@
   "name": "UC Santa Cruz",
   "strategy": "rss",
   "source": "https://news.ucsc.edu/feed/",
-  "crawledAt": "2026-10-18T13:15:01.894Z",
+  "crawledAt": "2026-10-20T05:25:38.565Z",
   "items": [
     {
       "id": "santacruz-news-ucsc-edu-uc-santa-cruz-2026-sf-tech-week",
@@ -12,6 +12,7 @@
       "summary": "The two events brought together industry leaders, founders, builders, and students.",
       "publishedAt": "2026-10-16T21:51:23.000Z",
       "sourceUrl": "https://news.ucsc.edu/2026/10/uc-santa-cruz-2026-sf-tech-week/",
+      "imageUrl": "https://news.ucsc.edu/wp-content/uploads/2026/10/DSC02575-scaled.jpg",
       "sourceHost": "news.ucsc.edu"
     }
   ],

@@ -86,7 +86,9 @@ interface SiteConfig {
   keywordAllowlist?: string[] | "default";
   // Visit each item's article page to fill in a missing imageUrl.
   // Useful for RSS feeds that don't embed media (innovation.uci.edu).
-  enrichImages?: boolean;
+  // "all" also replaces images the feed did carry with the article's og:image
+  // (Berkeley's aggregator feed serves thumbnails from a host that 404s them).
+  enrichImages?: boolean | "all";
 }
 
 const sitesAll: SiteConfig[] = JSON.parse(await readFile(join(__dirname, "sites.json"), "utf-8"));
@@ -111,7 +113,10 @@ async function harvestRss(site: SiteConfig): Promise<Harvested> {
     titleDenylist: site.titleDenylist,
     keywordAllowlist: resolveKeywordAllowlist(site.keywordAllowlist),
   });
-  return { items: site.enrichImages ? await enrichWithImages(items) : items, errors };
+  return {
+    items: site.enrichImages ? await enrichWithImages(items, site.enrichImages === "all") : items,
+    errors,
+  };
 }
 
 async function harvestPlaywright(site: SiteConfig): Promise<Harvested> {

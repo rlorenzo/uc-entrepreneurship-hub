@@ -139,6 +139,12 @@ export async function closeHeadedBrowser(): Promise<void> {
 // means no call site (present or future) can bypass robots.txt.
 const robotsGate = new RobotsGate();
 
+// For plain-fetch page downloads (e.g. og:image enrichment) that bypass
+// gotoWithFallback but must honor the same robots.txt rules.
+export async function assertRobotsAllows(url: string): Promise<void> {
+  if (!(await robotsGate.allows(url))) throw new RobotsDisallowedError(url);
+}
+
 export async function gotoWithFallback(page: Page, url: string): Promise<Response | null> {
   // Refuse URLs the origin's robots.txt disallows for us before we ever open
   // the page. Callers already treat a throw here as a per-item skip: the news

@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 import { stripHtml } from "./rss.ts";
-import { sanitizeImageUrl } from "../../../src/data/normalize.ts";
+import { isGenericImage, sanitizeImageUrl } from "../../../src/data/normalize.ts";
 import type { NewsItem } from "../../../src/data/news.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -21,6 +21,13 @@ const OUT = join(ROOT, "src", "data", "news.generated.ts");
 interface NewsCrawlFile {
   campus: string;
   items?: NewsItem[];
+}
+
+// Same generic-card filter the program pipeline uses (UCSF serves one
+// site-wide social-default.jpg, as a relative path, for every article).
+function newsImage(raw: string | undefined, base: string): string | undefined {
+  const url = sanitizeImageUrl(raw, base);
+  return url && !isGenericImage(url) ? url : undefined;
 }
 
 async function loadAll(): Promise<NewsItem[]> {
@@ -39,7 +46,7 @@ async function loadAll(): Promise<NewsItem[]> {
         ...item,
         title: stripHtml(item.title),
         summary: stripHtml(item.summary),
-        imageUrl: sanitizeImageUrl(item.imageUrl, item.sourceUrl),
+        imageUrl: newsImage(item.imageUrl, item.sourceUrl),
       });
     }
   }
