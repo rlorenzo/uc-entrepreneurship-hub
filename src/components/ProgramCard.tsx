@@ -214,7 +214,11 @@ export function ProgramCard({ program, onOpen, compact = false }: Props) {
       <button
         type="button"
         onClick={open}
-        aria-label={`Open ${program.name}`}
+        // Redundant with the title button below: hide the art from AT and the tab
+        // order rather than label it (its visible text — chips, campus — can't
+        // satisfy axe's label-content-name-mismatch alongside the program name).
+        aria-hidden="true"
+        tabIndex={-1}
         style={artButtonStyle}
       >
         <CardArt program={program} height={compact ? 140 : 168} />
