@@ -3,8 +3,18 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-10-18T13:15:40.356Z",
+  "crawledAt": "2026-10-25T13:15:23.871Z",
   "items": [
+    {
+      "id": "sd-today-ucsd-edu-what-climate-change-is-costing-california",
+      "campus": "sd",
+      "title": "What Climate Change Is Costing California",
+      "summary": "New statewide report led by UC San Diego School of Global Policy and Strategy researchers examines climate change’s economic impacts; a second report from Scripps Institution of Oceanography takes a closer look at San Diego’s future.",
+      "publishedAt": "2026-10-20T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/what-climate-change-is-costing-california",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/California-Heat-Wave-photo-by-iStock_egdigital-1200.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
     {
       "id": "sd-today-ucsd-edu-report-proposes-selective-openness-to-chinese-investment",
       "campus": "sd",
@@ -43,16 +53,6 @@
       "publishedAt": "2026-08-31T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/wildfire-losses-have-lasting-economic-consequences-for-homeowners",
       "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/iStock-1008290204%282%29%281%29.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-today-ucsd-edu-are-tariffs-making-prices-go-up",
-      "campus": "sd",
-      "title": "Are Tariffs Making Prices Go Up?",
-      "summary": "As Americans continue to worry about the cost of living, U.S. tariffs are back in the news. So we asked international trade economist and School of Global Policy and Strategy Dean Caroline Freund the question on many consumers' minds.",
-      "publishedAt": "2026-08-17T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/are-tariffs-making-prices-go-up",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Shopping-Receipt-photo-by-iStock_M_Stock-1468272596.jpg",
       "sourceHost": "today.ucsd.edu"
     }
   ],

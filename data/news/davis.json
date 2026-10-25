@@ -3,18 +3,8 @@
   "name": "UC Davis",
   "strategy": "playwright",
   "source": "https://iedo.ucdavis.edu/news",
-  "crawledAt": "2026-10-11T13:18:34.037Z",
+  "crawledAt": "2026-10-25T13:15:19.861Z",
   "items": [
-    {
-      "id": "davis-iedo-ucdavis-edu-uc-davis-partners-launch-scale-program-help-south-korean-startups-enter-us-market",
-      "campus": "davis",
-      "title": "UC Davis, Partners Launch Scale-Up Program to Help South Korean Startups Enter U.S. Market",
-      "summary": "UC Davis, FLANN and partners launched the nine-month Scale-Up Program to help South Korean life-sciences startups enter the U.S. market via Aggie Square, offering clinical collaboration, U.S. market validation, commercialization support, investor access and strategic partnerships.",
-      "publishedAt": "2026-10-05T19:27:17.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-partners-launch-scale-program-help-south-korean-startups-enter-us-market",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/AS--107-rt-web%20%281%29.png?h=2e976bc2&itok=GHRav1uM",
-      "sourceHost": "iedo.ucdavis.edu"
-    },
     {
       "id": "davis-iedo-ucdavis-edu-lab-livestock-how-customer-discovery-helped-2c-bioscience-find-its-focus",
       "campus": "davis",
@@ -96,16 +86,6 @@
       "sourceHost": "iedo.ucdavis.edu"
     },
     {
-      "id": "davis-iedo-ucdavis-edu-uc-davis-highlights-translational-breakthroughs-and-startups-8th-annual-biotech-innovation",
-      "campus": "davis",
-      "title": "UC Davis Highlights Translational Breakthroughs and Startups at the 8th Annual Biotech Innovation Gallery",
-      "summary": "UC Davis showcased groundbreaking translational research and innovative biotech startups at the 8th Annual Biotech Innovation Gallery in San Francisco. Hosted by the UC Davis Innovation and Economic Development Office, the event brought in over 330 attendees to connect with and explore potential partnerships with researchers and startup founders, aligning with the J.P. Morgan Healthcare Conference",
-      "publishedAt": "2026-02-10T16:51:50.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-highlights-translational-breakthroughs-and-startups-8th-annual-biotech-innovation",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/David%20Segal_BIG.jpg?h=9c4c0580&itok=cZtQYKZp",
-      "sourceHost": "iedo.ucdavis.edu"
-    },
-    {
       "id": "davis-iedo-ucdavis-edu-uc-davis-announces-winners-autumn-2025-science-translation-and-innovative-research-grant",
       "campus": "davis",
       "title": "UC Davis Announces Winners of Autumn 2025 Science Translation and Innovative Research Grant Program",
@@ -113,16 +93,6 @@
       "publishedAt": "2025-12-08T20:48:03.000Z",
       "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-announces-winners-autumn-2025-science-translation-and-innovative-research-grant",
       "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/Baar_Abhaya.jpg?h=52d3fcb6&itok=7en2k7q-",
-      "sourceHost": "iedo.ucdavis.edu"
-    },
-    {
-      "id": "davis-iedo-ucdavis-edu-venture-catalyst-fuels-record-year-uc-davis-innovation-startups",
-      "campus": "davis",
-      "title": "Venture Catalyst Fuels Record Year for UC Davis Innovation Startups",
-      "summary": "At Venture Catalyst, part of the UC Davis Innovation and Economic Development Office, we're proud to support the translation of UC Davis research and technology into real-world applications by fostering the development of new ventures. Through strategic collaborations, training and mentorship programs, funding translational research, and proactive outreach, we foster the university’s entrepreneuri",
-      "publishedAt": "2025-10-30T15:49:44.000Z",
-      "sourceUrl": "https://iedo.ucdavis.edu/news/venture-catalyst-fuels-record-year-uc-davis-innovation-startups",
-      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/VC%20Stats.png?h=c673cd1c&itok=x8MxJRRm",
       "sourceHost": "iedo.ucdavis.edu"
     },
     {
@@ -151,6 +121,21 @@
       "stage": "article",
       "url": "https://iedo.ucdavis.edu/news/uc-davis-health-strengthens-taiwan-partnerships-advance-biomedical-innovation",
       "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/uc-davis-health-strengthens-taiwan-partnerships-advance-biomedical-innovation"
+    },
+    {
+      "stage": "article",
+      "url": "https://iedo.ucdavis.edu/news/uc-davis-partners-launch-scale-program-help-south-korean-startups-enter-us-market",
+      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/uc-davis-partners-launch-scale-program-help-south-korean-startups-enter-us-market"
+    },
+    {
+      "stage": "article",
+      "url": "https://iedo.ucdavis.edu/news/uc-davis-highlights-translational-breakthroughs-and-startups-8th-annual-biotech-innovation",
+      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/uc-davis-highlights-translational-breakthroughs-and-startups-8th-annual-biotech-innovation"
+    },
+    {
+      "stage": "article",
+      "url": "https://iedo.ucdavis.edu/news/venture-catalyst-fuels-record-year-uc-davis-innovation-startups",
+      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/venture-catalyst-fuels-record-year-uc-davis-innovation-startups"
     }
   ]
 }

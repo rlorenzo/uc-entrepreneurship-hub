@@ -2,7 +2,21 @@
   "campus": "berkeley",
   "name": "UC Berkeley",
   "seedUrl": "https://begin.berkeley.edu/",
-  "crawledAt": "2026-07-05T13:36:07.169Z",
-  "candidates": [],
+  "crawledAt": "2026-10-25T13:13:35.769Z",
+  "candidates": [
+    {
+      "id": "berkeley-funding-to-black-latinx-founders",
+      "slug": "funding-to-black-latinx-founders",
+      "name": "Funding to Black & Latinx Founders",
+      "campus": "berkeley",
+      "type": "funding",
+      "desc": "Historically, funding for Black and Latinx founders has paled in comparison to nonminority groups. But how much of a gap is there, and what opportunities lie ahead to level the playing field? To gain…",
+      "longDescription": "Historically, funding for Black and Latinx founders has paled in comparison to nonminority groups. But how much of a gap is there, and what opportunities lie ahead to level the playing field? To gain insight into the state of funding for Black and Latinx founders, we analyzed race and ethnicity data obtained through our Diversity Spotlight initiative. This report utilized data provided by our Diversity Spotlight partners, venture partners, our community network, and news sources. To date, there has been no single source for measuring progress on funding to underrepresented racial and ethnic gr",
+      "industries": [],
+      "imageUrl": "https://begin.berkeley.edu/resources/funding-to-black-latinx-founders/opengraph-image-yi3o28?a6af73984bfc45c2",
+      "sourceUrl": "https://begin.berkeley.edu/resources/funding-to-black-latinx-founders",
+      "lastUpdated": "2026-10-25T13:13:37.553Z"
+    }
+  ],
   "errors": []
 }

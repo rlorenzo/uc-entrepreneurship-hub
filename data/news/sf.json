@@ -3,8 +3,18 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-10-18T13:15:51.041Z",
+  "crawledAt": "2026-10-25T13:15:37.006Z",
   "items": [
+    {
+      "id": "sf-innovation-ucsf-edu-hydronovo-advances-ceviginatetm-regenerative-therapy-xerostomia-toward-first-human",
+      "campus": "sf",
+      "title": "Hydronovo Advances Ceviginate™ Regenerative Therapy for Xerostomia Toward First-in-Human Clinical Study",
+      "summary": "Hydronovo Advances Ceviginate™ Regenerative Therapy for Xerostomia Toward First-in-Human Clinical Study",
+      "publishedAt": "2026-10-19T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/hydronovo-advances-ceviginatetm-regenerative-therapy-xerostomia-toward-first-human",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
     {
       "id": "sf-innovation-ucsf-edu-colgate-palmolive-funded-ucsf-study-launches-examine-whether-improving-oral-health-can",
       "campus": "sf",
@@ -26,12 +36,12 @@
       "sourceHost": "innovation.ucsf.edu"
     },
     {
-      "id": "sf-innovation-ucsf-edu-ucsf-wins-big-gamechangers-startups-life-achievement",
+      "id": "sf-innovation-ucsf-edu-ucsf-wins-big-game-changers-startups-life-achievement",
       "campus": "sf",
-      "title": "UCSF Wins Big, From Gamechangers to Startups to Life Achievement",
+      "title": "UCSF Wins Big, From Game Changers to Startups to Life Achievement",
       "summary": "UCSF Wins Big, From Gamechangers to Startups to Life Achievement",
       "publishedAt": "2026-09-15T07:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/ucsf-wins-big-gamechangers-startups-life-achievement",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/ucsf-wins-big-game-changers-startups-life-achievement",
       "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
       "sourceHost": "innovation.ucsf.edu"
     },
@@ -142,16 +152,6 @@
       "summary": "Breakthrough Device Designation for AidaBREAST® - Early-Stage Invasive Breast Cancer Assay",
       "publishedAt": "2026-04-29T07:00:00.000Z",
       "sourceUrl": "https://innovation.ucsf.edu/media/news/breakthrough-device-designation-aidabreastr-early-stage-invasive-breast-cancer-assay",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-innovation-ucsf-edu-ucb-acquire-neurona-therapeutics-advancing-its-innovative-leadership-epilepsy-through",
-      "campus": "sf",
-      "title": "UCB to acquire Neurona Therapeutics, advancing its innovative leadership in epilepsy through regenerative science",
-      "summary": "UCB to acquire Neurona Therapeutics, advancing its innovative leadership in epilepsy through regenerative science",
-      "publishedAt": "2026-04-17T07:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/ucb-acquire-neurona-therapeutics-advancing-its-innovative-leadership-epilepsy-through",
       "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
       "sourceHost": "innovation.ucsf.edu"
     }
