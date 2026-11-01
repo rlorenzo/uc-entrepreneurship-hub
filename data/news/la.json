@@ -3,7 +3,7 @@
   "name": "UCLA",
   "strategy": "playwright",
   "source": "https://www.anderson.ucla.edu/news-and-events",
-  "crawledAt": "2026-10-25T13:14:52.568Z",
+  "crawledAt": "2026-11-01T13:11:21.942Z",
   "items": [
     {
       "id": "la-anderson-ucla-edu-la-tech-week-back-campus-2026",

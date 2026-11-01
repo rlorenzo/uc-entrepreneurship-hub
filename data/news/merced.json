@@ -3,26 +3,16 @@
   "name": "UC Merced",
   "strategy": "rss",
   "source": "https://news.ucmerced.edu/rss.xml",
-  "crawledAt": "2026-10-25T13:15:37.400Z",
+  "crawledAt": "2026-11-01T13:12:04.472Z",
   "items": [
     {
-      "id": "merced-news-ucmerced-edu-uc-merced-pilots-summer-investment-academy-help-students-build-skills-connections",
+      "id": "merced-news-ucmerced-edu-summit-uc-merced-takes-aim-preserving-grasslands",
       "campus": "merced",
-      "title": "UC Merced Pilots Summer Investment Academy to Help Students Build Skills, Connections",
-      "summary": "By Brenda Ortiz, UC Merced October 8, 2026 Twenty-six first-year students participated in UC Merced's first Summer Investment Academy on campus. Key points: UC Merced launched the Summer Investment Academy to help students build financial literacy, professional networks and pathways into finance careers before their first semester. Participants explored investing, entrepreneurship, personal financ",
-      "publishedAt": "2026-10-08T18:29:35.000Z",
-      "sourceUrl": "https://news.ucmerced.edu/news/2026/uc-merced-pilots-summer-investment-academy-help-students-build-skills-connections",
-      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/uc_merced_summer_investment_academy_460_0.jpg",
-      "sourceHost": "news.ucmerced.edu"
-    },
-    {
-      "id": "merced-news-ucmerced-edu-45-million-nih-grant-expands-interdisciplinary-biomedical-training-uc-merced",
-      "campus": "merced",
-      "title": "$4.5 million NIH Grant Expands Interdisciplinary Biomedical Training at UC Merced",
-      "summary": "By Patty Guerra, UC Merced October 7, 2026 The funding supports up to 16 graduate students for two years. A five-year, $4.5 million T32 institutional training grant from the National Institutes of Health will establish a new doctoral training program at UC Merced for students pursuing careers in biomedical research. The Interdisciplinary Cellular and Biomolecular Dynamics Training and Education pr",
-      "publishedAt": "2026-10-07T19:57:56.000Z",
-      "sourceUrl": "https://news.ucmerced.edu/news/2026/45-million-nih-grant-expands-interdisciplinary-biomedical-training-uc-merced",
-      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_incubate_hero.jpeg",
+      "title": "Summit at UC Merced Takes Aim at Preserving Grasslands",
+      "summary": "By Patty Guerra, UC Merced October 29, 2026 The state is working to support the restoration of grasslands, Agriculture Secretary Karen Ross said. Photo by Sara Nevis California's grasslands are a vital part of a healthy ecosystem, supporting native plants and endangered animal species. Yet the vast majority of them - more than 90 percent - have been lost to development and invasive non-native plan",
+      "publishedAt": "2026-10-29T23:37:04.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/summit-uc-merced-takes-aim-preserving-grasslands",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_grasslands_hero.jpeg",
       "sourceHost": "news.ucmerced.edu"
     }
   ],

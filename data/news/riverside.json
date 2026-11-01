@@ -3,8 +3,48 @@
   "name": "UC Riverside",
   "strategy": "playwright",
   "source": "https://news.ucr.edu/topic/business",
-  "crawledAt": "2026-10-25T13:15:08.755Z",
+  "crawledAt": "2026-11-01T13:11:46.131Z",
   "items": [
+    {
+      "id": "riverside-news-ucr-edu-tax-break-megadeals-spurred-innovation-communities",
+      "campus": "riverside",
+      "title": "Tax break ‘Megadeals’ spurred innovation in communities",
+      "summary": "When cities, counties, or states provide corporations with big tax breaks to lure in factories, corporate headquarters, and other facilities, the economic benefits include more innovation outside the gates of the businesses lured into communities.",
+      "publishedAt": "",
+      "sourceUrl": "https://news.ucr.edu/articles/2026/08/25/tax-break-megadeals-spurred-innovation-communities",
+      "imageUrl": "https://news.ucr.edu/sites/default/files/2026-08/ex-960-tesla_gigafactory_1_-_december_2019-copy.jpg",
+      "sourceHost": "news.ucr.edu"
+    },
+    {
+      "id": "riverside-news-ucr-edu-offering-islamic-bonds-expanded-corporate-financing-access",
+      "campus": "riverside",
+      "title": "Offering Islamic bonds expanded corporate financing access",
+      "summary": "A study co-authored by UCR business professor Jean Helwege found that issuance of Islamic bonds attracted billions of dollars in new investment to Malaysia without undermining the country's market for conventional corporate bonds.",
+      "publishedAt": "",
+      "sourceUrl": "https://news.ucr.edu/articles/2026/08/04/offering-islamic-bonds-expanded-corporate-financing-access",
+      "imageUrl": "https://news.ucr.edu/sites/default/files/2026-08/960-gettyimages-1013052184.jpg",
+      "sourceHost": "news.ucr.edu"
+    },
+    {
+      "id": "riverside-news-ucr-edu-what-consumers-think-they-buy",
+      "campus": "riverside",
+      "title": "What consumers think before they buy",
+      "summary": "Manufacturers have traditionally relied on sales figures to understand where they stand with consumers, but by the time those numbers arrive, the consumers’ buying decisions have already been made.",
+      "publishedAt": "",
+      "sourceUrl": "https://news.ucr.edu/articles/2026/06/23/what-consumers-think-they-buy",
+      "imageUrl": "https://news.ucr.edu/sites/default/files/2026-06/header2.jpg",
+      "sourceHost": "news.ucr.edu"
+    },
+    {
+      "id": "riverside-news-ucr-edu-uc-riverside-launches-online-mba-program",
+      "campus": "riverside",
+      "title": "UC Riverside launches online MBA program",
+      "summary": "UC Riverside is launching a fully online Master of Business Administration program this fall, opening the door for students across California, the nation, and around the world to earn a University of California MBA degree remotely while continuing their careers and personal responsibilities.",
+      "publishedAt": "",
+      "sourceUrl": "https://news.ucr.edu/articles/2026/05/21/uc-riverside-launches-online-mba-program",
+      "imageUrl": "https://news.ucr.edu/sites/default/files/2026-05/biz-header-960.jpg",
+      "sourceHost": "news.ucr.edu"
+    },
     {
       "id": "riverside-news-ucr-edu-reclaiming-context-creative-works",
       "campus": "riverside",
@@ -66,6 +106,16 @@
       "sourceHost": "news.ucr.edu"
     },
     {
+      "id": "riverside-news-ucr-edu-mccollum-familys-march-toward-graduation-stage",
+      "campus": "riverside",
+      "title": "The McCollum family’s march toward the graduation stage",
+      "summary": "",
+      "publishedAt": "",
+      "sourceUrl": "https://news.ucr.edu/articles/2025/11/09/mccollum-familys-march-toward-graduation-stage",
+      "imageUrl": "https://news.ucr.edu/sites/default/files/2025-11/veteran_business_mccollum_2025.jpg",
+      "sourceHost": "news.ucr.edu"
+    },
+    {
       "id": "riverside-news-ucr-edu-study-finds-moral-costs-over-pricing-essentials",
       "campus": "riverside",
       "title": "Study finds moral costs in over-pricing for essentials",
@@ -103,6 +153,16 @@
       "publishedAt": "",
       "sourceUrl": "https://news.ucr.edu/articles/2025/09/18/ucr-computer-scientists-boost-us-cybersecurity",
       "imageUrl": "https://news.ucr.edu/sites/default/files/2025-09/960-gettyimages-2174551157.jpg",
+      "sourceHost": "news.ucr.edu"
+    },
+    {
+      "id": "riverside-news-ucr-edu-report-inland-empire-warehouse-workers-make-gains-through-collective-action",
+      "campus": "riverside",
+      "title": "Report: Inland Empire warehouse workers make gains through collective action",
+      "summary": "In “State of the Unions: California Labor in 2024,” UCR researchers offer details on the growth, salaries, ethnicities, and ongoing struggles of warehouse workers in Riverside and San Bernardino counties",
+      "publishedAt": "",
+      "sourceUrl": "https://news.ucr.edu/articles/2025/09/08/report-inland-empire-warehouse-workers-make-gains-through-collective-action",
+      "imageUrl": "https://news.ucr.edu/sites/default/files/2018-09/warehouse.jpg",
       "sourceHost": "news.ucr.edu"
     },
     {

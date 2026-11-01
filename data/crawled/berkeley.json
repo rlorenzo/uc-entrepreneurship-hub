@@ -2,7 +2,7 @@
   "campus": "berkeley",
   "name": "UC Berkeley",
   "seedUrl": "https://begin.berkeley.edu/",
-  "crawledAt": "2026-10-25T13:13:35.769Z",
+  "crawledAt": "2026-11-01T13:09:41.254Z",
   "candidates": [
     {
       "id": "berkeley-funding-to-black-latinx-founders",
@@ -15,7 +15,7 @@
       "industries": [],
       "imageUrl": "https://begin.berkeley.edu/resources/funding-to-black-latinx-founders/opengraph-image-yi3o28?a6af73984bfc45c2",
       "sourceUrl": "https://begin.berkeley.edu/resources/funding-to-black-latinx-founders",
-      "lastUpdated": "2026-10-25T13:13:37.553Z"
+      "lastUpdated": "2026-11-01T13:09:43.281Z"
     }
   ],
   "errors": []

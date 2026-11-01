@@ -3,8 +3,18 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-10-25T13:15:37.006Z",
+  "crawledAt": "2026-11-01T13:12:04.328Z",
   "items": [
+    {
+      "id": "sf-innovation-ucsf-edu-fda-approves-telixs-brain-cancer-imaging-drug-pixclara",
+      "campus": "sf",
+      "title": "FDA Approves Telix’s Brain Cancer Imaging Drug Pixclara",
+      "summary": "FDA Approves Telix’s Brain Cancer Imaging Drug Pixclara",
+      "publishedAt": "2026-10-28T07:00:00.000Z",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/fda-approves-telixs-brain-cancer-imaging-drug-pixclara",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
     {
       "id": "sf-innovation-ucsf-edu-hydronovo-advances-ceviginatetm-regenerative-therapy-xerostomia-toward-first-human",
       "campus": "sf",
@@ -142,16 +152,6 @@
       "summary": "Q&amp;A with Nicholas Hertz, President &amp; CEO of Montara Therapeutics",
       "publishedAt": "2026-04-29T07:00:00.000Z",
       "sourceUrl": "https://innovation.ucsf.edu/media/news/qa-nicholas-hertz-president-ceo-montara-therapeutics",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-innovation-ucsf-edu-breakthrough-device-designation-aidabreastr-early-stage-invasive-breast-cancer-assay",
-      "campus": "sf",
-      "title": "Breakthrough Device Designation for AidaBREAST® - Early-Stage Invasive Breast Cancer Assay",
-      "summary": "Breakthrough Device Designation for AidaBREAST® - Early-Stage Invasive Breast Cancer Assay",
-      "publishedAt": "2026-04-29T07:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/breakthrough-device-designation-aidabreastr-early-stage-invasive-breast-cancer-assay",
       "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
       "sourceHost": "innovation.ucsf.edu"
     }
