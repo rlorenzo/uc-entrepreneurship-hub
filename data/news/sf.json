@@ -3,8 +3,18 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-11-01T13:12:04.328Z",
+  "crawledAt": "2026-11-08T13:11:32.451Z",
   "items": [
+    {
+      "id": "sf-innovation-ucsf-edu-start-first-how-university-ventures-programs-are-rewriting-tech-transfer-playbook",
+      "campus": "sf",
+      "title": "Start-up First: How University Ventures Programs Are Rewriting the Tech Transfer Playbook",
+      "summary": "Start-up First: How University Ventures Programs Are Rewriting the Tech Transfer Playbook",
+      "publishedAt": "",
+      "sourceUrl": "https://innovation.ucsf.edu/media/news/start-first-how-university-ventures-programs-are-rewriting-tech-transfer-playbook",
+      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
+      "sourceHost": "innovation.ucsf.edu"
+    },
     {
       "id": "sf-innovation-ucsf-edu-fda-approves-telixs-brain-cancer-imaging-drug-pixclara",
       "campus": "sf",
@@ -142,16 +152,6 @@
       "summary": "How an ‘Impossible’ Idea Led to a Pancreatic Cancer Breakthrough",
       "publishedAt": "2026-05-12T07:00:00.000Z",
       "sourceUrl": "https://innovation.ucsf.edu/media/news/how-impossible-idea-led-pancreatic-cancer-breakthrough",
-      "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
-      "sourceHost": "innovation.ucsf.edu"
-    },
-    {
-      "id": "sf-innovation-ucsf-edu-qa-nicholas-hertz-president-ceo-montara-therapeutics",
-      "campus": "sf",
-      "title": "Q&A with Nicholas Hertz, President & CEO of Montara Therapeutics",
-      "summary": "Q&amp;A with Nicholas Hertz, President &amp; CEO of Montara Therapeutics",
-      "publishedAt": "2026-04-29T07:00:00.000Z",
-      "sourceUrl": "https://innovation.ucsf.edu/media/news/qa-nicholas-hertz-president-ceo-montara-therapeutics",
       "imageUrl": "sites/innovation.ucsf.edu/themes/custom/innovation_v2/assets/images/social-default.jpg",
       "sourceHost": "innovation.ucsf.edu"
     }

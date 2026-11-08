@@ -3,7 +3,7 @@
   "name": "UC Riverside",
   "strategy": "playwright",
   "source": "https://news.ucr.edu/topic/business",
-  "crawledAt": "2026-11-01T13:11:46.131Z",
+  "crawledAt": "2026-11-08T13:11:02.311Z",
   "items": [
     {
       "id": "riverside-news-ucr-edu-tax-break-megadeals-spurred-innovation-communities",
@@ -76,26 +76,6 @@
       "sourceHost": "news.ucr.edu"
     },
     {
-      "id": "riverside-news-ucr-edu-slower-company-acquisition-pace-can-boost-corporate-values",
-      "campus": "riverside",
-      "title": "Slower company acquisition pace can boost corporate values",
-      "summary": "Expanding the time between company acquisitions improves the integration of the new assets and increases corporate values, study finds.",
-      "publishedAt": "",
-      "sourceUrl": "https://news.ucr.edu/articles/2025/12/08/slower-company-acquisition-pace-can-boost-corporate-values",
-      "imageUrl": "https://news.ucr.edu/sites/default/files/2025-12/960-gettyimages-147205360.jpg",
-      "sourceHost": "news.ucr.edu"
-    },
-    {
-      "id": "riverside-news-ucr-edu-shopping-two-stressful",
-      "campus": "riverside",
-      "title": "Shopping for two is stressful",
-      "summary": "A study co-authored by a UCR business professor finds that shopping for goods or services that you will share is significantly more stressful than shopping for yourself or for something to be given to another person.",
-      "publishedAt": "",
-      "sourceUrl": "https://news.ucr.edu/articles/2025/12/02/shopping-two-stressful",
-      "imageUrl": "https://news.ucr.edu/sites/default/files/2025-12/960-stressed-shopper.jpg",
-      "sourceHost": "news.ucr.edu"
-    },
-    {
       "id": "riverside-news-ucr-edu-study-finds-lower-emissions-higher-ethanol-gasoline",
       "campus": "riverside",
       "title": "Study finds lower emissions from higher-ethanol gasoline",
@@ -113,66 +93,6 @@
       "publishedAt": "",
       "sourceUrl": "https://news.ucr.edu/articles/2025/11/09/mccollum-familys-march-toward-graduation-stage",
       "imageUrl": "https://news.ucr.edu/sites/default/files/2025-11/veteran_business_mccollum_2025.jpg",
-      "sourceHost": "news.ucr.edu"
-    },
-    {
-      "id": "riverside-news-ucr-edu-study-finds-moral-costs-over-pricing-essentials",
-      "campus": "riverside",
-      "title": "Study finds moral costs in over-pricing for essentials",
-      "summary": "A study led by UC Riverside School of Business professor Margaret C. Campbell found that when companies hike prices on essentials like food, medicine, or medical devices, the financial rewards may be immediate—but the reputational damage may linger and ultimately cost more in the long run.",
-      "publishedAt": "",
-      "sourceUrl": "https://news.ucr.edu/articles/2025/11/03/study-finds-moral-costs-over-pricing-essentials",
-      "imageUrl": "https://news.ucr.edu/sites/default/files/2025-11/960-ex-gettyimages-1793165463-copy.jpg",
-      "sourceHost": "news.ucr.edu"
-    },
-    {
-      "id": "riverside-news-ucr-edu-private-equity-takes-airports-new-heights",
-      "campus": "riverside",
-      "title": "Private equity takes airports to new heights",
-      "summary": "Equity investors improved airport operating and customer service, finds a global study that spanned two decades and four continents.",
-      "publishedAt": "",
-      "sourceUrl": "https://news.ucr.edu/articles/2025/10/13/private-equity-takes-airports-new-heights",
-      "imageUrl": "https://news.ucr.edu/sites/default/files/2025-10/madrid-airport.jpg",
-      "sourceHost": "news.ucr.edu"
-    },
-    {
-      "id": "riverside-news-ucr-edu-farm-conservation-economical-path-save-river-water",
-      "campus": "riverside",
-      "title": "Farm conservation is an economical path to save river water",
-      "summary": "The most cost-effective way to conserve the dwindling waters of the Colorado River may not come from building new reservoirs, canals, or wells, but from changing how water is used on farms that consume most of it.",
-      "publishedAt": "",
-      "sourceUrl": "https://news.ucr.edu/articles/2025/09/29/farm-conservation-economical-path-save-river-water",
-      "imageUrl": "https://news.ucr.edu/sites/default/files/2025-09/960-gettyimages-90285343.jpg",
-      "sourceHost": "news.ucr.edu"
-    },
-    {
-      "id": "riverside-news-ucr-edu-ucr-computer-scientists-boost-us-cybersecurity",
-      "campus": "riverside",
-      "title": "UCR computer scientists boost US cybersecurity",
-      "summary": "UCR computer scientists are developing tools to expose hidden cybersecurity vulnerabilities, protect private data, and strengthen the digital defenses that safeguard everything from personal communications to national infrastructure.",
-      "publishedAt": "",
-      "sourceUrl": "https://news.ucr.edu/articles/2025/09/18/ucr-computer-scientists-boost-us-cybersecurity",
-      "imageUrl": "https://news.ucr.edu/sites/default/files/2025-09/960-gettyimages-2174551157.jpg",
-      "sourceHost": "news.ucr.edu"
-    },
-    {
-      "id": "riverside-news-ucr-edu-report-inland-empire-warehouse-workers-make-gains-through-collective-action",
-      "campus": "riverside",
-      "title": "Report: Inland Empire warehouse workers make gains through collective action",
-      "summary": "In “State of the Unions: California Labor in 2024,” UCR researchers offer details on the growth, salaries, ethnicities, and ongoing struggles of warehouse workers in Riverside and San Bernardino counties",
-      "publishedAt": "",
-      "sourceUrl": "https://news.ucr.edu/articles/2025/09/08/report-inland-empire-warehouse-workers-make-gains-through-collective-action",
-      "imageUrl": "https://news.ucr.edu/sites/default/files/2018-09/warehouse.jpg",
-      "sourceHost": "news.ucr.edu"
-    },
-    {
-      "id": "riverside-news-ucr-edu-nostalgia-asset-company-acquisitions",
-      "campus": "riverside",
-      "title": "Nostalgia is an asset in company acquisitions",
-      "summary": "A study by UCR School of Business scholars found that nostalgia serves as a comforting and stabilizing force during company acquisition periods when employees feel vulnerable, fear losing their jobs, status, or advancement opportunities, and are thus inclined to send out résumés.",
-      "publishedAt": "",
-      "sourceUrl": "https://news.ucr.edu/articles/2025/08/20/nostalgia-asset-company-acquisitions",
-      "imageUrl": "https://news.ucr.edu/sites/default/files/2025-10/gettyimages-2238047024.jpg",
       "sourceHost": "news.ucr.edu"
     },
     {

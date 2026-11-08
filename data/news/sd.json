@@ -3,8 +3,18 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-11-01T13:11:53.966Z",
+  "crawledAt": "2026-11-08T13:11:22.650Z",
   "items": [
+    {
+      "id": "sd-today-ucsd-edu-21st-century-india-center-expands-reach-and-global-impact",
+      "campus": "sd",
+      "title": "21st Century India Center Expands Reach and Global Impact",
+      "summary": "At UC San Diego, the 21st Century India Center is bringing together research, education and engagement to better understand the world’s most populous nation and strengthen connections between it and the United States.",
+      "publishedAt": "2026-10-20T07:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/21st-century-india-center-expands-reach-and-global-impact",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/hero_iStock-1434929987.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
     {
       "id": "sd-today-ucsd-edu-what-climate-change-is-costing-california",
       "campus": "sd",
@@ -43,16 +53,6 @@
       "publishedAt": "2026-09-10T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/what-these-emmy-nominated-shows-reveal-about-hollywoods-impact-on-local-economies",
       "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/shutterstock_2294725597%281%29%282%29%282%29.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-today-ucsd-edu-wildfire-losses-have-lasting-economic-consequences-for-homeowners",
-      "campus": "sd",
-      "title": "Wildfire Losses Have Lasting Economic Consequences for Homeowners",
-      "summary": "A new National Bureau of Economic Research from the University of California San Diego shows that wildfire damage can have long-term economic consequences for households, resulting in income losses, relocation of residents as well as slow rebuilding for several years after a fire.",
-      "publishedAt": "2026-08-31T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/wildfire-losses-have-lasting-economic-consequences-for-homeowners",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/iStock-1008290204%282%29%281%29.jpg",
       "sourceHost": "today.ucsd.edu"
     }
   ],

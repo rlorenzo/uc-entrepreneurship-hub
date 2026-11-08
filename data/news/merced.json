@@ -3,8 +3,18 @@
   "name": "UC Merced",
   "strategy": "rss",
   "source": "https://news.ucmerced.edu/rss.xml",
-  "crawledAt": "2026-11-01T13:12:04.472Z",
+  "crawledAt": "2026-11-08T13:11:33.009Z",
   "items": [
+    {
+      "id": "merced-news-ucmerced-edu-nih-grant-funds-project-revolutionize-care-older-adults",
+      "campus": "merced",
+      "title": "NIH Grant Funds Project to Revolutionize Care For Older Adults",
+      "summary": "By Patty Guerra, UC Merced November 5, 2026 The system can alert caretakers to issues before they become larger problems. Researchers from UC Merced and UC Davis are putting into practice work aimed at helping older adults maintain independence where they live while providing loved ones and caretakers with real-time updates on their health . A four-year, $1.1 million R01 award from the National In",
+      "publishedAt": "2026-11-05T18:03:56.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/nih-grant-funds-project-revolutionize-care-older-adults",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_home_grant_hero.jpeg",
+      "sourceHost": "news.ucmerced.edu"
+    },
     {
       "id": "merced-news-ucmerced-edu-summit-uc-merced-takes-aim-preserving-grasslands",
       "campus": "merced",

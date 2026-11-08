@@ -3,8 +3,38 @@
   "name": "UC Irvine",
   "strategy": "rss",
   "source": "https://innovation.uci.edu/news/feed/",
-  "crawledAt": "2026-11-01T13:11:08.946Z",
+  "crawledAt": "2026-11-08T13:10:35.111Z",
   "items": [
+    {
+      "id": "irvine-innovation-uci-edu-gum-shan",
+      "campus": "irvine",
+      "title": "Gum Shan",
+      "summary": "In making an AI-generated film, UC Irvine Beall discovers that human taste and judgment remain the scarce resource.",
+      "publishedAt": "2026-10-19T17:10:35.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/gum-shan/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/10/12.jpg",
+      "sourceHost": "innovation.uci.edu"
+    },
+    {
+      "id": "irvine-innovation-uci-edu-read-with-us",
+      "campus": "irvine",
+      "title": "Read With Us",
+      "summary": "UC Irvine startup ReadWithUs uses AI-generated image descriptions to help blind parents read picture books with their children.",
+      "publishedAt": "2026-10-19T17:10:14.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/read-with-us/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/10/ReadWithUs.png",
+      "sourceHost": "innovation.uci.edu"
+    },
+    {
+      "id": "irvine-innovation-uci-edu-storyai",
+      "campus": "irvine",
+      "title": "StoryAI",
+      "summary": "UC Irvine startup StoryAI is designed to help young writers find their ideas without taking over the page",
+      "publishedAt": "2026-10-19T17:09:41.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/storyai/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/10/StoryAI-1.png",
+      "sourceHost": "innovation.uci.edu"
+    },
     {
       "id": "irvine-innovation-uci-edu-glytr",
       "campus": "irvine",
@@ -73,36 +103,6 @@
       "publishedAt": "2026-03-30T22:53:07.000Z",
       "sourceUrl": "https://innovation.uci.edu/news/mifti/",
       "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/03/MIFTI-1.jpg",
-      "sourceHost": "innovation.uci.edu"
-    },
-    {
-      "id": "irvine-innovation-uci-edu-neuroqure",
-      "campus": "irvine",
-      "title": "A New Signal for Autism",
-      "summary": "How UC Irvine research and a father’s story are changing the timeline of care",
-      "publishedAt": "2026-02-27T20:40:15.000Z",
-      "sourceUrl": "https://innovation.uci.edu/news/neuroqure/",
-      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/02/NeuroQure-2.png",
-      "sourceHost": "innovation.uci.edu"
-    },
-    {
-      "id": "irvine-innovation-uci-edu-eira-bio",
-      "campus": "irvine",
-      "title": "Is This the Breakthrough Drug Development We’ve Been Waiting For?",
-      "summary": "Eira Bio is targeting membrane proteins long considered unreachable by antibody drugs.",
-      "publishedAt": "2026-02-17T18:32:41.000Z",
-      "sourceUrl": "https://innovation.uci.edu/news/eira-bio/",
-      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/02/Eira-Bio-1.png",
-      "sourceHost": "innovation.uci.edu"
-    },
-    {
-      "id": "irvine-innovation-uci-edu-vena-vitals",
-      "campus": "irvine",
-      "title": "Can Wearable Tech Finally Get Blood Pressure Right?",
-      "summary": "Forget the cuff. Vena Vitals’ sticker-like sensor aims to deliver ICU-level data without ever breaking the skin.",
-      "publishedAt": "2026-02-17T17:42:05.000Z",
-      "sourceUrl": "https://innovation.uci.edu/news/vena-vitals/",
-      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/02/Vena-Vitals-1.jpg",
       "sourceHost": "innovation.uci.edu"
     }
   ],
