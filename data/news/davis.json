@@ -3,8 +3,28 @@
   "name": "UC Davis",
   "strategy": "playwright",
   "source": "https://iedo.ucdavis.edu/news",
-  "crawledAt": "2026-11-08T13:11:07.939Z",
+  "crawledAt": "2026-11-15T13:11:41.993Z",
   "items": [
+    {
+      "id": "davis-iedo-ucdavis-edu-uc-davis-healths-ifm-fund-increases-its-commitment-delix-therapeutics-home-depression-trial",
+      "campus": "davis",
+      "title": "UC Davis Health's IFM Fund Increases Its Commitment to Delix Therapeutics as At-Home Depression Trial Advances",
+      "summary": "UC Davis Health’s IFM Fund doubled down on Delix Therapeutics in its Series C to advance Zalsupindole (DLX‑001), an oral, non‑hallucinogenic neuroplastogen entering an FDA‑cleared Phase IIb at‑home trial for rapid, durable treatment of major depressive disorder.",
+      "publishedAt": "2026-11-10T16:32:55.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-healths-ifm-fund-increases-its-commitment-delix-therapeutics-home-depression-trial",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/david-olson-clear-board-2000.jpeg?h=c673cd1c&itok=JJAkgoYM",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-iedo-ucdavis-edu-breakthrough-research-investment-ready-ventures-aggie-venture-accelerators-inaugural-cohort",
+      "campus": "davis",
+      "title": "From Breakthrough Research to Investment-ready Ventures: Aggie Venture Accelerator’s Inaugural Cohort Reaches Key Milestone",
+      "summary": "Aggie Venture Accelerator (AVA) celebrated its inaugural cohort as the participating startups—Pharm to Food, ThriveSpan Labs and SinewUS—completed the four-month program, advancing UC Davis life-science spinouts toward investor-ready ventures.",
+      "publishedAt": "2026-10-27T15:42:51.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/breakthrough-research-investment-ready-ventures-aggie-venture-accelerators-inaugural-cohort",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/AVA%20Demo%20Day.jpeg?h=316ba07c&itok=CZ1GBCzB",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
     {
       "id": "davis-iedo-ucdavis-edu-uc-davis-health-strengthens-taiwan-partnerships-advance-biomedical-innovation",
       "campus": "davis",
@@ -16,6 +36,66 @@
       "sourceHost": "iedo.ucdavis.edu"
     },
     {
+      "id": "davis-iedo-ucdavis-edu-uc-davis-partners-launch-scale-program-help-south-korean-startups-enter-us-market",
+      "campus": "davis",
+      "title": "UC Davis, Partners Launch Scale-Up Program to Help South Korean Startups Enter U.S. Market",
+      "summary": "UC Davis, FLANN and partners launched the nine-month Scale-Up Program to help South Korean life-sciences startups enter the U.S. market via Aggie Square, offering clinical collaboration, U.S. market validation, commercialization support, investor access and strategic partnerships.",
+      "publishedAt": "2026-10-05T19:27:17.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-partners-launch-scale-program-help-south-korean-startups-enter-us-market",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/AS--107-rt-web%20%281%29.png?h=2e976bc2&itok=GHRav1uM",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-iedo-ucdavis-edu-lab-livestock-how-customer-discovery-helped-2c-bioscience-find-its-focus",
+      "campus": "davis",
+      "title": "From Lab to Livestock: How Customer Discovery Helped 2C Bioscience Find Its Focus",
+      "summary": "Through the NSF I-Corps customer discovery program, 2C Bioscience found its beachhead market and a path towards faster commercialization—demonstrating how industry engagement can help turn lab innovations into viable business opportunities.",
+      "publishedAt": "2026-09-24T15:14:51.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/lab-livestock-how-customer-discovery-helped-2c-bioscience-find-its-focus",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/2C%20Bioscience%20Hero%20Image.jpg?h=3e07f1d9&itok=BRuHm-_l",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-iedo-ucdavis-edu-uc-davis-born-amplifye-targets-new-frontier-protein-efficiency-amid-glp-1-era",
+      "campus": "davis",
+      "title": "UC Davis–born amplifye Targets a New Frontier in Protein Efficiency Amid GLP-1 Era",
+      "summary": "Born out of cross-disciplinary research at University of California, Davis, startup amplifye is developing enzyme-based technology designed to improve protein absorption and muscle health as growing use of GLP-1 therapies reshapes nutrition and metabolic health needs.",
+      "publishedAt": "2026-05-11T15:30:03.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-born-amplifye-targets-new-frontier-protein-efficiency-amid-glp-1-era",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/amplifye%20article%20image_1280x720.jpg?h=3e07f1d9&itok=rPIUdxsO",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-iedo-ucdavis-edu-aggie-square-partners-release-first-community-benefits-progress-report-highlighting-early",
+      "campus": "davis",
+      "title": "Aggie Square Partners Release First Community Benefits Progress Report Highlighting Early Impact",
+      "summary": "The first Aggie Square Community Benefits Partnership Agreement (CBPA) Annual Progress Report has been released by UC Davis, the City of Sacramento and Wexford Science & Technology, documenting significant progress towards meeting many of the goals outlined in the CBPA.",
+      "publishedAt": "2026-04-02T22:40:20.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/aggie-square-partners-release-first-community-benefits-progress-report-highlighting-early",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/MB20251001_AggieSq_IMG_6025.jpg?h=4997dc06&itok=8Y1gDdgI",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-iedo-ucdavis-edu-uc-davis-health-ventures-appoints-troels-adrian-strengthen-industry-partnerships-and-advance",
+      "campus": "davis",
+      "title": "UC Davis Health Ventures Appoints Troels Adrian to Strengthen Industry Partnerships and Advance the UC Davis Health Clinical Test Bed",
+      "summary": "UC Davis Health Ventures, part of the Innovation and Economic Development Office at UC Davis, today announced the appointment of Troels Adrian as Director of Industry Engagement.",
+      "publishedAt": "2026-03-23T15:18:26.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-health-ventures-appoints-troels-adrian-strengthen-industry-partnerships-and-advance",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/Troels%20Adrian%20COLOR.jpg?h=d73b4fec&itok=cVMoxhzz",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-iedo-ucdavis-edu-food-health-angels-network-launches-accelerate-science-driven-food-and-health-innovation",
+      "campus": "davis",
+      "title": "Food & Health Angels Network Launches to Accelerate Science-Driven Food and Health Innovation",
+      "summary": "Introducing the Food & Health Angels Network, a groundbreaking initiative launched to accelerate science-driven innovations in food and health, addressing the pressing issue of metabolic disease.",
+      "publishedAt": "2026-03-19T16:15:08.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/food-health-angels-network-launches-accelerate-science-driven-food-and-health-innovation",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/real-food-pyramid-arrangement.jpg?h=5313cdcb&itok=vL82Pgy9",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
       "id": "davis-iedo-ucdavis-edu-uc-davis-highlights-translational-breakthroughs-and-startups-8th-annual-biotech-innovation",
       "campus": "davis",
       "title": "UC Davis Highlights Translational Breakthroughs and Startups at the 8th Annual Biotech Innovation Gallery",
@@ -24,24 +104,29 @@
       "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-highlights-translational-breakthroughs-and-startups-8th-annual-biotech-innovation",
       "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/David%20Segal_BIG.jpg?h=9c4c0580&itok=cZtQYKZp",
       "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-iedo-ucdavis-edu-uc-davis-announces-winners-autumn-2025-science-translation-and-innovative-research-grant",
+      "campus": "davis",
+      "title": "UC Davis Announces Winners of Autumn 2025 Science Translation and Innovative Research Grant Program",
+      "summary": "The University of California, Davis, has awarded $100,000 through the autumn 2025 cohort of the Science Translation and Innovative Research (STAIR) Grant Program to help scientists advance innovative research with strong commercial potential.",
+      "publishedAt": "2025-12-08T20:48:03.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/uc-davis-announces-winners-autumn-2025-science-translation-and-innovative-research-grant",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/Baar_Abhaya.jpg?h=52d3fcb6&itok=7en2k7q-",
+      "sourceHost": "iedo.ucdavis.edu"
+    },
+    {
+      "id": "davis-iedo-ucdavis-edu-venture-catalyst-fuels-record-year-uc-davis-innovation-startups",
+      "campus": "davis",
+      "title": "Venture Catalyst Fuels Record Year for UC Davis Innovation Startups",
+      "summary": "At Venture Catalyst, part of the UC Davis Innovation and Economic Development Office, we're proud to support the translation of UC Davis research and technology into real-world applications by fostering the development of new ventures. Through strategic collaborations, training and mentorship programs, funding translational research, and proactive outreach, we foster the university’s entrepreneuri",
+      "publishedAt": "2025-10-30T15:49:44.000Z",
+      "sourceUrl": "https://iedo.ucdavis.edu/news/venture-catalyst-fuels-record-year-uc-davis-innovation-startups",
+      "imageUrl": "https://iedo.ucdavis.edu/sites/g/files/dgvnsk16861/files/styles/sf_landscape_16x9/public/media/images/VC%20Stats.png?h=c673cd1c&itok=x8MxJRRm",
+      "sourceHost": "iedo.ucdavis.edu"
     }
   ],
   "errors": [
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/breakthrough-research-investment-ready-ventures-aggie-venture-accelerators-inaugural-cohort",
-      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/breakthrough-research-investment-ready-ventures-aggie-venture-accelerators-inaugural-cohort"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/uc-davis-partners-launch-scale-program-help-south-korean-startups-enter-us-market",
-      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/uc-davis-partners-launch-scale-program-help-south-korean-startups-enter-us-market"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/lab-livestock-how-customer-discovery-helped-2c-bioscience-find-its-focus",
-      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/lab-livestock-how-customer-discovery-helped-2c-bioscience-find-its-focus"
-    },
     {
       "stage": "article",
       "url": "https://iedo.ucdavis.edu/news/aggie-venture-accelerator-welcomes-inaugural-cohort-life-science-startups",
@@ -54,43 +139,8 @@
     },
     {
       "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/uc-davis-born-amplifye-targets-new-frontier-protein-efficiency-amid-glp-1-era",
-      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/uc-davis-born-amplifye-targets-new-frontier-protein-efficiency-amid-glp-1-era"
-    },
-    {
-      "stage": "article",
       "url": "https://iedo.ucdavis.edu/news/uc-davis-launches-aggie-venture-accelerator-advance-early-stage-life-science-innovation",
       "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/uc-davis-launches-aggie-venture-accelerator-advance-early-stage-life-science-innovation"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/aggie-square-partners-release-first-community-benefits-progress-report-highlighting-early",
-      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/aggie-square-partners-release-first-community-benefits-progress-report-highlighting-early"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/uc-davis-health-ventures-appoints-troels-adrian-strengthen-industry-partnerships-and-advance",
-      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/uc-davis-health-ventures-appoints-troels-adrian-strengthen-industry-partnerships-and-advance"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/food-health-angels-network-launches-accelerate-science-driven-food-and-health-innovation",
-      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/food-health-angels-network-launches-accelerate-science-driven-food-and-health-innovation"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/uc-davis-announces-winners-autumn-2025-science-translation-and-innovative-research-grant",
-      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/uc-davis-announces-winners-autumn-2025-science-translation-and-innovative-research-grant"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/venture-catalyst-fuels-record-year-uc-davis-innovation-startups",
-      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/venture-catalyst-fuels-record-year-uc-davis-innovation-startups"
-    },
-    {
-      "stage": "article",
-      "url": "https://iedo.ucdavis.edu/news/discovery-forum-highlights-how-uc-davis-center-glp-1-and-metabolic-health-innovation",
-      "message": "HTTP 403 (bot manager denial) on https://iedo.ucdavis.edu/news/discovery-forum-highlights-how-uc-davis-center-glp-1-and-metabolic-health-innovation"
     }
   ]
 }

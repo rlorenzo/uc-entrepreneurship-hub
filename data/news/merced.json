@@ -3,7 +3,7 @@
   "name": "UC Merced",
   "strategy": "rss",
   "source": "https://news.ucmerced.edu/rss.xml",
-  "crawledAt": "2026-11-08T13:11:33.009Z",
+  "crawledAt": "2026-11-15T13:11:59.874Z",
   "items": [
     {
       "id": "merced-news-ucmerced-edu-nih-grant-funds-project-revolutionize-care-older-adults",
@@ -13,16 +13,6 @@
       "publishedAt": "2026-11-05T18:03:56.000Z",
       "sourceUrl": "https://news.ucmerced.edu/news/2026/nih-grant-funds-project-revolutionize-care-older-adults",
       "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_home_grant_hero.jpeg",
-      "sourceHost": "news.ucmerced.edu"
-    },
-    {
-      "id": "merced-news-ucmerced-edu-summit-uc-merced-takes-aim-preserving-grasslands",
-      "campus": "merced",
-      "title": "Summit at UC Merced Takes Aim at Preserving Grasslands",
-      "summary": "By Patty Guerra, UC Merced October 29, 2026 The state is working to support the restoration of grasslands, Agriculture Secretary Karen Ross said. Photo by Sara Nevis California's grasslands are a vital part of a healthy ecosystem, supporting native plants and endangered animal species. Yet the vast majority of them - more than 90 percent - have been lost to development and invasive non-native plan",
-      "publishedAt": "2026-10-29T23:37:04.000Z",
-      "sourceUrl": "https://news.ucmerced.edu/news/2026/summit-uc-merced-takes-aim-preserving-grasslands",
-      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_grasslands_hero.jpeg",
       "sourceHost": "news.ucmerced.edu"
     }
   ],

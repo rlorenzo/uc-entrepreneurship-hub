@@ -3,7 +3,7 @@
   "name": "UC San Francisco",
   "strategy": "playwright",
   "source": "https://innovation.ucsf.edu/media/news",
-  "crawledAt": "2026-11-08T13:11:32.451Z",
+  "crawledAt": "2026-11-15T13:11:59.352Z",
   "items": [
     {
       "id": "sf-innovation-ucsf-edu-start-first-how-university-ventures-programs-are-rewriting-tech-transfer-playbook",
