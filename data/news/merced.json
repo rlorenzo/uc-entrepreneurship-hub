@@ -3,16 +3,16 @@
   "name": "UC Merced",
   "strategy": "rss",
   "source": "https://news.ucmerced.edu/rss.xml",
-  "crawledAt": "2026-11-15T13:11:59.874Z",
+  "crawledAt": "2026-11-22T13:12:02.823Z",
   "items": [
     {
-      "id": "merced-news-ucmerced-edu-nih-grant-funds-project-revolutionize-care-older-adults",
+      "id": "merced-news-ucmerced-edu-uc-merced-foundation-names-new-board-chair-and-four-trustees-including-three-alumni",
       "campus": "merced",
-      "title": "NIH Grant Funds Project to Revolutionize Care For Older Adults",
-      "summary": "By Patty Guerra, UC Merced November 5, 2026 The system can alert caretakers to issues before they become larger problems. Researchers from UC Merced and UC Davis are putting into practice work aimed at helping older adults maintain independence where they live while providing loved ones and caretakers with real-time updates on their health . A four-year, $1.1 million R01 award from the National In",
-      "publishedAt": "2026-11-05T18:03:56.000Z",
-      "sourceUrl": "https://news.ucmerced.edu/news/2026/nih-grant-funds-project-revolutionize-care-older-adults",
-      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/ucm_home_grant_hero.jpeg",
+      "title": "UC Merced Foundation Names New Board Chair and Four Trustees, Including Three Alumni",
+      "summary": "By Francesca Dinglasan, UC Merced November 19, 2026 The UC Merced Foundation's Board of Trustees named Proietti the new chair and welcomed four new trustees. Key Points Tracy Proietti, an entrepreneur and community leader, is the new chair of the UC Merced Foundation Board of Trustees. Four new trustees, three of them UC Merced alumni, joined the board: Linda Barreto ‘08, Priya Lakireddy, Tyler Sh",
+      "publishedAt": "2026-11-19T21:56:44.000Z",
+      "sourceUrl": "https://news.ucmerced.edu/news/2026/uc-merced-foundation-names-new-board-chair-and-four-trustees-including-three-alumni",
+      "imageUrl": "https://news.ucmerced.edu/sites/g/files/ufvvjh1306/f/news/image/hero_-_2026-11-19t135430.572.png",
       "sourceHost": "news.ucmerced.edu"
     }
   ],

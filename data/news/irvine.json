@@ -3,8 +3,18 @@
   "name": "UC Irvine",
   "strategy": "rss",
   "source": "https://innovation.uci.edu/news/feed/",
-  "crawledAt": "2026-11-15T13:10:51.767Z",
+  "crawledAt": "2026-11-22T13:11:13.134Z",
   "items": [
+    {
+      "id": "irvine-innovation-uci-edu-neuroairmid",
+      "campus": "irvine",
+      "title": "NeuroAirmid",
+      "summary": "UC Irvine scientist Leslie Thompson helped find the Huntington’s gene in 1993. Now a stem cell therapeutic from her lab is being tested in humans.",
+      "publishedAt": "2026-11-17T18:19:25.000Z",
+      "sourceUrl": "https://innovation.uci.edu/news/neuroairmid/",
+      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/11/NeuroAirmid-1-trimmed.jpg",
+      "sourceHost": "innovation.uci.edu"
+    },
     {
       "id": "irvine-innovation-uci-edu-gum-shan",
       "campus": "irvine",
@@ -93,16 +103,6 @@
       "publishedAt": "2026-04-15T19:13:47.000Z",
       "sourceUrl": "https://innovation.uci.edu/news/sounddose/",
       "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/04/Sound-Dose.jpg",
-      "sourceHost": "innovation.uci.edu"
-    },
-    {
-      "id": "irvine-innovation-uci-edu-mifti",
-      "campus": "irvine",
-      "title": "The $40 Trillion Question",
-      "summary": "Can MIFTI, a scrappy UC Irvine-based startup, outpace billion-dollar fusion giants?",
-      "publishedAt": "2026-03-30T22:53:07.000Z",
-      "sourceUrl": "https://innovation.uci.edu/news/mifti/",
-      "imageUrl": "https://innovation.uci.edu/wp-content/uploads/2026/03/MIFTI-1.jpg",
       "sourceHost": "innovation.uci.edu"
     }
   ],

@@ -3,8 +3,28 @@
   "name": "UC San Diego",
   "strategy": "playwright",
   "source": "https://today.ucsd.edu/research/business-and-economics",
-  "crawledAt": "2026-11-15T13:11:49.345Z",
+  "crawledAt": "2026-11-22T13:11:49.383Z",
   "items": [
+    {
+      "id": "sd-today-ucsd-edu-can-ai-save-peer-review-from-ai",
+      "campus": "sd",
+      "title": "Can AI Save Peer Review from AI?",
+      "summary": "Academic journals are flooded with papers thanks to AI.The Rady School's Zhe Zhang thinks it's time for journals to take charge of how AI is used in peer review.",
+      "publishedAt": "2026-11-19T08:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/can-ai-save-peer-review-from-ai",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Towers-of-books-and-papers-hoto-by-iStock_peshkov-1200-CROP2.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
+    {
+      "id": "sd-today-ucsd-edu-why-punishment-doesnt-always-prevent-crime",
+      "campus": "sd",
+      "title": "Why Punishment Doesn’t Always Prevent Crime",
+      "summary": "New research from the UC San Diego Rady School of Management suggests we may be missing something important about people's motivations.",
+      "publishedAt": "2026-11-17T08:00:00.000Z",
+      "sourceUrl": "https://today.ucsd.edu/story/why-punishment-doesnt-always-prevent-crime",
+      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/Punishmentt-concept-illustration-by-iStock_NiseriN-1275093078.jpg",
+      "sourceHost": "today.ucsd.edu"
+    },
     {
       "id": "sd-today-ucsd-edu-21st-century-india-center-expands-reach-and-global-impact",
       "campus": "sd",
@@ -33,26 +53,6 @@
       "publishedAt": "2026-09-16T07:00:00.000Z",
       "sourceUrl": "https://today.ucsd.edu/story/report-proposes-selective-openness-to-chinese-investment",
       "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/China-US-investment-concept-photo-by-iStock_Narongrit-Doungmanee-1329914861.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-today-ucsd-edu-report-identifies-path-to-stronger-state-flood-resilience-and-insurance-protections",
-      "campus": "sd",
-      "title": "Report Identifies Path to Stronger State Flood Resilience and Insurance Protections",
-      "summary": "A new report for California policymakers assesses current flood modeling practices and offers eight recommendations to improve how mitigation infrastructure is reflected in the catastrophe models that are used to set insurance prices. ",
-      "publishedAt": "2026-09-10T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/report-identifies-path-to-stronger-state-flood-resilience-and-insurance-protections",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/1200-2023_01_11_AI_0171_River_Levels.jpg",
-      "sourceHost": "today.ucsd.edu"
-    },
-    {
-      "id": "sd-today-ucsd-edu-what-these-emmy-nominated-shows-reveal-about-hollywoods-impact-on-local-economies",
-      "campus": "sd",
-      "title": "What These Emmy-Nominated Shows Reveal About Hollywood’s Impact on Local Economies",
-      "summary": "Ahead of this year’s Emmy Awards, UC San Diego professor of Ethnic Studies Curtis Marez discussed what four nominated shows—Widow’s Bay, Pluribus, DTF St. Louis and Beef—reveal about Hollywood’s effect on the places where television is made.",
-      "publishedAt": "2026-09-10T07:00:00.000Z",
-      "sourceUrl": "https://today.ucsd.edu/story/what-these-emmy-nominated-shows-reveal-about-hollywoods-impact-on-local-economies",
-      "imageUrl": "https://today.ucsd.edu/teaser_uploads/_social/shutterstock_2294725597%281%29%282%29%282%29.jpg",
       "sourceHost": "today.ucsd.edu"
     }
   ],
